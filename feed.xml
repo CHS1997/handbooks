@@ -3,11 +3,18 @@
   <channel>
     <title>手册集 · 并行调研汇编</title>
     <link>https://chs1997.github.io/handbooks/</link>
-    <description>17 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
+    <description>18 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Nov 2026 06:26:38 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 09:12:16 GMT</lastBuildDate>
     <ttl>1440</ttl>
     <atom:link href="https://chs1997.github.io/handbooks/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>《预测市场与信息金融手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
+      <description>预测市场（Polymarket/Kalshi）的合约、结算与合规地图，加量化视角的 API 数据、回测框架与风险数学——研究在先、仓位在后、合规贯穿。</description>
+    </item>
     <item>
       <title>《AI 时代的个人效率系统》24 章</title>
       <link>https://chs1997.github.io/handbooks/AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html</link>
