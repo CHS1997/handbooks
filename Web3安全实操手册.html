@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《Web3 安全实操手册》· 20 章深度版 · 2026-10</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --bg2:#fbfaf5; --card:#ffffff;
+    --line:#e7e3d8; --line2:#efecdf;
+    --ink:#2f3345; --text:#3d4256; --muted:#6b7280; --dim:#9aa1ae;
+    --accent:#5a67c2; --accent-soft:#eef0fb;
+    --cyan:#2e7fa3; --green:#2e8b6e; --amber:#b07a1e; --red:#c25468; --pink:#b8618f;
+    --purple:#6a5fc9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1100px 460px at 85% -120px, rgba(90,103,194,.07), transparent 60%),
+      radial-gradient(900px 420px at 5% -90px, rgba(46,127,163,.06), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  a{color:#3b63c4;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px;}
+  header.hero{padding:58px 0 28px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid #d6d9f0;padding:5px 14px;border-radius:999px;background:var(--accent-soft);font-weight:600;}
+  h1.title{font-size:38px;line-height:1.3;margin:20px 0 10px;font-weight:800;
+    background:linear-gradient(92deg,#2f3345 20%,#5a67c2 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .subtitle{color:var(--muted);font-size:16px;max-width:780px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:13px;color:var(--muted);}
+  .hero-meta span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 12px;}
+  .method-note{margin-top:20px;border-left:3px solid #d9a441;background:#faf3e0;
+    padding:12px 16px;border-radius:0 10px 10px 0;color:#7a5c1c;font-size:13.5px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:26px 0 4px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(31,35,53,.04),0 6px 18px rgba(31,35,53,.05);}
+  .stat .num{font-size:21px;font-weight:800;letter-spacing:.5px;}
+  .stat .lbl{color:var(--muted);font-size:12px;line-height:1.5;margin-top:1px;}
+  .stat.p .num{color:var(--purple);} .stat.g .num{color:var(--green);} .stat.r .num{color:var(--red);} .stat.c .num{color:var(--cyan);}
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-top:24px;}
+  nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;}
+  nav.toc a{font-size:13px;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid transparent;}
+  nav.toc a:hover{color:var(--text);text-decoration:none;background:var(--card);border-color:var(--line);}
+  nav.toc a.part-label{color:var(--accent);font-weight:700;border-color:#d6d9f0;background:var(--accent-soft);}
+  nav.toc a.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  @media(max-width:700px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    nav.toc .wrap::-webkit-scrollbar{display:none;}
+    nav.toc a{white-space:nowrap;flex:0 0 auto;padding:5px 10px;}
+  }
+  section{padding:50px 0 8px;}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:700;}
+  h2{font-size:26px;font-weight:800;color:var(--ink);}
+  h2 .accent{color:var(--accent);}
+  .sec-desc{color:var(--muted);margin:8px 0 24px;max-width:820px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px 20px;margin-bottom:24px;box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px;}
+  .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:var(--accent-soft);border:1px solid #d6d9f0;flex:none;}
+  .card h3{font-size:19px;font-weight:700;color:var(--ink);flex:1;min-width:200px;}
+  .badges{display:flex;flex-wrap:wrap;gap:7px;}
+  .badge{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg2);}
+  .badge.r1{color:#1f6e52;border-color:#bfe0d2;background:#e3f3ec;}
+  .badge.r2{color:#4a6e1f;border-color:#d3e3b4;background:#eff5df;}
+  .badge.r3{color:#8a5f12;border-color:#ecd9a8;background:#faf0d8;}
+  .badge.r4{color:#9a4f1f;border-color:#f0d2b8;background:#fbeee2;}
+  .badge.r5{color:#a03a4e;border-color:#f0c3cd;background:#f9e3e8;}
+  .card p{margin:10px 0;color:var(--text);}
+  .card p b,.card li b{color:var(--ink);font-weight:700;}
+  .card ul{margin:8px 0 8px 22px;color:var(--text);}
+  .card li{margin:6px 0;}
+  blockquote.xq{border-left:3px solid #8d97d8;background:#f0f2fc;
+    padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;color:#454c78;font-size:14.5px;}
+  blockquote.xq .who{color:var(--accent);font-weight:700;}
+  .src{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;}
+  .src .tag{color:var(--amber);font-weight:700;flex:none;}
+  .src a{color:#3b63c4;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:800px){.cols{grid-template-columns:1fr;}}
+  .chart{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;}
+  .chart .cap{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center;}
+  .chart h4{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .legend{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;}
+  .chart text{fill:var(--ink);}
+  .chart text[fill="#dfe5f1"]{fill:var(--ink);}
+  .chart text[fill="#8b94ab"]{fill:var(--muted);}
+  .chart text[fill="#ff5d73"]{fill:var(--red);}
+  .chart text[fill="#2fd6a5"]{fill:var(--green);}
+  .chart [stroke="#242d42"]{stroke:#dcd7c9;}
+  .chart rect[fill="#0d1119"]{fill:#efede4;}
+  .chart stop[stop-color="#8b7cff"]{stop-color:#7d76cf;}
+  .chart stop[stop-color="#4dd6ff"]{stop-color:#6fa8c9;}
+  .chart stop[stop-color="#f5b83d"]{stop-color:#dfa63e;}
+  .chart stop[stop-color="#ff5d73"]{stop-color:#d3707f;}
+  .chart stop[stop-color="#2fd6a5"]{stop-color:#4aa583;}
+  .hbar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;margin:9px 0;font-size:13.5px;}
+  .hbar-track{height:16px;background:#efede4;border-radius:8px;overflow:hidden;border:1px solid var(--line2);}
+  .hbar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#7d76cf,#6fa8c9);}
+  .hbar-val{color:var(--muted);font-size:12.5px;text-align:right;}
+  @media(max-width:640px){.hbar-row{grid-template-columns:110px 1fr 74px;}}
+  .bignum{display:flex;align-items:baseline;gap:8px;justify-content:center;}
+  .bignum .v{font-size:42px;font-weight:800;color:var(--red);}
+  .bignum .u{color:var(--muted);font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  th{color:var(--muted);font-weight:600;text-align:left;font-size:12.5px;letter-spacing:.5px;}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:hover td{background:#f6f7fd;}
+  td b{color:var(--ink);}
+  .tocbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;}
+  @media(max-width:800px){.tocbox{grid-template-columns:1fr;gap:10px;}}
+  .toc-part{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 14px 10px;}
+  .toc-part-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .toc-part-no{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px;letter-spacing:1px;}
+  .toc-part-head b{font-size:15px;color:var(--ink);}
+  .toc-part-en{margin-left:auto;font-size:11.5px;color:var(--dim);}
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin:0;}
+  .toc-list a{display:flex;align-items:baseline;gap:10px;padding:4px 8px;border-radius:8px;color:var(--text);font-size:14px;transition:background .15s;}
+  .toc-list a:hover{background:#f1f2fa;text-decoration:none;}
+  .toc-list a.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 0 0 1px #d6d9f0;font-weight:600;}
+  .toc-no{font-weight:800;color:var(--accent);font-size:12px;min-width:22px;letter-spacing:.5px;}
+  .toc-sub{color:var(--dim);font-size:12px;margin-left:auto;text-align:right;}
+  @media(max-width:700px){.toc-sub{display:none;}}
+  details.tocfold{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  details.tocfold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:13px 18px;font-weight:700;color:var(--ink);font-size:15px;}
+  details.tocfold>summary::-webkit-details-marker{display:none;}
+  details.tocfold>summary::after{content:"▾";margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s;}
+  details.tocfold[open]>summary{border-bottom:1px dashed var(--line);}
+  details.tocfold[open]>summary::after{transform:rotate(180deg);}
+  .fold-hint{font-weight:400;color:var(--dim);font-size:12px;}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:34px 0 50px;color:var(--muted);font-size:13px;}
+  footer .disclaimer{background:#faecee;border:1px solid #eccdd3;border-radius:12px;padding:14px 18px;color:#9c4a5c;margin-top:18px;}
+  .backtop{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;
+    text-decoration:none;box-shadow:0 6px 20px rgba(31,35,53,.12);z-index:60;}
+  .backtop:hover{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="kicker">🔐 WEB3 SECURITY HANDBOOK · 20 CHAPTERS</span>
+  <h1 class="title">《Web3 安全实操手册》</h1>
+  <p class="subtitle">20 章深度拆解：从看懂攻击面到拿到第一笔赏金。每章由独立研究员实时检索写成——智能合约审计报告、赏金平台公示、安全团队公开研究、项目方应急响应公告。四大板块：认知与基础、漏洞挖掘实务、赏金与实战、防护与运营。</p>
+  <div class="hero-meta">
+    <span>📅 生成日期：2026-10-29</span>
+    <span>🤖 6 个子代理并行调研（每代理 3–4 章）</span>
+    <span>📎 每章附来源链接</span>
+    <span>🔗 配套：<a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a></span>
+  </div>
+  <div class="method-note">📖 <b>使用说明：</b>四章一部。第一部分认知与基础先建立地图——钱存在哪、攻击面有哪些、白帽的法律与道德边界；第二部分漏洞挖掘实务覆盖合约漏洞全景、工具链、两大经典漏洞、预言机操纵、签名钓鱼，以及审计报告怎么读怎么写；第三部分赏金与实战讲平台选择、报告怎么写、经典案例复盘、负责任披露，外加 AI Agent 安全与硬件助记词安全两条新前线；第四部分防护与运营给个人和项目方各一份清单，外加被攻击后的应急响应。<b>所有案例只收录已公开披露的漏洞与赏金公示；动手测试前务必确认已获得授权。</b></div>
+  <div class="stats">
+    <div class="stat p"><div class="num">20</div><div class="lbl">深度章节 · 每章 1500–2500 字</div></div>
+    <div class="stat c"><div class="num">4</div><div class="lbl">大板块 · 认知 → 挖洞 → 赏金</div></div>
+    <div class="stat g"><div class="num">6 类</div><div class="lbl">赏金平台对比 · 含分级规则</div></div>
+    <div class="stat r"><div class="num">30 天</div><div class="lbl">从零到第一笔赏金的计划</div></div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a class="part-label" href="#c01">PART 1 认知与基础</a>
+  <a href="#c01">01 安全地图</a><a href="#c02">02 攻击面盘点</a><a href="#c03">03 入门路径</a><a href="#c04">04 法律与道德</a>
+  <a class="part-label" href="#c05">PART 2 漏洞挖掘实务</a>
+  <a href="#c05">05 漏洞全景</a><a href="#c06">06 工具链</a><a href="#c07">07 重入与权限</a><a href="#c08">08 预言机操纵</a><a href="#c09">09 签名钓鱼</a><a href="#c10">10 审计报告</a>
+  <a class="part-label" href="#c11">PART 3 赏金与实战</a>
+  <a href="#c11">11 赏金平台</a><a href="#c12">12 赏金报告</a><a href="#c13">13 案例复盘</a><a href="#c14">14 漏洞披露</a><a href="#c15">15 AI Agent 安全</a><a href="#c16">16 硬件与助记词</a>
+  <a class="part-label" href="#c17">PART 4 防护与运营</a>
+  <a href="#c17">17 个人防护清单</a><a href="#c18">18 项目方安全</a><a href="#c19">19 应急响应</a><a href="#c20">20 30 天计划</a>
+</div></nav>
+
+<section id="toc" class="wrap">
+  <div class="sec-head"><span class="sec-no">CONTENTS</span><h2>目录</h2></div>
+  <p class="sec-desc">四个部分按"先建立地图、再学会挖洞、然后合法变现、最后守住自己"排列：认知四章讲清钱在哪、边界在哪；实务六章把漏洞类型、工具链与审计写作讲透；赏金六章覆盖平台、报告、案例、披露流程与两条新前线（AI Agent、硬件助记词）；防护四章给个人和项目方各一份清单。点击任意条目直达对应章节。</p>
+  <details class="tocfold" open>
+    <summary>📖 完整目录 · 4 部分 · 20 章<span class="fold-hint">点击展开 / 收起</span></summary>
+    <div class="tocbox">
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第一部分</span><b>认知与基础</b><span class="toc-part-en">CH 01–04</span></div>
+        <ul class="toc-list">
+          <li><a href="#c01"><span class="toc-no">01</span>Web3 安全地图<span class="toc-sub">钱存在哪、怎么被偷</span></a></li>
+          <li><a href="#c02"><span class="toc-no">02</span>攻击面盘点<span class="toc-sub">钱包/合约/前端/人</span></a></li>
+          <li><a href="#c03"><span class="toc-no">03</span>入门路径与技能树<span class="toc-sub">研究员怎么成长</span></a></li>
+          <li><a href="#c04"><span class="toc-no">04</span>法律与道德边界<span class="toc-sub">白帽的合规姿势</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第二部分</span><b>漏洞挖掘实务</b><span class="toc-part-en">CH 05–10</span></div>
+        <ul class="toc-list">
+          <li><a href="#c05"><span class="toc-no">05</span>合约漏洞类型全景<span class="toc-sub">从重入到逻辑漏洞</span></a></li>
+          <li><a href="#c06"><span class="toc-no">06</span>工具链实战<span class="toc-sub">Foundry/Slither/Echidna</span></a></li>
+          <li><a href="#c07"><span class="toc-no">07</span>重入与权限控制<span class="toc-sub">最经典的两类</span></a></li>
+          <li><a href="#c08"><span class="toc-no">08</span>预言机与价格操纵<span class="toc-sub">闪电贷攻击的根</span></a></li>
+          <li><a href="#c09"><span class="toc-no">09</span>签名钓鱼与授权陷阱<span class="toc-sub">Permit 与 approvals</span></a></li>
+          <li><a href="#c10"><span class="toc-no">10</span>审计报告怎么读怎么写<span class="toc-sub">从阅读到产出</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第三部分</span><b>赏金与实战</b><span class="toc-part-en">CH 11–16</span></div>
+        <ul class="toc-list">
+          <li><a href="#c11"><span class="toc-no">11</span>赏金平台全景<span class="toc-sub">Immunefi/Code4rena 等</span></a></li>
+          <li><a href="#c12"><span class="toc-no">12</span>一份合格的赏金报告<span class="toc-sub">从发现到提交</span></a></li>
+          <li><a href="#c13"><span class="toc-no">13</span>经典赏金案例复盘<span class="toc-sub">公开公示的真实案件</span></a></li>
+          <li><a href="#c14"><span class="toc-no">14</span>漏洞披露流程<span class="toc-sub">负责任披露怎么做</span></a></li>
+          <li><a href="#c15"><span class="toc-no">15</span>AI Agent 安全<span class="toc-sub">提示注入与工具滥用</span></a></li>
+          <li><a href="#c16"><span class="toc-no">16</span>硬件与助记词安全<span class="toc-sub">冷钱包与社会工程</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第四部分</span><b>防护与运营</b><span class="toc-part-en">CH 17–20</span></div>
+        <ul class="toc-list">
+          <li><a href="#c17"><span class="toc-no">17</span>个人资产防护清单<span class="toc-sub">普通人怎么自保</span></a></li>
+          <li><a href="#c18"><span class="toc-no">18</span>项目方安全建设<span class="toc-sub">从开发到上线</span></a></li>
+          <li><a href="#c19"><span class="toc-no">19</span>被攻击了怎么办<span class="toc-sub">应急响应流程</span></a></li>
+          <li><a href="#c20"><span class="toc-no">20</span>30 天入门计划<span class="toc-sub">从零到第一笔赏金</span></a></li>
+        </ul>
+      </div>
+    </div>
+</details>
+</section>
+<section id="c01" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 01 · PART 1 · 认知与基础</span><h2>Web3 安全地图<span class="accent">：钱存在哪、怎么被偷</span></h2></div>
+  <p class="sec-desc">在学任何漏洞之前，先回答一个更基础的问题：你的币到底"在"哪里、由谁保管、出事了能找谁。这一章把资产按托管关系分成四类，用公开数据看清历史损失的量级与结构，并解释为什么"代码即法律"意味着没有客服、没有撤销按钮。（数据检索日期：2026-10-29）</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗺️</span><h3>一、先建地图：你的资产在四个位置之一</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：所有人</span></div></div>
+    <p>很多人第一次丢币，不是因为不懂代码，而是没意识到"币"根本不是一笔存在某个 App 里的余额，而是<b>链上一段记录 + 谁能动用它的凭证</b>。谁持有凭证、谁能发起那笔交易，决定了你的资产实际归谁保管。按托管关系，可以把资产分成四类：</p>
+    <table>
+      <tr><th>位置</th><th>谁真正保管</th><th>典型风险</th><th>丢了能找谁</th></tr>
+      <tr><td><b>链上自持</b>（你自己用私钥/助记词的地址）</td><td>只有你自己</td><td>助记词泄露、签名被钓、设备中毒</td><td>没有任何机构可以帮你</td></tr>
+      <tr><td><b>中心化交易所账户</b></td><td>平台（持钥方是它）</td><td>平台被黑、提币冻结、经营风险</td><td>平台客服与合规流程，且不保证结果</td></tr>
+      <tr><td><b>钱包 App / 浏览器扩展 / 硬件钱包</b></td><td>你，但依赖软件与设备</td><td>恶意扩展、假站点、供应链投毒</td><td>钱包厂商只能协助排查，不能改链</td></tr>
+      <tr><td><b>DeFi 合约 / 跨链桥 / 金库</b></td><td>代码 + 管理员密钥</td><td>合约漏洞、预言机被操纵、多签被攻破</td><td>项目方与安全公司，追回率不确定</td></tr>
+    </table>
+    <p>这张表的实用价值在于：<b>换一个托管位置，攻击方式就整套换掉</b>。放在交易所，你面对的是平台级风险；提链上自持，你面对的是自己成为唯一防线；存进协议，你面对的是代码和它的管理员。安全研究里没有"通用安全"，只有"针对某一层托管关系的安全"。</p>
+    <ul>
+      <li><b>自助检查：</b>打开你的资产分布，问自己三个问题——每一笔资产的私钥/授权现在在谁手里？哪些地址给过无限额度（approval）？如果这个 App 明天被换掉前端，我会损失什么？</li>
+      <li><b>记住顺序：</b>托管层级越高（越接近"别人管"），你越依赖对方的运维与内控；层级越低（自持），你越依赖自己的密钥纪律。两种风险都不能靠"我小心一点"完全消除。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📉</span><h3>二、历史损失的量级：钱是怎么被偷走的</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：想看懂数据的人</span></div></div>
+    <p>先说结论：<b>这不是边缘事件，而是至少自 2020 年以来持续发生、单年数十亿美元量级的产业级损耗。</b>下面每个数字都来自可点开的公开报告，检索日期为 2026-10-29。</p>
+    <div class="chart">
+      <p><b>协议侧年度损失（Immunefi 研究，460 起事件，2020–2025）</b></p>
+      <div class="hbar-row"><span>2022 年（峰值）</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">$2.62B</span></div>
+      <div class="hbar-row"><span>2024 年</span><div class="hbar-track"><div class="hbar-fill" style="width:20.4%"></div></div><span class="hbar-val">$534M</span></div>
+      <div class="hbar-row"><span>2025 年</span><div class="hbar-track"><div class="hbar-fill" style="width:26%"></div></div><span class="hbar-val">$680M</span></div>
+      <p class="cap">2023 年单项数值该报告未给出，故不列；"约 80%"为报告对 2022→2024 降幅的表述。</p>
+    </div>
+    <p>把交易所与托管方也算进来，量级还要再上一层：<b>Chainalysis 统计 2024 年全年被盗约 22 亿美元，同比增长约 21%，其中私钥泄露类占 43.8%</b>，是最大单一原因；2025 年最大的单起事件是 2 月的 Bybit 交易所被攻击，ReKT 记录为 14.36 亿美元，Chainalysis 称其为"加密史上最大规模数字抢劫"。同一份 2026 年报告估计，<b>2025 年与朝鲜有关的黑客窃取约 20 亿美元</b>，是其破坏力最强的一年。</p>
+    <p>结构比总量更有指导意义。按 Immunefi 的统计：<b>桥接攻击从 2022 年占全部损失的 73% 降到 2025 年的 3%</b>，闪电贷驱动的攻击从 2020 年的 54% 降到 2025 年的不足 1%——这两类"曾经的明星漏洞"已经被行业基本修掉了。而在 DeFi 协议内部，<b>2025 年 89% 的损失来自协议自身逻辑漏洞</b>（应用特定的业务逻辑错误，不是教科书式的基础 bug）。与此同时，如果把交易所加回来，<b>托管与密钥管理类损失在 2025 年超过 16 亿美元，交易所全年损失超过 18 亿美元</b>——也就是说，链上修得越来越好，"人 + 运维"这一层反而成了大头。</p>
+    <blockquote class="xq">💬 <span class="who">研究机构原话：</span>Chainalysis 在 2026 年加密犯罪报告中，把 2025 年 2 月的 Bybit 事件描述为"the largest digital heist in crypto history"（加密史上最大数字抢劫），并估计朝鲜关联黑客全年窃取约 20 亿美元。</blockquote>
+    <p>另一类常被忽略的是<b>小额高频的签名钓鱼</b>：Scam Sniffer 的年度报告显示，2025 年 EVM 链上钱包盗币器（drainer）造成 <b>8385 万美元损失、106,106 名受害者</b>，同比下降约 83%，但单案均值仍有 790 美元；其中最大一起是通过 Permit 签名偷走 650 万美元。损失下降不等于风险下降——该报告同时提醒，部分损失可能转移到了更难追踪的私钥泄露与供应链攻击上。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>三、"代码即法律"：没有客服，也没有撤销按钮</h3><div class="badges"><span class="badge r3">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>传统金融里转错账，可以打电话、填表单、申请冲正；Web3 里一笔交易被打包进区块后，<b>没有任何官方机构有权把它改回去</b>。这不是"暂时没人管"，而是协议设计上的终局性：区块链不识别意图，只验证签名与状态转换。你签了名、付了 gas、交易确认，这件事就完成了。</p>
+    <p>这句话对安全有三个直接后果：</p>
+    <ul>
+      <li><b>预防是唯一手段。</b>事后能做的只有链上追踪、与对手方谈判、或依赖第三方（如部分协议的安全救援机制）——Bybit 事件的规模说明，即便是最专业的机构，也只能走这条路，而不是按"撤销"。</li>
+      <li><b>"我以为"没有法律效力。</b>点错按钮、看错地址、授权给错合约，链上都视为你的真实意思表示。反过来说，也正因为不可撤销，很多司法辖区把"未经授权动用他人资产"直接按犯罪处理（详见第 04 章）。</li>
+      <li><b>安全的单位从"账户"变成"每一次交互"。</b>授权额度、签名内容、前端页面是否被换，都需要逐次判断。这也解释了为什么现代攻击的重心从"攻破链"转向"骗你签一次名"。</li>
+    </ul>
+    <p>所以本手册后面所有章节都围绕一个目标：<b>把不可撤销的操作，前移到可撤销的检查上</b>。你无法让一笔已确认的交易回来，但可以在签名前看清它、在授权前收紧额度、在连接钱包前确认站点。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.chainalysis.com/blog/2026-crypto-crime-report-introduction/" target="_blank">Chainalysis：2026 Crypto Crime Report 引言（2026）</a><a href="https://www.chainalysis.com/blog/2025-crypto-crime-report-introduction/" target="_blank">Chainalysis：2025 Crypto Crime Report 引言（2025-01-15）</a><a href="https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/" target="_blank">Immunefi：生态漏洞记分板 · 6 年 DeFi 损失数据（2026-04-27）</a><a href="https://rekt.news/leaderboard/" target="_blank">ReKT：历史被黑事件排行榜</a><a href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank">Scam Sniffer：2025 加密钓鱼损失报告（2026-01-03）</a><a href="https://hacked.slowmist.io/en/" target="_blank">SlowMist：Hacked 链上安全事件库</a></div>
+</section>
+
+<section id="c02" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 02 · PART 1 · 认知与基础</span><h2>攻击面盘点<span class="accent">：钱包、合约、前端、人</span></h2></div>
+  <p class="sec-desc">上一章讲"钱在哪"，这一章讲"手从哪伸进来"。把攻击面分成钱包、合约、前端、人四层，逐层给出典型手法、识别信号与修复方向；然后用公开数据回答两个问题：哪一层造成的损失最大，以及新人最先在哪一层失守。（数据检索日期：2026-10-29）</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎯</span><h3>一、四层攻击面：手法、信号与修复方向</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p><b>1）钱包与密钥层。</b>核心是"谁能动用你的资产凭证"。典型手法包括：助记词/私钥以明文形式存在截图、云同步、笔记或聊天记录里；剪贴板被篡改；浏览器扩展被植入后门；以及最主流的<b>签名钓鱼</b>——诱导你对一笔看似普通的交易签名，实际内容是授权转账、提高额度或签署 Permit/Permit2 委托。识别信号：签名请求里出现不认识的合约地址、`setApprovalForAll`、无限额度、或"你的钱包需要在 X 前签名以继续"这类倒计时施压。修复方向：助记词只离线保存、给常用额度设上限并定期清理、签名前看清请求来源与内容、硬件钱包用于大额。</p>
+    <p><b>2）合约与协议层。</b>这是安全研究员的主战场。Solidity 官方文档列出的高频问题包括：重入（外部调用把控制权交回对方，导致状态未更新就被再次进入）、用 `tx.origin` 做鉴权、可被操纵的链上随机数、`delegatecall` 到不可信实现、升级后失效的内部函数指针、以及无界循环导致的 gas 耗尽。ConsenSys Diligence 的清单还补充了预言机操纵、抢跑（frontrunning）、时间戳依赖、整数下溢、拒绝服务与 griefing 等类别。识别信号：收益与某个可被闪电贷撬动的池子价格挂钩、管理员权限过大且无时间锁、外部调用在状态更新之前发生。修复方向：Checks-Effects-Interactions（先改状态再做外部调用）、用 `msg.sender` 而非 `tx.origin`、用去中心化预言机与 TWAP、重入锁 + 额度上限。</p>
+    <p><b>3）前端与供应链层。</b>用户看到的界面和真实合约之间隔着一整条链路：CDN、npm 包、第三方脚本、钱包弹窗。这一层出事时，<b>合约代码完全没问题，但用户签的名已经进了攻击者口袋</b>。SlowMist 事件库记录了多起这类案例：2026 年 10 月，Bloom Trading 因第三方模块存在远程代码执行漏洞，49 个地址被转走约 9,408 SOL，项目方明确表示"没有私钥被盗"；同月的 Predict.fun 则是第三方 API 文档站点被攻破，导致 29 个用户智能钱包被逐笔抽走约 39.8 万美元。识别信号：页面从陌生域名打开、依赖版本突然变动、签名弹窗里的合约地址与官网不一致、授权后资产被连续小额转出。修复方向：前端固定部署与子资源完整性校验、敏感操作走多签与时间锁、把"合约地址白名单"写进官网并让用户可自查。</p>
+    <p><b>4）人与流程层。</b>最古老也最有效。手法包括假冒客服与"账号异常"话术、假招聘与假面试（长期接触设备与内网）、伪造的多签签名界面，以及线下的物理胁迫。Chainalysis 在 2026 年报告中专门指出"物理胁迫攻击"在增多：攻击者用暴力迫使受害者转移资产，且常选在价格高位动手。识别信号：任何主动找上门的"客服""技术支持""HR"，任何要求远程控制或安装"验证工具"的请求。修复方向：大额操作走独立的第二通道确认（换设备、换网络、电话回拨）、团队内部约定"永不通过社交软件处理资产"、对签名界面做独立校验。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>Solidity 官方文档对重入的表述是——"Interaction with other contracts should be the very last step in any function."（与其它合约的交互应当是任何函数里最后一步。）这一句就是 Checks-Effects-Interactions 的由来。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>二、哪一层损失最大？分层看答案不同</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：想选方向的人</span></div></div>
+    <p>这个问题没有单一答案，取决于你把哪些资产算进来：</p>
+    <div class="chart">
+      <p><b>DeFi 协议内部，按攻击类型占比（Immunefi 研究）</b></p>
+      <div class="hbar-row"><span>协议逻辑漏洞（2025）</span><div class="hbar-track"><div class="hbar-fill" style="width:89%"></div></div><span class="hbar-val">89%</span></div>
+      <div class="hbar-row"><span>私钥/访问控制（2023）</span><div class="hbar-track"><div class="hbar-fill" style="width:32.2%"></div></div><span class="hbar-val">32.2%</span></div>
+      <div class="hbar-row"><span>私钥/访问控制（2025）</span><div class="hbar-track"><div class="hbar-fill" style="width:8.1%"></div></div><span class="hbar-val">8.1%</span></div>
+      <div class="hbar-row"><span>桥接类（2022）</span><div class="hbar-track"><div class="hbar-fill" style="width:73%"></div></div><span class="hbar-val">73%</span></div>
+      <div class="hbar-row"><span>桥接类（2025）</span><div class="hbar-track"><div class="hbar-fill" style="width:3%"></div></div><span class="hbar-val">3%</span></div>
+      <p class="cap">同一份研究中，闪电贷类占比从 2020 年的 54% 降至 2025 年的不足 1%。</p>
+    </div>
+    <ul>
+      <li><b>只看 DeFi 协议：</b>2025 年 89% 的损失来自应用特定的逻辑漏洞——不是重入这种"教科书 bug"，而是"业务规则本身可以被绕过"。这意味着纯靠工具扫描发现不了大头，必须读业务逻辑。</li>
+      <li><b>把交易所与托管方加回来：</b>2025 年托管与密钥管理类损失超过 16 亿美元、交易所损失超过 18 亿美元，量级远超协议侧。原因很直接：协议侧被审计了五年，托管与运维侧并没有。</li>
+      <li><b>按受害者数量：</b>签名钓鱼 2025 年影响 106,106 人，单案均值约 790 美元（Scam Sniffer，仅统计 EVM 钱包盗币器）。金额不大，但覆盖面最广——这也是普通持有者最可能遇到的一层。</li>
+      <li><b>趋势判断：</b>桥接与闪电贷类占比崩塌，说明"标准漏洞"在被系统性修复；剩下的增量在逻辑漏洞、前端供应链和社工。学安全的人应该把时间花在还没被修掉的那部分。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>三、新人最先在哪一层失守</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：准备动手的人</span></div></div>
+    <p>如果只选一层，答案是<b>人与前端授权层</b>，而且新人以两种方式在这里失守：</p>
+    <p>第一种是<b>作为受害者</b>：装了一个来路不明的"行情/抢购/空投查询"扩展、在搜索引擎广告里点进了假站点、或在 Discord 里点了"客服"发的链接。这三件事的共同点是——你在完全不知情的情况下，把签名权交了出去。慢雾记录过一个细节：某钱包扩展自 2025 年 2 月起就被植入恶意代码，用户在解锁时密钥被转发到攻击者服务器，直到半年后才被发现，8 名用户损失 17,286 DOT。<b>装扩展前看权限与源码、少装、用单独 profile，比任何杀毒软件都管用。</b></p>
+    <p>第二种更隐蔽：<b>作为研究者失守</b>。新手学到一点点漏洞知识后，最容易犯的错是去主网"验证一下"——扫合约、发交易、跑 PoC。这一章先把这个红线说清楚：<b>没有书面授权的测试，即使你什么都不偷，也可能构成违法</b>（中国《网络安全法》第 27 条明确禁止非法侵入他人网络、窃取网络数据；其他司法辖区同样普遍把未授权访问本身视为违法，具体罪名与门槛以当地现行法为准）。正确的练习场是测试网、本地 Foundry 环境，以及第 03 章列的那些公开靶场。</p>
+    <ul>
+      <li><b>可执行自查（5 分钟）：</b>列出你装过的所有浏览器扩展，卸掉任何与加密相关但你不确定来源的；用区块浏览器的 token approvals 页面查一遍常用地址，把不认识或过期的额度 revoke 掉。</li>
+      <li><b>习惯养成：</b>把"签名 = 授权花钱"刻进本能。任何签名请求，先问三件事：谁在请求、签完能动我什么、额度是无限还是有上限。</li>
+      <li><b>团队侧：</b>如果你为项目方工作，把前端完整性（依赖锁文件、CDN 白名单、合约地址公示）和运维侧（密钥管理、签名环境隔离）列进与合约审计同等级别的 checklist。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档：Security Considerations</a><a href="https://consensysdiligence.github.io/smart-contract-best-practices/" target="_blank">ConsenSys Diligence：Smart Contract Best Practices</a><a href="https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/" target="_blank">Immunefi：生态漏洞记分板 · 6 年 DeFi 损失数据（2026-04-27）</a><a href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank">Scam Sniffer：2025 加密钓鱼损失报告（2026-01-03）</a><a href="https://hacked.slowmist.io/en/" target="_blank">SlowMist：Hacked 链上安全事件库</a><a href="https://www.chainalysis.com/blog/2026-crypto-crime-report-introduction/" target="_blank">Chainalysis：2026 Crypto Crime Report 引言</a></div>
+</section>
+
+<section id="c03" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 03 · PART 1 · 认知与基础</span><h2>入门路径与技能树<span class="accent">：安全研究员怎么成长</span></h2></div>
+  <p class="sec-desc">从"会写 Solidity"到"能独立交出一份被项目方认可的报告"，中间隔着一整套可训练的技能。这一章把这条路径拆成五级阶梯，列出每个阶段该用的公开练习平台（全部免费或有公开入口），并说明哪些误区最常拖慢新人。（资源状态检索日期：2026-10-29）</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🪜</span><h3>一、五级阶梯：从语法到第一份报告</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：有编程基础</span></div></div>
+    <p>不需要一开始就"很懂安全"。按下面五级走，每一级都有明确的产出物，可以用来判断自己是否真的过关：</p>
+    <table>
+      <tr><th>阶段</th><th>目标</th><th>过关产出</th></tr>
+      <tr><td><b>L1 语言与工具</b></td><td>能写、能编译、能部署一个合约；会看事件与调用</td><td>独立写一个带测试的 ERC20/金库合约并部署到测试网</td></tr>
+      <tr><td><b>L2 EVM 语义</b></td><td>理解 storage、call/delegatecall、gas、回滚与重入的底层原因</td><td>能解释一笔失败交易 trace 里每一层调用的状态变化</td></tr>
+      <tr><td><b>L3 漏洞类型</b></td><td>掌握重入、访问控制、预言机操纵、签名与授权、升级陷阱等类别</td><td>对每个类别都能写出"触发条件 + 修复写法"对照</td></tr>
+      <tr><td><b>L4 靶场实战</b></td><td>在沙盒里完整走一遍"读代码 → 找假设 → 写 PoC → 提修复"</td><td>通关 Ethernaut 全部关卡；DVDeFi 18 个挑战完成过半</td></tr>
+      <tr><td><b>L5 真实产出</b></td><td>在授权范围内，对真实代码给出可复现、带修复建议的报告</td><td>一份被平台或项目方接收的报告（含严重度定级与 PoC）</td></tr>
+    </table>
+    <p>L4 到 L5 是绝大多数人卡住的地方，原因不是技术，而是<b>没有把"读代码"变成"读业务逻辑"</b>。Immunefi 的损失统计显示，2025 年 DeFi 协议 89% 的损失来自应用特定的逻辑漏洞——这类问题扫描器报不出来，只能靠你比开发团队更仔细地读他们的业务假设。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📚</span><h3>二、公开资源与练习平台（按阶段对应）</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础起步</span></div></div>
+    <ul>
+      <li><b>L1 语言入门：CryptoZombies。</b>免费浏览器内互动课程，通过写一个僵尸收集游戏教你 Solidity 基础到部署 DApp，官方自述"Everything is completely free!"，内容以以太坊与 Solidity 为主。</li>
+      <li><b>L1/L3 案头参考：Solidity 官方文档的 Security Considerations。</b>这是最该反复读的一页：私有变量不等于保密（链上一切公开）、不要用 `tx.origin` 鉴权、外部调用放在函数最后一步、`unchecked` 会回绕、映射无法遍历因此无法清空。官方原话很直接：编译器警告你的事，你就该改。</li>
+      <li><b>L2/L4 靶场：Ethernaut（OpenZeppelin）。</b>一个"Web3/Solidity wargame"，每一关就是一个需要被攻破的合约，可在官方部署站点或本地跑。README 说明关卡可以不按顺序玩、数量不设上限，它同时被当作历史攻击的目录使用。</li>
+      <li><b>L4 主战场：Damn Vulnerable DeFi（theredguild，v4.1.0）。</b>自称"智能合约安全 playground"，官网列出 18 个挑战，覆盖闪电贷、价格预言机、治理、NFT、DEX、借贷池、智能合约钱包、时间锁、金库、元交易与可升级性。玩法是 Foundry 工程：读 `src/<challenge>/README.md` 的题面，在对应测试文件里写利用或修复，用 `forge test --mp test/<challenge>/<ChallengeName>.t.sol` 判定是否通过；规则要求始终使用 player 账户，不得改动初始与最终条件。</li>
+      <li><b>L2 工具链：Foundry Book。</b>Forge（编译/测试/部署）、Cast（命令行交互，被官方称为"瑞士军刀"）、Anvil（可 fork 主网的本地节点）、Chisel（Solidity REPL）。重点章：fuzz 与 invariant 测试、fork 测试、gas 快照、trace 调试。fork 测试能让你在本地复现主网状态，是练习 PoC 最省事的方式。</li>
+      <li><b>L5 案例库：Solodit（Cyfrin）。</b>自称"最大的开源区块链与智能合约安全数据库"，收录漏洞、利用与修复。读真实历史报告的修复段，比读教程更快建立"什么才算好报告"的手感。</li>
+      <li><b>L5 平台规范：Immunefi 的 Training Grounds。</b>包含漏洞严重度分级体系（Critical 到 None 五级）、提交高质量报告的步骤指南、Bug Report Checklist（确认范围、清晰描述、正确分级、附可复现 PoC），以及 Prohibited Behavior（哪些行为被明令禁止）。<b>提交前先读这三份，能避免一半的退单。</b></li>
+      <li><b>L5 竞赛平台：Cyfrin CodeHawks 与 Code4rena。</b>CodeHawks 以竞赛形式匹配协议与外部研究员，公开赛列出赞助方、技术标签（Foundry/Solidity/Cairo/L2 等）与奖池，并区分 Public / Private / Invite-only。Code4rena 公示的数字是：16,600+ 注册 warden、512 场审计、26,898 条独立发现、1,607 条独立高危漏洞；该站同时公告"在守护 DeFi 五年后正在关停，进行中的赛事会跑完"。这个变化提醒我们：<b>平台会来会走，能力与公开记录才是你自己的。</b></li>
+      <li><b>社区训练营：Secureum。</b>官网将其 Bootcamp 描述为"The flagship community event dedicated to Ethereum security"（面向以太坊安全的旗舰社区活动），口号是 Learn Smart Contract Security，具体日程与参与方式在 Discord 公布。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏳</span><h3>三、成长周期、常见误区与心态</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：正在爬坡的人</span></div></div>
+    <p>关于"多久能拿到第一笔赏金"，<b>目前没有可核实的公开统计</b>——我检索了 Immunefi 与 Code4rena 的公示与研究页，两家都公布奖金总额、程序数量与高危占比，但没有公布研究员的入行到首次获奖时长中位数。因此这里不给出具体月数，只给一个可自我检验的节奏：把 L1–L4 走完（通常以"能独立解完 DVDeFi 过半挑战"为标志），再进入真实代码，比一上来就扫主网要快得多。</p>
+    <ul>
+      <li><b>误区一：只刷靶场不读业务。</b>靶场教会你漏洞类别，但 2025 年的损失大头是应用逻辑漏洞。每个挑战结束后，额外问一句"如果这是真钱，我会怎么设计规则来堵住它"。</li>
+      <li><b>误区二：把工具当能力。</b>静态扫描器能报未检查返回值，报不了"这个奖励公式可以被自己刷"。工具是起点，不是结论。</li>
+      <li><b>误区三：在主网上"验证"。</b>这是法律红线，不是技术问题。PoC 一律在本地 fork 或测试网完成（详见第 04 章）。</li>
+      <li><b>误区四：只报严重度不看范围。</b>不在赏金范围内的发现、需要管理员作恶才能触发的设计、或纯 gas 优化建议，都会被退单。先读 program scope 与 Immunefi 的严重度分级。</li>
+      <li><b>误区五：单次冲刺。</b>长跑项目的价值更高：Immunefi 的研究显示，运行 5 年以上的程序中 93.9% 最终出现过已确认的 critical——持续在一个生态里深耕，比每次追新链更有效率。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">项目方原话：</span>Damn Vulnerable DeFi 的 README 这样描述自己的目标——"improve auditing skills, practice finding and fixing bugs, benchmark security tooling, and support teaching materials"（提升审计技能、练习发现与修复漏洞、为安全工具做基准、并支撑教学材料）。注意其中"修复"和"基准"两项：它考的不只是攻击。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://cryptozombies.io/" target="_blank">CryptoZombies：免费 Solidity 互动课程</a><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档：Security Considerations</a><a href="https://github.com/OpenZeppelin/ethernaut" target="_blank">Ethernaut（OpenZeppelin）仓库 README</a><a href="https://www.damnvulnerabledefi.xyz/" target="_blank">Damn Vulnerable DeFi 官网（v4.1.0，18 个挑战）</a><a href="https://github.com/theredguild/damn-vulnerable-defi" target="_blank">Damn Vulnerable DeFi 仓库 README（玩法与规则）</a><a href="https://getfoundry.sh/" target="_blank">Foundry Book（forge / cast / anvil / chisel）</a><a href="https://immunefi.com/learn/" target="_blank">Immunefi Training Grounds（严重度分级 / 报告清单 / 禁止行为）</a><a href="https://codehawks.cyfrin.io/" target="_blank">Cyfrin CodeHawks 竞赛审计</a><a href="https://code4rena.com/" target="_blank">Code4rena 官网（含关停公告与统计）</a><a href="https://solodit.cyfrin.io/" target="_blank">Solodit（Cyfrin）漏洞案例库</a><a href="https://immunefi.com/" target="_blank">Immunefi 官网（奖金总额与长期程序统计）</a><a href="https://secureum.xyz/bootcamp" target="_blank">Secureum Bootcamp</a></div>
+</section>
+
+<section id="c04" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 04 · PART 1 · 认知与基础</span><h2>法律与道德边界<span class="accent">：白帽的合规姿势</span></h2></div>
+  <p class="sec-desc">同一段 PoC，写进报告是赏金，发到主网是犯罪。这一章讲清三件事：授权测试与未授权测试在法律上的差别（国内外）、漏洞赏金与私自利用的分界在哪里、发现漏洞后正确的动作顺序。所有法律内容都标注了来源与地域，且必须提醒你：<b>法律有地域性与时效性，动任何手之前先取得明确书面授权。</b>（检索日期：2026-10-29）</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📜</span><h3>一、授权与未授权：一条线，两边是两种人生</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：所有想动手的人</span></div></div>
+    <p><b>中国。</b>《网络安全法》第二十七条明确禁止三类行为：非法侵入他人网络、干扰他人网络正常功能、窃取网络数据等危害网络安全的活动；提供专门用于从事侵入网络、干扰网络正常功能及防护措施、窃取网络数据等危害网络安全活动的程序、工具；明知他人从事危害网络安全的活动而为其提供技术支持、广告推广、支付结算等帮助。同法第二十二条要求网络产品、服务提供者"发现其网络产品、服务存在安全缺陷、漏洞等风险时，应当立即采取补救措施，按照规定及时告知用户并向有关主管部门报告"。</p>
+    <p>国务院《网络数据安全管理条例》（国务院令第 790 号，2025 年 1 月 1 日施行）进一步规定：不得非法侵入他人网络、不得干扰网络服务正常运行，不得提供专门用于破坏、避开技术措施的程序、工具；网络数据处理活动涉及危害国家安全、公共利益的，应当在 <b>24 小时内</b>向有关主管部门报告。读安全研究视角，这两条给出一个非常清晰的信号：<b>"发现漏洞 → 报告 → 等修复 → 再披露"是被鼓励的路径，"发现漏洞 → 自己先利用/先公开"是被禁止的路径。</b></p>
+    <p><b>美国与普通法系辖区。</b>核心风险在于"未授权访问"本身即可能触发法律责任，与实际是否造成损失无关。实务上的通行做法是让授权显式化：CISA 的漏洞披露政策模板里就有一段标准的安全港措辞——对善意研究者，"we will consider your research to be authorized"（我们将视你的研究为已获授权），机构"will not recommend or pursue legal action related to your research"（不会就你的研究建议或提起诉讼）；若第三方因合规研究起诉研究者，机构承诺告知对方该授权。这套语言是双向的：它给了研究者保护，也把"善意、最小限度、不破坏、给修复时间"变成了授权的前提条件。</p>
+    <p><b>欧盟。</b>NIS2 指令（Directive (EU) 2022/2555）建立了覆盖 18 个关键行业的统一框架，2023 年 1 月生效、2024 年 10 月 17 日为成员国转化截止日，要求企业采取网络风险管理措施并向国家当局报告重大事件，同时要求各成员国的国家网络安全战略包含供应链安全、漏洞管理与安全意识等内容。对研究员的实际意义：欧盟项目方的漏洞接收与响应义务比过去更强，你的报告更可能被正式受理。</p>
+    <blockquote class="xq">💬 <span class="who">合规要点：</span>以上均为公开法规与政策文本的摘要，<b>不构成法律意见</b>。法律随地域与时间变化（例如各辖区对数字资产的定性、漏洞披露的强制报告时限都在演进），涉及具体行动前请咨询当地执业律师，并保留你的授权凭证。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧷</span><h3>二、赏金与私自利用的分界</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：准备提交报告的人</span></div></div>
+    <p>分界线不是"你有没有能力利用"，而是<b>授权范围、资金去向与披露纪律</b>。三个一手规则页把这条线画得很清楚：</p>
+    <ul>
+      <li><b>Immunefi 的安全港（Safe Harbor）</b>措辞非常窄：白帽可以"rescue protocol funds during a blackhat attack"（在黑客攻击期间救援协议资金）并把这些资金转回协议控制的 vault，奖励由项目方设定；但它"only covers cases of active exploitation by blackhat hackers"（只覆盖黑帽正在实施攻击的情形），并且"expressly forbids all other hacking activity"（明令禁止所有其他黑客行为）。换句话说：<b>平台给你的保护是"救火许可"，不是"自由测试许可"。</b></li>
+      <li><b>CISA 模板中研究者一侧的义务：</b>尽快通报；不得侵犯隐私、损害用户体验、中断生产或破坏篡改数据；"Only use exploits to the extent necessary to confirm a vulnerability's presence"（只在确认漏洞存在所必需的范围内使用利用代码）；不得窃取数据、建立持久访问或横向移动；公开披露前要给合理的修复时间；遇到敏感数据要立即停止测试并上报；禁止 DoS/DDoS、物理测试与社会工程。</li>
+      <li><b>HackerOne 的披露规则：</b>默认情况下，报告处于 Resolved 状态且无人提出异议时，内容将在 30 天后公开；私人项目默认受严格保密约束，打算公开披露的人不应参加；报告被设为 Disabled 时，无论状态如何都不得披露；"最后手段"条款下，若安全团队对正式请求 180 天无响应（且至少每 30 天跟进一次），研究者可披露，除非项目政策禁止。</li>
+    </ul>
+    <p>把三条合起来，就是一条可操作的判断流程：<b>范围在不在 program scope 内？授权是否明示（书面/平台条款）？资金是否原样留在原地？披露是否等到对方修完或达到时限？</b>四个问题有一个答不上来，就还不是白帽行为。</p>
+    <p><b>关于钱的合规：</b>赏金是合法收入，但"合法"不等于"不用管税"。以美国为例，IRS 明确虚拟货币按财产计税：收到虚拟货币作为服务报酬时，按收到时的美元公允市场价计为普通收入（独立承包人构成自雇收入）；之后卖出或兑换要计资本利得或损失，并需保留足以支撑记录的资料。中国等辖地的申报口径不同，请以当地税务机关口径为准。<b>保留每一笔赏金的到账记录、报告编号与完税凭证，是长期做这行最便宜的风控。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>三、发现漏洞后的正确动作顺序</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：第一次发现漏洞的人</span></div></div>
+    <p>假设你在某个项目里发现了一个疑似严重漏洞，按这个顺序做：</p>
+    <ul>
+      <li><b>1. 停下，不要利用。</b>不要在主网发送任何交易去"确认它真的能偷到钱"——那一步往往就是从研究者变成被告的一步。验证一律放在本地 fork 或测试网（Foundry 的 anvil / fork 测试就是干这个的）。</li>
+      <li><b>2. 记录，不要扩散。</b>截图、交易哈希、合约地址、时间线、受影响资产规模。不要发群、不要发推、不要发给"也感兴趣的朋友"。扩散本身可能构成未授权披露。</li>
+      <li><b>3. 找官方通道。</b>项目方官网公布的 security 邮箱、赏金平台（Immunefi / CodeHawks 等）、或漏洞接收平台。走公开渠道，留痕。</li>
+      <li><b>4. 报清楚，而不是报得耸动。</b>范围与前置条件、触发步骤、可复现 PoC（在测试网）、影响与资金规模估算、修复建议、你自己的复现环境。参考 Immunefi 的 Bug Report Checklist。</li>
+      <li><b>5. 给修复时间，然后按约定披露。</b>参照 HackerOne 的 30 天默认与 180 天最后手段；若项目方明确要求延长且理由合理，通常值得配合——这也是下一次合作的门票。</li>
+      <li><b>6. 涉及在野攻击时，走救援通道。</b>这正是 Immunefi 安全港覆盖的唯一情形：资金正在被黑帽搬走时，白帽可将其转回协议控制的 vault 并领取项目方设定的奖励。<b>除此之外的任何"动手"，都不在安全港内。</b></li>
+    </ul>
+    <p><b>为什么不建议"先黑了再说"？</b>三个理由。第一，法律上，"先利用再报告"无法让你回到未授权访问之前的状态，未授权访问的责任不以你是否退钱为转移。第二，事实上，链上不可撤销，你"临时转走"的资金一旦经手混币或跨链，追回与自证清白的成本极高。第三，声誉上，安全社区很小，一次越界会让所有平台与项目方把你的名字和"不可托付"绑定，而这条曲线需要很多年才能修复。</p>
+    <p>更实用的表述是：<b>白帽的护城河从来不是技术，而是"可被验证的克制"。</b>同样的漏洞，写进报告是资产，发上主网是案底。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.cac.gov.cn/2016-11/07/c_1119867116_2.htm" target="_blank">《中华人民共和国网络安全法》第 22、27 条（国家网信办转载全文）</a><a href="https://www.gov.cn/zhengce/zhengceku/202409/content_6977767.htm" target="_blank">《网络数据安全管理条例》（国务院令第 790 号，2025-01-01 施行）</a><a href="https://www.cisa.gov/resources-tools/resources/vulnerability-disclosure-policy-template" target="_blank">CISA：漏洞披露政策模板（含安全港措辞）</a><a href="https://immunefi.com/safe-harbor/" target="_blank">Immunefi：Safe Harbor 条款</a><a href="https://www.hackerone.com/disclosure-guidelines" target="_blank">HackerOne：披露指南</a><a href="https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" target="_blank">欧盟委员会：NIS2 指令说明</a><a href="https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions" target="_blank">IRS：虚拟货币交易常见问题（税务口径）</a></div>
+</section>
+
+<section id="c05" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 05 · PART 2 · 漏洞挖掘实务</span><h2>合约漏洞类型全景<span class="accent">：从重入到逻辑漏洞</span></h2></div>
+  <p class="sec-desc">把一份审计报告里出现过的 bug 按「频率 × 危害」排成一张清单：每一类给出识别信号和修复方向，再说明 SWC 注册表这个公共编号系统怎么用。读完你应该能拿到一份陌生的合约，从上到下过一遍。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗺️</span><h3>一张清单：八类高频漏洞的识别信号与修复方向</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：能读 Solidity</span></div></div>
+    <p>先说排序依据。Immunefi 在 2026-04-27 发布的六年 DeFi 损失复盘里，把「闪电贷预言机操纵 + 重入」这类生态级模板攻击的份额，从 2022 年的约 19% 压到了 2025 年的不足 1%；同期协议逻辑漏洞占到 2025 年 DeFi 协议损失的 89%。这告诉我们两件事：模板化的经典漏洞已经很难再靠"套模板"得手，但它们仍是每个新协议必须先堵住的地基；真正的新增量在业务逻辑里。所以下面的顺序是<b>先堵地基，再挖增量</b>。</p>
+    <table>
+      <tr><th>类型</th><th>公共编号</th><th>识别信号</th><th>修复方向</th></tr>
+      <tr><td><b>重入</b>（含只读重入）</td><td>SWC-107</td><td>外部调用发生在状态更新之前；提款函数先转账后清零余额；view 函数在赎回回调中返回被扭曲的价格</td><td>Checks-Effects-Interactions 模式；nonReentrant 锁；把 view 函数也当重入敏感（详见第 07 章）</td></tr>
+      <tr><td><b>访问控制 / 权限</b></td><td>SWC-115、SWC-106</td><td>用 tx.origin 做授权；敏感函数缺 onlyOwner；函数可见性写错；owner 是单地址且无时间锁</td><td>改用 msg.sender；显式声明可见性与修饰符；权限移交多签 + Timelock</td></tr>
+      <tr><td><b>整数溢出 / 下溢</b></td><td>SWC-101</td><td>unchecked 块里的算术；汇编里的 add/sub；0.8.0 之前的老合约直接复用</td><td>审每一个 unchecked 与内联汇编；确认为何可以跳过检查</td></tr>
+      <tr><td><b>未检查的低级调用</b></td><td>SWC-104</td><td>call / delegatecall / staticcall 的返回值没有判断；失败后逻辑照常往下走</td><td>检查返回值，失败即回滚</td></tr>
+      <tr><td><b>预言机 / 价格操纵</b></td><td>—</td><td>用池内现货价给抵押品估值；价格来自单一区块；喂价地址硬编码且无 sanity check</td><td>TWAP、多源取中位数、价格偏离阈值与熔断（详见第 08 章）</td></tr>
+      <tr><td><b>逻辑 / 业务漏洞</b></td><td>—</td><td>奖励可重复领取、精度截断方向错误、极端输入未测、时间窗口边界</td><td>单元测试 + 模糊测试 + 不变量测试；代码评审先读业务注释</td></tr>
+      <tr><td><b>代理与初始化</b></td><td>SWC-118、SWC-124</td><td>实现合约未初始化、可被他人 initialize；构造函数名与合约名不一致导致变成普通函数；存储槽冲突</td><td>构造函数里调 _disableInitializers()；ERC-1967 存储槽；上线后核对实现合约状态</td></tr>
+      <tr><td><b>签名重放 / 伪造</b></td><td>SWC-121、SWC-117</td><td>签名无 nonce；消息哈希不含 chainId 与合约地址；直接对签名做 ecrecover</td><td>EIP-712 域分隔 + 递增 nonce；记录已处理哈希（详见第 09 章）</td></tr>
+    </table>
+    <p>读这张表的方式：<b>先扫"识别信号"列，而不是先读代码</b>。信号都是 grep 级别的关键词——外部调用、tx.origin、unchecked、initialize、onlyOwner、ecrecover——第 06 章讲的 Slither 本质上就是把这些信号做成了 100 个检测器。差别在于人会结合上下文判断"这里到底可不可达"，工具不会。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>Solidity 官方文档在安全注意事项里明确警告，合约之间的任何交互——哪怕只是一笔 ETH 转账——都会"把控制权交给对方合约"，所以重入风险不限于 ETH 转账，而是"对另一个合约的任何函数调用"；并且提醒被调合约还可能改动你所依赖的第三方状态。它同时给出建议：Checks-Effects-Interactions 应当普遍适用，而不是选择性使用，因为即使你眼里的"已知合约"也可能调用你不知道的合约。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📎</span><h3>SWC 注册表：把漏洞说成同一种语言</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：所有人</span></div></div>
+    <p>SWC（Smart Contract Weakness Classification）是社区维护的弱点编号表。截至本次检索（2026-10-29），其首页收录 37 个条目，编号从 SWC-100 到 SWC-136。它的价值不在于权威分级，而在于<b>公共编号</b>：当你说"这是一个 SWC-107"时，全球的审计师、赏金评审和工具都听得懂。</p>
+    <ul>
+      <li><b>怎么读一个条目。</b>每个条目固定包含标题、描述、示例代码与 Remediation（修复建议）。以 SWC-107 为例，它的 Remediation 写得很直接：确保所有内部状态更新都发生在任何外部调用之前，并引用 Checks-Effects-Interactions 模式；同时建议"使用重入锁"，例如 OpenZeppelin 的 ReentrancyGuard。SWC-115 的 Remediation 更短："tx.origin 不应用于授权，改用 msg.sender。"</li>
+      <li><b>怎么用来写报告。</b>给发现的问题标上 SWC 编号，再写清触发路径。赏金平台和审计团队的模板普遍接受这种写法——它把"我认为这是漏洞"变成"这是一个已编号的已知弱点类别，触发路径如下"。</li>
+      <li><b>怎么和工具对齐。</b>Slither 的检测器命名与 SWC 并不一一对应，但高危项基本覆盖同一批弱点：重入、任意转账、受控 delegatecall、未初始化状态变量、危险的 tx.origin 用法、未检查的低级调用，以及 Chainlink/Pyth/Chronicle 喂价校验缺失。拿到 Slither 输出后，按上面表格的"识别信号"列去对应，比按检测器名字猜更快。</li>
+      <li><b>要注意的边界。</b>SWC-101（Integer Overflow and Underflow）在 Solidity 0.8.0 之后由编译器默认拦截，现在多数只出现在 unchecked 块、内联汇编和 0.8 之前的老合约里。SWC-118（Incorrect Constructor Name）同样是历史问题——0.4.22 引入 constructor 关键字后，构造名写错就变成"普通可调用函数"这一类基本绝迹，但它提示的模式仍在：<b>任何本该只能执行一次的初始化，都要确认它真的只能执行一次。</b></li>
+      <li><b>它不覆盖什么。</b>SWC 里没有"预言机操纵""逻辑漏洞"的专门条目。这正是 2025 年损失的大头。所以 SWC 是起点，不是终点——真正的漏洞往往不在编号表里，而在业务规则里。</li>
+    </ul>
+    <p>补充一个免费资源：Cyfrin 维护的 <b>Solodit</b> 自称是最大的开源区块链与智能合约安全漏洞数据库，聚合了多家审计公司的公开发现，可以按影响等级（Low/Medium/High）、质量、罕见度、语言和协议类型筛选。缺点是详细内容需要注册账号才能看。把它和 SWC 搭配使用：SWC 给编号，Solodit 给真实案例。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>数据：损失的成因正在迁移</h3><div class="badges"><span class="badge r3">难度 ★★</span><span class="badge">数据截至 2026-04</span></div></div>
+    <p>下面这张图的数据全部来自 Immunefi 2026-04-27 发布的六年复盘（本次检索日期 2026-10-29）。份额为该报告自定义口径下的数字，报告对各类别有自定义定义，引用时请以原文为准。</p>
+    <div class="chart">
+      <h4>DeFi 协议层损失的成因份额变化（Immunefi，2026-04-27）</h4>
+      <div class="hbar-row"><span>协议逻辑漏洞</span><div class="hbar-track"><div class="hbar-fill" style="width:89%"></div></div><div class="hbar-val">89%（2025）</div></div>
+      <div class="hbar-row"><span>生态级模板攻击<br>（闪电贷预言机操纵 + 重入）</span><div class="hbar-track"><div class="hbar-fill" style="width:19%"></div></div><div class="hbar-val">约19% → &lt;1%</div></div>
+      <div class="hbar-row"><span>私钥泄露（协议层）</span><div class="hbar-track"><div class="hbar-fill" style="width:32%"></div></div><div class="hbar-val">32.2% → 8.1%</div></div>
+      <div class="hbar-row"><span>基础设施失败</span><div class="hbar-track"><div class="hbar-fill" style="width:31%"></div></div><div class="hbar-val">30.7% → 10.3%</div></div>
+      <div class="hbar-row"><span>跨链桥</span><div class="hbar-track"><div class="hbar-fill" style="width:73%"></div></div><div class="hbar-val">73% → 3%</div></div>
+      <div class="legend"><span><i style="background:#7d76cf"></i>浅色起点为 2022 年（跨链桥）/ 2023 年（私钥泄露）</span><span><i style="background:#6fa8c9"></i>终点为 2025 年</span></div>
+      <div class="cap">份额为报告自定义口径；报告同时给出总量：DeFi 协议层损失 2022 年峰值 26.2 亿美元、2024 年 5.34 亿、2025 年 6.80 亿美元，单次事件损失中位数从 600 万美元降到 150 万美元。另据 Immunefi 2026-03-25 的另一篇报告，2024–2025 两年合计 191 起安全事件、约 46.7 亿美元，其中 2025 年单年 97 起、约 34 亿美元，Bybit 一家占 2025 年的 44%。</div>
+    </div>
+    <p><b>怎么用这张图指导学习。</b>经典漏洞份额崩塌，不是因为它们被修复了，而是因为攻击者发现逻辑漏洞更便宜、更好用。对研究者的实际含义是：工具能自动报的"模板漏洞"要会修，但那只是入场券；能不能读懂业务规则、写出能验证业务规则的测试，才决定你能不能找到 2025 年那 89%。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>同一份 Immunefi 复盘把协议逻辑漏洞称为"the toughest category to systematically defend against"（最难系统性防御的类别）——因为模板化攻击被堵住之后，剩下的就是每一家协议自己写出来的那套独特规则。这也是第 06 章要教模糊测试和不变量测试的原因：逻辑漏洞没有通用检测器，只能靠你针对这个协议写出它的规则。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>拿到一份陌生合约时的 20 分钟过法</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">可打印</span></div></div>
+    <ul>
+      <li><b>第 1 步（3 分钟）· 找入口。</b>列出所有 external / public 函数，标出哪些改了状态、哪些转出资产、哪些能 mint 或授权。</li>
+      <li><b>第 2 步（3 分钟）· 找信任假设。</b>谁可以被信任？owner、keeper、relayer、管理员地址是不是 EOA？有没有 Timelock？权限移交函数是否两步（nominate + accept）？</li>
+      <li><b>第 3 步（4 分钟）· 找外部调用。</b>所有 call / transfer / send / safeTransfer 的位置，逐个问：调用前后状态是否一致？对方能不能回调？</li>
+      <li><b>第 4 步（4 分钟）· 找价格来源。</b>任何"估值"用的是哪个地址的价格？是现货 TWAP 还是外部喂价？喂价失效时代码怎么走？</li>
+      <li><b>第 5 步（3 分钟）· 找初始化与升级。</b>是不是代理？实现合约初始化了吗？有没有 _disableInitializers？存储变量声明顺序跨版本是否变过？</li>
+      <li><b>第 6 步（3 分钟）· 找签名。</b>有没有 ecrecover？哈希里有没有 chainId、合约地址、nonce、deadline？</li>
+    </ul>
+    <p><b>最后一句纪律。</b>以上所有动作都只应该在你自己部署的合约、公开的测试网、或获得明确书面授权的目标上进行。未授权对他人系统进行测试，在多数司法辖区可能违法并承担刑事责任——这一点没有"我只是看看"的例外。地域差异也很大，动手前请确认当地法律并保留授权书面记录。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://swcregistry.io/" target="_blank">SWC Registry 首页（2026-10-29 抓取，37 条，SWC-100–136）</a><a href="https://swcregistry.io/docs/SWC-107" target="_blank">SWC-107 Reentrancy</a><a href="https://swcregistry.io/docs/SWC-115" target="_blank">SWC-115 Authorization through tx.origin</a><a href="https://swcregistry.io/docs/SWC-104" target="_blank">SWC-104 Unchecked Call Return Value</a><a href="https://swcregistry.io/docs/SWC-118" target="_blank">SWC-118 Incorrect Constructor Name</a><a href="https://swcregistry.io/docs/SWC-121" target="_blank">SWC-121 Missing Protection against Signature Replay</a><a href="https://swcregistry.io/docs/SWC-124" target="_blank">SWC-124 Write to Arbitrary Storage Location</a><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档 · Security Considerations</a><a href="https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/" target="_blank">Immunefi · The Ecosystem Vulnerability Scoreboard: 6 Years of DeFi Loss Data（2026-04-27）</a><a href="https://immunefi.com/blog/research/what-an-onchain-hack-actually-costs-2024-2025-update/" target="_blank">Immunefi · What an Onchain Hack Actually Costs: 2024-2025 Update（2026-03-25）</a><a href="https://solodit.cyfrin.io/" target="_blank">Cyfrin Solodit 漏洞数据库</a><a href="https://docs.openzeppelin.com/contracts/5.x/api/proxy" target="_blank">OpenZeppelin Contracts 5.x · Proxy</a></div>
+</section>
+
+<section id="c06" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 06 · PART 2 · 漏洞挖掘实务</span><h2>工具链实战<span class="accent">：Foundry / Slither / Echidna</span></h2></div>
+  <p class="sec-desc">三件核心工具各自解决什么问题、怎么装、跑哪条最小命令；测试网与分叉测试怎么搭；以及最重要的一节——工具报出来的东西怎么复核，因为误报真的很多。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔨</span><h3>三件工具：定位、安装与最小命令</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：第一次配环境</span></div></div>
+    <p>它们不是竞争关系，是三个不同的层次：<b>Slither 是秒级静态扫描，Echidna 是属性模糊测试，Foundry 是你写测试、跑测试、分叉主网的执行环境。</b>正常工作流是 Slither 先扫一遍 → 对可疑点用 Foundry 写测试复现 → 对"应该永远成立的规则"用 Echidna 或 Foundry fuzz 跑几千次。</p>
+    <table>
+      <tr><th>工具</th><th>解决什么问题</th><th>怎么装</th><th>最小命令</th></tr>
+      <tr><td><b>Foundry</b><br>（forge / cast / anvil / chisel）</td><td>用 Solidity 写测试：构建、测试、fuzz、调试、部署、链上查询。forge 是构建测试部署工具，cast 是与链交互的命令行，anvil 是本地节点，chisel 是 Solidity REPL</td><td>curl -L https://foundry.paradigm.xyz | bash，然后重启终端或 source ~/.bashrc / ~/.zshrc，再跑 foundryup。官方明确说明 PowerShell 与 CMD 不受支持，Windows 上请用 Git Bash 或 WSL</td><td>forge build<br>forge test<br>forge test -vvv</td></tr>
+      <tr><td><b>Slither</b></td><td>静态分析框架，官方称"能正确解析 99.9% 的公开 Solidity 代码"，单个合约通常不到一秒；内置约 100 个检测器，覆盖重入、任意 ETH/ERC20 转账、受控 delegatecall、未初始化变量、危险的 tx.origin、未检查低级调用、喂价校验缺失等</td><td>需要 Python 3.10+。推荐 uv：装好 uv 后 uv tool install slither-analyzer，或免安装直接用 uvx --from slither-analyzer slither . ；也可以用 python3 -m pip install slither-analyzer 或 brew install slither-analyzer。不用支持框架时还需 solc，官方推荐 solc-select 管理版本</td><td>slither .<br>slither path/File.sol<br>slither . --checklist</td></tr>
+      <tr><td><b>Echidna</b></td><td>属性模糊测试（Haskell 实现）：基于合约 ABI 生成随机调用序列，尝试推翻你写的不变量或 Solidity 断言，然后把失败的调用序列最小化后报给你</td><td>装好 Slither 后可用预编译 Linux/macOS 二进制；也可用 Homebrew、Docker、Stack 或 Nix。Docker 镜像自带 echidna + slither + crytic-compile + solc-select + foundry</td><td>echidna MyContract.sol<br>echidna contract.sol --contract TEST --config config.yaml</td></tr>
+    </table>
+    <p><b>Echidna 最关键的一条约定：</b>默认的属性模式只检查"函数名以 echidna_ 开头、无参数、返回 bool"的函数。你写 <span style="font-family:monospace">function echidna_balanceNeverExceedsTotalSupply() public view returns (bool)</span>，它就跑几千次随机调用去看这条什么时候不成立。写不出不变量，Echidna 就什么都不做——这也是它相对 Slither 门槛更高的原因。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧪</span><h3>测试网与分叉测试：从零搭起来</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：要动手的人</span></div></div>
+    <p><b>第一层：纯本地。</b>Anvil 是"完全在内存里运行"的本地以太坊节点，默认起 10 个账户、每个 10000 ETH，出块即时。直接跑 anvil 即可。文档给了一个重要提醒：默认账户的私钥是公开的，所以在分叉主网或使用公共 RPC 时，请用自定义助记词。</p>
+    <p><b>第二层：分叉主网。</b>分叉测试让你拿真实链上状态当 fixture，不用把资产部署上去。基本跑法：</p>
+    <ul>
+      <li>forge test --fork-url https://ethereum.reth.rs/rpc —— 用这条 RPC 跑全部测试</li>
+      <li>forge test --fork-url "$RPC_URL" --fork-block-number 18000000 —— 把测试钉在某个区块，结果可复现</li>
+      <li>对拒绝按哈希读状态的 RPC，加 --fork-state-by-number 走按区块号读状态；文档同时提醒这种方式没有重组保护，也没有磁盘缓存</li>
+      <li>写进 foundry.toml 更省事：eth_rpc_url = "..." 与 fork_block_number = 18000000</li>
+      <li>缓存位置在 ~/.foundry/cache/rpc/&lt;chain&gt;/&lt;block&gt;/，状态看起来陈旧时先 rm -rf ~/.foundry/cache/rpc，再不行 forge clean 后重跑；RPC 抖动可以用 --fork-retry-backoff 1000</li>
+      <li>多链一次测：vm.createFork("https://ethereum.reth.rs/rpc") 与 vm.createFork("https://mainnet.optimism.io")，再用 vm.selectFork() 切换</li>
+    </ul>
+    <p><b>第三层：公开测试网。</b>分叉测的是"和主网一样的代码"，测试网测的是"我新部署的这套东西"。Sepolia 是最常用的以太坊测试网，Alchemy 的水龙头每 24 小时发放 0.1 ETH、无需账号，但要求钱包在主网持有至少 0.001 ETH 并有足够活动，且测试网余额不能已经很高。</p>
+    <p><b>测试文件怎么写。</b>Foundry 的约定很轻：文件以 .t.sol 结尾、合约继承 forge-std/Test.sol、测试函数以 test 开头（setUp() 在每个测试前跑）。断言用 assertEq(a, b)。带参数的测试函数会被自动 fuzz——Forge 默认生成随机输入跑 256 次，可以在 foundry.toml 的 [fuzz] 里设 runs = 1000、max_test_rejects、seed，命令行对应 --fuzz-seed；想约束输入用 vm.assume(...) 或 bound(...)。常用 cheatcodes：vm.prank(alice) 伪装单次调用、vm.startPrank/stopPrank 伪装多次、vm.warp 改时间戳、vm.roll 改区块号、vm.deal 改余额、vm.store 直接写存储槽、vm.expectRevert 断言回滚。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>Foundry 官方在分叉测试文档里给了一条容易被忽略的实操建议：用 docker 起一个本地 eRPC 代理（docker run -v $(pwd)/erpc.yaml:/erpc.yaml -p 4000:4000 ghcr.io/erpc/erpc:latest），把测试指向 http://localhost:4000/main/evm/1。免费公共 RPC 的限流和抖动是分叉测试失败最常见的原因，不是你代码的问题。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>工具报出的问题怎么复核：误报真的很多</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">这一节最重要</span></div></div>
+    <p>Slither 的每条发现都带两个维度：<b>影响等级</b>（High / Medium / Low / Informational / Optimization）和<b>置信度</b>（High / Medium）。这两个字段就是你的第一道筛子，但它们不能替你做判断——一个 High 影响的发现可能完全不可达，一个 Low 影响的发现可能是业务逻辑崩塌的第一张多米诺。</p>
+    <p><b>复核四步，缺一步都不算复核完：</b></p>
+    <ul>
+      <li><b>1 · 读检测器原文，不要读摘要。</b>Slither 每个检测器都有文档说明触发条件。先确认"它的触发条件"和"你以为的触发条件"是同一件事。很多误报来自条件理解偏差。</li>
+      <li><b>2 · 追调用路径，判断可达性。</b>问三个问题：谁能调到它？调用需要什么前置条件（特定角色、特定状态、特定时间）？攻击者能构造这些条件吗？大多数 Medium/Low 误报死在这一步。</li>
+      <li><b>3 · 写一个能失败的测试。</b>这是唯一有说服力的复核。用 Foundry 写一个复现测试：先让它因为漏洞而失败，再打补丁让它通过。注意反向也要测——先写一个"正常情况应该 revert"的测试，确认你的修复没有把正常用户锁死。</li>
+      <li><b>4 · 评估影响，定级。</b>能不能拿到钱？能拿多少？需要多少前置资金？会不会只是让自己吃亏？影响定级直接决定这笔发现能不能报、报上去值多少。</li>
+    </ul>
+    <p><b>几个具体的心智模型：</b></p>
+    <ul>
+      <li>静态分析报"未检查的低级调用"，先看这个 call 的返回值失败时代码会不会走进一个危险分支；很多项目里 call 失败就直接 revert，这是误报。</li>
+      <li>静态分析报"未初始化状态变量"，先确认它是合约部署时由构造函数设值的——那只是误报。</li>
+      <li>Echidna 报"不变量被推翻"，先看它给的失败调用序列里有没有 vm.assume 级别的非法输入；用 bound() 收窄输入空间再跑。</li>
+      <li>Forge 的覆盖率（forge coverage）能告诉你哪些行没被测到，但它完全不能告诉你被测到的行是对的。<b>覆盖率是体检指标，不是健康证明。</b></li>
+    </ul>
+    <p><b>一条硬纪律：</b>没有复现测试的漏洞，不要写进报告。无论是给自己看的笔记还是给赏金平台的提交，"我认为这里有漏洞"和"这是让合约进入坏状态的交易序列"是两种东西。前者会被秒关，后者才会被认真读。也正因如此——只在你自己部署的合约、公开测试网或获得明确书面授权的目标上跑这些测试；未授权测试在多数司法辖区可能违法并承担刑事责任。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://getfoundry.sh/" target="_blank">Foundry 官方站（2026-10-29 抓取）</a><a href="https://getfoundry.sh/introduction/installation" target="_blank">Foundry · Installation</a><a href="https://getfoundry.sh/forge/tests" target="_blank">Foundry · Tests</a><a href="https://getfoundry.sh/forge/fork-testing" target="_blank">Foundry · Fork Testing</a><a href="https://getfoundry.sh/anvil/overview" target="_blank">Foundry · Anvil Overview</a><a href="https://github.com/crytic/slither" target="_blank">Slither 仓库与 README（Trail of Bits）</a><a href="https://github.com/crytic/echidna" target="_blank">Echidna 仓库与 README（Trail of Bits）</a><a href="https://www.alchemy.com/faucets/ethereum-sepolia" target="_blank">Alchemy · Ethereum Sepolia Faucet</a></div>
+</section>
+
+<section id="c07" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 07 · PART 2 · 漏洞挖掘实务</span><h2>重入与权限控制<span class="accent">：最经典的两类</span></h2></div>
+  <p class="sec-desc">这两类是合约安全的地基：重入讲"外部调用会把控制权交出去"，权限讲"谁能命令这个合约做事"。都写成"怎么识别 + 怎么修"，不写可直接利用的完整代码。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔁</span><h3>重入：机制、Checks-Effects-Interactions 与重入锁</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：写过提款函数</span></div></div>
+    <p><b>机制只有一句话：</b>合约之间的任何交互——哪怕只是一笔 ETH 转账——都会把控制权交给对方合约。Solidity 官方文档在安全注意事项里把这一点讲得很直白，并提醒被调合约还可能改动你所依赖的第三方状态。所以重入的风险不限于"转 ETH"，而是<b>对另一个合约的任何函数调用</b>。</p>
+    <p>官方文档给了两个递进的例子。第一个用 send 转账：因为 send 只转发 2300 gas，文档说"问题在这里不算太严重"，但紧接着补了一句关键的话——ETH 转账"总是可能包含代码执行"，所以接收方依然可能重入 withdraw。第二个用 call 转账并转发全部剩余 gas：攻击合约可以反复回调，"把合约里的 ETH 全部取走"。第三个例子是修复版：先把份额复制到局部变量、把 shares[msg.sender] 清零，最后才执行转账并对结果做 require。</p>
+    <p><b>修复模式一：Checks-Effects-Interactions（CEI）。</b>Solidity 文档称它是"一种常见的、可防止重入攻击的无脑写法"：先做所有参数与调用者的校验（Checks），再更新合约自己的状态（Effects），最后才与外部合约交互（Interactions）。文档特别强调它应当普遍适用而非选择性使用——因为你眼里的"已知合约"也可能调用你不知道的合约。SWC-107 的修复建议与此一致：确保所有内部状态更新都发生在任何外部调用之前。</p>
+    <p><b>修复模式二：重入锁。</b>SWC-107 直接建议"使用重入锁"，例如 OpenZeppelin 的 ReentrancyGuard——文档描述为"一个可以在特定函数期间防止重入的修饰符"。OpenZeppelin 5.x 还提供 ReentrancyGuardTransient，用 EIP-1153 瞬态存储实现同一目的，省掉普通存储槽的写入开销。要注意：<b>锁是单函数的</b>。如果 A 函数加锁而 B 函数没加，攻击者走 B 进去照样能回调 A——这就是跨函数重入。</p>
+    <p><b>识别信号（按优先级）：</b></p>
+    <ul>
+      <li>任何在状态更新<b>之前</b>发生的外部调用（transfer / send / call / safeTransfer / safeTransferFrom）。</li>
+      <li>提款或赎回函数里，"先转账、后清零"的写法；反过来"先清零、后转账"才是对的。</li>
+      <li>回调式接口（ERC777 的 tokensReceived、ERC1155 的 onERC1155Received、Uniswap V2/V3 的 flash-loan callback、跨链消息的接收函数）——这些天生就是外部调用点。</li>
+      <li>一个状态修改函数和一个 view 函数读同一批变量，而 view 函数被别的协议当成价格源。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>ChainSecurity 在 2022-10-11 公布的 Curve LP 预言机操纵事后分析里，把只读重入定义为"一个 view 函数被重入——多数情况下它没有加锁，因为它不修改合约状态"。当时 get_virtual_price 在移除流动性时被重入：池子先销毁 LP 代币压低总供应，ETH 转账再回调接收方，此刻余额还没减、供应已经降了，虚拟价格被短暂扭曲。报告点名受影响的项目包括 MakerDAO、Enzyme、Abracadbra、TribeDAO 与 Opyn。官方给出的缓解方向是：把 view 函数当作重入敏感、暴露锁状态、或者让 view 函数在锁定期直接 revert。</blockquote>
+    <p><b>两个容易忘的历史教训。</b>其一，ChainSecurity 在 2019-01-15 指出，君士坦丁堡硬分叉让某些 SSTORE 变便宜之后，"此前这些函数（transfer/send）曾被认为是防重入安全的，现在不再是了"——所以不要因为 gas 少就假定没有回调。其二，重入攻击的份额在 2022 年还占 DeFi 协议损失的约 19%，到 2025 年已不足 1%（Immunefi 2026-04-27）。份额低不等于可以放过：正因为它是地基，任何一个新协议漏了它，审计师第一行就会写下来。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔐</span><h3>权限类：未初始化代理、owner 过大、tx.origin</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：要上线合约的人</span></div></div>
+    <p><b>一、未初始化代理与实现合约。</b>OpenZeppelin 的 Proxy 文档把警告写在最前面："避免把合约留在未初始化状态"，并解释"一个未初始化的合约可能被攻击者接管"——这句话对代理和它的实现<b>都</b>成立。它给的三条操作是：在实现合约的构造函数里调用 _disableInitializers()，把实现合约永久锁死；尽早用 _data 参数把编码好的初始化调用传给代理完成初始化；如果 _data 为空，ERC1967Proxy 会以 ERC1967ProxyUninitialized 回滚，除非你覆盖 _unsafeAllowUninitialized()。相关的两个 SWC 条目是 SWC-118（构造函数名与合约名不一致时，它退化成普通可调用函数）和 SWC-124（攻击者能写任意存储位置时，授权检查会被轻易绕过，比如直接覆盖 owner）。</p>
+    <p><b>二、owner 权限过大。</b>这一类没有 SWC 编号，但危害往往高于编号表里的任何一条，因为它不需要"漏洞"，只需要"管理员作恶或被钓鱼"。识别信号：</p>
+    <ul>
+      <li>owner 是单个 EOA，不是多签；没有 Timelock；权限变更函数是单步的（直接改 owner，而不是先提名再接受）。</li>
+      <li>存在能任意改价格参数、任意 mint、任意暂停、任意改白名单、或能把资金提到任意地址的函数。</li>
+      <li>升级权限与业务权限在同一个地址上——升级权限一旦失守，全部规则可被改写。</li>
+      <li>构造函数里赋值、之后永不改变，而团队口头说"之后会移交"——没有链上证据的承诺不算承诺。</li>
+    </ul>
+    <p><b>三、tx.origin 误用。</b>SWC-115 的标题就是"通过 tx.origin 授权"。注册表给的解释是：tx.origin 标识的是<b>整笔交易的发起账户</b>；当一个已授权账户被诱骗调用恶意合约时，那个中间合约可以回调目标合约，而基于 tx.origin 的检查会通过。修复建议只有一句："tx.origin 不应用于授权，请改用 msg.sender。"Solidity 官方文档也给了同一个场景的例子：一个用 tx.origin 做判断的钱包被恶意 fallback 接收合约掏空。</p>
+    <table>
+      <tr><th>权限问题</th><th>识别信号</th><th>加固方向</th></tr>
+      <tr><td>实现合约未初始化</td><td>代理已上线，实现合约的 owner/initialized 仍是默认值；实现合约地址可被直接调用 initialize</td><td>构造函数里 _disableInitializers()；上线后逐项核对实现合约状态</td></tr>
+      <tr><td>构造函数名写错</td><td>函数名与合约名不一致且无 constructor 关键字（SWC-118）</td><td>升级到 0.4.22+，统一用 constructor 关键字</td></tr>
+      <tr><td>存储槽被覆写</td><td>代理与实现的变量声明顺序不一致；存在 delegatecall 到不可信地址（SWC-124）</td><td>ERC-1967 槽位；升级时核对存储布局；delegatecall 目标白名单</td></tr>
+      <tr><td>owner 单点</td><td>单 EOA、无 Timelock、单步移交、可任意改核心参数</td><td>多签 + Timelock；nominate/accept 两步移交；分级权限（pauser ≠ admin）</td></tr>
+      <tr><td>tx.origin 授权</td><td>require(tx.origin == owner)（SWC-115）</td><td>改用 msg.sender；确需防钓鱼时加"调用者必须是合约"之外的二次校验</td></tr>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>OpenZeppelin 在 Contracts 5.x 的安全说明里只给了一条很朴素的建议："你应该始终按原样使用安装的代码。"对权限类漏洞来说这句话格外重——大多数未初始化代理和 storage collision 事故，根源都是团队自己改了代理样板或跳过了初始化，而不是 OpenZeppelin 的代码有问题。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>两类的共同收尾：一份能照着做的加固顺序</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">上线前过一遍</span></div></div>
+    <ul>
+      <li><b>1 · 重入：</b>所有转出资产的函数，先确认状态已更新再外部调用（CEI）；需要跨函数保护时给所有相关函数加同一把锁；把被外部协议读取的 view 函数也纳入重入视角。</li>
+      <li><b>2 · 锁的范围：</b>加锁函数集合要覆盖所有会改动同一批状态的入口，包括回调函数与 ERC777/ERC1155 的接收钩子。</li>
+      <li><b>3 · 初始化：</b>实现合约构造函数调 _disableInitializers()；代理部署与初始化放在同一笔交易或同一部署脚本里，不要留下"已部署未初始化"的时间窗。</li>
+      <li><b>4 · 权限分级：</b>把"能升级"和"能暂停"和"能改参数"分成不同角色；每个角色都是多签；关键变更过 Timelock。</li>
+      <li><b>5 · 移交可验证：</b>权限移交函数用两步（nominate + accept）；移交完成后在链上读一次 owner，截图存档。</li>
+      <li><b>6 · 全部用测试固化：</b>上面每一条都写一个 Foundry 测试——包括"未授权调用必须 revert"和"重复调用必须失败"的负向测试。第 06 章的规矩在这里再重复一次：没有复现测试的加固，等于没加固。</li>
+    </ul>
+    <p><b>最后是边界。</b>本章所有内容只适用于你自己部署的合约、公开测试网、或获得明确书面授权的目标。未授权测试在多数司法辖区可能违法并承担刑事责任，且各地对白帽测试的认定差异很大——动手前请确认当地法律并咨询专业人士，同时保留书面授权记录。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档 · Security Considerations（重入、CEI、tx.origin 示例）</a><a href="https://swcregistry.io/docs/SWC-107" target="_blank">SWC-107 Reentrancy</a><a href="https://swcregistry.io/docs/SWC-115" target="_blank">SWC-115 Authorization through tx.origin</a><a href="https://swcregistry.io/docs/SWC-118" target="_blank">SWC-118 Incorrect Constructor Name</a><a href="https://swcregistry.io/docs/SWC-124" target="_blank">SWC-124 Write to Arbitrary Storage Location</a><a href="https://docs.openzeppelin.com/contracts/5.x/api/proxy" target="_blank">OpenZeppelin Contracts 5.x · Proxy（未初始化警告与 _disableInitializers）</a><a href="https://docs.openzeppelin.com/contracts/5.x/api/utils" target="_blank">OpenZeppelin Contracts 5.x · Utilities（ReentrancyGuard / ReentrancyGuardTransient / Nonces）</a><a href="https://docs.openzeppelin.com/contracts/5.x/" target="_blank">OpenZeppelin Contracts 5.x 文档首页（安全说明）</a><a href="https://chainsecurity.com/blog/curve-lp-oracle-manipulation-post-mortem/" target="_blank">ChainSecurity · Curve LP Oracle Manipulation: Post Mortem（2022-10-11）</a><a href="https://chainsecurity.com/blog/constantinople-enables-new-reentrancy-attack/" target="_blank">ChainSecurity · Constantinople enables new Reentrancy Attack（2019-01-15）</a><a href="https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/" target="_blank">Immunefi · 6 Years of DeFi Loss Data（2026-04-27）</a></div>
+</section>
+
+<section id="c08" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 08 · PART 2 · 漏洞挖掘实务</span><h2>预言机与价格操纵<span class="accent">：闪电贷攻击的根</span></h2></div>
+  <p class="sec-desc">合约自己看不到交易所的行情，它只能读链上某个数字。这个数字从哪来、能不能被一笔交易推歪，决定了你的存款会不会被人用"借来又还上"的交易搬空。本章讲清价格来源、闪电贷的放大效应、最常见的误用，以及能落地的替代方案。文中案例均为已公开披露事件，数据检索日期 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>一、链上价格只有三个来处，各有各的软肋</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：有 Solidity 基础</span></div></div>
+    <p>智能合约没有联网能力，它眼里的"ETH 现在多少钱"永远是某个合约里存着的一个数字。这个数字通常来自三类地方，安全性差别极大：</p>
+    <ul>
+      <li><b>现货价（spot price）</b>：直接读 AMM 池子的储备量比价，比如用 <b>getReserves()</b> 之后相除。优点是免费、即时；缺点是<b>它可以被同一笔交易里的 swap 推歪</b>——这是绝大多数"闪电贷搬空协议资金"案件的直接入口。</li>
+      <li><b>时间加权均价（TWAP）</b>：用一段时间内的累计价除以时长，单笔 swap 只能影响其中很小一段。Uniswap v3 的 <b>Oracle</b> 库把每次交互的 tick 累加进 observations 数组，源码注释明确写着 <b>write()</b> "Writable at most once per block"，查询时用 <b>observe()</b> 取一段时间的差值。TWAP 把操纵成本从"一笔交易"提高到"持续一段时间"，但<b>没有提高到不可能</b>。</li>
+      <li><b>外部预言机（以 Chainlink Price Feeds 为代表）</b>：由去中心化节点网络从多个专业数据聚合商取价、取中位数、签名后上链。Chainlink 官方博客描述其阈值为：报告只有在 "at least two-thirds of the nodes within a DON must contribute their observations and signatures" 时才会被接受，链上值事后也难以改动。</li>
+    </ul>
+    <table>
+      <tr><th>价格来源</th><th>操纵者要付出什么</th><th>典型风险</th></tr>
+      <tr><td><b>单一 AMM 现货价</b></td><td>一笔交易内的 swap 资金量</td><td>可被闪电贷在单笔交易内推歪</td></tr>
+      <tr><td><b>TWAP（单池、短窗口、浅流动性）</b></td><td>跨多个区块持续施压的资金</td><td>价格可被跨区块"按住"不让它回归</td></tr>
+      <tr><td><b>多源聚合预言机</b></td><td>腐蚀多数节点 + 多个独立数据源</td><td>更新延迟、staleness、退化为单源</td></tr>
+    </table>
+    <p><b>普通持有者能做的检查：</b>打开你存款的协议，看它的文档或源码里抵押物价格是哪个合约提供的。如果 README 里写的是某个 DEX 池地址、或代码里直接调用了 <b>getReserves()</b> / <b>getAmountsOut()</b> 来定价，这就是一个需要警惕的信号；如果写的是某个喂价合约地址并且文档说明了心跳与容差，风险结构会好得多。这不构成投资建议，只是一个廉价的初筛动作。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>Chainlink 在官方教育页把话说得很直接："Flash loans aren't inherently the problem, since all they do is provide a source of capital"，"flash loans do not create vulnerabilities, but reveal vulnerabilities that may already exist in a protocol"——闪电贷不制造漏洞，它只是让已经存在的漏洞变得有利可图。<a href="https://chain.link/education-hub/flash-loans" target="_blank">chain.link/education-hub/flash-loans</a></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚡</span><h3>二、闪电贷为什么能把小 bug 变成大损失</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：想读懂攻击链</span></div></div>
+    <p>闪电贷本身只是一种"无抵押、同笔交易内必须还本付息"的借款。Chainlink 的定义是：用户 "borrow assets from an on-chain liquidity pool with no upfront collateral"，且 "the borrowed amount of liquidity, plus a small fee, is returned to the pool within the same transaction"，"defaulting on a flash loan is not possible, since the entire transaction would simply revert"。它的可怕之处在于门槛："a flash loan can turn anyone into a very well-capitalized actor"——攻击者不需要自有资金就能获得撬动池子的资本。</p>
+    <p>攻击的形状因此变得固定：<b>借 → 把价格推向有利方向 → 让协议按这个错误价格放贷/计价 → 还款 → 带走差额</b>。下面是三个已公开披露的真实案件，可以看出"价格来源选错"这一条主线：</p>
+    <ul>
+      <li><b>Warp Finance（2020-12-17，约 780 万美元）</b>：攻击者从 Uniswap 与 dYdX 借出约 1.8 亿美元 + 5100 万美元，把闪电贷来的仓位存进 Uniswap WETH-DAI 池、铸出 LP 代币并抵押给 Warp，再用大额 swap 推高 DAI 价格，使 LP 抵押物估值虚高，最终借出远超抵押物应支持的资产。Rekt 的结论一句到位："The root cause of this incident was the use of AMM-based oracle (Uniswap)."</li>
+      <li><b>Harvest Finance（2020-10-26，约 3380 万美元）</b>：攻击者反复在 Curve Y 池与金库之间循环，Rekt 描述其 "used the Curve Finance Y pool to swap funds and stretch stable coin prices out of proportion"，并指出 "The price calculation mechanism for LP deposits and withdrawals was the source of the exploit"，且 arbitrage 检查的容差与默认 3% 滑点都太宽松。</li>
+      <li><b>Inverse Finance（2022-04-02，约 1560 万美元）</b>：这一案说明<b>不是只有闪电贷才能操纵</b>。协议用 SushiSwap 上 INV-WETH 浅池的 TWAP 作为价格源，攻击者投入约 500 ETH 换取 1.7k INV，把池子价格推到约 50 倍，然后<b>跨多个区块发交易"按住"这个虚高报价</b>，再用名义价值约 64.4 万美元的 INV 借走 1560 万美元。Chainlinkgod 的警告值得抄下来："a single thinly traded DEX trading pair with a short time sample" 会 "compounds market manipulation risks"。</li>
+    </ul>
+    <p>也要知道边界：Euler Finance 2023 年 3 月约 1.97 亿美元的失窃常被一并归为"闪电贷攻击"，但根因是 <b>donateToReserves</b> 缺乏对捐赠者仓位健康度的检查，闪电贷只是资金来源。Rekt 引述 Omniscia 的复盘结论："The attack ultimately arose from an incorrect donation mechanism and did not account for the donator's debt health." 把每件事都叫"预言机问题"会让你漏掉真正的根因。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>三、常见误用自查表：审计时逐条对</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：正在审/写合约</span></div></div>
+    <ul>
+      <li><b>把现货价当锚。</b>任何在可被 swap 推动的路径上读取价格的逻辑（抵押估值、平仓判定、奖励计算、份额定价）都不能用 spot price。这是清单上第一条，也是最容易中的一条。</li>
+      <li><b>单点来源。</b>只接一个 DEX 池、只信一个 API、只用一家数据商。Chainlink 的数据质量文章给了很直观的坏例子：把一份 100 美元的可靠数据、一份 70 美元的有缺陷预言机数据、一份 0 美元的离线源混在一起取中位数，得到的是 70 美元——"Data mixing of any kind can threaten the quality of the value delivered."</li>
+      <li><b>不查新鲜度。</b>只读 <b>latestRoundData()</b> 的 answer，不看 <b>updatedAt</b>。Chainlink 官方文档在"Using Data Feeds"里给出的示例代码全部标注 "DO NOT USE THIS CODE IN PRODUCTION"，并要求开发者自行做 staleness / sanity 检查。</li>
+      <li><b>不看资产流动性。</b>官方"Selecting Data Feeds"页要求 "make sure that the asset has a sufficiently healthy level of liquidity in the market to avoid price and market manipulation"，并把 "flash-loan attacks" 与 "a well-capitalized actor temporarily manipulating the price" 明确列为 DEX 侧威胁。</li>
+      <li><b>忽略 L2 排序器。</b>L2 排序器宕机时，普通用户失去标准读写接口，而懂行的人仍可直连 rollup 合约，Chainlink 文档警告这种不平等 "can lead to disruptions or distortions in applications, such as liquidations"。</li>
+      <li><b>把责任外包。</b>Chainlink 的"Developer Responsibilities"页写得很重：开发者 "solely responsible for monitoring and mitigating any potential market integrity risks"，并且需要自己实施 "data quality checks, circuit breakers, and appropriate contingency logic"。接了一个预言机不等于安全。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>四、安全用法与替代方案（按优先级排）</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>首选多源聚合预言机做抵押与清算判定。</b>Chainlink 描述其分层防护：专业数据商做成交量加权并 "filter out market anomalies like flash crashes, wash trading, and other outliers"，每个节点再从多个聚合商取中位数，最后经签名验证上链。</li>
+      <li><b>非用 AMM 不可时，用 TWAP + 硬门槛。</b>拉长观测窗口；把池子流动性深度、TVL、观测数组容量（cardinality）写进准入条件——Uniswap v3 源码提醒 "Every pool is initialized with an oracle array length of 1"，容量不足时 TWAP 会退化成近似现货价；同时跨多个池取价并设最大偏离。</li>
+      <li><b>加熔断与边界。</b>官方建议监控 "stale prices, drastic price changes, or prices approaching a predetermined min/max threshold" 并可在异常时暂停功能；稳定币可考虑显式估值上限（Bounded Market Price Feeds 会把稳定币报价封顶在例如 1.05 美元）。</li>
+      <li><b>L2 项目接排序器在线状态源 + 宽限期。</b>Chainlink 的做法是：检测到停机时暂停敏感操作，恢复后 "wait for the GRACE_PERIOD_TIME to pass" 再接受喂价，以避免恢复瞬间的集中误清算。</li>
+      <li><b>把价格读取路径本身当成攻击面写测试。</b>用 Foundry 写"一笔交易内把池子推歪后调用你的协议"的测试；这类用例是唯一能证明你的计价逻辑不依赖可操纵状态的证据。</li>
+    </ul>
+    <p>一句总结：<b>闪电贷不创造漏洞，它只给漏洞装上资金杠杆</b>。防御的重点从来不是"防闪电贷"，而是"别让任何一笔交易能单独决定协议认定的价格"。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://chain.link/education-hub/flash-loans" target="_blank">Chainlink Education Hub：Flash Loans（检索于 2026-10-29）</a>
+    <a href="https://chain.link/blog/the-importance-of-data-quality-for-defi" target="_blank">Chainlink Blog：The Importance of Data Quality for DeFi</a>
+    <a href="https://chain.link/blog/chainlink-price-feeds-secure-defi" target="_blank">Chainlink Blog：How Chainlink Price Feeds Secure the DeFi Ecosystem</a>
+    <a href="https://docs.chain.link/data-feeds/using-data-feeds.md" target="_blank">Chainlink Docs：Using Data Feeds（含 "DO NOT USE THIS CODE IN PRODUCTION" 声明）</a>
+    <a href="https://docs.chain.link/data-feeds/developer-responsibilities.md" target="_blank">Chainlink Docs：Developer Responsibilities</a>
+    <a href="https://docs.chain.link/data-feeds/selecting-data-feeds.md" target="_blank">Chainlink Docs：Selecting Data Feeds</a>
+    <a href="https://docs.chain.link/data-feeds/l2-sequencer-feeds.md" target="_blank">Chainlink Docs：L2 Sequencer Feeds</a>
+    <a href="https://github.com/Uniswap/v3-core/blob/main/contracts/libraries/Oracle.sol" target="_blank">Uniswap v3-core：contracts/libraries/Oracle.sol（源码注释）</a>
+    <a href="https://rekt.news/warp-finance-rekt" target="_blank">Rekt：Warp Finance（2020-12）</a>
+    <a href="https://rekt.news/harvest-finance-rekt" target="_blank">Rekt：Harvest Finance（2020-10）</a>
+    <a href="https://rekt.news/inverse-finance-rekt" target="_blank">Rekt：Inverse Finance（2022-04）</a>
+    <a href="https://rekt.news/euler-rekt" target="_blank">Rekt：Euler Finance（2023-03）</a>
+  </div>
+</section>
+
+<section id="c09" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 09 · PART 2 · 漏洞挖掘实务</span><h2>签名钓鱼与授权陷阱<span class="accent">：Permit 与 approvals</span></h2></div>
+  <p class="sec-desc">这一类失窃不需要偷到你的私钥。攻击者只要骗你在一个钓鱼页面上"签个名"或"授权一下"，就能在之后的日子里慢慢搬走你的代币。本章把 approve / permit / Permit2 的机制讲清楚，给你一份用户侧检查清单和一份项目侧设计清单。所有数据检索日期 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔑</span><h3>一、授权为什么是一把"不换锁的钥匙"</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>ERC-20 的设计里，代币不是你"转给"某个合约，而是你先把花币的权限授予它，再由它来调用 <b>transferFrom</b> 把你口袋里的币转走。这个权限叫 <b>allowance</b>（授权额度），一旦给出，就一直有效，直到你主动改回 0。</p>
+    <ul>
+      <li><b>无限授权的经济理性。</b>Revoke.cash 的解释很直白：因为每次授权都要付一次 gas，"many applications have opted to ask for unlimited approvals, which means that you only need to pay the approval's gas fee once. This can be a security risk, since the application keeps this unlimited access indefinitely."</li>
+      <li><b>硬件钱包救不了你。</b>Revoke.cash 的 FAQ 直接回答："Can hardware wallets save me from approval exploits? <b>No.</b> ... with approvals no one needs to steal your keys to take your tokens." 冷钱包保护的是签名密钥，而钓鱼钓的是你的那次点击。</li>
+      <li><b>真实的代价。</b>ScamSniffer 记录过一个案例：一名受害者因一个钓鱼授权先损失 1576 ETH（约 400 万美元），随后其 Aave 抵押物被清算、余额回升，而<b>恶意授权没有撤销</b>，攻击者后续又转走 95 ETH，并引发再次清算，又被盗 158 ETH。文章的结论是："And all of this could have been prevented by timely revocation of approval after being stolen."</li>
+    </ul>
+    <div class="chart">
+      <p class="cap">2025 年单笔损失 ≥100 万美元的钓鱼案：按签名类型分布（括号内为案件数）</p>
+      <div class="hbar-row"><span>Permit / Permit2（3）</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">$8.72M</span></div>
+      <div class="hbar-row"><span>Approve / increaseApproval（3）</span><div class="hbar-track"><div class="hbar-fill" style="width:64%"></div></div><span class="hbar-val">$5.62M</span></div>
+      <div class="hbar-row"><span>Transfer（2）</span><div class="hbar-track"><div class="hbar-fill" style="width:56%"></div></div><span class="hbar-val">$4.87M</span></div>
+      <div class="hbar-row"><span>EIP-7702 batch（2）</span><div class="hbar-track"><div class="hbar-fill" style="width:29%"></div></div><span class="hbar-val">$2.54M</span></div>
+      <div class="hbar-row"><span>setApprovalForAll（1）</span><div class="hbar-track"><div class="hbar-fill" style="width:14%"></div></div><span class="hbar-val">$1.23M</span></div>
+      <div class="cap">合计 11 起、$22.98M（占全年 $83.85M 的 27%）。Permit/Permit2 占大额案件损失的 38%。来源：Scam Sniffer 2025 年报（EVM 链、仅统计可通过链上追踪的 drainer 活动，属下限估计）。</div>
+    </div>
+    <p>把镜头拉远：ScamSniffer 的统计显示，2025 年 EVM 链钱包 drainer 钓鱼总损失 <b>$83.85M、106,106 名受害者</b>，比 2024 年的 $494M / 332,000 人下降约 83%。但报告同时提醒，损失高度随市场波动，Q3（ETH 最强行情）单季就占 $31.04M；而且"Lower losses ≠ gone threats"——下降可能部分反映了攻击向量转向更难追踪的私钥窃取与定向社工。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✍️</span><h3>二、Permit 与 Permit2：免 gas 的授权，也是免 gas 的陷阱</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：有合约基础</span></div></div>
+    <p><b>EIP-2612 / permit</b> 解决的是"授权要付两次 gas"的体验问题。它让用户用一条 EIP-712 结构化签名（链下、免费）把授权写好，再由应用把签名塞进 <b>permit()</b> 调用里"激活"。规范写明的语义是：<b>permit()</b> 会令 allowance[owner][spender] 等于 value，并把 nonces[owner] 加一；签名必须是 owner 对 <b>Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)</b> 的 secp256k1 签名。Deadline、nonce、以及包含 chainId 与 verifyingContract 的 DOMAIN_SEPARATOR 共同防止重放。</p>
+    <p><b>Permit2</b>（Uniswap 出品）则更进一步：用户先对 Permit2 合约做一次普通 approve，之后 Permit2 就能向其他合约分发"子授权"，既支持链上 <b>approve()</b> 也支持签名式 <b>permit()</b>。官方 README 强调的两个特性正好是安全上的关键：<b>"Expiring Approvals"</b>——"Approvals can be time-bound, removing security concerns around hanging approvals on a wallet's entire token balance"；以及 <b>"Batch Revoke Allowances"</b>。</p>
+    <p>但 Permit2 也把风险换了个形状。Revoke.cash 的判断值得原文照抄："The Permit2 system is very flexible and allows for granting approvals for multiple tokens at once. Because of this flexibility, it is harder for users to understand what they are approving. <b>This can be abused by phishing websites to trick users into granting approvals that they don't understand.</b>" 换言之： Permit 的签名弹窗对你来说是一串看不懂的十六进制，对攻击者来说是一张授权书。</p>
+    <blockquote class="xq">💬 <span class="who">规范自己列出的坑：</span>ERC-2612 的 Security Considerations 一节明确指出：permit 签名可以被第三方抢先提交（"another party can always front run this transaction and call permit before the intended party"，结果对签名者相同）；<b>ecrecover 对畸形消息会静默失败并返回零地址</b>，所以必须校验 owner != address(0)；已签的 permit "are censorable"；EIP-20 的 approve 竞态（SWC-114）对 permit 同样适用；若 DOMAIN_SEPARATOR 在部署时固定且含 chainId，链分叉后存在跨链重放风险。<a href="https://github.com/ethereum/ercs/blob/master/ERCS/erc-2612.md" target="_blank">ethereum/ercs · erc-2612.md</a></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>三、用户侧：看到签名弹窗时的检查清单</h3><div class="badges"><span class="badge r4">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>先问"我为什么要点签"。</b>任何来自评论区链接、私信、"空投待领取"、搜索广告的 dApp，都假设它是钓鱼页。域名要看完整，一个字符之差就是另一个站。</li>
+      <li><b>盲签等于把卡和密码一起交出去。</b>如果钱包把请求显示成一串 hex、或只显示 "Sign message" 而不给可读字段，停下来。可读的字段至少应包含：授权给谁（spender）、额度（value）、有效期（deadline）。</li>
+      <li><b>不要相信交易模拟。</b>ScamSniffer 披露过一类"交易模拟欺骗"：受害者看到的是"领取 0.000…0001 ETH"，实际上钓鱼站点在签名前后篡改了合约状态，用户约 30 秒后签名，整个钱包被搬空，共损失 <b>143.45 ETH（约 $460,895）</b>。报告的定位是：攻击者"exploiting trusted wallet features that users rely on for security"。</li>
+      <li><b>警惕地址投毒。</b>两种手法：假代币（同名合约伪造转账记录）与零值转账（用真实代币合约的 transferFrom 从你地址转 0 到相似地址）。后果是你在历史记录里"复制粘贴"到骗子的地址。对策：不要从历史记录复制地址，只从通讯录或已验证来源复制。</li>
+      <li><b>EIP-7702 是新变量。</b>该标准 "allows Externally Owned Accounts (EOAs) to set the code in their account"，通过授权列表给 EOA 写入委托指示（0xef0100 || address），一次性带来批量、代付、子密钥等能力。ScamSniffer 观察到 Pectra 升级后很快出现"EIP-7702 malicious signatures"，2025 年 8 月有两起大额案件（合计 $2.54M）把多个恶意操作打进一次签名。<b>凡是让你"升级钱包/启用智能账户"的请求，默认它是高危操作。</b></li>
+      <li><b>被钓之后立刻撤销，并定期清理。</b>Revoke.cash 提供跨 80+ 网络的授权仪表盘、漏洞关联检查与批量撤销；其首页同时提醒它"cannot be used to recover any stolen funds"，只能防止后续再被盗。另外，如果你一转入 ETH 就被转走，那是助记词泄露（sweeper bot），撤销授权救不了你，必须换钱包。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏗️</span><h3>四、项目侧：授权与提示怎么设计</h3><div class="badges"><span class="badge r1">难度 ★★</span><span class="badge">适合：DApp 开发者</span></div></div>
+    <ul>
+      <li><b>默认要最少额度，而不是无限额度。</b>Permit / Permit2 的存在意义就是让"按需授权、带过期时间"在体验上可行。把无限额度当默认值，等于把用户未来的全部余额挂在一个钩子上。</li>
+      <li><b>给授权加 deadline，并把撤销入口放在显眼处。</b>Permit2 的 expiring approvals 与 batch revoke 应当成为产品文案，而不是藏在文档里。</li>
+      <li><b>签名弹窗要给人看的内容。</b>前端应在签名前把 spender、额度、截止时间、以及这次签名会让你付出什么，用明文展示；不要在用户签完之后才解释。</li>
+      <li><b>把 Permit2 授权当"二次确认"场景处理。</b>由于一次 Permit2 签名可能覆盖多个代币与多个 spender， UI 必须逐条列出，而不是给一个"授权 5 个代币"的汇总行。</li>
+      <li><b>接第三方风险情报。</b>ScamSniffer 给钱包方的建议里包括集成钓鱼合约黑名单、对交互合约做实时安全校验、并对模拟结果标注时间戳与区块高度、对过期模拟给显著警告。项目方自建前端时同样适用。</li>
+      <li><b>权限最小化 + 监控。</b>特权合约（多签、管理员）与前端部署管线要和日常开发机隔离；前端被注入恶意交易请求是已被反复验证的攻击路径。</li>
+    </ul>
+    <p><b>法律与授权提醒：</b>上述"如何识别"只用于自我保护与合法的授权测试。对任何你不拥有的系统进行测试前，必须取得权利人的<b>明确书面授权</b>；未授权测试在多个司法辖区（包括中国内地）可能违法并承担刑事责任，各地对白帽测试的认定差异很大，请以当地法律专业人士意见为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank">Scam Sniffer 2025：Crypto Phishing Losses Fall 83% to $84 Million（2026-01-03）</a>
+    <a href="https://github.com/ethereum/ercs/blob/master/ERCS/erc-2612.md" target="_blank">ERC-2612：Permit Extension for EIP-20 Signed Approvals（含 Security Considerations）</a>
+    <a href="https://github.com/Uniswap/permit2" target="_blank">Uniswap：permit2 仓库 README（Expiring Approvals / Batch Revoke）</a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7702.md" target="_blank">EIP-7702：Set Code for EOAs</a>
+    <a href="https://revoke.cash/learn/approvals/what-are-eip2612-permit-signatures" target="_blank">Revoke.cash Learn：What Are EIP2612 Permit Signatures?</a>
+    <a href="https://revoke.cash/learn/approvals/what-is-permit2" target="_blank">Revoke.cash Learn：What Is Permit2?</a>
+    <a href="https://revoke.cash/learn/security/what-is-address-poisoning" target="_blank">Revoke.cash Learn：Common Scam — Address Poisoning</a>
+    <a href="https://revoke.cash/" target="_blank">Revoke.cash 首页（硬件钱包与授权 FAQ、覆盖网络数）</a>
+    <a href="https://drops.scamsniffer.io/transaction-simulation-spoofing-a-new-threat-in-web3/" target="_blank">ScamSniffer：Transaction Simulation Spoofing — A New Threat in Web3（2025-01-10）</a>
+    <a href="https://drops.scamsniffer.io/why-revoking-approvals-is-crucial-after-falling-victim-to-phishing/" target="_blank">ScamSniffer：Why Revoking Approvals Is Crucial After Falling Victim To Phishing?（2024-01-22）</a>
+  </div>
+</section>
+
+<section id="c10" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 10 · PART 2 · 漏洞挖掘实务</span><h2>审计报告怎么读、怎么写<span class="accent">：从阅读到产出</span></h2></div>
+  <p class="sec-desc">一份审计报告既不是安全认证，也不是"没问题"的保证书。它是一份<b>在特定范围、特定版本、特定假设下</b>的检查记录。读懂它，你能判断该协议还剩多少风险；写好它，你能让修复方和评审在十分钟内理解你的发现。本章以 Code4rena、Immunefi 的公开规则和一份公开报告原文为例。检索日期 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📑</span><h3>一、一份审计报告长什么样</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>以 Code4rena 公开的 Superposition 竞赛报告（竞赛编号 428，报告日期 2024-10-18）为标本，它的骨架非常稳定，几乎所有同类报告都是这个形状：</p>
+    <ul>
+      <li><b>Overview（概述）</b>：谁审的、审了多久、代码是什么语言、多少合约多少行。该报告写明审计时间为 2024-08-23 至 09-13，范围是 "26 smart contracts ... and includes 5248 lines of Solidity code"。</li>
+      <li><b>Wardens（参与人）</b>：51 位 Wardens 提交了报告，由一位 judge 终审，另一位汇编最终报告。<b>这一栏告诉你报告的" crowd-sourced"属性——结论是多数人判断的汇总，不是某个权威的一言堂。</b></li>
+      <li><b>Summary（摘要）</b>：最该先读的部分。该报告汇总为 "an aggregated total of 19 unique vulnerabilities. Of these vulnerabilities, 7 received a risk rating in the category of HIGH severity and 12 received a risk rating in the category of MEDIUM severity"，另有 16 份低危/非关键报告。</li>
+      <li><b>Scope（范围）</b>：审了哪些合约、对应哪个 commit。这一栏决定了后面所有结论的适用边界。</li>
+      <li><b>Severity Criteria（严重度标准）</b>：说明评级依据，通常外链到平台文档。</li>
+      <li><b>Findings（发现项）</b>：按 High / Medium / Low 分组，每条通常包含标题、提交人、问题描述、PoC、建议修复、项目方回应、评审意见。</li>
+      <li><b>Disclosures（披露与免责）</b>：Code4rena 的版本写得很清楚——"C4 does not provide any guarantee or warranty regarding the security of this project. All smart contract software should be used at the sole risk and responsibility of users."</li>
+    </ul>
+    <p>一份典型 High 级发现的内部结构（仍以该报告为例）：标题 <b>[H-01] 函数名 + 一句话问题</b>；一行 <b>Submitted by ... also found by ...</b>（标注重复提交者）；然后是问题描述与代码位置链接；<b>Proof of Concept</b>；<b>Recommended Mitigation Steps</b>；再是项目方确认与 judge 的评论。<b>这个结构就是你写报告时该照抄的模板。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>二、严重度分级：至少要知道两套标尺</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>不同平台用的尺子不一样，跨平台比"几个 High"是没有意义的。</p>
+    <table>
+      <tr><th>平台</th><th>标尺</th><th>关键定义（原文）</th></tr>
+      <tr><td><b>Immunefi</b></td><td>Critical / High / Medium / Low / None</td><td>Critical 含 "Direct theft of any user funds"、"Permanent freezing of funds"、"Protocol insolvency"；High 含 "Theft of unclaimed yield"、"Temporary freezing of funds"；Medium 含 "Smart contract unable to operate due to lack of token funds"、"Theft of gas"；Low 为 "Contract fails to deliver promised returns, but doesn't lose value"</td></tr>
+      <tr><td><b>Code4rena</b></td><td>High(3) / Medium(2) / QA</td><td>High = "Assets can be stolen/lost/compromised directly"；Medium = "Assets not at direct risk, but the function of the protocol or its availability could be impacted"；QA 含 Low 与 Governance/Centralization risk</td></tr>
+    </table>
+    <p>Immunefi 还明确了一条常被忽略的降级规则："if the exploit requires elevated privileges or uncommon user interaction, the level of the bug may be downgraded to reflect that or rejected." 也就是说，<b>触发条件的现实性会直接改变评级</b>——需要管理员作恶或用户极端粗心才能触发的漏洞，通常够不上高危。</p>
+    <blockquote class="xq">💬 <span class="who">Zellic 的提醒：</span>不同公司的标尺不可直接比较——"Be wary of the differences in severity rating scales and criteria between firms"，因为"some platforms do not use a Critical category, so claiming another audit found no Criticals can be misleading because they weren't on the scale to begin with. A Medium at one firm may be a High at another." 它给出的对比问题很实用："Did the two audits have the same scope and same commit hash?"、"What are your criteria for assigning High severity?"、"Do either of the reports have multiple issues grouped into a single finding?"<a href="https://www.zellic.io/blog/audit-competition-faq" target="_blank">zellic.io/blog/audit-competition-faq</a></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>三、读报告时，重点看这四样东西</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>1. 未修复项与"我们决定不改"。</b>Superposition 报告尾部逐条列出了项目方对低危项的处理，其中有 "We won't fix this"、"We'll allow this, in some circumstances (hack of a third party), we want to have the power to do this"、"We won't fix this, the single contract environment increases the risk profile of the math going wrong, so we don't want to support users collecting fees in an emergency context. Also, the admin being malicious is not a part of the threat model." <b>这些句子比"审出了几个 High"更重要——它们直接告诉你项目方接受了什么风险。要逐条读，并判断你是否接受同样的假设。</b></li>
+      <li><b>2. 假设条件与威胁模型。</b>"admin being malicious is not a part of the threat model" 这类句子就是在划边界：如果管理员私钥被盗，模型外的一切都不成立。读报告时把每一条假设抄下来，问自己"这个假设在我使用它的时候还成立吗"。</li>
+      <li><b>3. 范围与版本。</b>报告只覆盖 Scope 里列出的合约与某个 commit。上线后的任何改动、新增合约、升级后的代理实现，都不在原报告的覆盖范围内。看到"审计通过"四个字时，先回去核对 commit。</li>
+      <li><b>4. 审计不是保险。</b>Code4rena 的 Disclosures 段、以及几乎所有审计方的免责条款都写明不提供保证。已审计协议事后被攻破的事件在行业里并不罕见；审计降低概率，不消除风险。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✏️</span><h3>四、自己写一份最小报告：七个必备要素</h3><div class="badges"><span class="badge r1">难度 ★★</span><span class="badge">适合：准备提交漏洞</span></div></div>
+    <p>Code4rena 的提交指南给出的要求可以当成最小模板：提交需 "Describe the location the vulnerability was discovered and the potential impact of exploitation"，并 "Offer a detailed description of the steps needed to reproduce the vulnerability (coded Proof of Concept or screenshots are encouraged)"。展开成七条：</p>
+    <ul>
+      <li><b>① 标题</b>：编号 + 严重度 + 一句话问题，例如 <b>[H-01] update_emergency_council_...() updates nft_manager instead of emergency council</b>。让人不读正文就知道你在说什么。</li>
+      <li><b>② 位置</b>：仓库 + 文件 + 行号 + commit hash。Code4rena 的示例直接链到 <b>pkg/seawater/src/lib.rs#L1111-1124</b> 这样的具体行。</li>
+      <li><b>③ 根因</b>：为什么这里错了，而不是"这里有问题"。Zellic 与 Code4rena 都强调：找不到根因会被降级或判无效——"A lack of identification of the root cause is grounds for partial scoring, downgrading, or invalidating the issue."</li>
+      <li><b>④ 影响</b>：最坏能发生什么，能拿走多少、冻住多少。Code4rena 要求展示 "the maximum achievable impact of the root cause"，只展示最小影响会被降级。</li>
+      <li><b>⑤ PoC</b>：可运行的代码或逐步复现步骤。Code4rena 明确 "it is recommended to have a coded proof of concept for high severity findings"，并提醒 "Any PoC that reverts should demonstrate the precise revert error, rather than simply reverting and demonstrating the issue."</li>
+      <li><b>⑥ 修复建议</b>：具体到改哪一行、怎么改。Superposition 报告里的范例只有一句话——"Change update_emergency_council_...() to update emergency_council." 简洁即可，但要可执行。</li>
+      <li><b>⑦ 自评严重度 + 依据</b>：按目标平台的标尺自评，并说明依据（是否需特权、是否需用户交互、影响是否可逆）。<b>不要把低危报成高危</b>——Code4rena 明文警告 "Wardens overstating the severity of QA issues ... will have their scores reduced by judges."</li>
+    </ul>
+    <p>最后一条来自 Code4rena 的 "burden of proof" 原则，值得每个新手记住："Insufficient proof shall be defined as the judge needing to do additional research or coding in order to validate the claims made in the submission." <b>你的报告要让评审省事，而不是让评审替你干活。</b></p>
+    <p><b>法律与授权提醒：</b>只有在你获得了项目方或平台规则明确授权的范围内（例如该项目的赏金计划、竞赛 scope）测试与提交，才受保护。未授权测试在多个司法辖区可能违法并承担刑事责任；各地对白帽测试的认定差异很大，动手前请确认授权范围并以当地法律专业人士意见为准。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗺️</span><h3>五、三种报告形态，别混着看</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>传统审计方报告</b>：由一家或几家审计公司出具，通常是 PDF，按严重度分组，附摘要与修复建议。适合在决定大额存款前通读。</li>
+      <li><b>竞赛式报告（如 Code4rena）</b>：上面这种，公开在仓库里、逐条链到原始 issue，能看到项目方与 judge 的完整讨论。<b>它的独特价值是"过程可见"——你能看到某个发现是怎么被争议、降级、确认的。</b></li>
+      <li><b>赏金公示（如 Immunefi）</b>：只公示已支付的项目，附漏洞类型与金额，通常不含技术细节。适合用来了解"哪类漏洞真的能换到钱"。</li>
+    </ul>
+    <p><b>实操阅读顺序建议：</b>先读 Disclosures/免责段（弄清它不保证什么）→ 读 Summary（有多少项、什么级别）→ 读 Scope 与 commit（弄清覆盖到哪）→ 读全部 High 与 Medium 的标题与根因 → 读项目方对每项的回应（尤其"我们不修"）→ 最后才读 PoC 细节。走完这六步，你对这个协议剩余风险的判断，会比只搜"某某协议 审计 通过"准确得多。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://github.com/code-423n4/2024-08-superposition-findings/blob/main/report.md" target="_blank">Code4rena 公开报告：Superposition（contest 428，2024-10-18）原文</a>
+    <a href="https://docs.code4rena.com/competitions/severity-categorization" target="_blank">Code4rena Docs：Severity classifications（High/Medium/QA 定义）</a>
+    <a href="https://docs.code4rena.com/competitions/submission-guidelines" target="_blank">Code4rena Docs：Submission guidelines（提交要求与 PoC 建议）</a>
+    <a href="https://docs.code4rena.com/competitions/judging-criteria" target="_blank">Code4rena Docs：Judging criteria（根因/最大影响/举证责任）</a>
+    <a href="https://immunefi.com/immunefi-vulnerability-severity-classification-system-v2-2/" target="_blank">Immunefi：Vulnerability Severity Classification System v2.2</a>
+    <a href="https://www.zellic.io/blog/audit-competition-faq" target="_blank">Zellic：Choosing an Audit Competition — How to Spot Snake Oil</a>
+  </div>
+</section>
+
+<section id="c11" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 11 · PART 3 · 赏金与实战</span><h2>赏金平台全景<span class="accent">：Immunefi / Code4rena / Sherlock</span></h2></div>
+  <p class="sec-desc">同一个漏洞，在不同平台可能拿到完全不同的钱，也可能一分拿不到。这一章把三种主流模式的规则、分级、量级与结算方式摊开对比，并告诉你新手该从哪条路进场、平台之外的私单怎么判断靠不靠谱。所有规则均来自平台当期公开文档（检索日期 2026-10-29），具体金额以各项目当期公示为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>三种模式：持续赏金、审计竞赛、赛博 Sherlock</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>Web3 的「找漏洞换钱」主要有三种形态，规则完全不同：</p>
+    <ul>
+      <li><b>Immunefi = 持续赏金（Bug Bounty）。</b>项目上线后把合约地址、代码范围、奖励梯度挂在平台上，随时可提交，赏金池常驻。Immunefi 官网自称已有 650+ 个项目、85,000+ 名研究员，「93% 的加密领域严重漏洞披露走的是 Immunefi」，累计支付赏金 <b>$140M+</b>（其 /hackers 页面另写 +$110M，两处口径不一，均为平台自报数据）。除赏金外还提供审计竞赛、托管分诊（Managed Triage）、PR 评审、审计、Safe Harbor 等产品。</li>
+      <li><b>Code4rena = 审计竞赛（Audit Competition）。</b>项目方出资设奖池，开放 1–3 周，所有人同时看同一份代码、抢在同一截止期前提交。官方文档称社区有 <b>10,000+</b> 名审计员，平均每场 <b>100+</b> 名研究员参与；赛后 48 小时 QA，奖金分两批发放。Code4rena 也有独立于竞赛的常驻赏金（bounties），每条提交需押 <b>25 USDC</b>，判有效即退、判无效或垃圾不退，14 天无项目方回应则默认关闭。</li>
+      <li><b>Sherlock = 竞赛 + AI 裁决（Audit Engine）。</b>研究员在 Sherlock 叫 <b>Watson</b>。新版流程由 AI 裁判先筛「有效性、严重度、去重、已知问题、是否在范围内」，再由 Lead Judge 复核纠偏，项目方可在提交期或之后提出异议。还设了一个 <b>Invalid But Interesting</b> 标签：不算有效漏洞但确有参考价值的，可能拿 Neutral 判定。Sherlock 文档明确说，各场竞赛的严重度权重是<b>按场配置</b>的，参赛前必须去看该场公示的权重。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音（A2 Security 团队，Immunefi 白帽聚焦博客）：</span>「一场 solo 的 critical 最多能拿到奖池的 39.6 份，而一个 solo 的 medium 大概只有 3.3 份。」同一支队伍还说，Immunefi 的验证速度是「24 小时内出结果，能拿到实时反馈」。</blockquote>
+    <p class="cap">三平台模式对比（依据各平台当期公开文档整理，检索日期 2026-10-29）</p>
+    <table>
+      <tr><th>维度</th><th>Immunefi 赏金</th><th>Code4rena 竞赛</th><th>Sherlock</th></tr>
+      <tr><td><b>时间形态</b></td><td>常驻，随时提交</td><td>限时 1–3 周</td><td>限时（AI + 人工混合）</td></tr>
+      <tr><td><b>分级方式</b></td><td>五级 Critical→None</td><td>High / Medium / Low-QA</td><td>按场配置 + Invalid But Interesting</td></tr>
+      <tr><td><b>奖金来源</b></td><td>项目方出资，平台代发</td><td>项目方奖池，按算法分配</td><td>项目方 + 平台机制</td></tr>
+      <tr><td><b>结算</b></td><td>确认有效后付款，需 KYC</td><td>赛后分两批，法官从奖池抽成</td><td>按约定的 payout snapshot 日结算</td></tr>
+      <tr><td><b>最适合谁</b></td><td>能独立读大型代码库的人</td><td>想练手、攒记录的新手</td><td>能适应规则快速变化的人</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>分级规则与奖金量级：钱是按「影响」算的</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：准备提交第一份报告</span></div></div>
+    <p>三家用不同的语言描述同一件事：<b>你能不能证明资金会被偷、会被永久冻住、协议会不会变资不抵债</b>。以 Immunefi 漏洞严重度分级系统 v2.3 为例（智能合约部分）：</p>
+    <ul>
+      <li><b>Critical（5）</b>：直接盗取用户资金或 NFT（不含未领取收益）、永久冻结资金或 NFT、协议资不抵债、未授权铸造 NFT、操纵治理投票结果、可预测/可操纵的随机数被用于侵占本金。</li>
+      <li><b>High（4）</b>：盗取未领取收益/版税、<b>临时</b>冻结资金或 NFT。</li>
+      <li><b>Medium（3）</b>：合约因缺少代币资金而停摆、区块填充获利、griefing（无直接牟利但伤害用户或协议）、盗取 gas、无上限 gas 消耗。</li>
+      <li><b>Low（2）</b>：合约未兑现承诺收益但未损失价值。</li>
+    </ul>
+    <p>金额怎么写进规则里？看两个真实项目页就懂了。<b>Wormhole</b> 的奖励梯度是：Critical $100,000–$1,000,000，并按能抽取的资金规模分档——「可抽取所有链 TVL：最高 $1,000,000（W 代币）」「单链 TVL：最高 $500,000」「永久冻结一条或多条链的 TVL：最高 $250,000」；High $10,000–$100,000；Medium $2,000–$10,000；Low 最高 $1,000；包装代币桥的 critical 按「24 小时内可抽取价值的 10%」封顶。<b>Optimism</b> 更直白：Critical 最高 $2,000,042，且明确「按直接受影响资金的 10% 计算」，High $15,000–$50,000，Medium $1,000–$15,000；其网站/应用类另外一套梯度（Critical $5,000–$50,000）。</p>
+    <div class="chart">
+      <h4>典型 Critical 档位的量级直觉（取平台公示区间的中位示意）</h4>
+      <div class="hbar-row"><span>L2 / 头部协议</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">最高约 $1M–$10M</span></div>
+      <div class="hbar-row"><span>头部协议 High</span><div class="hbar-track"><div class="hbar-fill" style="width:35%"></div></div><span class="hbar-val">$10K–$100K</span></div>
+      <div class="hbar-row"><span>中型协议 Critical</span><div class="hbar-track"><div class="hbar-fill" style="width:28%"></div></div><span class="hbar-val">$100K–$500K</span></div>
+      <div class="hbar-row"><span>Medium（通用）</span><div class="hbar-track"><div class="hbar-fill" style="width:12%"></div></div><span class="hbar-val">$1K–$15K</span></div>
+      <div class="hbar-row"><span>Low（通用）</span><div class="hbar-track"><div class="hbar-fill" style="width:3%"></div></div><span class="hbar-val">≤ $1K</span></div>
+      <div class="cap">示意区间，来自 Wormhole / Optimism 赏金页公示；每个项目梯度独立，务必读当期页面。</div>
+    </div>
+    <p>Code4rena 的竞赛奖金不是按人头发，而是按<b>唯一性</b>发。其公示的算法是：High 的基础份额 <code>10 × (0.85 ^ (重复数-1)) / 重复数</code>，Medium 是 <code>3 × (0.85 ^ (重复数-1)) / 重复数</code>——重复提交的人越多，每个人分到的越少；被选进审计报告的提交额外拿 <b>30%</b> 加成；找出最多唯一 High/Medium 的人拿 <b>10%</b> 的 HM 奖池（Hunter 奖），提交的有效 High/Medium 占比最高的人再拿 <b>10%</b>（Gatherer 奖）。Code4rena 的严重度定义也更粗：<b>High = 资产可被直接盗取/损失/破坏</b>；<b>Medium = 资产无直接风险但功能或可用性受影响</b>；Low/QA 则包含「资产无风险」的状态错误、 dust 级 rounding、用户自己操作失误导致的问题。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚪</span><h3>新手怎么进场，以及平台之外的私单</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础起步</span></div></div>
+    <p><b>新手更适合 Code4rena 式的限时竞赛。</b>理由很实在：代码是开源的、时间是有限的、赛后报告会公开，你能直接看到别人怎么写 PoC、怎么被 judge 打分——这是最快的学习闭环。A2 Security 那篇白帽聚焦文章也把这个逻辑说透了：他们「 rushed to submit issues without fully understanding their impact」（没吃透影响就急着提交），结果严重度证明被削弱、来回扯皮，还差点把首报奖金让给一份更完整的重复报告。</p>
+    <p><b>想直接去打常驻赏金（Immunefi）的人，先接受一条硬规则：</b>官方规则写明「在 mainnet 或公共测试网测试，会被立即永久封禁」，PoC 必须在本地 fork 上跑；Sherlock 的规则同样写「在公共 mainnet 或 testnet 上复现测试是被禁止的」，DoS、制造大量流量的自动化测试、<b>未经书面同意的「抢救资金」</b>全部禁止。换句话说：<b>没有授权，你连「帮他把钱转出来」都不行。</b></p>
+    <p><b>平台之外的私单，最大的风险不是技术而是「没人兜底」。</b>两个平台的规则从反面印证了这点：Immunefi 明确「绕过 Immunefi 或直接与项目方协商被视为无效」；Sherlock 要求白帽不得在官方渠道之外联系项目方、付款必须走平台指定通道。私下接单时，你失去的是分诊、去重、裁决和托管这四层保护。可操作的判断清单：</p>
+    <ul>
+      <li><b>先要书面授权。</b>范围、合约地址、测试方式（本地 fork）、截止时间、保密义务写清楚。没有书面授权就不动手——未授权测试在多数司法辖区可能违法并承担刑事责任（具体认定因地域和时效而异，请咨询当地法律专业人士）。</li>
+      <li><b>拒绝「先挖后谈价」。</b>让对方先书面确认范围和单价区间，否则你等于免费送情报。</li>
+      <li><b>付款要有第三方或分期。</b>能走平台或托管就走；私下转账建议按里程碑结算，保留全部沟通记录。</li>
+      <li><b>查对方履历。</b>是否有可验证的既往赏金公示、是否有实名或机构背书。让对方「证明自己是谁」比让你「证明自己能干」更重要。</li>
+      <li><b>绝不接受「黑掉别人来证明能力」。</b>任何要求你攻击第三方系统、或要求先「演示盗币」的，一律拒绝并保留证据。</li>
+    </ul>
+    <p><b>最后一条税务常识：</b>赏金是合法收入，多数国家要求申报。本文不提供任何税务建议，只提醒你保留平台结算单与链上记录，按自己所属辖区的规定处理。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://immunefi.com/" target="_blank">Immunefi 官网首页（平台规模与自报数据，2026 检索）</a><a href="https://immunefi.com/rules/" target="_blank">Immunefi Whitehat Rules</a><a href="https://immunefi.com/immunefi-vulnerability-severity-classification-system-v2-3" target="_blank">Immunefi 严重度分级系统 v2.3</a><a href="https://immunefi.com/hackers/" target="_blank">Immunefi Hackers 页（流程与历史大额赔付）</a><a href="https://immunefi.com/bounty/wormhole/" target="_blank">Wormhole 赏金项目页（奖励梯度）</a><a href="https://immunefi.com/bounty/optimism/" target="_blank">Optimism 赏金项目页（10% 规则）</a><a href="https://docs.code4rena.com/competitions" target="_blank">Code4rena 竞赛机制文档</a><a href="https://docs.code4rena.com/awarding" target="_blank">Code4rena 奖励算法文档</a><a href="https://docs.code4rena.com/competitions/severity-categorization" target="_blank">Code4rena 严重度分类文档</a><a href="https://docs.code4rena.com/bounties" target="_blank">Code4rena Bounties 文档（25 USDC 押金）</a><a href="https://docs.sherlock.xyz/audit-engine/judging" target="_blank">Sherlock 裁决流程文档</a><a href="https://docs.sherlock.xyz/bug-bounties/post-launch-bounty/platform-rules" target="_blank">Sherlock 平台规则</a><a href="https://immunefi.com/blog/whitehat-spotlight/our-journey-with-immunefi-audit-competitions/" target="_blank">A2 Security：从审计竞赛到赏金（Immunefi 博客）</a></div>
+</section>
+
+<section id="c12" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 12 · PART 3 · 赏金与实战</span><h2>一份合格的赏金报告<span class="accent">：从发现到提交</span></h2></div>
+  <p class="sec-desc">同样的漏洞，有人拿到六位数赏金，有人被告知「insufficient proof」。差别通常不在技术水平，而在报告有没有把「影响」和「复现」讲清楚。这一章给出可直接复制的模板，并列出三个平台公示的降级与驳回理由。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>必备五要素与一份可复制的模板</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：第一次提交</span></div></div>
+    <p>把三个平台的要求合在一起，一份合格报告永远逃不掉这五件事：<b>标题与定位、影响、复现步骤、PoC、修复建议</b>。Code4rena 的提交指南要求「描述漏洞所在位置以及被利用后可能造成的影响」，并鼓励附上 coded PoC 或截图；Sherlock 的有效性准则要求「描述影响时要具体、足够充分」，并给出正反例——弱写法是「用户会丢失资金」，强写法是「用户会丢失资金，因为 withdraw 函数没有访问控制」。Immunefi 规则则要求报告用英文、是本人实质性工作、若项目方要求 PoC 就必须完整提供。</p>
+    <p>下面这份模板按「judge 十秒内能定位严重度」来设计，可直接复制改写：</p>
+    <table>
+      <tr><th>区块</th><th>写什么</th><th>反例（会被降级）</th></tr>
+      <tr><td><b>1. 标题</b></td><td>「[严重度][资产名] 漏洞类型 + 一句话后果」，如 <code>[Critical] Vault.withdraw 缺少访问控制导致任意用户可取走全部存款</code></td><td>「Bug in withdraw」</td></tr>
+      <tr><td><b>2. 严重度与依据</b></td><td>对照平台分级表逐条对应（例：Immunefi v2.3 → Direct theft of user funds）</td><td>只写「我觉得很严重」</td></tr>
+      <tr><td><b>3. 影响</b></td><td>谁会损失、损失什么、上限多少、是否可重复触发</td><td>「可能导致资金损失」</td></tr>
+      <tr><td><b>4. 复现步骤</b></td><td>环境（foundry 版本/commit hash）→ 步骤编号 → 预期 vs 实际</td><td>「运行测试即可看到」</td></tr>
+      <tr><td><b>5. PoC</b></td><td>可运行的测试文件 + 关键代码行 + 输出日志</td><td>粘贴整份合约源码</td></tr>
+      <tr><td><b>6. 修复建议</b></td><td>最小改动方案 + 为何能阻断该路径</td><td>「建议加强安全」</td></tr>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音（A2 Security，Immunefi 白帽聚焦博客）：</span>该团队复盘自己早期失分的原因是「没完全理解影响就急着提交」，后果是严重度证明被削弱、与分诊来回扯皮，甚至可能把首报奖金让给一份更完整的重复报告。他们的结论是：把 PoC 写扎实、把影响写清楚、优先做 critical/high，比多提交几条低危更有价值。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>什么样的报告会被降级或驳回</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：提交被拒后来查原因</span></div></div>
+    <p>三家的公示规则高度一致：<b>证据不足、影响夸大、已知/重复、超出范围</b>是四大死因。逐条对照：</p>
+    <ul>
+      <li><b>证据不足（最常见）。</b>Code4rena 的定义很精确：需要 judge「再做额外研究或写代码才能验证你的说法」即属 Insufficient；Solidity/EVM 的 High/Medium 若 PoC 跑不起来，直接按 Insufficient 处理。信号分 ≥ 0.4 的研究员可免强制 coded PoC，但仍然建议交。</li>
+      <li><b>PoC 无法运行。</b>Code4rena 要求 PoC 必须能在随附的测试套件里跑通；回退型 PoC 要「展示精确的 revert 错误」。</li>
+      <li><b>影响夸大。</b>Code4rena 明说「warden 把 QA 问题夸大为更高级别，会被 judge 扣分」。Sherlock 的有效性准则列了一长串<b>通常无效</b>的类别：gas 优化建议、零地址检查、仅防止用户误操作的校验、管理员调用顺序错误、无不可逆伤害的前置初始化抢跑、纯 UX 不便、用户自己直接转账造成的损害、空投丢失、view 函数返回值不准（除非喂给会丢币的函数）、stale price 建议（Pyth 这类拉取式预言机除外）、既有审计已承认的发现、链重组与活性问题、存储槽缺口缺失、无资金损失的设计决策。</li>
+      <li><b>重复与已知问题。</b>Code4rena 按<b>根因</b>判重——同一漏洞出现在多处合约，只算一个发现，先提交者赢；已被标记为「已承认但未修」的发现无效。Sherlock 规定「公开已知或此前审计报告过的 bug，永远不符合赔付条件」；项目方若要主张已知/重复，需举证该问题在白帽提交时间戳之前已公开。</li>
+      <li><b>范围外。</b>Immunefi 规则直说「范围外的 bug 不付钱」；Sherlock 规定范围内合约自动包含其父合约，库漏洞若被范围内合约实际使用且受影响也算有效，但局限在范围外合约里的 bug 无效。</li>
+      <li><b>垃圾与自动化报告。</b>Immunefi 禁止「占位、垃圾、极低质量或缺乏必要影响细节的 AI/自动扫描报告」；Code4rena 警告大量低质量提交可能触发账号暂停；Sherlock 对制造大量流量的自动化测试直接禁止。</li>
+      <li><b>工具产物的举证门槛更高。</b>Code4rena 明确：基于工具的发现，要证明 High/Medium 需要<b>更高的举证标准</b>。</li>
+    </ul>
+    <p>还有一条容易被忽略的：<b>一条报告只讲一个漏洞</b>。Sherlock 要求「each submission must cover a single vulnerability」，其他发现拆成独立报告；Code4rena 则相反，要求把所有 Low 和治理/中心化项合并成<b>唯一一份 QA report</b>（每个 warden 每场只限一份）。两家的格式要求正好相反，提交前务必读当场规则。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤐</span><h3>沟通节奏与保密要求</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：已提交、在等结果</span></div></div>
+    <p><b>保密是三家的共同红线，且都偏向项目方。</b>Immunefi 规则：在漏洞修复且白帽收到付款之前，不得公开披露报告甚至其存在；不得公开截图（展示奖金数额的截图除外）；必须遵守项目方的 Responsible Publication Policy；绕过平台私下与项目方谈判「被视为无效」。Code4rena：报告发布前不得公开披露，未经 staff 许可提前公开可能导致「立即丧失奖励并被取消未来参赛资格」；涉及线上合约的审计，提交截止后内容对所有 warden（含资深与非资深）隐藏，只对 judge、项目方和 C4 员工开放，默认不发 QA 阶段以便尽快发奖。Sherlock：解决前不得公开披露，等 Sherlock 确认何时可以披露；未经项目方同意不得以任何方式讨论已提交漏洞的任何方面。</p>
+    <p><b>可操作的节奏建议：</b></p>
+    <ul>
+      <li><b>提交后 24–72 小时内不要催。</b>Immunefi 自称验证在 24 小时内出结果；Code4rena 的常驻赏金是 14 天无项目方回应即默认关闭——这两个数字正好给你划出了「该等多久」的区间。</li>
+      <li><b>只走官方渠道。</b>不要私聊 judge、不要在 Discord @项目方、不要同时发邮件。Sherlock 明令禁止在官方渠道之外联系项目方；Code4rena 明令不得联系 judge 或请人代你在 PJQA 阶段发声。</li>
+      <li><b>线上资金的紧急情况走加急通道。</b>Code4rena 鼓励把影响线上代码的 High「尽快提交」，并对零日/高敏感 bug 设有专门流程；不要因为怕「没写完」而拖着——A2 Security 的教训正是反过来：吃透影响再交，但别为了完美而丢掉首报优势。</li>
+      <li><b>修改窗口很短。</b>Code4rena 竞赛提交后 2 小时内可编辑/撤回，之后只能重新提交并占用一次提交额度；其常驻赏金「提交后无法编辑」。</li>
+      <li><b>争议怎么走。</b>Code4rena 常驻赏金可以对有效性与风险等级正式申诉，由 C4 指派 judge 按 bounty 准则裁决，「申诉后的决定对有效性、严重度和报酬具有约束力和终局性」。</li>
+    </ul>
+    <p><b>法律边界再强调一次：</b>测试永远只在本地 fork 上进行。Immunefi 规则「在 mainnet 或公共测试网测试，会被立即永久封禁」；Sherlock 同样禁止在公共 mainnet/testnet 复现，并禁止未经书面同意「抢救资金」。未授权测试在不同司法辖区的认定差异极大，可能违法并承担刑事责任——动手前必须取得明确书面授权。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.code4rena.com/competitions/submission-guidelines" target="_blank">Code4rena 提交指南（PoC 与降级规则）</a><a href="https://docs.sherlock.xyz/bug-bounties/criteria-for-bug-bounty-reports-validity" target="_blank">Sherlock 报告有效性准则（无效类别清单）</a><a href="https://immunefi.com/rules/" target="_blank">Immunefi Whitehat Rules（提交与披露要求）</a><a href="https://immunefi.com/immunefi-vulnerability-severity-classification-system-v2-3" target="_blank">Immunefi 严重度分级系统 v2.3</a><a href="https://immunefi.com/learn/" target="_blank">Immunefi Learn 页（含报告清单与规则入口）</a><a href="https://immunefi.com/blog/whitehat-spotlight/our-journey-with-immunefi-audit-competitions/" target="_blank">A2 Security：从审计竞赛到赏金</a><a href="https://docs.code4rena.com/competitions/live-code-rules" target="_blank">Code4rena Live Code Rules（线上代码与保密）</a><a href="https://docs.sherlock.xyz/bug-bounties/post-launch-bounty/platform-rules" target="_blank">Sherlock 平台规则（披露与联系限制）</a><a href="https://docs.code4rena.com/bounties" target="_blank">Code4rena Bounties 文档（押金、14 天、申诉）</a></div>
+</section>
+
+<section id="c13" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 13 · PART 3 · 赏金与实战</span><h2>经典赏金案例复盘<span class="accent">：公开公示的真实案件</span></h2></div>
+  <p class="sec-desc">以下四个案件全部来自 Immunefi 官方「白帽名人堂」页面与白帽聚焦博客的公开公示，含研究员代号、项目名、公示日期与赔付金额。它们的共同点不是技术有多玄，而是「影响可量化」和「PoC 可复现」这两件事做到了极致。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏆</span><h3>四个公开公示的高额案件</h3><div class="badges"><span class="badge r5">难度 ★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <table>
+      <tr><th>研究员</th><th>项目</th><th>公示日期</th><th>赔付</th><th>名人堂标注</th></tr>
+      <tr><td><b>Satya0x</b></td><td>Wormhole</td><td>2022-05-26</td><td><b>$10,000,000</b></td><td>影响 9 / 防御难度 2；Immunefi 称为「史上最大单笔赏金」</td></tr>
+      <tr><td><b>pwning.eth</b></td><td>Aurora</td><td>2022-06-22</td><td><b>$6,000,000</b></td><td>首报；「挽回超过 1 亿美元」；影响 7 / 防御难度 4</td></tr>
+      <tr><td><b>pwning.eth</b></td><td>Moonbeam（另涉 Moonwell）</td><td>2022-09-19</td><td><b>$1,000,000 + $50,000</b></td><td>「PoC 写得很好」；稀有/复杂型利用；影响 7 / 防御难度 5</td></tr>
+      <tr><td><b>pwning.eth</b></td><td>Moonbeam / Astar / Acala</td><td>2023-02-08</td><td><b>$1,000,000</b></td><td>「挽回超过 1 亿美元」；影响 8 / 防御难度 6</td></tr>
+    </table>
+    <p><b>案件一：Satya0x / Wormhole，$10,000,000。</b>这是目前公开可查的史上最大单笔白帽赏金。名人堂卡片给的两个数字很说明问题：<b>影响 9（满分 10）</b>，而<b>防御难度只有 2</b>——意味着修复成本很低。背景补充：Immunefi 的六年损失盘点把 2022 年的桥类攻击列为重灾区，全年九起桥漏洞合计损失约 19 亿美元，其中 Wormhole/Portal 一起即约 3.26 亿美元。一个影响接近满分、修复却极便宜的漏洞，就是赏金价格的天花板。</p>
+    <p><b>案件二：pwning.eth / Aurora，$6,000,000。</b>名人堂标注为「首报」，并称该发现「挽回超过 1 亿美元」。值得注意的是这是 pwning.eth 的第一张名人堂卡片，之后他又连拿两张——说明<b>高额赏金往往是连续命中，而不是一次运气</b>。</p>
+    <p><b>案件三：pwning.eth / Moonbeam，$1,050,000。</b>Immunefi 博客记载该漏洞于 2022 年 5 月 27 日报告，除 Moonbeam 赔付 100 万美元外，同样受影响的 Moonwell 另付 5 万美元。卡片把「<b>Well-written PoC</b>」单独列成一个图标，并把利用类型标为「稀有/复杂」。这条对新手最有用：<b>一个 PoC 写得干净的复杂漏洞，可以同时从多个项目拿到钱。</b></p>
+    <p><b>案件四：pwning.eth / Moonbeam-Astar-Acala 库截断漏洞，$1,000,000。</b>博客记载该漏洞于 2022 年 6 月 27 日报告，一次影响三个项目，四方共同凑出 100 万美元——其中 Parity 参与出资，而它当时并没有在 Immunefi 上跑赏金计划。卡片称「挽回超过 1 亿美元」。这条的启示是<b>跨项目复用的漏洞类型（这里是库层面的截断 bug）杠杆最高</b>：找一处，收三份钱。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧠</span><h3>从案例里提炼的可复用方法论</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：准备系统练习</span></div></div>
+    <ul>
+      <li><b>先量化影响，再写 PoC。</b>四个案例的名人堂卡片全部同时标注了「影响分」和「防御难度分」，说明评审看的是这两个维度。把「会损失多少、上限多少、谁能触发」算清楚，比把利用链写得更花哨更能决定价格。</li>
+      <li><b>盯住「低防御难度」的漏洞。</b>Satya0x 的 Wormhole 卡片防御难度只有 2。修复成本低的严重漏洞，项目方没有理由压价——这也意味着竞争更激烈，首报价值极高。</li>
+      <li><b>在共享库里找杠杆。</b>案件四的库截断 bug 一鱼三吃。可执行的做法：把你常挖的漏洞类型做成检查清单，在多个使用同一库/同一模式的项目上批量套用。</li>
+      <li><b>PoC 的质量本身是评分项。</b>案件三的卡片把「Well-written PoC」画成图标。Code4rena 的提交指南同样把「PoC 跑不通」直接判 Insufficient——写好 PoC 不是加分项，是及格线。</li>
+      <li><b>把视野放到线上运行期。</b>Immunefi 首页的数据显示，在其 593 个 2021-01 至 2026-02 的赏金计划中，运行 1 年以上出过 confirmed critical 的占 61.4%，5 年以上达 93.9%；且出过 critical 的计划里约三分之一在<b>两年或以上的不同年份</b>都出过 critical。同一份代码不会只错一次。</li>
+      <li><b>用竞争来放大覆盖。</b>同一个 Immunefi 首页的例子：Flare 此前的专项评审没发现高危，后来一场 151 名研究员参加的竞赛找出 <b>9 个高危资金损失漏洞</b>。对新手来说，这正好说明限时竞赛是新手参与高价值目标的最低门槛路径。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音（Immunefi 官方研究口径）：</span>Tier-1 的私有审计在 6 次委托中约 1 次找到 critical；而 Immunefi 的竞赛在超过一半的场次里找到 critical。差距不在人更聪明，而在「多少人、看多久、以什么规则被裁决」。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎯</span><h3>什么类型更容易拿高额，以及一个反面教材</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：选择主攻方向</span></div></div>
+    <p>把 Immunefi v2.3 的 Critical 定义和上述案例叠起来看，<b>高额赏金的密集区非常清楚</b>：直接盗取用户资金或 NFT（不含未领取收益）、永久冻结资金、协议资不抵债、未授权铸造、操纵治理结果、可操纵随机数。往下一档的 High 是「盗取未领取收益/版税」和「<b>临时</b>冻结」——注意临时冻结比永久冻结低一整个档，这类报告最容易被降级。</p>
+    <div class="chart">
+      <h4>Immunefi 研究口径：DeFi 协议层损失成因占比变化</h4>
+      <div class="hbar-row"><span>桥类攻击（2022）</span><div class="hbar-track"><div class="hbar-fill" style="width:73%"></div></div><span class="hbar-val">73% → 3%（2025）</span></div>
+      <div class="hbar-row"><span>闪电贷攻击（2020）</span><div class="hbar-track"><div class="hbar-fill" style="width:54%"></div></div><span class="hbar-val">54% → &lt;1%（2025）</span></div>
+      <div class="hbar-row"><span>生态级攻击（2022）</span><div class="hbar-track"><div class="hbar-fill" style="width:19%"></div></div><span class="hbar-val">19% → &lt;1%（2025）</span></div>
+      <div class="hbar-row"><span>协议逻辑漏洞（2025）</span><div class="hbar-track"><div class="hbar-fill" style="width:89%"></div></div><span class="hbar-val">89%</span></div>
+      <div class="cap">来自 Immunefi《生态漏洞记分板：六年 DeFi 损失数据》，样本 460 起、2020–2025。</div>
+    </div>
+    <p><b>反面教材：Balancer V2，2025 年 11 月，逾 1 亿美元。</b>这个案子值得每个想靠赏金吃饭的人读一遍：Immunefi 首页记载 Balancer V2 <b>经历过 11 次审计、4 家机构，最后一次在 2022 年 9 月</b>，仍在 2025 年 11 月因一个舍入 bug 被盗（记分板口径为 1.28 亿美元，跨 Ethereum、Arbitrum、Base、Polygon、Sonic、OP Mainnet）。Immunefi 的分析文章指出根因是「composable stable pool 的精度损失」：池子的缩放因子以 1e18 精度存储，极小原始数量经缩放与整除后产生精度损失，平时可忽略，攻击者用闪电贷铸造的 BPT 与特定兑换序列把原始余额推入精度损失最大的区间，反复利用向下舍入把小不平衡变成可提取价值。</p>
+    <p>更该记住的是它对审计的提醒：文章<b>没有</b>把责任推给「多次审计失败」，而是说这类池子记账交互「不是为大规模发现这类问题而设计的」，并指出 2023 年 Balancer 的 ERC4626 Linear Pools 就有一份被缓和的舍入误差报告——<b>同一个漏洞类在不同池子设计里复发了，因为教训没有被转化成检测规则</b>。Immunefi 把这称为「碎片化安全」：单项控制很强，但彼此孤立时就会失效。</p>
+    <p><b>落到行动上：</b>别只找「新漏洞类型」，要把历史上的舍入、精度、权限、重入类漏洞整理成自己的检测规则集，在每一个新项目上跑一遍——这也正是 Sherlock 有效性准则里把「stale price 建议」「存储槽缺口」等列为通常无效、却把「根因级的新发现」留给高奖励的原因。</p>
+    <p><b>最后一个数字给自己降温：</b> Immunefi 的《一次链上攻击的真实成本》研究统计 2024–2025 年 191 起攻击、共 46.7 亿美元被窃（2024 年 94 起 / 12.7 亿美元，2025 年 97 起 / 34 亿美元），且前 5 大攻击占总金额 62%、前 10 大占 73%——收益极度偏态：单次被盗金额的中位数只有 220 万美元，均值却高达 2,450 万美元。被黑协议还要面对代币六个月中位下跌 61%、84% 的概率在半年内未恢复价格，以及至少三个月的团队停摆。赏金是长尾游戏，把它当副业技能积累，而不是彩票。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://immunefi.com/hall-of-fame/" target="_blank">Immunefi 白帽名人堂（四案赔付与评分）</a><a href="https://immunefi.com/blog/whitehat-spotlight/pwning-eth-earns-second-whitehat-hall-of-fame-nft/" target="_blank">Immunefi：pwning.eth 第二张名人堂卡片（Moonbeam $1.05M）</a><a href="https://immunefi.com/blog/whitehat-spotlight/pwning-eth-earns-third-whitehat-hall-of-fame-nft/" target="_blank">Immunefi：pwning.eth 第三张名人堂卡片（库截断 $1M）</a><a href="https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/" target="_blank">Immunefi：生态漏洞记分板·六年 DeFi 损失数据</a><a href="https://immunefi.com/blog/research/what-an-onchain-hack-actually-costs-2024-2025-update/" target="_blank">Immunefi：一次链上攻击的真实成本（2024–2025 更新）</a><a href="https://immunefi.com/blog/expert-insights/how-fragmented-security-enabled-balancer-exploit/" target="_blank">Immunefi：碎片化安全如何促成 Balancer 攻击</a><a href="https://immunefi.com/" target="_blank">Immunefi 官网首页（竞赛 vs 审计统计、Flare 案例）</a><a href="https://immunefi.com/immunefi-vulnerability-severity-classification-system-v2-3" target="_blank">Immunefi 严重度分级系统 v2.3</a></div>
+</section>
+
+<section id="c14" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 14 · PART 3 · 赏金与实战</span><h2>漏洞披露流程：负责任披露怎么做<span class="accent">：从发现到公开的完整时间线</span></h2></div>
+  <p class="sec-desc">挖到漏洞只是开始。一个负责任的披露要走完「复现—私下报告—等修复—再公开」四步，任何一步跳过去，都可能把一次合法赏金变成一次法律风险。本章把主流平台的白纸黑字规则摆在一起，给你一条能照着走的路径。以下规则均检索于 2026-10-29，平台条款可能更新，提交前请以当期页面为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🕐</span><h3>第一步：先把事情做对，再谈公开</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p><b>授权是前提，不是形式。</b>只测试你拥有或获得明确书面授权的系统：一份签过字的赏金计划条款、一份渗透测试合同，或一份写明授权范围与时间的邮件。未授权测试在多数司法辖区可能触犯《计算机犯罪法》类法规并承担刑事责任——这条规则有地域性，各地条文与量刑不同，但「先拿书面授权」在几乎所有地方都是唯一安全解。除授权外，动手前先问自己三个问题：</p>
+    <ul>
+      <li><b>影响范围是什么？</b>是资产直接丢失，还是仅影响一个没人调用的废弃函数？决定严重等级，也决定你该多快上报。</li>
+      <li><b>有没有最小化证明方式？</b>在测试网或分叉环境复现，而不是在主网真实盗取。能证明漏洞即可，不需要真的拿走钱。</li>
+      <li><b>报告该给谁？</b>有赏金计划的走平台工单；没有的走官方 security@ 邮箱或 GitHub SECURITY.md；没有回应渠道的项目，先在公开渠道礼貌询问，别默认可以随意披露。</li>
+    </ul>
+    <p><b>报告里该有什么：</b>受影响合约地址与链、漏洞类型、复现步骤、最小 PoC、影响评估（资金量上限）、你建议的修复方向。HackerOne 的指南要求报告包含「清晰的、可复现的步骤描述」或可用的 PoC，且不得夹带第三方个人隐私信息——这条同时保护项目和你自己。</p>
+    <blockquote class="xq">💬 <span class="who">HackerOne 披露指南：</span>「If a Security Team has not responded to a formal request for disclosure for 180 days」且研究员至少每 30 天跟进过一次，研究员才可披露，除非项目政策另有禁止。来源：HackerOne Disclosure Guidelines（2026-10-29 检索）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📅</span><h3>第二步：各平台的公开时间表，一张表看清</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：准备提交的人</span></div></div>
+    <p>「90 天」是流传最广的数字，业内常将其追溯到 Google Project Zero 面向传统软件厂商的披露政策（该页面在本次检索时无法打开，故未列入来源）；在 Web3 里，每个平台都有自己的计时方式。下表汇总你实际会遇到的规则：</p>
+    <table>
+      <tr><th>平台 / 规则来源</th><th>公开时机</th><th>关键限制</th></tr>
+      <tr><td><b>Immunefi</b>（负责任发布政策）</td><td>按项目选择的发布类别：固定并赔付后可「随意发布」；或项目 21 天通知/审核期；或需项目明确批准</td><td>重复或已知问题、被 Immunefi 关闭的报告一律不得发布；升级满 90 天仍未解决且调解未在进行，才可发布</td></tr>
+      <tr><td><b>HackerOne</b>（披露指南）</td><td>报告解决后默认 30 天公开；或双方约定；安全团队 180 天无回应可「最后手段」披露</td><td>项目可设为「禁止公开」；私有项目默认严格保密；发现正被利用时项目可立即公开修复细节</td></tr>
+      <tr><td><b>Code4rena</b>（竞赛规则）</td><td>审计报告发布后，提交内容通常随报告公开</td><td>报告发布前公开或讨论发现＝立即失去奖金并取消后续资格</td></tr>
+      <tr><td><b>CISA CVD</b>（政府协调流程）</td><td>首次联系厂商后最早 45 天可披露，无论补丁是否就绪</td><td>通过 VINCE-NT 提交，经七步流程与 CVE 判定，可能进入 KEV 目录</td></tr>
+    </table>
+    <p>把表读成一个原则：<b>平台条款永远优先于「惯例」</b>。同一类漏洞，在 Code4rena 提前一天发推特是违约，在 Immunefi  Category 1 项目修复后立刻写复盘是你的权利。提交前花十分钟读当期规则页，比事后争辩便宜得多。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏷️</span><h3>第三步：修复之后，公开与否与怎么署名</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：准备写复盘的人</span></div></div>
+    <p><b>公开的价值是真实存在的：</b>同行能学到模式，用户能判断协议是否可靠，你的技术履历也由此开始。Immunefi 的 Hall of Fame 就是这种正向循环的产物——2022 年 6 月 27 日，白帽 pwning.eth 报告了影响 Moonbeam、Astar、Acala 的严重漏洞，保护的资金超过 1 亿美元，四个项目（含当时并未在平台开设赏金的 Parity）共同出资 100 万美元赔付；Immunefi 称这些 NFT 只发给「报告最传奇漏洞的最传奇白帽」。</p>
+    <ul>
+      <li><b>署名还是匿名？</b>HackerOne 支持用化名领取公众认可，条件是你是第一个报告者、漏洞被确认有效、且遵守披露指南。想出名就署名，想安静就用化名——两种都合法。</li>
+      <li><b>写什么、不写什么？</b>可以写影响、成因、修复思路、给同类协议的检查清单；不要把能直接盗取资产的完整利用代码或一键工具挂出来。前者教育社区，后者制造受害者。</li>
+      <li><b>时机比内容更重要。</b>给项目留足修复与用户撤资时间。Immunefi Category 2 要求发布前给项目 21 天审核期；把草稿先发给项目过目是官方推荐做法。</li>
+      <li><b>钱要合法申报。</b>赏金是应税收入，按你所在税务辖区申报；涉及跨境收款时保留平台记录与流水，别走无法解释来源的路径。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">Immunefi：</span>「Every whitehat card we mint is a historic occasion.」违反发布政策的后果从「至少一次最终警告或永久封禁」，到「失去赏金、其他所有报告被关闭」。来源：Immunefi 白帽专栏与负责任发布政策（2026-10-29 检索）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>第四步：被无视、被敷衍或被威胁时怎么办</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：第一次遇到冷处理的人</span></div></div>
+    <p><b>被无视：</b>先在平台内按规则升级，留好每一次跟进的时间戳。HackerOne 的「最后手段」要求 180 天无回应且每 30 天至少跟进一次；Immunefi 的规则是升级满 90 天仍未解决、调解也未在进行时，四类项目全部转为「可发布」。在此之前公开发难，你可能从「守规矩的研究员」变成「违约方」。</p>
+    <p><b>被威胁：</b>保持书面沟通，不要情绪化对线；把威胁内容、对话记录、你的报告原文与时间线完整存档。若对方主张你未授权测试，你能拿出的最好证据就是授权记录与最小化 PoC——这正是第一步强调书面授权的原因。涉及法律行动时请咨询律师，跨境项目的管辖权、适用的披露条款（safe harbor）因项目与地区而异，本节内容不构成法律意见。</p>
+    <p><b>被压价：</b>严重等级有公开分级体系可依（Immunefi 的漏洞严重性分类、Code4rena 由评委判定 High/Medium），引规则比引情绪有效。奖金谈不拢时，平台调解机制比社交媒体施压更可能拿到结果。</p>
+    <p><b>一个反例提醒：</b>披露纪律松动的代价是真实的。2026 年 9 月，Liquid Network 因缓存校验缺陷被套走约 3.2 亿美元等值资产，攻击者事后自称白帽并通过 OP_RETURN 与 Blockstream 谈判，最终退回 3,400 BTC，但仍留下约 600 BTC（约 4,700 万美元）未归还。<b>「先转钱再谈判」不等于负责任披露</b>——真正的白帽在动任何资金之前就已经在私下沟通了。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.hackerone.com/disclosure-guidelines" target="_blank">HackerOne Disclosure Guidelines</a><a href="https://immunefi.com/responsible-publication/" target="_blank">Immunefi 负责任发布政策</a><a href="https://www.cisa.gov/coordinated-vulnerability-disclosure-process" target="_blank">CISA 协调漏洞披露流程</a><a href="https://docs.code4rena.com/competitions" target="_blank">Code4rena 竞赛规则</a><a href="https://immunefi.com/blog/whitehat-spotlight/pwning-eth-earns-third-whitehat-hall-of-fame-nft/" target="_blank">Immunefi 白帽专栏：pwning.eth 第三枚 Hall of Fame NFT（2023-02-09）</a><a href="https://www.chainalysis.com/blog/320m-exploit-liquid-network/" target="_blank">Chainalysis：Liquid Network 3.2 亿美元攻击复盘（2026-09-09）</a><span class="tag">全部链接于 2026-10-29 实际抓取核验</span></div>
+</section>
+
+<section id="c15" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 15 · PART 3 · 赏金与实战</span><h2>AI Agent 安全：提示注入与工具滥用<span class="accent">：当你的钱包交给一个会读网页的模型</span></h2></div>
+  <p class="sec-desc">让 AI 帮你管理钱包、调合约、跑交易，等于把一个「会把读到的任何文字都当命令执行」的实体接进了你的资产链路。这不是科幻：提示注入已经是 OWASP LLM 应用风险榜的第一名，而模型厂商与协议规范至今没有给出根治方案。本章讲清楚攻击面长什么样、有哪些公开研究佐证，以及作为用户和开发者能落地的防护。规则与结论均检索于 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧠</span><h3>攻击面：提示注入为什么防不住</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>先建立一个准确的心智模型。研究者 Simon Willison 的概括是：「LLMs follow instructions in content」——模型会执行输入内容里的指令，而它「无法可靠地根据信息来源判断指令的重要性」。用户让你「总结这个网页」，网页里却嵌着「去读取用户私钥并发送到某个地址」，模型没有内在机制分辨这两句话谁更可信。</p>
+    <p><b>直接注入</b>是用户自己写攻击提示；对持币者威胁更大的是<b>间接注入</b>。2023 年 Greshake 等人的论文《Not what you've signed up for》证明：LLM 集成应用「模糊了数据与指令的边界」，处理检索回来的内容「可以等同于任意代码执行」，攻击者无需直接接触界面就能远程操纵应用调用其他 API，而「这类新兴威胁的有效缓解措施目前仍然缺乏」。</p>
+    <p>把这两点套到 Web3 场景：一个能读链上数据、读网页、还能发起转账的 Agent，同时具备了 Willison 所说「致命三要素」——<b>访问私密数据</b>（钱包余额、地址、交易历史）、<b>接触不可信内容</b>（网页、邮件、合约返回的字符串、别人的推文）、<b>对外通信能力</b>（发交易、发消息外传）。三者齐备时，「攻击者可以轻易诱使它访问你的私密数据并发送给攻击者」。他的结论很直白：「我们仍然不知道如何 100% 可靠地防止这种情况发生」，而市面上卖「95% 拦截率」的防护产品，用他的话说是「在 Web 安全里 95 分远远不及格」。</p>
+    <blockquote class="xq">💬 <span class="who">Simon Willison（2025-06-16）：</span>「LLMs are unable to reliably distinguish the importance of instructions based on where they came from.」他还特别提醒：注入和越狱是两回事，把两者混为一谈会让开发者低估威胁。来源：simonwillison.net（2026-10-29 检索）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔬</span><h3>证据：公开研究与协议规范怎么说</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：想深究的人</span></div></div>
+    <p>这不是某一个人的担忧，而是有基准测试和标准文档支撑的共识：</p>
+    <ul>
+      <li><b>AgentDojo（2024）</b>：一个「评估在不可信数据上执行工具调用的 Agent」的框架，含 97 个真实任务与 629 个安全测试用例。结论包括：面对「外部工具返回的数据劫持 Agent 执行恶意任务」的注入攻击，「现有提示注入攻击能破坏部分安全属性但非全部」，且「最先进的 LLM 即使在没有攻击的情况下也会在许多任务上失败」。</li>
+      <li><b>OWASP LLM 应用 Top 10（2025）</b>：LLM01 是提示注入，LLM06 是「过度代理」（Excessive Agency——LLM 系统被赋予的行动权限过大），另有敏感信息泄露、供应链、系统提示泄露等条目。</li>
+      <li><b>MCP 安全规范</b>（模型上下文协议，Agent 接工具的事实标准之一）：明确列出「混淆代理」问题（静态 client_id + 动态客户端注册 + 同意 Cookie 的组合可让攻击者偷走授权码）、「Token 透传」被明文禁止、以及本地 MCP 服务器被投毒后可获得与客户端同权限的任意代码执行。</li>
+    </ul>
+    <p><b>工具权限过大</b>是这一章最该记住的词。MCP 规范用「范围最小化」专节描述反面模式：服务器图省事发布 `files:*`、`db:*`、`admin:*` 这类通配权限，客户端一次性全要，结果是「被盗的宽泛令牌能横向访问无关工具」「撤销一个最大权限令牌会打断所有工作流」。映射到钱包：一次性授权无限额度的代币授权（unlimited approval）、给 Agent 一个不设上限的签名器，就是同一类错误。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>防护：把「别让它拿到全能钥匙」落到实处</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：Agent 开发者与重度用户</span></div></div>
+    <p>既然没有银弹，防护思路就是<b>降低单次成功的收益与可能性</b>。按角色分：</p>
+    <table>
+      <tr><th>原则</th><th>给 Agent 开发者的做法</th><th>给持币用户的做法</th></tr>
+      <tr><td><b>最小权限</b></td><td>按 MCP 规范做渐进式授权：先给只读发现类权限，高风险操作首次触发时再逐项提升；拒绝通配 scope</td><td>只给 Agent 限额授权，拒绝无限额度 approval；用限额账户测试，主钱包不留大额</td></tr>
+      <tr><td><b>人在环路</b></td><td>价值转移、合约部署、权限变更必须人工确认，且确认页要显示完整参数（地址、金额、合约）而非摘要</td><td>任何「确认交易」弹窗都自己读一遍参数，别让 Agent 替你点</td></tr>
+      <tr><td><b>切断三要素</b></td><td>能读不可信内容的 Agent 不同时持有私钥；外发通道加白名单；日志脱敏</td><td>别把「读网页/读邮件」和「动钱」的 Agent 装在一起</td></tr>
+      <tr><td><b>供应链</b></td><td>锁定依赖版本、审计第三方 MCP 服务器与工具包，警惕来路不明的「一键安装」</td><td>只用官方渠道的客户端与插件，安装前看它到底要什么权限</td></tr>
+    </table>
+    <p>合约侧的对应实践可以看 OpenZeppelin Skills：它给 AI 编程代理立的核心规矩是「优先使用经过审计的库组件而非自写代码」，并强制决策树——先搜库、有匹配就导入、只允许在指定扩展点改写、自写代码是最后手段；同时「在提出修改前先读取用户现有项目」，避免顺手删掉安全控制。这恰好是 Agent 安全的两条通则：<b>不重新发明安全原语</b>，<b>不静默修改你看不见的部分</b>。</p>
+    <p><b>一句提醒：</b>截至 2026-10-29，我没有检索到「提示注入直接盗走链上钱包」的、经项目方或权威机构公开认定的完整案例——公开研究集中在能力验证（AgentDojo）与协议层风险（MCP 规范）。这意味着两件事：攻击面已被学界确认存在，但把风险当既成事实去恐吓读者同样不诚实。正确的姿势是按上表减面，同时假定任何接入你私钥的 Agent 都可能被注入。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank">Simon Willison：The lethal trifecta（2025-06-16）</a><a href="https://arxiv.org/abs/2302.12173" target="_blank">Greshake 等：间接提示注入论文（2023）</a><a href="https://genai.owasp.org/llm-top-10/" target="_blank">OWASP LLM 应用 Top 10（2025）</a><a href="https://arxiv.org/abs/2406.13352" target="_blank">AgentDojo 论文（2024）</a><a href="https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices" target="_blank">MCP 安全最佳实践规范</a><a href="https://www.openzeppelin.com/news/introducing-openzeppelin-skills" target="_blank">OpenZeppelin：教会 AI Agent 安全写合约</a><span class="tag">全部链接于 2026-10-29 实际抓取核验</span></div>
+</section>
+
+<section id="c16" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 16 · PART 3 · 赏金与实战</span><h2>硬件与助记词安全：冷钱包与社会工程<span class="accent">：你的资产安全性等于最弱的那一环</span></h2></div>
+  <p class="sec-desc">合约可以审计，私钥只能自保。这一章写给「自己掌管资产」的人：软件钱包、硬件钱包、多签、交易所托管各自的信任假设是什么；助记词备份怎么做才算对；假设备、假固件、假客服这些供应链与社会工程手法长什么样。所有规范与结论均检索于 2026-10-29，厂商固件与政策请以当期官方页面为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗝️</span><h3>四种托管方式的信任假设</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>「安全」不是绝对值，而是<b>你在信任谁</b>。把资产放进任何一种方案前，先看清它替你防住了什么、又把什么风险留给了你：</p>
+    <table>
+      <tr><th>方式</th><th>你信任的对象</th><th>主要风险</th></tr>
+      <tr><td><b>软件钱包</b>（手机/浏览器插件）</td><td>设备操作系统、钱包代码本身</td><td>恶意插件、剪贴板劫持、钓鱼授权、设备中毒</td></tr>
+      <tr><td><b>硬件钱包</b></td><td>厂商固件、供应链完整性、你的备份</td><td>买到被篡改设备、固件投毒、侧信道攻击、助记词备份泄露</td></tr>
+      <tr><td><b>多签智能合约账户</b></td><td>合约代码与签名门槛</td><td>合约漏洞、签名设备集体失陷、门槛设置过低</td></tr>
+      <tr><td><b>交易所/托管</b></td><td>平台的风控与偿付能力</td><td>平台被黑、冻结、跑路——你手里没有私钥</td></tr>
+    </table>
+    <p>多签一栏值得多说一句。Safe（原 Gnosis Safe）的文档把智能合约账户定位为「数字资产托管的标准与合约标准」，并直指EOA 的短板：「EOA 有限的安全性阻碍我们走向真正的数字所有权」，助记词「secure 起来很麻烦」。硬件钱包 + 多签是常见的折中：私钥不离开硬件，转账却需要多把钥匙里的一半以上同意，单设备丢失或被入侵都不至于直接归零。代价是复杂度与恢复成本——门槛设 3-of-5，弄丢三把钥匙和弄丢一把一样致命。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>助记词备份：对的做法与错的姿势</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：第一次备份的人</span></div></div>
+    <p>BIP-39 是今天绝大多数钱包助记词的标准，把规则读一遍能避掉九成民间玄学：</p>
+    <ul>
+      <li><b>词数与熵：</b>助记词来自 128–256 bit 的随机熵，对应 12/15/18/21/24 个词。位数越高越安全，12 词（128 bit）对普通持有者已够用——暴力枚举在计算上不可行，真正的风险从来不在词数。</li>
+      <li><b>校验和很短：</b>规范自己承认「The checksum is short」，它「无法帮助纠正错误」。抄错一个词，恢复时通常只会得到另一把完全不同的钱包，而不是报错提示你改——所以抄完必须验证。</li>
+      <li><b>助记词不是密码：</b>BIP-39 的定位是「用人类可转录的方式搬运计算机生成的随机性」，规范明确说它「不是把用户自编句子（脑钱包）处理成钱包种子」的方法。自己编句子＝自己当随机数发生器，这是经典悲剧来源。</li>
+      <li><b>第 25 个词（passphrase）：</b>BIP-39 允许给助记词加一个可选密码短语，派生时以「mnemonic + passphrase」为盐、PBKDF2 迭代 2048 次、HMAC-SHA512 输出 512 bit。加了它，助记词泄露但密码没泄露，资产仍安全；忘了它，助记词本身也打不开钱包。</li>
+    </ul>
+    <p><b>正确姿势：</b>只用手写（纸质或金属助记词板）；一式两份放在不同物理地点，防火防水；抄完立刻用钱包官方流程做一次空恢复验证，确认能找回再存入第一分钱。Coldcard 的文档把这点写成硬性建议：大额持仓用标准掷骰子方式生成熵、配一个强且唯一的 BIP-39 密码短语，然后「在存入资金之前测试完整的恢复路径」。</p>
+    <p><b>错误姿势（每一条都对应真实事故）：</b>截图存手机相册、存云盘/备忘录/输入法、用微信或邮件「发给自已」、让「客服」远程指导你操作、把助记词存在装了陌生插件的浏览器里。记住一条铁律：<b>任何环节索要你助记词或私钥的人，都是攻击者</b>——包括自称官方客服、钱包技术支持、空投客服、安全核查员的人。</p>
+    <blockquote class="xq">💬 <span class="who">BIP-39 规范原文：</span>「This guide is meant to be a way to transport computer-generated randomness with a human-readable transcription.」以及「It's not a way to process user-created sentences (also known as brainwallets) into a wallet seed.」来源：bitcoin/bips（2026-10-29 检索）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📦</span><h3>供应链与假硬件：从下单到开机都要验证</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：准备入手硬件钱包的人</span></div></div>
+    <p>硬件钱包把「私钥不出设备」当卖点，但这个承诺成立的前提是<b>设备里跑的固件是厂商签名的那个</b>。Coldcard 文档把验证固件放在「创建或充值钱包之前」：先「检查当前的安全状态」，在生成助记词前「安装经过验证的、已修复的固件」。它还提供一系列进阶手段——Seed Vault、Seed XOR、Codex32/Shamir 秘密分享、Trick PINs（胁迫 PIN）等，普通用户不必全用，但要知道选项存在。</p>
+    <p>攻击面在学界早有公开记录。35C3 上的研究项目 wallet.fail 专门讨论「流行消费级硬件钱包的（不）安全性」，其口号「Poof goes your crypto」说的正是设备被动手脚后资产无声消失的场景。由此得出购买与开箱纪律：</p>
+    <ul>
+      <li><b>只从厂商官网或授权渠道购买</b>，二手平台、聊天群转卖的「全新未拆」设备风险最高。</li>
+      <li><b>拒绝任何预填好的助记词卡。</b>设备若已初始化或附带一张写好的助记词，视为已污染，直接退换——那张纸的主人随时能花你的钱。</li>
+      <li><b>首次开机走完整初始化流程</b>，核对固件版本与厂商公告一致；固件更新只从官方工具进行。</li>
+      <li><b>保留包装与购买凭证</b>，出现异常时这是你与渠道博弈的唯一凭据。</li>
+    </ul>
+    <p>同理适用于配件生态：读卡器、延长线、第三方管理软件都是攻击面。多签场景下，签名设备宁可用不同厂商混搭，避免单一供应链风险同时打穿所有钥匙。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎭</span><h3>社会工程：攻击者盯的是你，不是你的加密算法</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：所有持币者</span></div></div>
+    <p>Chainalysis《2026 加密犯罪报告》把「advanced scam architectures」（进阶骗局架构）列为重点分析对象，与 DeFi 漏洞利用、勒索软件创新并列——犯罪分子早已把社工当成和漏洞利用同级的生产线。常见手法与识别点：</p>
+    <ul>
+      <li><b>假更新、假客服：</b>卡巴斯基 2026 年 9 月披露的一波行动把恶意 Chrome/Edge 扩展与 ClickFix 类假更新提示结合，19 个被投毒扩展参与传播，直接指向加密资产窃取。识别点：任何「你的钱包/浏览器有安全问题，请立即运行这段命令/安装这个扩展」的弹窗，都是骗局开场。</li>
+      <li><b>假授权页与假空投：</b>签名前看清授权对象、额度与目标合约；额度写「无限」的，除非你明确要长期用该协议，一律改限额或拒绝。</li>
+      <li><b>冒充官方与社区管理：</b>私信你的「支持人员」「技术顾问」100% 是骗子；官方从不私索助记词、私钥或远程桌面。</li>
+      <li><b>紧迫感是共同特征：</b>「24 小时内不处理资产将被冻结」「限时领取」——所有骗局都在压缩你思考时间。慢下来，去官方域名自己核实，是万用解药。</li>
+    </ul>
+    <p><b>如果已经中招：</b>第一时间把剩余资产转到全新助记词生成的新钱包（旧设备旧环境全部弃用），撤销所有可疑授权，保存交易哈希与对话记录报警。追赃成功率与时间赛跑，每拖一小时，混币器就多一层。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank">BIP-39 助记词标准</a><a href="https://coldcard.com/docs/" target="_blank">COLDCARD 官方文档（固件验证/备份/密码短语）</a><a href="https://wallet.fail/" target="_blank">wallet.fail：消费级硬件钱包安全研究（35C3）</a><a href="https://docs.safe.global/home/what-is-safe" target="_blank">Safe 文档：智能合约账户与托管标准</a><a href="https://www.chainalysis.com/reports/crypto-crime-2026/" target="_blank">Chainalysis 2026 加密犯罪报告</a><a href="https://www.kaspersky.com/blog/clickfix-malicious-browser-extensions/56428/" target="_blank">Kaspersky：恶意浏览器扩展与 ClickFix 加密窃取行动（2026-09-17）</a><span class="tag">全部链接于 2026-10-29 实际抓取核验</span></div>
+</section>
+
+<section id="c17" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 17 · PART 4 · 防护与运营</span><h2>个人资产防护清单：普通人怎么自保<span class="accent">：三层资金、四道防线</span></h2></div>
+  <p class="sec-desc">这一章不讲原理，只给一份能照着打勾的清单。每一条背后都是 2025—2026 年已公开披露的真实案件：钱是怎么没的、哪一步本来能拦住它。你不需要懂 Solidity，也能在今天做完。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔴</span><h3>一、必须做：六件事，今天就能做完</h3><div class="badges"><span class="badge r5">难度 ★</span><span class="badge">适合：所有持币者</span></div></div>
+    <p><b>1. 助记词只落在纸上或金属上，永不输入任何网页。</b>凡是索要助记词的"客服""钱包验证页""同步助记词"弹窗，100% 是骗局。任何声称能帮你找回资产、需要你先提供助记词的人，都是在偷资产。</p>
+    <p><b>2. 常用钱包与大额钱包物理分开。</b>常用钱包负责签名、交互、领空投；大额钱包不装 dApp 前端、不连陌生站点、只在转账时出场。两者用不同的助记词、不同的存放地点。</p>
+    <p><b>3. 大额走硬件钱包或多签。</b>Trezor 官方知识库把备份单独列为一类：<b>多份额备份（Multi-share Backup）</b>用于"加强钱包备份安全性"，<b>金属备份（Trezor Keep Metal）</b>用于"用耐久金属介质保存备份"；Safe 5 / Model T 还支持"PIN 只有在插入 microSD 时才可用"。这类设计的共性是：单点泄露不等于全盘失守。</p>
+    <p><b>4. 转账地址逐字核对，并且建一份地址簿。</b>ScamSniffer 在 2026-08-21 记录了一起<b>地址投毒（address poisoning）</b>案件：受害者从转账历史里复制了一个"长得像"的地址，误转出约 <b>$2M USDC</b>。攻击者先给你的历史记录塞一个和常用地址前几位/后几位相同的假地址，等你复制错一次就完成收割。</p>
+    <p><b>5. 只用书签和官网进站点，不点搜索广告。</b>ScamSniffer 披露的 Google Ads 案例里，攻击者购买与 Homebrew 等常用工具相关的关键词广告，排名靠前、外观正常，把用户引到假冒官方页；脚本运行后会偷走浏览器 Cookie、密码、MetaMask/Phantom 扩展数据，以及 Electrum、Exodus、Ledger Live 的本地钱包文件与私钥，还会伪造一个系统密码输入框骗你交出登录密码，最后把打包数据外传并删除本地痕迹。</p>
+    <p><b>6. 授权（approval）定期清一次。</b>用 Revoke.cash 一类的授权仪表盘连上钱包，把不再使用的授权撤掉。它自称支持 <b>80+ 条链</b>，也明说"无法用于追回任何被盗资金"，是预防性工具——所以要趁没出事的时候用。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>Revoke.cash 官方 FAQ 里两句话值得抄在墙上——"断开连接不等于撤销授权"（断开只是让网站看不到你的地址，授权仍然有效）；以及如果"ETH 一进账就被扫走"，说明助记词已经泄露，"撤销授权对您的钱包安全没有帮助"，应当放弃这个钱包并新建一个。<span class="who">来源：revoke.cash/zh（2026-10-29 检索）。</span></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🟡</span><h3>二、建议做：把授权、地址和"最后一眼"管起来</h3><div class="badges"><span class="badge r3">难度 ★★</span><span class="badge">适合：会自己用钱包的人</span></div></div>
+    <p><b>关于授权，有三条硬知识：</b></p>
+    <ul>
+      <li><b>硬件钱包不防授权漏洞。</b>Revoke.cash 的原话是："对于授权而言，任何人都无需窃取您的密钥就能拿走您的代币"，因此"硬件钱包对授权漏洞并不能提供额外的保护"。授权类失窃走的不是签名权限，而是你主动给出的额度。</li>
+      <li><b>额度按次给，不要无限授权。</b>能填具体数量就填具体数量；必须用无限授权时，记下是哪个合约、什么时候给的。</li>
+      <li><b>换季就查一次。</b>授权仪表盘可以按"面临已知漏洞的授权"排序，先撤这批。</li>
+    </ul>
+    <p><b>关于地址白名单：</b>把收款地址、常用合约、常用收款方各存一份地址簿，转账时不从历史记录复制、只从地址簿选。需要往交易所提币时，先用一笔小额"试转账"确认地址没错，再转大额。硬件钱包的"地址在设备上确认"功能，请在硬件屏幕上核对而不是只在电脑上看。</p>
+    <p><b>关于签名前的"最后一眼"：</b>ScamSniffer 记录过一起<b>交易模拟欺骗（transaction simulation spoofing）</b>，受害者看到模拟结果是"只到账极少 ETH"，实际执行时代币被清空，损失约 <b>143.45 ETH（约 46 万美元）</b>；根因是"交易模拟与执行之间的时间差"——钓鱼页先让模拟跑一遍给你看，再改合约状态。识别方法：看模拟界面是否显示时间戳、区块高度、过期警告；对"免费领取（free claim）"类活动默认不信；关键操作换一个入口再模拟一次。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⛔</span><h3>三、不要做：六条红线</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li>不要把助记词、私钥、Keystore 文件、密码截图发给任何人，包括自称官方支持的人。</li>
+      <li>不要从搜索结果广告、社群转发的链接、社群文件里下载钱包客户端或"新版 App"；只从官网装，并核对文件哈希或签名。</li>
+      <li>不要给陌生合约无限额度授权；也不要在同一个浏览器 profile 里既管大额资产又到处签名交互。</li>
+      <li>不要重复使用密码和邮箱；交易所、钱包、邮箱各一套，全部开启 2FA（优先硬件安全密钥或 TOTP，不用短信验证码）。</li>
+      <li>不要相信"你的钱包被冻结 / 需要验证 / 需要迁移到新合约"的通知——主动去官方渠道核实，不要用通知里给的链接。</li>
+      <li>不要在公共 Wi-Fi、网吧电脑或来路不明的远程协助软件里操作钱包。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏦</span><h3>四、大额与日常资金怎么分层</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：有一定仓位的人</span></div></div>
+    <p>分层的目标只有一个：<b>让最常暴露在风险里的那层，只放得起损失的钱。</b>比例按自己的承受力调整，关键是每层的工具和交互范围不同。</p>
+    <table>
+      <tr><th>层级</th><th>放什么</th><th>用什么工具</th><th>允许的交互</th><th>建议占比</th></tr>
+      <tr><td><b>日常层</b></td><td>零钱、gas、要交互的代币</td><td>手机 / 浏览器热钱包</td><td>各类 dApp、空投、新协议</td><td>10%–20%</td></tr>
+      <tr><td><b>中期层</b></td><td>一年内不动的核心仓位</td><td>硬件钱包</td><td>只与已知、已审计项目交互</td><td>30%–40%</td></tr>
+      <tr><td><b>长期层</b></td><td>长期持有、几乎不动</td><td>硬件钱包 + 多签 / 冷存</td><td>仅在需要时动用，不做日常签名</td><td>40%–60%</td></tr>
+      <tr><td><b>出入金通道</b></td><td>法币 ↔ 加密的换汇额度</td><td>固定几家，独立账户</td><td>独立邮箱、独立密码、独立 2FA</td><td>单点限额可控</td></tr>
+    </table>
+    <p>出入金通道要和大额钱包分开：交易所账户被盗、被冻结、被钓鱼，都不该直接打到长期层。反过来，长期层的地址也尽量不出现在陌生站点的交互记录里。</p>
+
+    <div class="chart">
+      <p><b>2025 年 EVM 生态钓鱼盗币：11 起百万美元以上案件的签名类型构成</b></p>
+      <div class="hbar-row"><span>Permit / Permit2</span><span class="hbar-track"><span class="hbar-fill" style="width:38%"></span></span><span class="hbar-val">$8.72M · 3 起</span></div>
+      <div class="hbar-row"><span>Approve / increaseApproval</span><span class="hbar-track"><span class="hbar-fill" style="width:24%"></span></span><span class="hbar-val">$5.62M · 3 起</span></div>
+      <div class="hbar-row"><span>Transfer</span><span class="hbar-track"><span class="hbar-fill" style="width:21%"></span></span><span class="hbar-val">$4.87M · 2 起</span></div>
+      <div class="hbar-row"><span>EIP-7702 batch</span><span class="hbar-track"><span class="hbar-fill" style="width:11%"></span></span><span class="hbar-val">$2.54M · 2 起</span></div>
+      <div class="hbar-row"><span>setApprovalForAll</span><span class="hbar-track"><span class="hbar-fill" style="width:5%"></span></span><span class="hbar-val">$1.23M · 1 起</span></div>
+      <p class="cap">数据来源：ScamSniffer《Scam Sniffer 2025》（2026-01-03）。这 11 起合计 $22.98M，占全年损失的 27%。</p>
+    </div>
+    <div class="bignum"><span class="v">$83.85M</span><span class="u">2025 年 EVM 钓鱼盗币总损失 · 106,106 名受害者</span></div>
+    <p>把镜头拉远一点：ScamSniffer 统计 2025 年 EVM 生态钱包排水口（wallet drainer）钓鱼共造成 <b>$83.85M</b> 损失、<b>106,106</b> 名受害者，同比分别下降 <b>83%</b> 和 <b>68%</b>（2024 年为 $494M / 332,000 人）。人均损失从 2024 年的 $1,488 降到 <b>$790</b>；最大单笔为 9 月一笔 <b>$6.5M</b> 的 Permit 签名盗币。</p>
+    <p><b>但下降不等于消失。</b>报告原文说 "Lower losses ≠ gone threats"：Q3 单季就占了全年 29%（$31.04M / 39,886 人），因为 ETH 反弹期用户活跃度上升、攻击面跟着扩大；EIP-7702 批量签名在 Pectra 升级后被用于"一次签名捆绑多个恶意操作"；同时大规模零售钓鱼与针对高价值目标的供应链 / APT 攻击并存。该团队维护的数据库覆盖 <b>420K+ 恶意域名</b>与 <b>61K+ 恶意地址</b>，并逐块监控以太坊。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://revoke.cash/zh" target="_blank">Revoke.cash 官方中文页（授权撤销工具，2026-10-29 检索）</a><a href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank">ScamSniffer《Scam Sniffer 2025: Crypto Phishing Losses Fall 83% to $84 Million》（2026-01-03）</a><a href="https://drops.scamsniffer.io/crypto-targeting-malware-a-case-study-from-google-ads-to-data-theft/" target="_blank">ScamSniffer《Crypto-Targeting Malware: A Case Study from Google Ads to Data Theft》（2025-01-21）</a><a href="https://drops.scamsniffer.io/transaction-simulation-spoofing-a-new-threat-in-web3/" target="_blank">ScamSniffer《Transaction Simulation Spoofing: A New Threat in Web3》（2025-01-10）</a><a href="https://scamsniffer.io/" target="_blank">ScamSniffer 首页公开警报（地址投毒 / 私钥泄露 / Permit 钓鱼案例）</a><a href="https://trezor.io/guides/" target="_blank">Trezor 官方 Guides 索引（备份与恢复、Multi-share Backup、Keep Metal）</a></div>
+</section>
+
+<section id="c18" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 18 · PART 4 · 防护与运营</span><h2>项目方安全建设：从开发到上线<span class="accent">：一条能落地的流程</span></h2></div>
+  <p class="sec-desc">合约部署出去就改不掉了，所以安全不是"上线前找审计公司买一份报告"，而是从需求评审到上线后监控的一条流水线。这一章按时间顺序给你每个阶段该做什么、用什么工具、交付什么文档。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📐</span><h3>一、开发期：文档先行，把安全属性写下来</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：合约开发者 / 技术负责人</span></div></div>
+    <p>Trail of Bits 的《Building Secure Contracts》把开发流程的第一步定为<b>记录安全属性</b>，并称这是"the single most important activity for achieving a good outcome"（为获得好结果而进行的唯一最重要活动）。具体做法：给状态机、访问控制、算术运算、外部交互、标准符合性各写几条"必须永远成立"的断言，后面所有测试和审计都围绕它转。</p>
+    <ul>
+      <li><b>代码组织：</b>一个 .sol 文件一个合约，文件名与合约名一致；artifacts 目录进 .gitignore；把不同职责拆成独立合约。OpenZeppelin 官方教程强调依赖要用 npm 正式版本，"copy-pasting library source code into your project is a dangerous practice"（把库源码复制进项目是危险做法）。</li>
+      <li><b>编译器纪律：</b>认真处理编译器警告并保持版本更新；Solidity 官方安全文档反复强调 Checks-Effects-Interactions、限制合约内托管资金、"Never use <b>tx.origin</b> for authorization"、加入自检失败即降级为只读的故障安全模式。</li>
+      <li><b>文档清单：</b>流程图与时序图、用户故事、链上/链下假设（数据验证流程、预言机、跨链桥假设）、参与者及其角色与权限、术语表。复杂的流程录一段视频讲解——这是审计前准备清单的明确建议。</li>
+    </ul>
+    <p>想快速判断团队安全成熟度，可以用 Trail of Bits 等提出的 <b>Rekt Test</b>——12 道题，回答"是"越多越可信，且要求有证据支撑而非"有计划"：</p>
+    <table>
+      <tr><th>分组</th><th>问题</th></tr>
+      <tr><td><b>文档与计划</b></td><td>① 是否记录所有参与者、角色和权限；② 是否维护外部服务/合约/预言机等依赖文档；③ 是否有成文并演练过的事件响应计划；④ 是否记录系统最可能被攻击的方式（威胁模型）</td></tr>
+      <tr><td><b>人员与访问控制</b></td><td>⑤ 是否对员工做身份验证和背景调查；⑥ 是否有人把安全写进职责；⑦ 生产系统是否要求硬件安全密钥；⑧ 密钥管理是否要求多人、物理步骤或多签，避免单人破坏系统</td></tr>
+      <tr><td><b>技术安全</b></td><td>⑨ 是否定义关键不变量并在每次提交时自动测试（Echidna/Medusa）；⑩ 是否使用最佳自动化工具（Slither 静态分析）；⑪ 是否接受外部审计并维护漏洞披露或赏金计划；⑫ 是否考虑并缓解针对用户的滥用途径（钓鱼、社工、经济攻击）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔧</span><h3>二、测试期：静态分析、模糊测试、单元测试三件套</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：有 Foundry 基础</span></div></div>
+    <p><b>静态分析用 Slither。</b>Trail of Bits 出品，自称 "Static Analyzer for Solidity and Vyper"，Python3 编写，AGPL-3.0 许可。仓库列出 100 个检测器（reentrancy-eth、arbitrary-send-eth、constable-states 等），宣称低漏报、平均每合约分析不到 1 秒、能正确解析 99.9% 的公开 Solidity 代码，可接入 CI 与 Hardhat/Foundry。用法极简：<b>slither .</b> 跑全项目，<b>slither [target] --checklist</b> 生成 Markdown 报告。Trail of Bits 的建议是<b>每次提交新代码都跑，并确保报告干净</b>。</p>
+    <p><b>针对特殊场景的专项检查：</b>可升级合约用 <b>slither-check-upgradeability</b> 或 Crytic 查升级缺陷；声称符合 ERC 标准的用 <b>slither-check-erc</b> 查规范偏差；有 Truffle 单元测试的可用 <b>slither-prop</b> 自动生成安全属性测试。另外要看三个可视化输出：<b>inheritance-graph</b>（防意外遮蔽与 C3 线性化问题）、<b>function-summary</b>（可见性与访问控制）、<b>vars-and-auth</b>（状态变量的访问控制）。</p>
+    <p><b>模糊与不变量测试。</b>Foundry 的 forge 负责 build/test/deploy，配套 cast（链上交互）、anvil（本地节点）、chisel（Solidity REPL）；其测试配置覆盖 fuzz testing 与 invariant testing，官方指南专门讲"用 handler 模式和 ghost variables 写有效的不变量测试"。同门的 Echidna（"A fuzzer that checks your contract's properties"）、Medusa、Manticore（符号执行）也在 Trail of Bits 的程序分析板块，每个都配约两小时练习。</p>
+    <p><b>别忘了工具查不到的部分：</b>缺乏隐私性（交易在内存池排队时对所有人可见）、交易 front running、加密运算相关风险、与外部 DeFi 组件交互的风险，以及链下的 owner keys 管理。这些只能靠人工审计和文档约束。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>三、上线前检查清单：四件事必须闭环</h3><div class="badges"><span class="badge r4">难度 ★★★</span><span class="badge">适合：准备送审的团队</span></div></div>
+    <table>
+      <tr><th>板块</th><th>必须做到</th></tr>
+      <tr><td><b>明确审查目标</b></td><td>确认产品整体安全水平；列出最令人担忧的领域（综合历史审计与问题、复杂部分、脆弱组件）；想清楚项目的最坏情况</td></tr>
+      <tr><td><b>先解决简单问题</b></td><td>分类处置静态分析结果（Solidity 用 Slither，Rust 用 dylint，Go 用 golangci，其他用 CodeQL/Semgrep）；提高单元测试与功能测试覆盖率并全量运行；删除死代码、无用库和多余负重</td></tr>
+      <tr><td><b>确保代码可访问</b></td><td>给出待审文件的详细清单；写清构建指令并在全新环境克隆验证可构建；<b>冻结稳定的 commit hash / 分支 / 版本</b>；标出自研代码与 fork 代码的差异</td></tr>
+      <tr><td><b>完善文档</b></td><td>流程图与时序图；用户故事；链上/链下假设；参与者角色与权限；函数级注释（含系统/函数不变量、参数取值范围、算术公式与精度损失）；术语表</td></tr>
+    </table>
+    <p>这份清单同时是给审计方的：范围不清、构建不了、文档缺失，会直接换来一句"建议补充文档后复审"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>四、上线后：暂停、升级、监控与自动响应</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：已上线的项目方</span></div></div>
+    <p><b>应急暂停（circuit breaker）。</b>OpenZeppelin Contracts 5.x 把 Pausable 归入 Security 分类，一句话定义："A common emergency response mechanism that can pause functionality while a remediation is pending"（一种在补救措施就绪前暂停功能的常见应急响应机制）。但 Trail of Bits 提醒：暂停组件可能影响其他合约，"you must assess its potential impact on other contracts"——所以暂停范围要提前设计，而不是出事时现想。</p>
+    <p><b>升级与权限。</b>迁移/升级是另一条修复路径，但要配套测试与验证流程（分叉测试、部署后脚本）。权限设计上， Trail of Bits 的建议是：不要把关键权限集中在单一 EOA，用多签或 MPC，并<b>分离不同职责</b>——例如收费权与升级权应由不同主体掌握。</p>
+    <p><b>监控与自动响应。</b>第三方监控擅长通用异常交易；自建监控贴合系统特有指标（健康因子、抵押率、AMM 不变量漂移）。Forta 将资产依赖"mapped, quantified in USD and monitored block by block"，通过邮件、Webhook 或 API 发实时告警，其 Firewall 提供"Transaction screening at the sequencer"——在排序器层面执行前筛查。OpenZeppelin 的 Monitor 可"watch critical events, detect anomalies, trigger alerts on your preferred channels"，并能"set automated responses with Relayer"形成监控→告警→自动响应闭环；其 Upgrades Plugins 会"enforce safety checks"。Trail of Bits 同时警告：基于告警自动执行动作要"Carefully consider"，误报成本要提前算。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"The right communication at the right time is key to maintaining trust."——Trail of Bits《Incident Response Recommendations》把沟通列进应急预案，并要求提前指定技术负责人、沟通负责人、法律负责人三类角色，编制含可复现脚本的 runbook。<span class="who">来源：secure-contracts.com（2026-10-29 检索）。</span></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>五、Bug 赏金怎么设：钱、范围、规则三件事</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：创始人 / 安全负责人</span></div></div>
+    <p>Immunefi 平台当前列出 <b>157 个赏金项目</b>，首页宣称有 85,000+ 研究员、每月确认 40+ 个 critical 漏洞、累计支付 $140M+ 覆盖 650+ 协议。它的 triage 会"close or escalate two in three reports"——所以规则写清楚，能省掉大量无效提交。</p>
+    <p>以 Ethena 的公开项目页为例（2026-10-29 检索），智能合约部分的分级是：</p>
+    <table>
+      <tr><th>等级</th><th>奖励</th><th>说明</th></tr>
+      <tr><td><b>Critical</b></td><td>Max $3,000,000 / Min $100,000</td><td>"10% of the funds directly affected"（按报告提交时点计算的受影响资金 10%）；设下限是为了避免研究者隐瞒漏洞</td></tr>
+      <tr><td><b>High</b></td><td>Max $75,000 / Min $10,000</td><td>需 PoC</td></tr>
+      <tr><td><b>Medium</b></td><td>Flat $10,000</td><td>需 PoC</td></tr>
+      <tr><td><b>Low</b></td><td>Flat $2,500</td><td>需 PoC</td></tr>
+      <tr><td><b>Web Critical</b></td><td>Max $50,000 / Min $20,000</td><td>仅"无需用户操作的盗资攻击"或"私钥/私钥生成泄露导致未授权访问用户资金"给上限，其他一律 flat $20,000</td></tr>
+    </table>
+    <p><b>三件事要一起设：</b>① <b>钱要看得见</b>——Immunefi Vaults 基于 Safe 多签构建，官方称其为"one of the most battle-tested contracts in the industry, trusted with billions of funds"，且"You are the only one who can access and interact with your vault"；支持稳定币、ETH 及 Uniswap 列表上的任意资产，可一笔交易混合支付。② <b>范围要写死</b>——Ethena 页面明确列出禁止行为：不得在已部署主网或公共测试网代码上测试（只可本地 fork）、不得测试定价预言机或第三方合约、禁止对员工/客户钓鱼或社工、禁止 DoS、禁止高流量自动化测试、禁期内不得公开未修补漏洞。③ <b>披露要分级</b>——Immunefi 的 Responsible Publication 分三类：Category 1 修完付款后可自行公开；Category 2 需给项目方 21 天 review period；Category 3 未经明确许可不得披露 payout 与项目名。</p>
+    <p><b>付款与合规：</b>Ethena 要求 KYC 才能付款（全名、出生日期、地址证明、护照或政府签发 ID），奖励以 USD 计价、按提交时 CoinMarketCap 与 CoinGecko 均价折算、以 USDC 支付至主网。赏金属应税收入，各地规则不同（示例：美国 IRS 的虚拟货币 FAQ 规定"in exchange for performing services... you recognize ordinary income"，按收到时的美元公允价值计税），请按所在司法辖区咨询专业人士。</p>
+    <p><b>最后一条法律红线：</b>赏金计划的授权范围只覆盖页面写明的资产与行为。任何测试前必须取得明确书面授权；未授权测试可能违法并承担刑事责任。想给白帽"救火权"的团队，可参考 Immunefi 与 Security Alliance（SEAL）的 Safe Harbor 框架——它只覆盖"active exploitation by blackhat hackers"的真实攻击场景，并"expressly forbids all other hacking activity"。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://github.com/crytic/building-secure-contracts" target="_blank">Trail of Bits《Building Secure Contracts》仓库（2026-10-29 检索）</a><a href="https://secure-contracts.com/development-guidelines/workflow.html" target="_blank">secure-contracts.com · Secure Development Workflow</a><a href="https://secure-contracts.com/development-guidelines/review_checklist.html" target="_blank">secure-contracts.com · Preparing for a Security Review</a><a href="https://secure-contracts.com/development-guidelines/incident_response.html" target="_blank">secure-contracts.com · Incident Response Recommendations</a><a href="https://secure-contracts.com/development-guidelines/rekt-test.html" target="_blank">secure-contracts.com · The Rekt Test</a><a href="https://github.com/crytic/slither" target="_blank">crytic/slither 仓库（Trail of Bits 静态分析器）</a><a href="https://getfoundry.sh/" target="_blank">Foundry 官网（forge / cast / anvil / chisel）</a><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档 · Security Considerations</a><a href="https://docs.openzeppelin.com/contracts/5.x/api/utils" target="_blank">OpenZeppelin Contracts 5.x · Utils API（Pausable）</a><a href="https://docs.openzeppelin.com/learn/developing-smart-contracts" target="_blank">OpenZeppelin Learn · Developing Smart Contracts</a><a href="https://forta.org/" target="_blank">Forta 官网（链上监控与交易筛查）</a><a href="https://docs.openzeppelin.com/" target="_blank">OpenZeppelin 开源工具（Monitor / Relayer / Upgrades Plugins）</a><a href="https://immunefi.com/bug-bounty/ethena/information/" target="_blank">Immunefi · Ethena Bug Bounty 项目页</a><a href="https://immunefi.com/vaults/" target="_blank">Immunefi Vaults 官方页</a><a href="https://immunefi.com/responsible-publication/" target="_blank">Immunefi · Responsible Publication 规则</a><a href="https://immunefi.com/safe-harbor/" target="_blank">Immunefi · Safe Harbor（SEAL 法律框架）</a><a href="https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions" target="_blank">IRS · Frequently Asked Questions on Virtual Currency Transactions</a></div>
+</section>
+
+<section id="c19" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 19 · PART 4 · 防护与运营</span><h2>被攻击了怎么办：应急响应流程<span class="accent">：第一小时决定损失上限</span></h2></div>
+  <p class="sec-desc">安全事件里，团队的反应速度直接反映事前的准备水平。这一章按时间顺序写：第一小时做什么、对外怎么说话、资金追回的合理预期、事后复盘该留下什么。所有案例均来自已公开披露的事件复盘与官方公告。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>一、第一小时：止损、确认、保全证据</h3><div class="badges"><span class="badge r5">难度 ★★★★</span><span class="badge">适合：值班工程师 / 技术负责人</span></div></div>
+    <p>Trail of Bits 的应急响应建议把第一小时的目标压缩成一句话：<b>先止血，再归因，最后才解释。</b>不要在没有证据的情况下先发声明。</p>
+    <table>
+      <tr><th>时间</th><th>动作</th><th>要点</th></tr>
+      <tr><td><b>T+0–10 分钟</b></td><td>确认是不是真的</td><td>看链上交易与合约余额，而不是看社媒。区分"被盗""价格异常""前端被篡改"三类完全不同的事件</td></tr>
+      <tr><td><b>T+10–20 分钟</b></td><td>止损：暂停</td><td>触发应急暂停（circuit breaker）。OpenZeppelin 对 Pausable 的定义是"在补救措施就绪前暂停功能的常见应急响应机制"。但暂停前必须评估连锁影响——Trail of Bits 原话："you must assess its potential impact on other contracts"</td></tr>
+      <tr><td><b>T+20–30 分钟</b></td><td>切断通道</td><td>轮换 owner / admin 密钥；冻结前端提现入口；如有预言机或价格源被操纵，先切断喂价而不是先修合约</td></tr>
+      <tr><td><b>T+30–50 分钟</b></td><td>保全证据</td><td>导出攻击交易 hash、被调用的合约与函数、事件日志、前端与服务器的访问日志、部署记录。全部存到只读位置并做哈希留档——这是后续追责、理赔、复盘的唯一依据</td></tr>
+      <tr><td><b>T+50–60 分钟</b></td><td>拉人进场</td><td>通知多签签署方、审计方、安全公司（如慢雾、CertiK 一类提供应急响应与资金追踪的机构）、律所。提前把联系方式和 runbook 准备好，不要现场翻通讯录</td></tr>
+    </table>
+    <p><b>权限设计决定你能不能真的暂停。</b>Trail of Bits 的建议很直接：不要把关键权限集中在单一 EOA，用多签或 MPC，并分离职责——收费权与升级权应由不同主体掌握。否则出事时你会发现：能签暂停的人正在睡觉，而他的设备就是单点。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"The right communication at the right time is key to maintaining trust."——Trail of Bits《Incident Response Recommendations》要求提前指定三类角色：技术负责人（汇聚技术信息）、沟通负责人（对内对外）、法律负责人（对接法务或执法机构），并编制含可复现脚本的 runbook，同时记录特殊钱包的位置与访问步骤。<span class="who">来源：secure-contracts.com（2026-10-29 检索）。</span></blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📣</span><h3>二、公开沟通：节奏比内容更重要</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：创始人 / 社区负责人</span></div></div>
+    <ul>
+      <li><b>第一封信只讲三件事：</b>发生了什么（现象，不猜原因）、我们已经做了什么（暂停/切通道/在查）、用户现在该做什么（停止交互/不要点任何"补偿"链接）。原因和技术细节留给第二封。</li>
+      <li><b>固定一个官方出口。</b>只用一个经多签控制的账号发布，其他渠道一律不认证。事件期间假冒账号、假冒客服、"补偿登记"页会成批出现——这正是二次收割的窗口。</li>
+      <li><b>用可验证的事实说话。</b>给交易 hash、合约地址、区块浏览器链接，让用户自己核对。Trail of Bits 还建议提前"用文档明确如何解读链上事件，使用户能自行识别和解码"。</li>
+      <li><b>不要做的事：</b>不要在未确认前点名攻击者；不要承诺具体赔付金额和时间；不要删除或修改已发布内容（用跟帖更新）；不要让非技术高管在直播里即兴解释技术原因。</li>
+      <li><b>留下跟进的明确时点。</b>即使没进展，也要按承诺的时间点说一句"仍在处理"——沉默是信任流失最快的方式。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>三、资金追踪与追回：把预期放在合理位置</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p><b>先说现实：链上转账不可逆，"追回"通常靠三条路——攻击者主动归还、司法冻结、交易所配合拦截。</b>不要把"正在追踪"等同于"能追回"。</p>
+    <p><b>案例一：Liquid Network 约 $320M（2026-09 披露）。</b>攻击者从约 4,200 BTC 的储备中提取约 4,000 BTC；数小时后通过比特币 OP_RETURN 字段联系 Blockstream，自称 "whitehats"；周三 Blockstream 确认补丁已部署，攻击者单笔交易归还 3,400 BTC（约 <b>85%</b>），但仍有约 <b>600 BTC（约 $47M）</b>留在攻击者控制的地址，原因不明，双方均未公开确认任何安排。Chainalysis 的结论值得记住："Building financial layers on top of blockchains like Bitcoin can introduce new vulnerabilities"——在比特币之上搭建金融层会引入新漏洞，底层没被攻破不等于上层安全。</p>
+    <p><b>案例二：约 $387M 被盗后的链上追踪。</b>Chainalysis 披露的调查方法：用内部 AI 平台快速开发针对本案的自动化程序完成跨链对账，但"defined the logic, reviewed the outputs, and directed the investigation"仍由人完成；识别后数分钟内标签即在数据平台生效。资金初始流向（攻击后 3 小时内 23 笔转账）：<b>Ethereum 49.7%、XRP 40.8%、Zcash 7.6%、Tron 1.8%</b>，数千万美元在约一天半内经跨链流动性协议转移，最终流入攻击者控制的比特币地址。<b>文章未披露任何追回、冻结或找回的比例或金额</b>——追踪到地址和真的拿回钱是两件事。</p>
+    <p><b>可用的工具与机构：</b>慢雾科技官网列出的服务包含<b>应急响应服务</b>与 <b>MistTrack 追踪服务</b>（"数字资产不幸被盗，通过 MistTrack 追踪服务挽回一线希望"），另有安全监测、区块链威胁情报与"冷温热资产加固"的防御部署。CertiK 的 SkyInsights 提供实时交易监控与 AML/CTF 合规，含 300M+ 地址标签，页面标注"4,000+ Incidents Detected Since 2020"。这些是情报与协助层面，不是赔付保证。</p>
+    <p><b>想给白帽"救火权"的团队：</b>Immunefi 与 Security Alliance（SEAL）的 Safe Harbor 是一个法律框架，让研究员在真实黑帽攻击中介入救援、把资金转入协议控制的 Vault 并获得项目方设定的奖励。但它<b>只覆盖"active exploitation by blackhat hackers"的场景，并"expressly forbids all other hacking activity"</b>。任何反制行动都要先有书面授权——未授权测试与"打回去"都可能违法并承担刑事责任。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>四、事后复盘：一份能用的报告写什么</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：技术负责人</span></div></div>
+    <p>复盘不是公关稿，是给下一次的自己留的操作手册。建议固定写七节：</p>
+    <table>
+      <tr><th>章节</th><th>必须回答</th></tr>
+      <tr><td><b>1. 时间线</b></td><td>从第一笔可疑交易到止损完成，每一分钟发生了什么、谁做的决定</td></tr>
+      <tr><td><b>2. 根因</b></td><td>不是"被人攻击了"，而是哪一个假设不成立（缓存误判、权限过大、预言机被操纵、前端被篡改）</td></tr>
+      <tr><td><b>3. 影响面</b></td><td>损失金额、受影响用户数、受影响合约与链、是否波及其他协议</td></tr>
+      <tr><td><b>4. 响应评价</b></td><td>哪一步慢了、哪一步根本做不到、runbook 里哪条是错的</td></tr>
+      <tr><td><b>5. 资金去向</b></td><td>已知的链上路径、已联系的交易所与机构、最终追回比例</td></tr>
+      <tr><td><b>6. 修复项</b></td><td>每条修复绑定负责人、截止日期、验证方式（分叉测试、上线后脚本）</td></tr>
+      <tr><td><b>7. 机制改进</b></td><td>新增的不变量、新的监控规则、权限变更、是否需要调整赏金范围</td></tr>
+    </table>
+    <p>Trail of Bits 的建议是<b>定期开展培训与事件响应演练</b>，以发现现有协议漏洞；同时别忽视链下风险——前端或社媒账号被控同样属于事故源。预案要在没出事的时候写、在没出事的时候演。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://secure-contracts.com/development-guidelines/incident_response.html" target="_blank">Trail of Bits《Incident Response Recommendations》（2026-10-29 检索）</a><a href="https://www.chainalysis.com/blog/320m-exploit-liquid-network/" target="_blank">Chainalysis《How The $320M Exploit of Liquid Network Went Down》（2026-09-09）</a><a href="https://www.chainalysis.com/blog/387m-bitget-theft-2026/" target="_blank">Chainalysis《How AI Helped Chainalysis Investigators Trace the $387 Million North Korea Stole from Bitget》</a><a href="https://cn.slowmist.com/" target="_blank">慢雾科技官网（应急响应 / MistTrack 追踪 / 威胁情报）</a><a href="https://www.certik.com/" target="_blank">CertiK 官网（Skynet / SkyInsights 实时监控与事件响应）</a><a href="https://immunefi.com/safe-harbor/" target="_blank">Immunefi · Safe Harbor（SEAL 法律框架）</a><a href="https://docs.openzeppelin.com/contracts/5.x/api/utils" target="_blank">OpenZeppelin Contracts 5.x · Utils API（Pausable）</a></div>
+</section>
+
+<section id="c20" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 20 · PART 4 · 防护与运营</span><h2>30 天入门计划：从零到第一笔赏金<span class="accent">：按周拆解的日程表</span></h2></div>
+  <p class="sec-desc">这是一张可以打印贴在桌上的日程表。每周有明确的主题、产出物和验收标准，也给了"卡住时怎么降级"的方案。前提先说清楚：这份计划的终点是<b>能提交一份合格的报告</b>，不是"保证拿到钱"。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛠️</span><h3>第 1 周：环境与基础</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">需要：会写基本 Solidity</span></div></div>
+    <p><b>目标：</b>把工具装好、把测试跑起来、把"常见漏洞长什么样"看熟。</p>
+    <ul>
+      <li><b>Day 1–2 装环境。</b>装 Foundry：forge（"Foundry's build, test, and deploy tool for Solidity smart contracts"）、cast（命令行链上交互）、anvil（本地节点）、chisel（Solidity REPL）。用 <b>forge test</b> 跑通一个示例合约，确认能写断言。</li>
+      <li><b>Day 3–4 读官方安全清单。</b>Solidity 官方《Security Considerations》通读一遍，重点：Checks-Effects-Interactions、重入、<b>tx.origin 永远不能用于授权</b>、unchecked 算术、msg.data 可塑性、mapping 清理、调用栈深度。</li>
+      <li><b>Day 5–6 装 Slither。</b>Python 3.10+ 环境，推荐 <b>uv tool install slither-analyzer</b>，然后 <b>slither .</b> 分析一个开源项目，用 <b>--checklist</b> 生成 Markdown 报告，逐条看它报了什么、为什么。</li>
+      <li><b>Day 7 复盘。</b>把这一周报出来的检测器名抄成一张表，写清每条的"触发条件 + 修复方式"。</li>
+    </ul>
+    <p><b>产出物：</b>一张检测器笔记表 + 三个能跑的 Foundry 测试文件。<b>验收标准：</b>能在 10 分钟内从零 clone 一个仓库、装依赖、forge test 全绿、slither 出报告。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎯</span><h3>第 2 周：靶场练习</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">需要：会用 Foundry 写 PoC</span></div></div>
+    <p><b>目标：</b>把"看懂漏洞"变成"写出可利用的 PoC"。两个靶场都自带已公开的漏洞设计，只在本地跑，不涉及任何未授权系统。</p>
+    <ul>
+      <li><b>Damn Vulnerable DeFi</b>：The Red Guild 出品，自称"the training ground for security researchers, developers and educators"，列出 <b>18 道题</b>（Unstoppable、Side Entrance、Selfie、Compromised、Puppet V3 等），覆盖闪电贷、价格预言机、治理、NFT、DEX、借贷池、智能合约钱包、时间锁、金库、元交易、代币分发与可升级性。题目与解答都在仓库里，建议先自己做、做完再对答案。</li>
+      <li><b>Quill CTFs</b>：定位是"a game in which you hack Ethereum smart contracts to learn about security"，仓库可见约 30 个挑战（主挑战 01–23 + 合作挑战 + 院校物理 CTF），按 Solidity Security / EVM / DeFi Security 分类，难度分 Easy / Medium / Hard，涵盖重入、整数上下溢、可预测随机数等。多个条目标着 "Coming Soon"，更新不算频繁。</li>
+      <li><b>OpenZeppelin Ethernaut</b>：README 自称 "Web3/Solidity based wargame"，"There can be an infinite number of levels"，支持本地测试网或 Sepolia。适合碎片时间刷关卡。</li>
+    </ul>
+    <p><b>产出物：</b>至少 8 个自己写的 Foundry PoC，每个配一段"根因一句话 + 修复建议"。<b>验收标准：</b>不参考答案能独立解出 5 题以上；能说清每题的漏洞属于哪一类、在真实项目里会怎么被触发。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📚</span><h3>第 3 周：工具与公开代码审计</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">需要：能读上千行 Solidity</span></div></div>
+    <p><b>目标：</b>学会在陌生代码库里定位风险，并把工具变成日常习惯。</p>
+    <ul>
+      <li><b>读《Not So Smart Contracts》。</b>Trail of Bits 的 building-secure-contracts 仓库把常见漏洞按"描述 + 示例 + 建议"整理成册，还覆盖 Algorand、Cairo、Cosmos、Solana、Sui、TON 等多链。同仓库的 Program Analysis 板块对 Echidna（"A fuzzer that checks your contract's properties"）、Medusa、Manticore（符号执行）各配约两小时练习。</li>
+      <li><b>用 Solodit 学别人的发现。</b>Cyfrin 维护，自称"largest open source database of blockchain and smart contract security vulnerabilities, exploits, and mitigations"。可按 Impact（Low/Medium/High）、编程语言、协议类别、报告标签、来源、稀有度、质量、报告日期筛选。<b>每天读 3 篇，抄下"我怎么在原代码里找到它"这一步</b>——这一步比漏洞类型本身更值钱。</li>
+      <li><b>完整走一遍审计流程。</b>挑一个中等规模的开源协议，按 Trail of Bits 的 Secure Development Workflow 做：跑 Slither 并清理报告 → 看 inheritance-graph / function-summary / vars-and-auth → 写下安全属性 → 用 Echidna 或 Foundry 不变量测试去验证 → 整理成一份完整审计报告（含范围、方法、发现分级、修复建议）。</li>
+    </ul>
+    <p><b>产出物：</b>一份自己署名的完整审计报告（哪怕结论是"未发现问题"）+ 20 篇 Solodit 笔记。<b>验收标准：</b>报告里有分级、有 PoC 或推理链、有修复建议；能说出"我审查过的代码里最脆弱的三个模块是什么、为什么"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📮</span><h3>第 4 周：提交第一份报告</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">需要：前三周的产出</span></div></div>
+    <p><b>先选战场。</b>Immunefi 当前列出 <b>157 个赏金项目</b>，可按最高奖励、TVL、处理时长筛选。一个反直觉但重要的筛选指标是<b>中位解决时间</b>——有的项目 1 天，有的 9 小时，这直接决定你的反馈速度。同期也要知道：<b>Code4rena 已宣布关停</b>（"After 5 years of securing DeFi, Code4rena is closing its doors"，存量竞赛与赏金跑完为止），所以别把 30 天计划的全部希望压在单一平台上。</p>
+    <p><b>按 Ethena 这类公开项目页的分级来校准你的报告：</b>Critical 多为"受影响资金的 10%"，High/Medium/Low 逐级下降，且<b>所有等级都要求 PoC</b>。新手最常犯的错不是找不到漏洞，而是把"理论可能"写成 Critical——请对照项目页的严重度定义逐条自评。</p>
+    <p><b>报告里必须写清的六件事：</b>受影响合约与函数（带代码行号）、触发前提与假设、完整复现步骤（本地 fork，不要在主网或公共测试网上操作）、PoC 代码与运行输出、影响量化（最多能拿走多少钱）、修复建议。</p>
+    <p><b>规则红线（务必先读项目页的 Prohibited Activities）：</b>不得在已部署主网或公共测试网代码上测试（只可本地 fork）、不得测试定价预言机或第三方合约、禁止对员工/客户钓鱼或社工、禁止 DoS、禁止高流量自动化测试、禁期内不得公开未修补漏洞。<b>任何测试前必须取得明确书面授权；未授权测试可能违法并承担刑事责任。</b></p>
+    <p><b>关于披露与收款：</b>Immunefi 的 Responsible Publication 分三类——Category 1 修完付款后可自行公开，Category 2 需给项目方 21 天 review period，Category 3 未经明确许可不得披露 payout 与项目名。付款通常要 KYC（全名、出生日期、地址证明、护照或政府签发 ID），奖励以 USD 计价、按提交时 CoinMarketCap 与 CoinGecko 均价折算。<b>赏金属应税收入</b>，各地规则不同（示例：美国 IRS 虚拟货币 FAQ 规定提供服务取得虚拟货币"you recognize ordinary income"，按收到时的美元公允价值计税），请按所在司法辖区自行申报并咨询专业人士。</p>
+    <p><b>把预期放对。</b>Immunefi 首页的数字很亮眼：85,000+ 研究员、每月确认 40+ 个 critical、累计支付 $140M+ 覆盖 650+ 协议。但同一页也写着 triage"closes or escalates two in three reports"，且"99.3% of the reports our triage closed stayed closed after review"。第一份报告被判定重复或超出范围，是常态，不是失败。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗓️</span><h3>四周总表与降级方案</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：打印贴墙</span></div></div>
+    <table>
+      <tr><th>周</th><th>主题</th><th>核心动作</th><th>产出物</th><th>验收标准</th></tr>
+      <tr><td><b>W1</b></td><td>环境与基础</td><td>Foundry + Solidity 安全清单 + Slither</td><td>检测器笔记表 + 3 个测试文件</td><td>10 分钟内跑通 clone → test → slither</td></tr>
+      <tr><td><b>W2</b></td><td>靶场练习</td><td>Damn Vulnerable DeFi（18 题）+ Quill CTFs</td><td>8 个 Foundry PoC</td><td>不参考解答独立解出 5 题以上</td></tr>
+      <tr><td><b>W3</b></td><td>工具与公开审计</td><td>Not So Smart Contracts + Solodit + 完整走一遍审计流程</td><td>1 份完整审计报告 + 20 篇笔记</td><td>报告含分级、PoC、修复建议</td></tr>
+      <tr><td><b>W4</b></td><td>提交第一份报告</td><td>选项目 → 自评严重度 → 写报告 → 提交</td><td>1 份已提交的赏金报告</td><td>六要素齐全，PoC 可复现</td></tr>
+    </table>
+    <p><b>卡住时的降级方案：</b></p>
+    <ul>
+      <li><b>W1 装不上环境：</b>不要硬刚，改用 Docker 镜像或在线 IDE；先保证能跑 forge test，编译细节以后补。</li>
+      <li><b>W2 解不出题：</b>降级为"看懂解答 + 复现 PoC"，并把该题的漏洞类型加进 W3 的 Solodit 检索词。抄一遍能跑通的 PoC，也远胜于跳过。</li>
+      <li><b>W3 读不动大型代码库：</b>换小目标（合约数 &lt; 20、无复杂代理与跨链），只审一个模块。<b>范围小而完整，胜过范围大而空洞。</b></li>
+      <li><b>W4 找不到可提交的漏洞：</b>把 W3 的审计报告按赏金报告的格式重写一遍提交（哪怕自评 Low/Informational）；或者转向文档类、测试覆盖率类的贡献。先体验一次完整提交流程，比第一次就中大奖更现实。</li>
+      <li><b>全程时间不够：</b>把 30 天拉成 60 天，但<b>不要跳过每周的产出物</b>——没有产出的"学习"不会变成赏金。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://getfoundry.sh/" target="_blank">Foundry 官网（forge / cast / anvil / chisel，2026-10-29 检索）</a><a href="https://docs.soliditylang.org/en/latest/security-considerations.html" target="_blank">Solidity 官方文档 · Security Considerations</a><a href="https://github.com/crytic/slither" target="_blank">crytic/slither 仓库（Trail of Bits 静态分析器）</a><a href="https://www.damnvulnerabledefi.xyz/" target="_blank">Damn Vulnerable DeFi 官网（The Red Guild）</a><a href="https://github.com/Quillhash/Quill-CTFs" target="_blank">Quillhash/Quill-CTFs 仓库</a><a href="https://github.com/OpenZeppelin/ethernaut" target="_blank">OpenZeppelin/ethernaut 仓库</a><a href="https://github.com/crytic/building-secure-contracts" target="_blank">Trail of Bits《Building Secure Contracts》（Not So Smart Contracts / Program Analysis）</a><a href="https://solodit.cyfrin.io/" target="_blank">Solodit（Cyfrin 审计发现数据库）</a><a href="https://immunefi.com/bug-bounty/" target="_blank">Immunefi 赏金项目列表（157 个项目）</a><a href="https://immunefi.com/bug-bounty/ethena/information/" target="_blank">Immunefi · Ethena Bug Bounty 项目页（分级与禁止行为）</a><a href="https://immunefi.com/responsible-publication/" target="_blank">Immunefi · Responsible Publication 规则</a><a href="https://code4rena.com/" target="_blank">Code4rena 官网（含关停公告）</a><a href="https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions" target="_blank">IRS · Frequently Asked Questions on Virtual Currency Transactions</a></div>
+</section>
+
+<footer class="wrap">
+  <div><b>全书使用建议</b></div>
+  <div style="margin-top:12px;color:var(--muted);max-width:860px;">
+    <p>· 先读第 04 章《法律与道德边界》再动手——白帽与灰产之间只隔一层授权，这一章是全书的保险丝；</p>
+    <p>· 第 06 章工具链建议边读边装，第 12 章赏金报告模板可以直接拿去改；每章末尾的来源链接是本章结论的依据，漏洞细节与赏金规则以平台当期公示为准（数据截至 2026-10-29）；</p>
+    <p>· 第 20 章《30 天入门计划》是一张可打印的日程表；只想保护自己资产的人，直接读第 17 章就够了。</p>
+  </div>
+  <div class="disclaimer">⚠️ <b>免责声明：</b>本手册由 6 个并行 AI 研究员于 2026-10-29 实时检索公开资料写成，仅用于安全研究与防御教育，不构成任何法律或投资意见。书中所有漏洞与案例均来自已公开披露的信息（审计报告、赏金平台公示、项目方公告）；涉及技术细节仅写到"如何识别与修复"的深度。<b>对任何系统进行测试前必须获得明确书面授权，未授权测试可能违反《网络安全法》等相关法律并承担刑事责任。</b>不同司法辖区对白帽测试的认定差异很大，请咨询当地法律专业人士。</div>
+  <div style="margin-top:20px;text-align:center;">🔐 《Web3 安全实操手册》· 20 章并行调研汇编 · 2026-10-29 · 配套 <a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a></div>
+</footer>
+
+<a class="backtop" href="#toc" title="回到目录">↑</a>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.toc a, .tocbox a');
+  var byId = {};
+  Array.prototype.forEach.call(links, function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  secs.sort(function (a, b) { return a.offsetTop - b.offsetTop; });
+  function update() {
+    var y = window.scrollY + 170, cur = null;
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = !!cur && a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('active', on);
+    });
+  }
+  var fold = document.querySelector('details.tocfold');
+  if (fold && window.matchMedia('(max-width: 700px)').matches) {
+    fold.removeAttribute('open');
+    Array.prototype.forEach.call(fold.querySelectorAll('.toc-list a'), function (a) {
+      a.addEventListener('click', function () { fold.removeAttribute('open'); });
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《AI 编程从零到接单手册》· 20 章深度版 · 2026-10</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --bg2:#fbfaf5; --card:#ffffff;
+    --line:#e7e3d8; --line2:#efecdf;
+    --ink:#2f3345; --text:#3d4256; --muted:#6b7280; --dim:#9aa1ae;
+    --accent:#5a67c2; --accent-soft:#eef0fb;
+    --cyan:#2e7fa3; --green:#2e8b6e; --amber:#b07a1e; --red:#c25468; --pink:#b8618f;
+    --purple:#6a5fc9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1100px 460px at 85% -120px, rgba(90,103,194,.07), transparent 60%),
+      radial-gradient(900px 420px at 5% -90px, rgba(46,127,163,.06), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  a{color:#3b63c4;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px;}
+  header.hero{padding:58px 0 28px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid #d6d9f0;padding:5px 14px;border-radius:999px;background:var(--accent-soft);font-weight:600;}
+  h1.title{font-size:38px;line-height:1.3;margin:20px 0 10px;font-weight:800;
+    background:linear-gradient(92deg,#2f3345 20%,#5a67c2 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .subtitle{color:var(--muted);font-size:16px;max-width:780px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:13px;color:var(--muted);}
+  .hero-meta span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 12px;}
+  .method-note{margin-top:20px;border-left:3px solid #d9a441;background:#faf3e0;
+    padding:12px 16px;border-radius:0 10px 10px 0;color:#7a5c1c;font-size:13.5px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:26px 0 4px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(31,35,53,.04),0 6px 18px rgba(31,35,53,.05);}
+  .stat .num{font-size:21px;font-weight:800;letter-spacing:.5px;}
+  .stat .lbl{color:var(--muted);font-size:12px;line-height:1.5;margin-top:1px;}
+  .stat.p .num{color:var(--purple);} .stat.g .num{color:var(--green);} .stat.r .num{color:var(--red);} .stat.c .num{color:var(--cyan);}
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-top:24px;}
+  nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;}
+  nav.toc a{font-size:13px;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid transparent;}
+  nav.toc a:hover{color:var(--text);text-decoration:none;background:var(--card);border-color:var(--line);}
+  nav.toc a.part-label{color:var(--accent);font-weight:700;border-color:#d6d9f0;background:var(--accent-soft);}
+  nav.toc a.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  @media(max-width:700px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    nav.toc .wrap::-webkit-scrollbar{display:none;}
+    nav.toc a{white-space:nowrap;flex:0 0 auto;padding:5px 10px;}
+  }
+  section{padding:50px 0 8px;}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:700;}
+  h2{font-size:26px;font-weight:800;color:var(--ink);}
+  h2 .accent{color:var(--accent);}
+  .sec-desc{color:var(--muted);margin:8px 0 24px;max-width:820px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px 20px;margin-bottom:24px;box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px;}
+  .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:var(--accent-soft);border:1px solid #d6d9f0;flex:none;}
+  .card h3{font-size:19px;font-weight:700;color:var(--ink);flex:1;min-width:200px;}
+  .badges{display:flex;flex-wrap:wrap;gap:7px;}
+  .badge{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg2);}
+  .badge.r1{color:#1f6e52;border-color:#bfe0d2;background:#e3f3ec;}
+  .badge.r2{color:#4a6e1f;border-color:#d3e3b4;background:#eff5df;}
+  .badge.r3{color:#8a5f12;border-color:#ecd9a8;background:#faf0d8;}
+  .badge.r4{color:#9a4f1f;border-color:#f0d2b8;background:#fbeee2;}
+  .badge.r5{color:#a03a4e;border-color:#f0c3cd;background:#f9e3e8;}
+  .card p{margin:10px 0;color:var(--text);}
+  .card p b,.card li b{color:var(--ink);font-weight:700;}
+  .card ul{margin:8px 0 8px 22px;color:var(--text);}
+  .card li{margin:6px 0;}
+  blockquote.xq{border-left:3px solid #8d97d8;background:#f0f2fc;
+    padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;color:#454c78;font-size:14.5px;}
+  blockquote.xq .who{color:var(--accent);font-weight:700;}
+  .src{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;}
+  .src .tag{color:var(--amber);font-weight:700;flex:none;}
+  .src a{color:#3b63c4;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:800px){.cols{grid-template-columns:1fr;}}
+  .chart{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;}
+  .chart .cap{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center;}
+  .chart h4{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .legend{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;}
+  .chart text{fill:var(--ink);}
+  .chart text[fill="#dfe5f1"]{fill:var(--ink);}
+  .chart text[fill="#8b94ab"]{fill:var(--muted);}
+  .chart text[fill="#ff5d73"]{fill:var(--red);}
+  .chart text[fill="#2fd6a5"]{fill:var(--green);}
+  .chart [stroke="#242d42"]{stroke:#dcd7c9;}
+  .chart rect[fill="#0d1119"]{fill:#efede4;}
+  .chart stop[stop-color="#8b7cff"]{stop-color:#7d76cf;}
+  .chart stop[stop-color="#4dd6ff"]{stop-color:#6fa8c9;}
+  .chart stop[stop-color="#f5b83d"]{stop-color:#dfa63e;}
+  .chart stop[stop-color="#ff5d73"]{stop-color:#d3707f;}
+  .chart stop[stop-color="#2fd6a5"]{stop-color:#4aa583;}
+  .hbar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;margin:9px 0;font-size:13.5px;}
+  .hbar-track{height:16px;background:#efede4;border-radius:8px;overflow:hidden;border:1px solid var(--line2);}
+  .hbar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#7d76cf,#6fa8c9);}
+  .hbar-val{color:var(--muted);font-size:12.5px;text-align:right;}
+  @media(max-width:640px){.hbar-row{grid-template-columns:110px 1fr 74px;}}
+  .bignum{display:flex;align-items:baseline;gap:8px;justify-content:center;}
+  .bignum .v{font-size:42px;font-weight:800;color:var(--red);}
+  .bignum .u{color:var(--muted);font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  th{color:var(--muted);font-weight:600;text-align:left;font-size:12.5px;letter-spacing:.5px;}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:hover td{background:#f6f7fd;}
+  td b{color:var(--ink);}
+  .tocbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;}
+  @media(max-width:800px){.tocbox{grid-template-columns:1fr;gap:10px;}}
+  .toc-part{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 14px 10px;}
+  .toc-part-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .toc-part-no{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px;letter-spacing:1px;}
+  .toc-part-head b{font-size:15px;color:var(--ink);}
+  .toc-part-en{margin-left:auto;font-size:11.5px;color:var(--dim);}
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin:0;}
+  .toc-list a{display:flex;align-items:baseline;gap:10px;padding:4px 8px;border-radius:8px;color:var(--text);font-size:14px;transition:background .15s;}
+  .toc-list a:hover{background:#f1f2fa;text-decoration:none;}
+  .toc-list a.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 0 0 1px #d6d9f0;font-weight:600;}
+  .toc-no{font-weight:800;color:var(--accent);font-size:12px;min-width:22px;letter-spacing:.5px;}
+  .toc-sub{color:var(--dim);font-size:12px;margin-left:auto;text-align:right;}
+  @media(max-width:700px){.toc-sub{display:none;}}
+  details.tocfold{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  details.tocfold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:13px 18px;font-weight:700;color:var(--ink);font-size:15px;}
+  details.tocfold>summary::-webkit-details-marker{display:none;}
+  details.tocfold>summary::after{content:"▾";margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s;}
+  details.tocfold[open]>summary{border-bottom:1px dashed var(--line);}
+  details.tocfold[open]>summary::after{transform:rotate(180deg);}
+  .fold-hint{font-weight:400;color:var(--dim);font-size:12px;}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:34px 0 50px;color:var(--muted);font-size:13px;}
+  footer .disclaimer{background:#faecee;border:1px solid #eccdd3;border-radius:12px;padding:14px 18px;color:#9c4a5c;margin-top:18px;}
+  .backtop{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;
+    text-decoration:none;box-shadow:0 6px 20px rgba(31,35,53,.12);z-index:60;}
+  .backtop:hover{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="kicker">💻 AI CODING HANDBOOK · 20 CHAPTERS</span>
+  <h1 class="title">《AI 编程从零到接单手册》</h1>
+  <p class="subtitle">20 章深度拆解：不会写代码的人，怎么用 AI 做出能卖钱的东西。每章由独立研究员实时检索写成——工具官方文档、平台当期规则、真实接单案例与报价区间。四大板块：入门篇、技能篇、接单篇、进阶篇。</p>
+  <div class="hero-meta">
+    <span>📅 生成日期：2026-10-29</span>
+    <span>🤖 6 个子代理并行调研（每代理 3–4 章）</span>
+    <span>📎 每章附来源链接</span>
+    <span>🔗 配套：<a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a></span>
+  </div>
+  <div class="method-note">📖 <b>使用说明：</b>四章一部。第一部分入门篇解决"敢不敢开始"——工具怎么选、第一个页面怎么做、怎么把 AI 当实习生使唤；第二部分技能篇补齐"做出一个能收钱的成品"必需的全部环节（前端、调试、数据库与登录、支付、部署、域名备案与安全）；第三部分接单篇是全书的变现核心——去哪接单、怎么报价、怎么谈需求、怎么让客户痛快结款、怎么把客户变长期饭票；第四部分进阶篇讲从接单走向产品，以及哪些单不能接。所有平台规则与价格数据以成稿当日（2026-10-29）检索为准，动手前请再核对平台当期规则。</div>
+  <div class="stats">
+    <div class="stat p"><div class="num">20</div><div class="lbl">深度章节 · 每章 1500–2500 字</div></div>
+    <div class="stat c"><div class="num">4</div><div class="lbl">大板块 · 入门 → 技能 → 接单</div></div>
+    <div class="stat g"><div class="num">6 类</div><div class="lbl">接单渠道对比 · 含报价区间</div></div>
+    <div class="stat r"><div class="num">30 天</div><div class="lbl">从零到第一单的行动计划</div></div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a class="part-label" href="#c01">PART 1 入门篇</a>
+  <a href="#c01">01 不会代码也能接单</a><a href="#c02">02 工具选型</a><a href="#c03">03 第一个网页</a><a href="#c04">04 把 AI 当实习生</a>
+  <a class="part-label" href="#c05">PART 2 技能篇</a>
+  <a href="#c05">05 前端速成</a><a href="#c06">06 调试入门</a><a href="#c07">07 数据库与账号</a><a href="#c08">08 接入支付</a><a href="#c09">09 部署上线</a><a href="#c10">10 域名备案与安全</a>
+  <a class="part-label" href="#c11">PART 3 接单篇</a>
+  <a href="#c11">11 接单平台对比</a><a href="#c12">12 报价与合同</a><a href="#c13">13 需求沟通</a><a href="#c14">14 交付与验收</a><a href="#c15">15 复购与转介绍</a><a href="#c16">16 作品集与主页</a>
+  <a class="part-label" href="#c17">PART 4 进阶篇</a>
+  <a href="#c17">17 从接单到产品</a><a href="#c18">18 AI 编程的边界</a><a href="#c19">19 纠纷与骗局</a><a href="#c20">20 30 天行动计划</a>
+</div></nav>
+
+<section id="toc" class="wrap">
+  <div class="sec-head"><span class="sec-no">CONTENTS</span><h2>目录</h2></div>
+  <p class="sec-desc">四个部分按"先敢开始、再会做活、然后收到钱、最后做得久"排列：入门四章扫清心理与工具障碍；技能六章把一个能收钱的成品所需环节全部补齐；接单六章是全书的变现核心；进阶四章讲产品化与风险。点击任意条目直达对应章节。</p>
+  <details class="tocfold" open>
+    <summary>📖 完整目录 · 4 部分 · 20 章<span class="fold-hint">点击展开 / 收起</span></summary>
+    <div class="tocbox">
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第一部分</span><b>入门篇</b><span class="toc-part-en">CH 01–04</span></div>
+        <ul class="toc-list">
+          <li><a href="#c01"><span class="toc-no">01</span>不会代码也能接单<span class="toc-sub">这本书怎么用</span></a></li>
+          <li><a href="#c02"><span class="toc-no">02</span>工具选型<span class="toc-sub">Cursor/Claude Code/v0 怎么选</span></a></li>
+          <li><a href="#c03"><span class="toc-no">03</span>第一个网页<span class="toc-sub">从一句话到能打开的页面</span></a></li>
+          <li><a href="#c04"><span class="toc-no">04</span>把 AI 当实习生<span class="toc-sub">提需求与审代码</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第二部分</span><b>技能篇</b><span class="toc-part-en">CH 05–10</span></div>
+        <ul class="toc-list">
+          <li><a href="#c05"><span class="toc-no">05</span>前端速成<span class="toc-sub">只需要懂这几成</span></a></li>
+          <li><a href="#c06"><span class="toc-no">06</span>调试入门<span class="toc-sub">让 AI 帮你读报错</span></a></li>
+          <li><a href="#c07"><span class="toc-no">07</span>数据库与账号体系<span class="toc-sub">用户登录怎么做</span></a></li>
+          <li><a href="#c08"><span class="toc-no">08</span>接入支付<span class="toc-sub">第一笔钱怎么收</span></a></li>
+          <li><a href="#c09"><span class="toc-no">09</span>部署上线<span class="toc-sub">从本地到公网域名</span></a></li>
+          <li><a href="#c10"><span class="toc-no">10</span>域名、备案与基础安全<span class="toc-sub">HTTPS 与防注入</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第三部分</span><b>接单篇</b><span class="toc-part-en">CH 11–16</span></div>
+        <ul class="toc-list">
+          <li><a href="#c11"><span class="toc-no">11</span>接单平台对比<span class="toc-sub">国内外六大渠道</span></a></li>
+          <li><a href="#c12"><span class="toc-no">12</span>报价与合同<span class="toc-sub">怎么报才不亏</span></a></li>
+          <li><a href="#c13"><span class="toc-no">13</span>需求沟通<span class="toc-sub">把"我想要个 App"变清单</span></a></li>
+          <li><a href="#c14"><span class="toc-no">14</span>交付与验收<span class="toc-sub">让客户痛快结款</span></a></li>
+          <li><a href="#c15"><span class="toc-no">15</span>复购与转介绍<span class="toc-sub">一个客户变长期饭票</span></a></li>
+          <li><a href="#c16"><span class="toc-no">16</span>作品集与接单主页<span class="toc-sub">让客户主动找你</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第四部分</span><b>进阶篇</b><span class="toc-part-en">CH 17–20</span></div>
+        <ul class="toc-list">
+          <li><a href="#c17"><span class="toc-no">17</span>从接单到产品<span class="toc-sub">把重复需求做成模板</span></a></li>
+          <li><a href="#c18"><span class="toc-no">18</span>AI 编程的边界<span class="toc-sub">什么单能接、什么会砸</span></a></li>
+          <li><a href="#c19"><span class="toc-no">19</span>纠纷与骗局<span class="toc-sub">跑单、压价与代码白嫖</span></a></li>
+          <li><a href="#c20"><span class="toc-no">20</span>30 天行动计划<span class="toc-sub">从零到第一单</span></a></li>
+        </ul>
+      </div>
+    </div>
+</details>
+</section>
+<section id="c01" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 01 · PART 1 · 入门篇</span><h2>不会代码也能接单<span class="accent">：这本书怎么用</span></h2></div>
+  <p class="sec-desc">这一章不教任何工具操作，只回答三个问题：零基础接单的真实路径长什么样、AI 到底把哪些环节压缩到了几分钟、以及你适不适合走这条路。读完再决定要不要投入接下来的四周。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>真实路径：不是「学编程找工作」，是「用 AI 做小东西卖掉」</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>零基础接单的起点不是做一个「大产品」，而是做一个<b>客户当天就能用上的小交付物</b>。它们通常长这样：一家小吃店的单页宣传页、一个活动报名表单页、一个把 Excel 数据变成网页图表的展示页、一个预约到店的页面。共同点是：一页或几页、不需要注册登录、不需要数据库、客户自己能改上面的文字。</p>
+    <p>这条路之所以现在走得通，有公开数据支撑。Anthropic 基于 Claude.ai 真实对话发布的《经济指数》报告显示，<b>「计算机与数学」是 AI 使用中占比最大的类别，占全部提问的 37.2%</b>，远高于排在其后的领域；报告同时把任务分成两类——<b>约 57% 是「增强」（人机协作完成任务），43% 是「自动化」（AI 直接完成）</b>。也就是说，AI 已经能承接相当大一部分编码工作，但「完全交给 AI、人不参与」还不普遍：该报告估算，<b>只有约 4% 的工作有 75% 以上的任务用到 AI</b>。这就是你的位置——大量任务你参与一半、AI 做一半。</p>
+    <ul>
+      <li><b>第一单建议从「一页式网页」开始：</b>需求边界清楚、改起来快、当天能交付，客户决策成本也低。</li>
+      <li><b>路线顺序：</b>第 02 章选工具 → 第 03 章做出第一个能打开的页面 → 第 04 章学会提需求和验收 → 技能篇（05–10）补齐「能收钱的成品」缺的环节 → 接单篇（11–16）解决钱的问题。</li>
+      <li><b>定价起点要现实：</b>零基础阶段你卖的是「把小事快速做出来」的效率，不是架构能力。具体报价区间见第 12 章，入门第一单的合理区间通常是几百元级的一页式页面，随复杂度上升。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">数据口径：</span>Anthropic《经济指数》初版报告发布于 2025 年 2 月 10 日，数据来自 Claude.ai 的匿名真实对话，而非问卷或预测。作者明确说它衡量的是「AI 被用来做什么」，不等于「AI 抢走了多少工作」。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>AI 压缩了什么，什么仍然省不掉</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">核心认知</span></div></div>
+    <p><b>被压缩到几分钟的环节：</b>写样板代码（一个页面从零写起变成几秒生成）、调 CSS 样式（改颜色字号间距）、写正则和 SQL、生成部署配置文件、把报错翻译成人话、写使用文档和交接说明。这些在传统学习路径里要几周，现在真的是分钟级。</p>
+    <p><b>省不掉的环节：</b>搞清楚客户到底要什么（一句「我想要个官网」背后有十几个待定细节）；判断做出来的东西对不对（验收）；为结果负责（页面上线了，出问题的署名是你，不是 AI）；以及所有和钱有关的事——报价、合同、收款、发票与税务。</p>
+    <p>这里有一条必须知道的反直觉证据。METR 在 2025 年 7 月 10 日发表的随机对照实验里，让 <b>16 名来自大型开源项目的资深开发者</b>处理 246 个真实 issue（平均约两小时的工作量），随机决定是否允许使用 AI（主要工具为 Cursor Pro + Claude 3.5/3.7 Sonnet）。结果是：<b>允许用 AI 的开发者反而比不允许的慢 19%</b>（METR 2026 年 2 月重述为「tasks to take 19% longer, with a confidence interval between +2% and +39%」）；而实验前他们预计 AI 会让自己快 24%，实验后他们仍以为自己快了 20%。</p>
+    <p>后续证据更完整，也更该知道。METR 2026 年 2 月 24 日的实验设计更新说明：2025 年 8 月启动的后续研究（57 名开发者、143 个仓库、800 多个任务）因样本选择问题「gives us an unreliable signal（给不出可靠信号）」，其对 2026 年初的估计是回访开发者提速约 18%（置信区间 −38% 到 +9%）——METR 明确说这只是「very weak evidence（非常弱的证据）」，并强调自报的大幅提速「can be quite unreliable」。而 METR 2026 年 5 月 11 日的调查报告了 349 名技术工作者的自报数据：中位<b>「速度提升 3 倍」「工作价值提升 1.4–2 倍」</b>——但 METR 同时写明「survey results are not necessarily grounded in reality（调查结果不一定与现实相符）」，并对极端高估值明确持怀疑态度。</p>
+    <p>把这些放在一起看，结论对新手很实际：<b>AI 大概率已经能帮你提速，但幅度谁也说不准；而「我感觉变快了」从来不是证据。</b>你能控制的只有一件事——每次交付前，用自己的眼睛和手指验证一遍。这正是下一章要练的。</p>
+    <p>与之配套的另一组数据：Veracode 2025 年 7 月 30 日发布的 GenAI 代码安全报告测试了 100 多个大模型生成的代码，<b>45% 的样本未通过安全测试</b>，其中跨站脚本类弱点在最相关的样本中有 86% 未做防护。这不是说 AI 不能用，而是说：<b>交付前你必须自己看一遍</b>，第 04 章会教你具体看哪几处。</p>
+    <blockquote class="xq">💬 <span class="who">一句话总结：</span>AI 压缩的是「写」的时间，没有压缩「想清楚」和「负责」的时间。前者值不了多少钱，后者才是客户真正付钱买的东西。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>四个常见误解，以及一条红线</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">避坑必读</span></div></div>
+    <ul>
+      <li><b>误解一：「提示词写得好就能收到钱。」</b>提示词只决定你做得多快；收到钱取决于需求谈清楚、交付验收过关、尾款结得回来。这三件事本书放在接单篇（11–16 章），比提示词重要得多。</li>
+      <li><b>误解二：「AI 生成的代码不用看，能跑就行。」</b>上面那组 45% 的数字说明，能跑和安全是两回事。密钥、权限、金额这三类代码你必须自己看懂，见第 04 章。</li>
+      <li><b>误解三：「报价可以按程序员的标准报。」</b>客户判断价格时看的是交付物和风险承担，不是你会不会写代码。低价接前几单换案例和评价，是合理的起步策略，但要有退出低价的时间表，别把自己困在「便宜」这个定位里。</li>
+      <li><b>误解四：「灰色单子来钱快，先干着。」</b>明确不能接的单子有几类：帮商家刷量刷好评、做绕过平台风控或支付审核的工具、越权抓取他人数据、游戏外挂和作弊脚本。这类需求往往伴随伪造数据、规避监管的意图，可能触及非法经营、破坏计算机信息系统、侵犯公民个人信息等刑事与行政责任；即便只是「写个脚本」，你也可能成为共同违法者，且收款记录本身就是证据。客户不会替你承担后果。本书只写「为什么不能接」和风险边界，具体定性以主管机关的当期口径为准。</li>
+    </ul>
+    <p>顺带一句和钱有关的合规提醒：个人接单取得的收入，在我国属于个人所得税综合所得中的劳务报酬类收入，付款方有代扣代缴义务，年度结束时还可能涉及汇算清缴；签合同、开发票的具体口径有地域和时效差异，动手前以主管税务机关当期规定为准。细节放到第 12 章展开。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🙋</span><h3>什么样的人适合走这条路</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">自检清单</span></div></div>
+    <p><b>适合的三个信号：</b>一，你能接受反复改细节——客户说「按钮再大一点」时你不会炸毛，因为这类改动在 AI 时代真的是分钟级；二，你能把模糊的话问清楚——敢在动手前问「这个页面手机上打开是什么样」；三，你每周能拿出固定的小时数，而不是等「有状态了再学」。</p>
+    <p><b>不适合的三个信号：</b>一，想要的是「睡后收入」和一夜翻身，这本书给不了，它给的是从零到第一单的四到八周；二，看到满屏英文报错就生理性回避，第 06 章会教你把报错喂给 AI，但你得愿意打开它；三，抗拒和陌生人反复沟通需求，那接单的日常会让你很痛苦。</p>
+    <p>如果三条适合的信号你中了两条以上，接下来的四周这样走：<b>第一周</b>只装一两个工具，做出第一个能打开的页面（第 02、03 章）；<b>第二周</b>练「把一句话拆成步骤」和「AI 说改完了你怎么验证」（第 04 章）；<b>第三、四周</b>按技能篇补齐前端、调试、部署，做出一个能收钱的完整小成品；之后进入接单篇，把成品挂出去找第一单。全书 20 章按这个顺序读，就是一条完整的路径。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.anthropic.com/news/the-anthropic-economic-index" target="_blank">Anthropic 经济指数报告（2025-02-10）</a><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank">METR 资深开发者 AI 生产力 RCT（2025-07-10）</a><a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank">METR 实验设计更新：2026 年初估计与置信区间（2026-02-24）</a><a href="https://metr.org/blog/2026-05-11-ai-usage-survey/" target="_blank">METR 技术工作者自报生产力调查（2026-05-11）</a><a href="https://www.veracode.com/resources/analyst-reports/genai-code-security-report/" target="_blank">Veracode GenAI 代码安全报告（2025-07-30）</a><a href="https://cursor.com/pricing" target="_blank">Cursor 官方定价页（检索于 2026-10-29）</a></div>
+</section>
+
+<section id="c02" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 02 · PART 1 · 入门篇</span><h2>工具选型<span class="accent">：Cursor / Claude Code / v0 / Bolt 怎么选</span></h2></div>
+  <p class="sec-desc">这一章把这四个工具放回它们各自该在的位置：谁在浏览器里就能用、谁要装到电脑上、免费档到底能撑多久、什么时候该掏钱。所有价格均为 2026-10-29 从官方页面检索所得，下单前请再核对一次当期标价。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧰</span><h3>四个工具的定位：不是谁替代谁，是分工不同</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>把这四个当成四种「让 AI 动手的方式」：<b>v0 和 Bolt 在浏览器里</b>，不装任何东西，输入一句话就出界面；<b>Cursor 装在电脑上</b>，是一个能写整个项目的编辑器；<b>Claude Code 住在终端和编辑器里</b>，直接读你的本地仓库、自己改文件。零基础第一周的选择标准只有一条：<b>哪个能让你最快看到一个能打开的页面，就先玩哪个。</b></p>
+    <table>
+      <tr><th>工具</th><th>它是什么</th><th>在哪运行</th><th>最适合的场景</th><th>零基础上手</th></tr>
+      <tr><td><b>v0</b><br>（Vercel）</td><td>用对话生成网页界面，产出可导出的代码</td><td>浏览器</td><td>快速做出好看的落地页/后台界面，可一键部署到 Vercel、同步 GitHub</td><td>最容易，注册即用</td></tr>
+      <tr><td><b>Bolt</b></td><td>一句话生成并当场运行的完整网页应用</td><td>浏览器</td><td>不装环境就想看到「能点的成品」，适合验证想法</td><td>容易，注册即用</td></tr>
+      <tr><td><b>Cursor</b></td><td>AI 代码编辑器（基于 VS Code）</td><td>本地安装</td><td>正经做一个项目：多文件、后续要反复改、要接手客户代码</td><td>中等，需装软件</td></tr>
+      <tr><td><b>Claude Code</b></td><td>跑在终端/IDE 里的编程代理，自己读仓库、自己改文件</td><td>本地终端 / VS Code / 浏览器</td><td>多文件重构、批量改动、长任务（官方口径：「把 bug 修复、测试乃至持续数天的迁移交给它」）</td><td>偏难，要适应命令行</td></tr>
+    </table>
+    <p>还有一类工具要特意说明：普通聊天窗口（直接和模型对话、让它写代码）也能出代码，但它给的是一屏文字——你还得自己建文件、自己保存、自己找错在哪一行；上面四个工具给的是一个能跑的工程，文件在哪、改了什么、报错在哪，都有地方看。零基础最缺的是「出错后知道去哪看」，所以从工具开始，别从聊天窗口开始。</p>
+    <p>官方对 Claude Code 的描述是「 builds the plan, asks clarifying questions（先列计划、先问清楚问题），再处理能跑上几小时甚至几天的任务」，并且「在改动你的文件或执行命令前会征求许可」。这个「先问再干」的习惯，正是第 04 章要把 AI 当实习生的核心用法。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>免费额度与付费档的真实差别（2026-10-29 检索）</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">价格随时会变</span></div></div>
+    <table>
+      <tr><th>工具</th><th>免费档能干什么</th><th>主力付费档（月付，美元）</th><th>接单视角的差别</th></tr>
+      <tr><td><b>Cursor</b></td><td><b>$0</b>：有限的 agent 请求与 Chat 请求，够练手</td><td>Premium <b>$30</b>（官方建议新用户从这档开始）；Super <b>$100</b>（给每天重度用代理的人）；Ultra <b>$200</b>；Teams <b>$30</b>+/用户</td><td>页面注明第三方模型按 API 价另行购买，不包含在月费里</td></tr>
+      <tr><td><b>Claude Code</b></td><td>免费版 <b>$0</b> 不含 Claude Code</td><td>Pro <b>$20</b>/月（年付折合 <b>$17</b>/月，$200 一次性）起，含 Claude Code 与「每 5 小时至少 5 倍于免费档」的用量；Max 从 <b>$100</b>/月；Team 标准座 <b>$20</b>/座/月（年付）</td><td>所有付费计划都包含 Claude Code，且与聊天共用同一用量池</td></tr>
+      <tr><td><b>v0</b></td><td><b>$0</b>：每天 <b>7 条</b>消息额度，可部署到 Vercel、可同步 GitHub；新用户另有 <b>$5</b> 一次性额度</td><td>Plus <b>$30</b>/用户/月（含 $30 月度额度 + 每日 $2 登录额度）；Business <b>$100</b>/用户/月</td><td>额度制：生成复杂界面很烧额度，超了要另买</td></tr>
+      <tr><td><b>Bolt</b></td><td><b>$0</b>：每月 <b>100 万</b> tokens（每日上限 30 万，不结转），网站带 Bolt 品牌、不能绑自有域名</td><td>Pro <b>$25</b>/月：<b>1000 万</b> tokens 且可结转，去掉品牌、可绑自有域名、可用最新模型</td><td>免费档做出的网站带着别人的品牌，给客户看之前先想清楚</td></tr>
+    </table>
+    <p><b>对零基础最要紧的一条差别不在 AI，在部署：</b>Vercel 的 Hobby 免费档官方写明「Our Hobby plan is for personal, non-commercial use（仅供个人非商业使用）」，免费额度含每月 100 万 CDN 请求与 100GB 传输。接单给客户做的是商业用途，用免费档托管客户的站点在规则上说不通——<b>商用要升 Pro（$20/用户/月）</b>。这也是第 03 章部署环节会反复提醒的点。另外 Netlify 免费档（$0）含自定义域名与 SSL，带宽按 credits 折算（300 credits，每 GB 约 20 credits）；Cloudflare Pages 免费档每站最多 2 万个文件、每月 500 次构建、单文件 25MiB。</p>
+    <blockquote class="xq">💬 <span class="who">价格提醒：</span>以上均为 2026-10-29 从各官方定价页检索到的标价，且各家调整频繁（分档名称、额度、打包内容都在变）。掏钱之前一定打开官方页面再看一遍，并留意是否含税、能否随时取消（Cursor 页面注明需在续费前至少 24 小时取消）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📦</span><h3>零基础第一周：装哪几个、什么时候升级</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">行动清单</span></div></div>
+    <p><b>第一周只准备四样东西，不要四个工具全装：</b></p>
+    <ul>
+      <li><b>一个浏览器端主力：</b>v0 或 Bolt 二选一，用免费档。它的作用是让你在第一小时就看到「我做的网页」，建立信心。另一个装上但先不碰。</li>
+      <li><b>一个本地编辑器：</b>装 Cursor（免费档）。从第 03 章起，项目要落在本地才能反复改、才能交付源码给客户。</li>
+      <li><b>一个 GitHub 账号：</b>免费注册即可，代码仓库和 GitHub Pages 部署都靠它。</li>
+      <li><b>一个部署账号：</b>Vercel 或 Netlify 免费注册，第 03 章部署环节用。</li>
+    </ul>
+    <p><b>一周只深度用一个主力的理由：</b>四个工具的提示词习惯、文件组织、导出方式都不同，同时学四个只会每个都停留在「注册过」。正确顺序是先用浏览器端工具跑通「需求→页面→部署」全流程，再用 Cursor 接手本地项目，等你要处理几十个文件的批量改动时，Claude Code 才真正派上用场。</p>
+    <p><b>什么时候该掏钱：</b>免费档用到「你今天想改第五处，但额度只剩两条消息」的时候，就是升级信号。按本书路径，<b>第一单落地前</b>（通常是第三到第四周）把主力工具升到付费档是合理节奏——一个月二三十美元的成本，对应一单几百到几千元的收入，账是算得过来的。若客户明确要求商用托管，记得同步处理部署侧的 Vercel Pro（或改用客户自己已有的服务器/托管）。</p>
+    <p><b>工具之外，你还需要三样不花钱的东西：</b>一个现代浏览器（Edge 或 Chrome 均可，按 F12 打开的是「开发者工具」，报错时 AI 会让你念里面的文字）；一个能保存 UTF-8 编码的文本编辑器（Windows 自带记事本就够，第 03 章的交接指南会用到它）；一个固定的项目文件夹（比如在 D 盘建一个「接单项目」目录，一单一夹）。文件夹管理是新手最容易被忽视的习惯：一单一夹、版本留痕，客户三个月后催第二次修改时，你能在十分钟内找到当时的文件。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://cursor.com/pricing" target="_blank">Cursor 官方定价页（检索于 2026-10-29）</a><a href="https://claude.com/pricing" target="_blank">Claude 官方定价页（检索于 2026-10-29）</a><a href="https://claude.com/product/claude-code" target="_blank">Claude Code 官方产品页（检索于 2026-10-29）</a><a href="https://v0.app/pricing" target="_blank">v0 官方定价页（检索于 2026-10-29）</a><a href="https://bolt.new/pricing" target="_blank">Bolt 官方定价页（检索于 2026-10-29）</a><a href="https://vercel.com/pricing" target="_blank">Vercel 官方定价页（检索于 2026-10-29）</a><a href="https://www.netlify.com/pricing/" target="_blank">Netlify 官方定价页（检索于 2026-10-29）</a><a href="https://developers.cloudflare.com/pages/platform/limits/" target="_blank">Cloudflare Pages 官方限制文档（检索于 2026-10-29）</a></div>
+</section>
+
+<section id="c03" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 03 · PART 1 · 入门篇</span><h2>第一个网页<span class="accent">：从一句话到能打开的页面</span></h2></div>
+  <p class="sec-desc">这一章用一个完整例子走完全流程：给一家社区咖啡店做单页宣传网站。需求描述 → 生成 → 本地预览 → 改样式 → 部署成别人能打开的链接。每一步都给出可以直接复制的提示词，你现在就可以照着做一遍。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">☕</span><h3>完整例子：五步做出咖啡店宣传页</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span><span class="badge">全程约 40 分钟</span></div></div>
+    <p><b>第 1 步：把需求写成提示词。</b>打开你第 02 章选定的浏览器端工具（v0 或 Bolt）或 Cursor，把下面这段原样粘贴进去。注意它把「页面有哪些内容、什么风格、怎么布局、哪些地方要留占位」都说清楚了——这就是第 04 章要练的「拆需求」的雏形。</p>
+    <p>📋 <b>初始提示词（可复制）：</b><br>
+    请做一个社区咖啡店的单页宣传网站，全部代码放在一个 index.html 文件里（CSS 直接写在文件内，不要引用外部文件）。要求：<br>
+    1. 页面包含：顶部店名和一句标语、营业信息（地址、电话、营业时间）、三款招牌饮品卡片（名称＋一句话描述＋占位价格）、一段「关于我们」文字、页脚联系方式；<br>
+    2. 风格：暖色调，主色 #6f4e37，背景米白 #faf6f0，卡片带浅阴影；<br>
+    3. 布局：按手机宽度优先设计，屏幕变宽时自动排成两栏；<br>
+    4. 电话和地址先用占位文字［你的地址］，并在代码注释里标明这里需要我替换；<br>
+    5. 全部使用中文，字体用系统默认字体，不要从外部加载字体；<br>
+    6. 代码里加中文注释，标出哪几处是我需要替换的内容。</p>
+    <p><b>第 2 步：生成并保存。</b>AI 生成后，把代码保存成一个文件，文件名必须是 <b>index.html</b>（这个名字不能改，部署时要用）。建议在电脑上建一个文件夹，比如「咖啡店网页」，把文件放进去。</p>
+    <p><b>第 3 步：本地预览。</b>双击 index.html，它会用你的浏览器打开。此时地址栏开头是 file:// 而不是 http://，意思是这个页面还只存在于你这台电脑上——这是正常的，说明你做出了一个「自己能看」的网页。在 Cursor 里也可以装 Live Server 扩展，右键文件选「Open with Live Server」，改代码后页面自动刷新。</p>
+    <p><b>第 4 步：改样式。</b>客户（或你自己）一定会改颜色和字号。把下面这段发给 AI：</p>
+    <p>📋 <b>改样式提示词（可复制）：</b><br>
+    在刚才的 index.html 基础上只改样式，不要动结构和文字：<br>
+    1. 主色从 #6f4e37 改成 #2f5d50；<br>
+    2. 页面大标题字号放大到现在的 1.3 倍；<br>
+    3. 三张饮品卡之间的间距从 16px 改成 24px，卡片圆角从 8px 改成 16px；<br>
+    4. 窄屏时全部单栏，屏幕宽度 768px 以上时排成两栏；<br>
+    5. 改完后逐条列出你改了哪几处 CSS，方便我核对。</p>
+    <p>每次只提一类改动、让 AI 汇报改了哪里，是新手最该养成的两个习惯。改完保存，回到浏览器按 <b>Ctrl+F5</b>（Mac 是 Cmd+Shift+R）强制刷新——浏览器会缓存旧样式，不强制刷新会以为「改了没生效」。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚀</span><h3>第 5 步：部署成别人能打开的链接</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">关键一步</span></div></div>
+    <p>本地页面只有你能看到。要让客户、让朋友打开，需要把它放到一个公网服务器上。零基础有三条免费路子，按「会不会用命令行」选一条就行：</p>
+    <ul>
+      <li><b>路子 A：GitHub Pages（推荐给零基础）。</b>全程网页操作，不用命令行。注册 GitHub → 右上角「+」→ New repository → 仓库名填 <b>你的用户名.github.io</b>（必须是这个名字）→ 设为 Public → Create → 在仓库页点「uploading an existing file」→ 把 index.html 拖进去 → Commit changes → 进入仓库的 Settings → 左侧 Pages → Source 选 main 分支 → Save。等一两分钟，打开 https://你的用户名.github.io 就是你的页面。官方文档说明站点也可绑定自有域名，配额为每月约 100GB 带宽、发布站点不超过 1GB。</li>
+      <li><b>路子 B：Netlify 拖拽部署。</b>注册后进入站点页面，把装着 index.html 的文件夹直接拖到指定区域即可上线，免费档含自定义域名与 SSL，带宽按 credits 计（300 credits 起步，每 GB 约 20 credits）。</li>
+      <li><b>路子 C：Vercel。</b>同样支持从 Git 仓库或网页导入，免费档（Hobby）含每月 100 万 CDN 请求、100GB 传输——但官方明确写着 Hobby 档「for personal, non-commercial use（仅供个人非商业使用）」。</li>
+    </ul>
+    <p><b>这里有一个接单前必须知道的规则差别：</b>练习时用哪个免费档都没问题，但<b>给客户做的网站属于商业用途</b>。Vercel 免费档按官方说明不覆盖商用，客户站点要么升级 Pro（$20/用户/月），要么改用 GitHub Pages、Netlify 免费档或客户自己的服务器。别在交付物上「顺手」违反平台规则——轻则被限流下架，重则客户追责。</p>
+    <p>部署完成后做三件事再收工：用手机流量（不是连同一个 WiFi）打开一次、把链接发给一位朋友让他点开、让 AI 检查页面里的占位文本是否都替换掉了。</p>
+    <blockquote class="xq">💬 <span class="who">一线经验：</span>「第一次把链接发出去的那种感觉，比学会任何语法都重要。」——这是零基础学员最常提到的转折点。你交付的不再是「我会写代码」，而是一个客户能转发给别人的 URL。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>上线前的自检与交接</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">接单前必做</span></div></div>
+    <p><b>自检提示词（可复制）：</b></p>
+    <p>请检查这个页面并列出现有问题的地方，不要直接修改：<br>
+    1. 是否有空链接（href="#"）或点了没反应的按钮；<br>
+    2. 图片是否都有替代文字，占位图是否标注清楚；<br>
+    3. 在 375px 宽的手机屏幕上，是否有文字溢出、元素重叠或被裁掉；<br>
+    4. 联系方式区域是否还有［你的地址］这类没替换的占位文本。<br>
+    逐条列出来，我来决定改不改。</p>
+    <p><b>交接提示词（可复制）——这一条直接决定客户觉不觉得你专业：</b></p>
+    <p>请为这个页面写一份给完全不懂技术的人看的《自己改文字指南》：说明怎么用记事本打开 index.html，搜索哪几个词就能换掉店名、电话、地址，改完怎么保存，改乱了怎么恢复原样。用大白话，不要出现专业术语，每一步都说明「点了什么、看到什么」。</p>
+    <p>把这份指南和 index.html 一起打包发给客户，你交付的就不只是一个网页，而是「客户自己能维护的网页」。第 14 章会讲怎么用这种方式让验收和结款更顺。</p>
+    <p><b>常见问题速查：</b>双击打开是空白页 → 文件名不是 index.html 或保存时编码选错，用编辑器重新「另存为」UTF-8；改了没变化 → Ctrl+F5 强制刷新；手机打开样式全乱 → 检查 viewport 元标签是否被 AI 漏掉（在文件开头找 name="viewport"）；GitHub Pages 打开是 404 → 确认仓库名是「用户名.github.io」且 Pages 的 Source 已选对分支，等几分钟再试。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank">GitHub Pages 官方文档：什么是 GitHub Pages（检索于 2026-10-29）</a><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits" target="_blank">GitHub Pages 官方限制说明（100GB/月、1GB 站点）</a><a href="https://vercel.com/pricing" target="_blank">Vercel 官方定价页（Hobby 档非商用条款）</a><a href="https://www.netlify.com/pricing/" target="_blank">Netlify 官方定价页（免费档额度）</a><a href="https://developers.cloudflare.com/pages/platform/limits/" target="_blank">Cloudflare Pages 官方限制文档（免费档 2 万文件/500 次构建）</a><a href="https://v0.app/pricing" target="_blank">v0 官方定价页（免费档 7 条消息/天）</a><a href="https://bolt.new/pricing" target="_blank">Bolt 官方定价页（免费档 100 万 tokens/月）</a></div>
+</section>
+
+<section id="c04" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 04 · PART 1 · 入门篇</span><h2>把 AI 当实习生<span class="accent">：提需求与审代码</span></h2></div>
+  <p class="sec-desc">AI 的能力像一个手脚极快但完全不了解你客户的实习生：你不说清楚，它就按自己的想象做；它说做完了，你要负责检查。这一章练两件事——怎么把一句模糊的话拆成它能执行的步骤，以及它交付后你怎么验证。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>把一句话拆成 AI 能执行的步骤</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>反例：</b>「给我做一个官网。」AI 只能猜——猜行业、猜页数、猜风格，猜错十有八九，你还得从头再来。</p>
+    <p><b>正例：用五段式结构。</b>每次提需求，按这五段写，AI 的执行准确率会高一个档次：</p>
+    <ul>
+      <li><b>① 做什么：</b>一句话说清用途和读者。「给社区咖啡店做宣传页，给附近居民看，目的是让人愿意到店。」</li>
+      <li><b>② 有哪些内容：</b>逐块列出，像列清单一样。「顶部店名标语、营业信息、三款招牌饮品卡片、关于我们、页脚联系方式。」</li>
+      <li><b>③ 长什么样：</b>颜色、字号、圆角、间距，能给出具体值就给出具体值（「主色 #6f4e37」比「暖色」好执行十倍）。</li>
+      <li><b>④ 怎么交互：</b>点按钮发生什么、手机上什么样、宽屏什么样。「窄屏单栏，768px 以上两栏；所有锚点链接要能跳转到对应区块。」</li>
+      <li><b>⑤ 交付什么：</b>几个文件、什么格式、注释要求。「全部代码在一个 index.html 里，占位处加中文注释标明待替换。」</li>
+    </ul>
+    <p><b>让 AI 先复述，再动手。</b>在需求后面加一句：「先复述你的理解，列出你打算怎么做，等我确认后再写代码。」Claude Code 的官方描述正是这个工作方式——它「builds the plan, asks clarifying questions（先制定计划、先问清楚问题），再处理能跑上几小时甚至几天的任务」。复述一遍能挡掉一半的返工：它理解偏了，你在这一句就发现，而不是等它写完三百行代码。</p>
+    <p><b>一次只改一件事。</b>同时说「改颜色、加轮播、换字体、调间距」，AI 很容易只做一半且不告诉你做了哪半。一次一个改动，让它汇报改了哪里，你核对一处——这是把「AI 速度」变成「你的质量」的唯一办法。</p>
+    <p><b>需求该写多长？</b>常见误区是「越长越好」。实际标准是：把 AI 需要猜的地方全部写掉，剩下的让它决定。五段式结构通常一百到三百字就够；如果你发现要写一千字才能说清，说明这个需求该拆成两次交付——第一次先做能看的部分，第二次再补功能。拆小不只是给 AI 减负，更是给你自己上保险：交付物越小，返工成本越低，客户改主意的空间也越小。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>必须自己看懂的三类代码</h3><div class="badges"><span class="badge r5">难度 ★★★★★</span><span class="badge">安全红线</span></div></div>
+    <p>你不用看懂全部代码，但有三类必须逐行过目，因为它们的共同特点是：<b>错了不会报错，只会安静地造成损失。</b>Veracode 2025 年 7 月的报告测试了 100 多个大模型生成的代码，45% 的样本未通过安全测试——这不代表 AI 不可靠，而代表「不看的交付」等于把风险留给自己。</p>
+    <ul>
+      <li><b>① 密钥类。</b>任何长得像 <b>sk- 开头的一长串字符</b>、api_key、access_token、password、数据库连接串，都是密钥。红线有两条：第一，它们<b>绝不能</b>出现在要交给客户或上传到公开仓库的代码里——OWASP 的口径是密钥一旦写进源码，任何拿到代码的人就拿到了凭证，而提交进版本库后连历史记录都难以彻底清除；第二，<b>截图和聊天记录也算泄露</b>，别把带密钥的界面截图发给客户「确认」。发现泄露，正确动作是立刻去平台后台吊销并重新生成这把钥匙，而不是「删掉那段代码」。</li>
+      <li><b>② 权限类。</b>数据库、文件存储都有读写规则，AI 经常会为了「让你先跑起来」把规则设成「谁都能读、谁都能写」。你不需要懂规则语法，只需要在每次改权限前问 AI 一句：<b>「这条规则放开之后，一个陌生人打开网页能拿到什么数据？」</b>如果答案是「所有人的订单」或「所有人的手机号」，就别放开。</li>
+      <li><b>③ 金额类。</b>价格、小计、运费、折扣，全部逐个数核对。重点看三处：单位是「元」还是「分」（用分计算再展示时除 100 是最常见的错）、四舍五入的时机、优惠券能不能被用到负数。让 AI 用中文解释一遍它的计算过程，你能复述给客户听，才算真的看懂了。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">底线：</span>这三类代码出事，责任在你——客户付钱给你，不是付给 AI。看不懂就停下来问，问清楚再交付，慢一天比赔一次便宜得多。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧪</span><h3>AI 说「改完了」，你怎么验证</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">习惯养成</span></div></div>
+    <p><b>第一步：让它先汇报，再动手点。</b>标准问法：「这次改了哪些文件、哪几处？逐条列出来。」拿到清单再打开页面，逐条对照检查。没有清单的「改完了」一律按「没改」处理。</p>
+    <p><b>第二步：自己完整走一遍。</b>每个按钮都点一次、每个链接都跳一次、表单填一次提交一次、手机上用流量打开一次。客户第一次抱怨「点进去是空白页」时，你应该早就知道。</p>
+    <p><b>第三步：验收清单法。</b>让 AI 把需求拆成可打勾的清单：「请把我提的需求逐条列成验收清单，每条一行，我来核对。」然后你逐条打勾或打叉——这一张清单同时也是你发给客户的验收记录，第 14 章会讲它怎么帮你顺利结款。</p>
+    <p><b>第四步：报错要「完整喂回去」。</b>页面出问题，把<b>完整的报错文字</b>（不是截图、不是「它坏了」）复制给 AI，并附上「你刚才改了什么」。报错信息里最值钱的是文件名和行号，截图会丢掉它们。</p>
+    <p><b>第五步：三振出局与版本留痕。</b>同一个问题 AI 修了三次还没好，停止让它继续改——回到上一个能正常打开的版本。这也是为什么第 03 章建议你把文件存成 index.html、index-v2.html、index-v3.html：<b>每个能跑的版本都留一份</b>，是新手最便宜的保险。另外记住那条反直觉的研究结论：METR 的实验里，资深开发者以为 AI 让自己快了 20%，实测反而慢了 19%；而 METR 2026 年的自报调查中，技术工作者中位自报「提速 3 倍」，METR 自己却提醒「survey results are not necessarily grounded in reality（调查结果不一定与现实相符）」。<b>「我感觉改好了」从来不是证据，清单和点击才是。</b></p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html" target="_blank">OWASP 密钥管理备忘单（检索于 2026-10-29）</a><a href="https://www.veracode.com/resources/analyst-reports/genai-code-security-report/" target="_blank">Veracode GenAI 代码安全报告（2025-07-30）</a><a href="https://claude.com/product/claude-code" target="_blank">Claude Code 官方产品页（先计划、先提问、改前征求许可）</a><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank">METR 资深开发者 AI 生产力 RCT（2025-07-10）</a><a href="https://metr.org/blog/2026-05-11-ai-usage-survey/" target="_blank">METR 技术工作者自报生产力调查（2026-05-11）</a><a href="https://www.anthropic.com/news/the-anthropic-economic-index" target="_blank">Anthropic 经济指数报告（57% 增强 / 43% 自动化）</a></div>
+</section>
+
+<section id="c05" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 05 · PART 2 · 技能篇</span><h2>前端速成<span class="accent">：只需要懂这几成</span></h2></div>
+  <p class="sec-desc">这一章不教你"学会前端"，只教你"看懂并指挥 AI 改前端"。接单场景里前端工作的真相是：客户要的是一个在手机上好看、能点、能提交的页面，不是一份完美的代码。你只需要认识十几个 HTML 标签、几条 CSS 规则和几个 JavaScript 概念——剩下的让 AI 写，你负责验收。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧱</span><h3>真正需要的 HTML/CSS/JS 子集：大约两成</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">目标：能读能改</span></div>
+    </div>
+    <p><b>HTML 只需要十几个标签。</b>MDN 官方入门教程指出，每个页面都由 <b>doctype</b>、<b>html</b>、<b>head</b>（放字符编码、viewport、标题）和 <b>body</b> 组成，正文里反复用到的其实只有：h1–h3 标题、p 段落、a 链接、img 图片、ul/li 列表、div 容器、button 按钮、input 表单。认识这些，你就够读懂 AI 生成的绝大部分页面。要建立的第一个认知：HTML 是"用标签把内容包起来"的标记语言，大多数元素有开标签、内容、闭标签三部分，属性（如 <b>src</b>、<b>href</b>、<b>class</b>）负责额外设置。</p>
+    <p><b>CSS 会看四样东西。</b>一是选择器（.class、#id、标签名三种写法，知道它在选中谁）；二是盒模型（margin 管外间距、padding 管内间距、border 管边框）；三是颜色与字体；四是布局。布局只学两个就够了：flex（让一行里的东西自动分配空间）和 grid（写 <b>grid-template-columns: 1fr 1fr 1fr</b> 就是一行三列）。MDN 明确说 flexbox 和 grid 天生就是响应式的，默认按弹性网格分配空间，比老教程里的浮动布局简单得多。</p>
+    <p><b>JavaScript 只需要最低剂量。</b>const/let 声明变量、function 函数、if/else 判断、addEventListener 监听点击、querySelector 找到页面上的元素、数组的 map/filter。你<b>不需要</b>从零掌握原型链、class、闭包、构建工具原理——这些 AI 会写，你能读懂它写的注释就行。</p>
+    <p><b>自检标准：</b>拿到一段 AI 写的代码，你能指着说出"这里是标题、这里是按钮、点了它调用哪个函数、页面上的数据从哪个文件来"。能达到这条，你的前端知识就够接单用了；达不到的部分，正是下面要交给 AI 的。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤖</span><h3>让 AI 补足你不懂的部分</h3>
+      <div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：所有人</span><span class="badge">核心：会提需求</span></div>
+    </div>
+    <p>零基础用 AI 写前端，胜负手不在技术，在提问方式。几条经过验证的做法：</p>
+    <ul>
+      <li><b>一次只让它改一件事。</b>"把这个按钮改成蓝色、同时把列表改成两列、再加一个登录弹窗"这种复合指令，是新手把项目改崩的最短路径。拆开，逐个来。</li>
+      <li><b>给上下文，别只给一句话。</b>把相关的文件内容、目录结构、你想达到的效果（最好有参考截图）一起贴给它。它看不到你的屏幕，你说"页面乱了"它只能猜。</li>
+      <li><b>让它先解释，再动手。</b>对看不懂的代码，直接问："用大白话逐行解释这段代码在干什么，假设我是非程序员。"解释环节经常能让问题自己暴露。</li>
+      <li><b>用官方术语纠正它。</b>JavaScript 区分大小写。MDN 官方教程里有一个真实教学案例：调用 <b>addeventListener</b> 报错 <b>is not a function</b>，原因是正确拼写是 <b>addEventListener</b>。你不需要记住所有拼写，但要知道"报错说不存在某个函数时，先怀疑拼写和大小写"。</li>
+      <li><b>看不懂的名词当场问。</b>遇到"闭包""异步""DOM"这类词，让 AI 用一句话加一个生活比喻讲清，不要跳过。接单时客户问起来，你能答上来就是专业度。</li>
+      <li><b>保留一个"能跑的版本"再让它改。</b>每改一版，先另存一个备份（具体回退手法见第 06 章）。AI 改崩的概率不低，备份是你的安全带。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>MDN 入门教程给零基础者的建议是——从"创建一个简单页面"开始：先写出带标题、段落、列表、图片和链接的 index.html，再逐步增加结构。不要一上来就追求框架和工程化。（来源：MDN《HTML 基础》，检索于 2026-10-29）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📱</span><h3>响应式与移动端适配的最低标准</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有交付物</span><span class="badge">验收：先看手机</span></div>
+    </div>
+    <p><b>先看一个数字。</b>StatCounter 全球平台份额数据显示，2026 年 9 月移动端占 58.99%、桌面占 39.26%、平板占 1.76%。这意味着客户和客户的客户，第一眼看的很可能是一部手机。接单交付的页面，验收顺序应该是：先手机，再桌面。</p>
+    <div class="chart">
+      <div class="hbar-row"><span>移动端</span><div class="hbar-track"><div class="hbar-fill" style="width:58.99%"></div></div><span class="hbar-val">58.99%</span></div>
+      <div class="hbar-row"><span>桌面端</span><div class="hbar-track"><div class="hbar-fill" style="width:39.26%"></div></div><span class="hbar-val">39.26%</span></div>
+      <div class="hbar-row"><span>平板</span><div class="hbar-track"><div class="hbar-fill" style="width:1.76%"></div></div><span class="hbar-val">1.76%</span></div>
+      <div class="cap">全球网页浏览平台份额 · StatCounter · 2026 年 9 月（检索日 2026-10-29）</div>
+    </div>
+    <p><b>最低标准一：viewport meta 标签。</b>这是整个响应式的地基，MDN 给出的推荐设置是 <b>&lt;meta name="viewport" content="width=device-width" /&gt;</b>。没有它，手机会用一个比屏幕更宽的"虚拟视口"排版（比如 640px 宽的屏幕按 980px 排版再整体缩小），你写的媒体查询和断点永远不会触发，页面永远是一张缩小的桌面图。</p>
+    <p><b>最低标准二：图片不溢出。</b>一条 CSS 搞定：<b>img, picture, video { max-width: 100%; }</b>。响应式页面最常见的破相，就是一张大图把布局撑出横向滚动条。</p>
+    <p><b>最低标准三：移动优先的写法。</b>先写窄屏单列布局，再用 <b>@media (min-width: ...)</b> 给宽屏加分栏。断点不要照抄"苹果宽度是多少"，MDN 的建议是：在内容开始变难看的地方设断点（比如一行文字长得读不动、盒子被挤变形），并用 rem 这类相对单位，不要绑定具体机型。</p>
+    <p><b>交付前五项自查：</b>① 手机上没有横向滚动条；② 正文不用双指放大就能读；③ 按钮和链接间距足够，手指点得到；④ 表单在手机上能正常输入、提交；⑤ 图片不变形、不溢出。五项全过，这就是一个合格的响应式交付物。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>新手最常见的四个前端坑</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：所有人</span><span class="badge">避开就是净赚</span></div>
+    </div>
+    <ul>
+      <li><b>从零手写整个页面。</b>正确姿势是让 AI 先生成完整可运行的初版，你在初版上改。零基础手写的代码，后期返工成本远高于 AI 生成后修改。</li>
+      <li><b>迷信框架。</b>企业展示站、活动页、简单表单这类小单，一个 HTML 文件加一个 CSS 文件往往交付最快、客户最好验收。框架留给第 17 章之后确实需要它的时候。</li>
+      <li><b>字体和图片的版权。</b>商用页面用系统自带字体或明确开源可商用的字体；配图用客户提供的素材，或用授权明确的图库。用了一张来路不明的图，赔钱的是你。</li>
+      <li><b>只在自己电脑上看。</b>至少再用两处验收：一部真实手机，以及微信内置浏览器（国内客户的高频打开方式）。让 AI 帮你检查兼容性写法，但最终以真机为准。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank">MDN《HTML 基础》官方入门教程</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag" target="_blank">MDN《Viewport meta 标签》（推荐设置与虚拟视口原理）</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">MDN《响应式网页设计》（flex/grid、断点与移动优先）</a>
+    <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet" target="_blank">StatCounter 全球平台份额（2026 年 9 月数据）</a>
+  </div>
+</section>
+
+<section id="c06" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 06 · PART 2 · 技能篇</span><h2>调试入门<span class="accent">：让 AI 帮你读报错</span></h2></div>
+  <p class="sec-desc">调试不是高深技能，它是"读报错 → 定位 → 改一处 → 再试"的循环。这一章教你零基础立刻能用的四件事：把报错读出来并完整贴给 AI；用控制台和网络面板看出到底哪一环坏了；改崩了怎么退回上一个能跑的版本；以及最关键的判断——什么情况该推倒重写，别跟烂代码耗。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>报错怎么读：先看"哪里"，再看"什么"</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">用时：5 分钟学会</span></div>
+    </div>
+    <p>报错信息看着吓人，结构其实固定。以 MDN 官方教程里的教学案例为例：</p>
+    <blockquote class="xq">💬 <span class="who">报错长这样：</span>第一行 <b>Uncaught TypeError: guessSubmit.addeventListener is not a function</b>，第二行 <b>number-game-errors.html:87:19</b>。第一行回答"发生了什么"，第二行回答"在哪儿发生的"——第 87 行第 19 个字符。MDN 的建议原话是："当错误出现时，看着给你的行号，跳到那一行，看看能不能发现问题。"</blockquote>
+    <p><b>"Uncaught"的意思</b>是"没人接住"：代码里没有对应的处理逻辑，错误直接抛到了最顶层，脚本执行就停在这里。你不需要立刻搞懂 try/catch，只要知道它表示"程序在这里罢工了"。</p>
+    <table>
+      <tr><th>报错开头</th><th>常见长相</th><th>多半是什么原因</th></tr>
+      <tr><td><b>TypeError</b></td><td>Cannot read properties of null；"x" is not a function</td><td>变量是空的；或者拼写、大小写不对（JS 区分大小写）</td></tr>
+      <tr><td><b>ReferenceError</b></td><td>"x" is not defined</td><td>变量没声明就用了；拼写错；或者用在了错误的作用域里</td></tr>
+      <tr><td><b>SyntaxError</b></td><td>Unexpected token；missing ) after argument list</td><td>代码没写完整：括号、引号、逗号缺了——整份文件可能根本不运行</td></tr>
+    </table>
+    <p>还要知道错误分三种，处理方式完全不同：<b>语法错误</b>是没运行就报错，通常是拼写和符号问题；<b>运行时错误</b>是跑到一半炸了，比如往一个空变量上取数据；<b>逻辑错误</b>最阴险——完全不报错，程序跑得顺顺畅，结果就是不对。MDN 教程里有个典型例子：想生成 1–100 的随机数，写成 <b>Math.floor(Math.random()) + 1</b>，结果永远是 1，因为 Math.random() 是 0 到 1 之间的小数，取整后恒为 0。这类错误只能靠打印变量的值来抓。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤖</span><h3>怎么贴给 AI：一份"报错粘贴清单"</h3>
+      <div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：所有人</span><span class="badge">效果：少来回十轮</span></div>
+    </div>
+    <p>AI 修bug的能力很强，但取决于你喂给它什么。贴之前，按清单备齐五样：</p>
+    <ul>
+      <li><b>① 完整报错全文。</b>从第一个字母到最后一行文件名行号，一字不删。只贴一行红色文字，是新手最常犯的错——行号信息全在后面的行里。</li>
+      <li><b>② 相关代码。</b>报错指向哪个文件，就把那个文件贴出来；文件太大，至少贴报错行前后各 20 行。</li>
+      <li><b>③ 期望行为 vs 实际行为。</b>"我点登录按钮，应该跳到首页，实际是白屏。"一句话说清差距。</li>
+      <li><b>④ 你已经试过什么。</b>"我重启了、清了缓存、改了 X 还是不行。"避免它重复给你试过的建议。</li>
+      <li><b>⑤ 复现步骤和环境。</b>"第 1 步打开页面，第 2 步点按钮就出现。"在什么浏览器、什么手机上出现的。</li>
+    </ul>
+    <p><b>反面示范：</b>"我的网页坏了，帮我修。"——它只能瞎猜。<b>正面示范：</b>"这是完整报错（含文件名行号）、这是报错指向的 app.js 全文、我点'提交'按钮应该清空表单，实际是页面白屏、我试过刷新没用、Chrome 浏览器上必现，请先解释原因再给修改。"——一轮就能拿到有效答案。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🖥️</span><h3>控制台与网络面板的最基本用法</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span><span class="badge">打开方式：F12</span></div>
+    </div>
+    <p><b>控制台（Console）</b>是你和页面"对话"的地方，按 F12 或右键"检查"打开。两种用法：一是<b>看</b>——页面自己打印出来的错误、警告都在这里，红色是 error、黄色是 warn，可以按级别过滤；二是<b>主动打</b>——在代码里可疑的位置插一行 <b>console.log(变量名)</b>，运行后看控制台输出，这是 MDN 官方教程教零基础者的核心调试手段：想知道一个变量里到底是什么，就在它被赋值的那一行后面立刻打印它。相关的还有 console.error（错误级）、console.warn（警告级）、console.trace（打印调用链，看代码执行路径）。</p>
+    <p><b>网络面板（Network）</b>回答另一个问题：页面跟服务器之间的每一次"要数据"成功了没有。Firefox 里按 Ctrl+Shift+E 打开，工具开着的时候它就在后台记录所有请求。零基础只需要会看三列：<b>状态码</b>——200 是成功，404 是找不到资源，500 是服务器自己出错，401/403 是你没权限；<b>Response</b>——服务器实际返回了什么内容（接口报错时，真相通常在这里）；<b>Timings</b>——请求慢在哪一段。点任意一条请求，还能看到请求头、返回头、Cookie 等详情。</p>
+    <p><b>三大故障一分钟定位法：</b>页面白屏或按钮点了没反应 → 看控制台有没有红色报错；数据显示不出来或接口报错 → 看网络面板里对应请求的状态码和返回内容；样式突然全丢 → 看网络面板里 CSS 文件是不是 404 没加载上。定位到具体哪一环，再带着证据去找 AI。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏪</span><h3>改崩了怎么回退：给自己留一条退路</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span><span class="badge">铁律：先备份再动手</span></div>
+    </div>
+    <p>Git 官方文档把原则说得很直白：<b>"提交进 Git 的东西几乎总能找回来；但从没提交过的东西，丢了大概率就再也找不回来了。"</b>对零基础接单者，回退手段按好用程度排序：</p>
+    <ul>
+      <li><b>手工备份（最简单，先学会这个）。</b>每次让 AI 动手前，把整个项目文件夹复制一份，改名 backup-v1、backup-v2……日期加序号。崩了就把最新的备份复制回来。笨，但可靠，且不需要任何命令。</li>
+      <li><b>Git 小步提交。</b>每完成一个能跑的小功能就 commit 一次。Git 官方提醒：提交要小、要频繁，提交历史就是你的存档点。</li>
+      <li><b>丢弃未提交的修改。</b>Git 里用 <b>git restore 文件名</b>（或旧语法 <b>git checkout -- 文件名</b>）把某个文件恢复到上次提交的样子。官方文档说这个操作"相对安全"，但<b>未提交的修改会永久消失</b>，用前想清楚。</li>
+      <li><b>更狠的 <b>git reset --hard</b>。</b>官方明确提示它很危险：会把工作区和暂存区一起打回上一个提交。新手阶段，前三种足够，别碰这个。</li>
+      <li><b>已经推送到远程的改动。</b>用 <b>git revert</b> 生成一个"撤销旧改动"的新提交，而不是改写历史——改写已推送的历史会害了协作者。</li>
+    </ul>
+    <p><b>铁律一条：</b>永远不要让 AI 在一个"当前跑不起来"的版本上继续改。动手之前，当前版本必须是能跑的；不能跑，先回退到上一个能跑的版本。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">♻️</span><h3>什么时候该重写，而不是继续修</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：所有人</span><span class="badge">关键判断：止损</span></div>
+    </div>
+    <p>和烂代码耗着，是零基础接单最贵的时间陷阱。出现下面三个信号中的任意一个，就该认真考虑重写：</p>
+    <ul>
+      <li><b>信号一：同一处错误修了三次还复发。</b>每次修好这里、坏了那里，说明结构出了问题，继续修是拿时间换幻觉。</li>
+      <li><b>信号二：AI 自己说不清某段代码为什么这样写。</b>你问"这段为什么加这个判断"，它答"可能是历史原因"——没人能维护的代码，包括 AI 自己，就是重写信号。</li>
+      <li><b>信号三：改一处坏三处。</b>功能之间互相纠缠，任何改动都引发新故障，说明这个版本已经是个整体，只能整体换掉。</li>
+    </ul>
+    <p><b>重写的正确姿势：</b>保留的不是旧代码，而是三样东西——需求清单、验收标准、客户确认过的参考样式。让 AI 参考旧代码，但从"能跑的最小版本"重新搭起：先让核心流程跑通，再一块块加功能，每加一块就备份一次。心态上记住：代码是 AI 产的，沉没成本接近零；你对需求的理解才是真资产，别为了抢救一堆代码把交付日期拖爆。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/What_went_wrong" target="_blank">MDN《哪里出错了？JavaScript 排错》（报错结构与三类错误）</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors" target="_blank">MDN JavaScript 错误类型参考</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/console" target="_blank">MDN Console API 参考（log/error/trace）</a>
+    <a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things" target="_blank">Git 官方文档《撤销更改》</a>
+    <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html" target="_blank">Firefox 开发者工具：网络监视器</a>
+    <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_details/index.html" target="_blank">Firefox 开发者工具：请求详情（状态码/响应/耗时）</a>
+  </div>
+</section>
+
+<section id="c07" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 07 · PART 2 · 技能篇</span><h2>数据库与账号体系<span class="accent">：用户登录怎么做</span></h2></div>
+  <p class="sec-desc">客户说"我要有用户登录"的时候，你要做的不是从零发明一套账号系统，而是选一个把登录、数据库、权限都打包好的平台，然后看懂三件事：用户数据存在哪、密码为什么不能明文、怎么保证 A 看不到 B 的数据。这一章把这三件事讲到零基础能照着做的程度。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗄️</span><h3>零基础可用的数据库与后端选项</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">关键词：BaaS</span></div>
+    </div>
+    <p>给不会写后端的人，主流就三条路线：<b>① BaaS（后端即服务）</b>——数据库、用户登录、文件存储、接口全部打包好，你只写前端页面，这是接单选型的第一站；<b>② 云数据库 + 自己写后端</b>——等 BaaS 的限额或功能确实不够时再升级；<b>③ 纯静态页面 + 第三方表单</b>——只需要收集留言、报名信息的单子，连数据库都不用建。</p>
+    <table>
+      <tr><th>平台</th><th>免费档（检索日 2026-10-29）</th><th>付费起步价</th><th>适合场景</th></tr>
+      <tr><td><b>Supabase</b>（海外）</td><td>0 美元/月：每项目 500MB 数据库、最多 2 个活跃项目、5 万月活登录用户、5GB 出站 + 5GB 缓存流量、1GB 文件存储</td><td>Pro 25 美元/月起：8GB 磁盘、10 万月活用户、250GB 出站流量</td><td>出海单、英文客户、技术型 demo</td></tr>
+      <tr><td><b>腾讯云开发 CloudBase</b>（国内）</td><td>新用户可免费体验 6 个月（官方活动，以当期页面为准）</td><td>个人版 19.9 元/月；标准版 199 元/月（数据库/存储/云函数配额约为个人版 4 倍以上）；企业版 999 元/月</td><td>国内客户、微信生态、要微信登录的单子</td></tr>
+    </table>
+    <p>选型建议一句话：<b>客户在国内、要对接微信 → CloudBase；客户在海外、英文界面 → Supabase。</b>两个平台的登录、数据库、权限逻辑是相通的，学会一个就能迁移。</p>
+    <p>三个必须提醒客户的点：免费档都有限额，用户量或数据量涨上去要付费或迁移，签约时把"超出免费额度怎么办"写清楚；<b>数据的导出和归属</b>要在合同里写明，别等项目做大了被平台锁死；如果服务器在境内，网站还涉及<b>备案</b>等监管要求——这类规则有很强的<b>地域性和时效性</b>，下单前以主管机关当期口径为准，本书第 10 章会专门展开。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔑</span><h3>用户注册登录的最简实现</h3>
+      <div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span><span class="badge">原则：用平台自带 auth</span></div>
+    </div>
+    <p><b>第一条原则：永远不要自己从零写登录。</b>密码怎么存、登录态怎么保持、Token 怎么续期，每一件都是安全深水区。BaaS 平台把这些全部做好了，你要做的只是把界面和平台功能接起来。</p>
+    <p>整个登录体系拆开只有五步，看懂这五步，你就能验收 AI 写的代码：</p>
+    <ul>
+      <li><b>① 前端表单。</b>一个邮箱/用户名输入框、一个密码输入框、一个"注册/登录"按钮。</li>
+      <li><b>② 调用平台注册函数。</b>用户点按钮后，前端把账号密码交给平台的 auth 功能（如 Supabase 的 signUp、CloudBase 的用户体系），由平台创建用户。</li>
+      <li><b>③ 平台返回登录凭证。</b>注册或登录成功后，平台发一个登录凭证（token/session），前端保存它——这就是"登录状态"。</li>
+      <li><b>④ 带凭证请求数据。</b>之后每次读写订单等数据，请求都带上这个凭证，平台据此判断"你是谁"。</li>
+      <li><b>⑤ 权限判断发生在数据库层。</b>平台用凭证里的用户 ID 决定你能看哪些数据（原理见下一张卡片）。</li>
+    </ul>
+    <p>邮箱验证、密码重置链接、登录态保持这些配套流程，平台全部自带，零基础不需要自己实现。<b>你要写的只有三样：</b>表单界面、成功/失败的提示文案、以及"未登录用户跳转到登录页"的逻辑。</p>
+    <p><b>验收清单：</b>注册一个新账号 → 退出 → 重新登录能成功 → 刷新页面后登录状态还在 → 未登录时打开需要登录的页面会被引导到登录页。五条全过，登录功能就可以交付。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔒</span><h3>为什么不能自己存明文密码</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：所有人</span><span class="badge">底线：不可妥协</span></div>
+    </div>
+    <p>OWASP（开放全球应用安全项目）官方《密码存储速查表》的表述没有任何商量余地：</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>"Passwords should never be stored in plain text."（密码绝不应以明文存储。）算法优先级为：Argon2id 优先，其次 scrypt，bcrypt 仅用于遗留系统，需 FIPS 合规时用 PBKDF2；且每个密码必须加唯一的盐，以防攻击者用预计算表批量破解。——OWASP《密码存储速查表》，检索于 2026-10-29</blockquote>
+    <p><b>为什么单向哈希、不能加密？</b>加密是可逆的——有钥匙就能解开；哈希是单向的——只能验证"这次输入的密码对不对"，永远反推不出原密码。所以正确做法是：数据库里存的是哈希值，用户登录时把输入的密码同样哈希后比对。平台自带的登录功能已经这么做了；哪天你要自己写后端，让 AI 用 Argon2id 或 bcrypt，并逐句确认它没有把密码原文写进日志和数据库。</p>
+    <p><b>规则层面的要求。</b>我国《个人信息保护法》第五十一条明确要求个人信息处理者"采取相应的加密、去标识化等安全技术措施"（2021 年 8 月 20 日通过、2021 年 11 月 1 日施行）。账号密码属于典型个人信息，一旦数据库泄露，明文密码意味着用户在其他网站用同一个密码的账号全部遭殃——<b>而你是第一责任人。</b>对零基础接单者，最稳的策略就是把身份认证交给成熟平台，别自己造轮子。</p>
+    <p><b>顺便纠正一个常见误区：</b>NIST 特别出版物 SP 800-63B 的当期口径是——用户自选密码至少 8 位、应允许 64 位以上、<b>不建议强制大小写数字符号混排</b>这类复杂度规则。所以"密码必须包含大写字母和特殊字符"这类需求，客户要加可以加，但别把它当成安全性的来源，哈希算法和盐才是。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>权限与数据隔离的基本常识</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：所有人</span><span class="badge">交付前必做</span></div>
+    </div>
+    <p><b>核心原则一句话：每个用户只能看自己的数据，而且这个限制必须在数据库层执行，不能只靠前端"不显示"。</b>前端藏起来的按钮，懂技术的人改两行代码就能绕开。真正的隔离发生在服务端和数据库。</p>
+    <p>以 Supabase 的行级安全（RLS）为例，官方文档的做法是：给表开启 RLS（<b>alter table ... enable row level security</b>），再建一条策略，比如"只允许读自己的行"（<b>using auth.uid() = user_id</b>）。策略相当于给每次查询自动加了一个隐形条件——用户查数据时，数据库只返回属于他的行。官方文档特别提醒两个坑：<b>开了 RLS 但没建策略，等于谁都读不到</b>；以及开了策略不等于自动收紧了旧权限，要把多余的授权一并撤掉。</p>
+    <p><b>密钥分级是另一条生死线。</b>平台会给你两种密钥：匿名/公开密钥只能执行规则允许的操作，可以放在前端代码里；管理级密钥拥有全部权限，<b>绝不能出现在前端代码里，更不能提交到公开的代码仓库</b>——每年都有大量项目因为把管理密钥传上公开仓库被拖库。让 AI 生成代码时，明确要求："管理密钥只允许放在服务端环境变量里。"</p>
+    <p><b>交付前必做的测试：</b>注册两个测试账号 A 和 B，用 A 登录后尝试访问 B 的数据（直接改地址栏里的 ID、调用接口都试一遍），应该被拒绝。这个测试不过关，宁可延期也别交付——数据串户是客户流失和赔偿的最快路径。客户问"安全吗"时，标准回答是："用户密码经过不可逆加密存储，数据按用户隔离，密钥分级管理，并通过了越权访问测试。"</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://supabase.com/pricing" target="_blank">Supabase 官方定价页（免费档与 Pro 配额）</a>
+    <a href="https://cloud.tencent.com/product/tcb/pricing" target="_blank">腾讯云开发 CloudBase 官方定价页</a>
+    <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" target="_blank">OWASP《密码存储速查表》</a>
+    <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST SP 800-63B（数字身份指南·记忆口令要求）</a>
+    <a href="https://www.stats.gov.cn/gk/tjfg/xgfxfg/202503/t20250310_1958923.html" target="_blank">《中华人民共和国个人信息保护法》全文（国家统计局网站转载）</a>
+    <a href="https://supabase.com/docs/guides/database/postgres/row-level-security" target="_blank">Supabase 官方文档：行级安全（RLS）</a>
+  </div>
+</section>
+
+<section id="c08" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 08 · PART 2 · 技能篇</span><h2>接入支付：第一笔钱怎么收<span class="accent">：从个人收款码到商户号</span></h2></div>
+  <p class="sec-desc">代码写完只是半个交付，钱到账才算闭环。这一章讲清楚「个人开发者到底能用什么收款」：哪些方式合规、手续费与到账周期大概多少、怎么在半小时内做出第一条收款链接、对账和退款的基本流程。所有费率与周期均为 2026-10-29 检索到的公开口径，动手前请再核对平台当期公示。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>先划红线：个人收款码不能当生意收款用</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>新手最容易踩的坑，是把客户转过来的钱直接收到自己的微信/支付宝个人收款码里，然后提现。这条路<b>不合规，也不稳</b>：你把收款码截图发给外地客户、长期用它收接单的钱，本身就落在"经营性收款"和"远程非面对面收款"两个禁区里，被限额、被冻结、被要求补资质都不奇怪。</p>
+    <p>央行《中国人民银行关于加强支付受理终端及相关业务管理的通知》（银发〔2021〕259号，2022 年 3 月 1 日施行）写得很直接：条码支付收款服务机构应当制定收款条码分类管理制度；「对于具有明显经营活动特征的个人，条码支付收款服务机构应当为其提供特约商户收款条码，并参照执行特约商户有关管理规定，<b>不得通过个人收款条码为其提供经营活动相关收款服务</b>」。同一份通知还要求「采取有效措施<b>禁止个人静态收款条码被用于远程非面对面收款</b>」，确有必要远程收款的要白名单管理并限制有效期、次数与金额。</p>
+    <p>那类"个人免签支付 / 聚合支付 API"呢？<b>不要碰</b>。它们的运作方式是把你的客户资金先收进平台账户、再转给你，属于没有支付业务许可证却干了支付结算的活（业内叫"二清"）。司法实践中，无牌照的支付结算服务合同被认定无效的判例并不少；一旦平台跑路或卡你资金，你在法律和资金上都处于极不利位置。想长期接单，走正规商户号。</p>
+    <blockquote class="xq">💬 <span class="who">规则原文：</span>「对于具有明显经营活动特征的个人……不得通过个人收款条码为其提供经营活动相关收款服务。」——《中国人民银行关于加强支付受理终端及相关业务管理的通知》，银发〔2021〕259号。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💳</span><h3>个人开发者可用的收款方式对比</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>按"门槛从低到高"排，个人开发者大致有六条路。下表为 2026-10-29 检索到的公开口径，<b>实际费率与到账时间以平台当期公示和你的签约协议为准</b>——微信支付、支付宝的费率与结算周期跟行业类目、服务商、活动强相关。</p>
+    <table>
+      <tr><th>方式</th><th>准入条件</th><th>手续费参考</th><th>到账参考</th><th>适合场景</th></tr>
+      <tr><td><b>微信/支付宝个人收款码</b></td><td>实名即可</td><td>提现约 0.1%</td><td>实时到余额</td><td>亲友、小额、线下；不宜用于经营性收款</td></tr>
+      <tr><td><b>支付宝小微商户收款码</b></td><td>身份证 + 真实经营场景证明（摊点、档口等）</td><td>约 0.35%–0.38%（以当期为准）</td><td>约 T+1</td><td>有真实线下经营场景的小微</td></tr>
+      <tr><td><b>微信支付 / 支付宝商户号</b></td><td>营业执照 + 法人身份证 + 结算银行账户</td><td>常见 0.6%，部分行业/活动可到 0.38% 上下</td><td>T+1 或 T+7</td><td>长期接单的主力通道</td></tr>
+      <tr><td><b>微信小店等平台店铺</b></td><td>按店铺类型提交实名或营业执照</td><td>以平台技术服务费为主</td><td>按平台结算周期</td><td>卖虚拟商品、小课、模板</td></tr>
+      <tr><td><b>Stripe（收境外）</b></td><td>个人或公司，需 Stripe 支持的国家/地区</td><td>美国 2.9% + US$0.30；国际卡 +1.5%；换汇 +1%</td><td>首笔 7–14 天，之后美国约 T+2 工作日</td><td>客户在海外、能收美元</td></tr>
+      <tr><td><b>PayPal（收境外）</b></td><td>邮箱即可开户</td><td>Checkout 3.49% + $0.49；标准卡 2.99% + $0.49；跨境 +1.5%</td><td>提现到银行免费；即时提现 1.5%（最低 $0.50）</td><td>海外小额、跨境、个人对个人</td></tr>
+    </table>
+    <p>几个必须知道的细节：</p>
+    <ul>
+      <li><b>微信支付商户号的准入材料</b>：商户平台披露的进件要求是在线提交<b>营业执照、身份证、银行账户</b>等基本信息并完成账户验证，审核约 <b>1–2 个工作日</b>。没有营业执照就卡在这——这也是"注册个体工商户"成为分水岭的原因。</li>
+      <li><b>结算周期 T+N 的含义</b>：平台规则是"在满足结算条件后，在本日+N天结算前N-1天的所有交易总和"，T+1 就是第二天结第一天，T+7 就是第 8 天结前 7 天的钱。费率在结算时扣除，单笔订单四舍五入保留两位小数。</li>
+      <li><b>支付宝的小微通道</b>：公开资料显示个人也可申请商家收款码，前提是有真实经营场景与真实买卖的商品（摊点、档口、美食节铺位等），用于<b>面对面</b>收款，费率常见口径 0.35%–0.38%。注意是"面对面"，不是发给远程客户。</li>
+      <li><b>平台代收</b>：你上架商品、平台帮你收款再结算给你。好处是完全不用自己接支付、不用备案；代价是抽成 + 客户数据不在你手里。适合起步期，不适合当主力。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔗</span><h3>最简收款链接：半小时做出第一条</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>"收款链接"就是一条能直接发给客户的网址，打开就是收银台，付完给你发通知。按客户在境内还是境外，选两条路：</p>
+    <p><b>路线 A：客户在境外 → Stripe Payment Link（最快，约 15 分钟）。</b>注册 Stripe 账号，创建一个商品（比如"企业官网静态页 · ¥3,000"），再创建一个 Payment Link，复制给客户即可。Stripe 官方对它的定位是"无需建站，使用无代码链接即可在线销售""几分钟内即可开始收款"。费用上，收款本身按 Payments 标准定价（美国 2.9% + US$0.30）收取，不额外加价；自定义域名 US$10/月；付款后账单按交易总额 0.4% 收取、每份封顶 US$2.00。</p>
+    <p><b>路线 B：客户在境内 → 个体工商户 + 微信支付商户号（当天到两三天）。</b>多数地区已支持全程网办、不收费；拿到执照后按商户平台要求提交营业执照、身份证、银行账户，审核约 1–2 个工作日。之后在商户平台生成"收款单"或商品码，或者让 AI 帮你写一个带金额参数的收款页——这就是你自己的收款链接。</p>
+    <p><b>路线 C：完全不想碰支付资质 → 平台店铺 / 平台代收。</b>上架一个商品，把商品链接发给客户。代价是抽成与客户归属。</p>
+    <p>一条能用的收款链接，最少要写清四件事：<b>固定金额、商品名（写客户能看懂的服务内容，比如"官网改版·第二期款"）、有效期、备注位（填合同编号）</b>。备注位很重要，对账时靠它把款项和合同对上。</p>
+    <blockquote class="xq">💬 <span class="who">一个反例：</span>把支付密钥（API Secret、商户私钥）写进前端代码里"方便调试"。前端代码任何人打开都能看，等于把保险柜钥匙贴在门上。密钥只能待在服务端环境变量里。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>对账与退款的基本流程</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>对账。</b>以微信支付为例，商户平台提供两类账单：<b>交易账单</b>反映每笔交易明细（交易时间、商户订单号、微信支付订单号、交易状态、金额等），<b>资金账单</b>按天反映账户资金变动。资金账单申请接口是 <code>GET /v3/bill/fundflowbill</code>；当日账单次日上午 9 点生成、建议 10 点后再取，<code>download_url</code> 只有 5 分钟有效，商户号维度限 3QPS，且只支持三个月内的日期。</p>
+    <p>落地成三件事：<b>每天下载交易账单 → 用"商户订单号"跟你自己的订单表逐条比对 → 长款、短款、手续费对不上时当天处理</b>。别等到月底。</p>
+    <p><b>退款。</b>退款接口是 <code>POST /v3/refund/domestic/refunds</code>，关键约束：交易完成后<b>一年内</b>（支付成功时间 +365 天计）可全额或部分原路退还；单笔订单部分退款<b>上限 50 次</b>；退款金额不得高于原订单且必须为整数；状态有 SUCCESS / CLOSED / PROCESSING / ABNORMAL（ABNORMAL 表示到银行时发现用户卡片已作废或冻结）。接口返回成功只说明退款单被受理，实际结果以退款结果通知和查询退款接口为准。平台还提醒：账单生成当日及周期内交易最后一日，避免操作超过当日交易额的退款，否则可能影响正常结算。</p>
+    <p><b>最容易被忽略的：手续费不退。</b>Stripe 明确原始交易的支付手续费、Connect 费用和货币兑换费不予退还；PayPal 的口径是"退款项本身不收费，但你当初被扣掉的手续费不会回来"。退一笔 1,000 元的单，你退出去 1,000 元，当初被扣的几十元手续费也不会回来。<b>退款 = 退钱 + 白付手续费 + 可能损失客户</b>，所以接单时把"修改几次内免费、超出怎么算"写进报价。</p>
+    <blockquote class="xq">💬 <span class="who">平台原文：</span>「在交易完成后的一年内（以支付成功时间为起点+365天计算）商户可申请将支付金额全部或部分原路退还。」——微信支付 APIv3 退款申请文档。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2022-02/25/content_5675558.htm" target="_blank">中国政府网《中国人民银行关于加强支付受理终端及相关业务管理的通知》银发〔2021〕259号（2021-10-12 成文，2022-03-01 施行）</a>
+    <a href="https://stripe.com/us/pricing" target="_blank">Stripe Pricing（美国，2026-10-29 检索）</a>
+    <a href="https://docs.stripe.com/payouts" target="_blank">Stripe Docs · Payouts（结算周期，2026-10-29 检索）</a>
+    <a href="https://www.paypal.com/us/webapps/mpp/merchant-fees" target="_blank">PayPal Merchant Fees（页面标注更新至 2026-10-01）</a>
+    <a href="https://pay.weixin.qq.com/index.php/public/product_intro" target="_blank">微信支付商户平台·产品介绍（进件材料与审核时长）</a>
+    <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_4_9.shtml" target="_blank">微信支付 APIv3 · 退款申请</a>
+    <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_4_7.shtml" target="_blank">微信支付 APIv3 · 申请资金账单</a>
+    <a href="https://www.kancloud.cn/w469001293/yqs_wxzf/1113970" target="_blank">微信商户支付平台结算规则、费率、周期说明（第三方整理，2026-10-29 检索）</a>
+    <a href="http://m.163.com/dy/article/JLO7HCTM05567MPS.html" target="_blank">支付宝小微商户收款码个人申请条件（媒体报道，2026-10-29 检索）</a>
+  </div>
+</section>
+
+<section id="c09" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 09 · PART 2 · 技能篇</span><h2>部署上线：从本地到公网域名<span class="accent">：免费档、付费档与回滚</span></h2></div>
+  <p class="sec-desc">"在我电脑上是好的"不是交付。这一章讲静态站和带后端的应用分别怎么部署、免费额度到底够不够用、部署后必须做的三项检查，以及更新与回滚怎么做。所有额度与价格为 2026-10-29 检索到的官方口径。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚀</span><h3>静态站：三个免费档位怎么选</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>纯前端项目（HTML/CSS/JS、打包后的产物）没有服务器要管，上传即上线。三家最常用的免费档，额度差别很大：</p>
+    <table>
+      <tr><th>平台</th><th>免费额度关键数字</th><th>自定义域名</th><th>商用限制</th></tr>
+      <tr><td><b>GitHub Pages</b></td><td>源仓库建议 ≤1 GB，发布站点 ≤1 GB，构建超时 10 分钟，带宽软限制 <b>100 GB/月</b>，构建软限制 <b>10 次/小时</b>，超限返回 429；每账户 1 个用户/组织站点、每仓库 1 个项目站点</td><td>支持</td><td>无商用禁止条款</td></tr>
+      <tr><td><b>Cloudflare Pages</b></td><td>静态资源请求<b>免费且无限</b>；Functions 请求计入 Workers 免费额度（与 Workers 合计 <b>10 万次/天</b>，UTC 午夜重置）；构建 <b>500 次/月</b>；并发构建 1；单文件 ≤25 MiB；站点文件数 ≤20,000；每账户最多 100 个项目；构建 20 分钟超时</td><td>免费档每项目 100 个</td><td>无商用禁止条款</td></tr>
+      <tr><td><b>Vercel（Hobby）</b></td><td>出站流量 <b>100 GB/月</b>；Serverless Function <b>100 万次/月</b>、4 小时 Fluid Active CPU、360 GB-hrs 内存；且<b>不能购买额外用量</b></td><td>支持</td><td><b>仅限个人非商业用途</b>，Pro $20/月</td></tr>
+    </table>
+    <p>结论很直接：<b>给客户做的商业站点，不要放 Vercel Hobby</b>——官方 FAQ 写明该计划面向 personal, non-commercial use。接单交付首选 Cloudflare Pages 或 GitHub Pages，两者都不禁止商用、都能绑自己的域名、都不用备案（服务器在境外）。</p>
+    <p>如果客户要求"国内访问快、要用自己的国内服务器"，静态站可以放<b>腾讯云 CloudBase 静态托管</b>或<b>阿里云 OSS + CDN</b>——注意这类国内资源<b>需要先完成 ICP 备案才能绑定域名对外服务</b>（见第 10 章）。</p>
+    <p>一个容易忽略的细节：Cloudflare Pages 绑自定义域名时，<b>必须先在仪表盘完成 Add a custom domain 流程</b>。官方文档明确警告，如果只是手动加一条 CNAME 记录而不走这个流程，"will result in your domain failing to resolve at the CNAME record address"，访问会直接报 522。apex 域名（如 example.com）还需要把站点加为 Cloudflare zone 并把 NS 指向 Cloudflare。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>带后端的应用：免费额度与真实成本</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>需要数据库、登录态、支付回调、定时任务的项目，就要一个"能跑代码的地方"。三类选择：</p>
+    <ul>
+      <li><b>Serverless（Cloudflare Workers / Pages Functions）</b>：静态请求免费无限，函数请求免费 10 万次/天。适合低频接口、表单收集、简单回调。<b>不适合</b>长连接、大内存计算、需要常驻进程的任务。</li>
+      <li><b>国内 BaaS（腾讯云 CloudBase）</b>：官方已改为"资源点"计费，基准 1000 点 = 1 元。免费体验版 <b>0 元/月含 3,000 点/月</b>；个人版 <b>19.9 元/月含 40,000 点/月</b>；标准版 199 元/月含 330,000 点；企业版 999 元/月含 1,500,000 点。单价参考：云函数调用 13.3 点/万次，外网出流量 800 点/GB，静态托管流量 210 点/GB，文档型数据库调用 200 点/万次。初次使用可免费试用 1 个月个人版。<b>关键坑：免费版的自定义域名配额是 0 个</b>（个人版 1 个、标准版 5 个）——想绑自己的域名，至少得上个人版，而国内域名又要备案。</li>
+      <li><b>国外容器/PaaS（Railway 等）</b>：Railway <b>没有永久免费档</b>，只有一次性 $5 试用额度（30 天有效）；Hobby $5/月（含 $5 月度用量额度），Pro $20/月。适合接单给海外客户、需要长驻进程或数据库的项目。</li>
+    </ul>
+    <div class="chart"><h4>选型速查：先回答三个问题</h4>
+      <div class="hbar-row"><span>客户在国内？</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">→ 需备案</span></div>
+      <div class="hbar-row"><span>要收钱/要数据库？</span><div class="hbar-track"><div class="hbar-fill" style="width:78%"></div></div><span class="hbar-val">→ 要后端</span></div>
+      <div class="hbar-row"><span>客户要自己续费？</span><div class="hbar-track"><div class="hbar-fill" style="width:62%"></div></div><span class="hbar-val">→ 一开始就说清谁付钱</span></div>
+      <div class="cap">接单时把"服务器/域名谁付、付多少、怎么付"写进报价单，能省掉九成的后期扯皮。</div>
+    </div>
+    <p>最后一个忠告：<b>不要把你的免费个人账号当成客户的资产</b>。客户付了钱，项目应该跑在客户名下或双方书面约定的账号里，否则明年你换手机号、客户续不上费，交付就断了。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>部署后必做三项检查 + 更新与回滚</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>检查一：HTTPS 与混合内容。</b>部署完打开浏览器开发者工具的 Console，看有没有 Mixed Content 警告。MDN 的定义是：安全加载的页面又通过 HTTP 请求资源，就是混合内容；浏览器现在把 mixed content 分成两类——<b>upgradable content</b>（如 <code>&lt;img src&gt;</code>、CSS 背景图、audio/video）会被浏览器自动从 http 升级为 https，<b>blockable content</b>（<code>&lt;script&gt;</code>、<code>&lt;link&gt;</code>、<code>&lt;iframe&gt;</code>、<code>fetch()</code>、<code>XMLHttpRequest</code>、CSS <code>@font-face</code>、web fonts、<code>srcset</code>）会被直接阻止。也就是说图片挂了你可能只是看不到，脚本挂了整个功能直接死。修法：全站资源走 https 或相对路径，同源资源一律用相对路径；也可以加 CSP 的 <code>upgrade-insecure-requests</code>。</p>
+    <p><b>检查二：真机 + 关键链路。</b>用自己的手机（关掉 Wi-Fi 用流量）打开一遍；完整走一次表单提交和一次支付回调；然后去服务端日志里确认真的收到了请求、没有报错；再确认 404 页面存在。很多 Bug 只在移动端或只在生产环境出现。</p>
+    <p><b>检查三：域名与解析。</b>自定义域名是否真的解析成功、证书是否签发；改 DNS 前先记录旧值，改完确认旧记录已清理；确认 CDN/缓存没有把旧版本焊死（有时部署成功但看到的是缓存）。</p>
+    <p><b>更新。</b>把"任何一个历史版本都能被重新构建出来"当作纪律：代码提交要有意义的信息，每次发布记录<b>版本号 / 日期 / 改了什么</b>。这也正是回滚的前提。</p>
+    <p><b>回滚。</b>Vercel 的做法最典型：项目页 → Production Deployment 卡片 → <b>Instant Rollback</b> → 选择要回退到的部署 → 确认，官方说明是瞬时生效。三条注意事项：① <b>回滚不会更新环境变量</b>，会回到该版本当时的状态；② <b>Hobby 只能回滚到上一个部署</b>，Pro/Enterprise 才能回滚到任一曾指向生产域名的部署；③ 回滚后 Vercel 会<b>关闭生产域名的自动分配</b>，之后 push 到生产分支不会自动上线，要用 <code>vercel promote</code> 或仪表盘的 Undo Rollback 恢复。</p>
+    <p>纯静态站还有更朴素的回滚法：本地保留上一个构建产物目录，出问题就重新上传覆盖。笨，但可靠，而且不需要联网排障。</p>
+    <blockquote class="xq">💬 <span class="who">官方提醒：</span>Vercel 回滚文档明确写道，回滚时"Vercel won't update environment variables…and will roll back to a previous build"——如果你在回滚前改过环境变量，回滚后它还是旧值，这点最常让人踩坑。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits" target="_blank">GitHub Docs · GitHub Pages 使用限制</a>
+    <a href="https://developers.cloudflare.com/pages/platform/limits/" target="_blank">Cloudflare Docs · Pages Limits</a>
+    <a href="https://developers.cloudflare.com/pages/functions/pricing/" target="_blank">Cloudflare Docs · Pages Functions Pricing</a>
+    <a href="https://developers.cloudflare.com/pages/configuration/custom-domains/" target="_blank">Cloudflare Docs · Pages 自定义域名</a>
+    <a href="https://vercel.com/pricing" target="_blank">Vercel Pricing（2026-10-29 检索）</a>
+    <a href="https://vercel.com/docs/instant-rollback" target="_blank">Vercel Docs · Instant Rollback（页面更新至 2026-07-07）</a>
+    <a href="https://cloud.tencent.com/document/product/876/127357" target="_blank">腾讯云 · 云开发 CloudBase 资源点价格文档</a>
+    <a href="https://cloud.tencent.com/document/faq/876/76378" target="_blank">腾讯云 · 云开发 CloudBase 新计费相关问题</a>
+    <a href="https://railway.com/pricing" target="_blank">Railway Pricing（2026-10-29 检索）</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content" target="_blank">MDN · Mixed content（混合内容）</a>
+    <a href="https://www.cnblogs.com/ai888/p/18592936" target="_blank">博客园 · 上线后什么情况下会回滚（2026-10-29 检索）</a>
+  </div>
+</section>
+
+<section id="c10" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 10 · PART 2 · 技能篇</span><h2>域名、备案与基础安全<span class="accent">：让客户敢把钱付给你</span></h2></div>
+  <p class="sec-desc">域名是门牌，备案是国内营业的通行证，HTTPS 和安全习惯决定客户敢不敢在你做的页面里填手机号和付款。这一章讲域名怎么选怎么买、备案的基本流程与耗时、HTTPS 怎么开，以及三个最常见也最致命的安全错误。所有数据为 2026-10-29 检索到的公开口径，备案与域名政策有地域性和时效性，动手前请以主管机关当期口径为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🌐</span><h3>域名怎么选、怎么买</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>后缀的选择标准只有一个：<b>客户能不能记住、能不能一次打对</b>。所以优先 <b>.com</b>，国内业务可考虑 <b>.cn</b>（认知度高、通常更便宜）。.net、.org、.cc、.vip 视预算和品牌需要，不要为了省几十块去用一个客户从没见过的后缀。</p>
+    <p>阿里云万网页面 2026-10-29 显示的价格（首年 / 续费）可以当参考锚点：<b>.com ¥85 / ¥95</b>（日常价 ¥90）、<b>.cn ¥38 / ¥42</b>（日常 ¥39）、<b>.net ¥95 / ¥105</b>（日常 ¥99）、<b>.cc ¥32 / ¥80</b>、<b>.vip ¥34 / ¥45</b>。同时页面在推一批促销后缀，比如 .click 首年 ¥11、.fun 首年 ¥8——但 .fun 的续费价是 ¥215。<b>首年便宜十倍、续费贵五倍的促销后缀，是给批量注册者准备的，不是给客户项目准备的。</b></p>
+    <p>买完域名必须做三件事，缺一件后期都出事：</p>
+    <ul>
+      <li><b>完成实名认证。</b>工信部《关于规范互联网信息服务使用域名的通知》要求域名必须完成实名认证才能备案。实名信息（名称、证件类型、证件号码）要与后续备案主体一致——不一致会被打回，得先过户再重新提交。</li>
+      <li><b>打开自动续费。</b>域名过期有赎回期，赎回费用远高于续费；客户项目的域名掉过一次，信任就掉一次。</li>
+      <li><b>给注册商账号开二次验证。</b>域名被盗转移的代价，比域名本身贵得多。</li>
+    </ul>
+    <p>另外，备案时会有"域名核验"这一步。以火山引擎公开文档为例，核验规则包括：域名实名信息需与备案主体（或法定代表人）一致、域名须在注册有效期内、域名的顶级域名和注册商须已获工信部批复。<b>未通过域名核验，接入商将被要求停止提供接入服务。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>备案：国内大陆服务器的必经之路</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>法律依据很明确。《互联网信息服务管理办法》（国务院令第 292 号，2000 年 9 月 25 日公布，2011 年 1 月 8 日修订）第四条规定：「国家对经营性互联网信息服务实行许可制度；对非经营性互联网信息服务实行<b>备案制度</b>。」「<b>未取得许可或者未履行备案手续的，不得从事互联网信息服务。</b>」第十二条还要求：互联网信息服务提供者应当在其网站主页的显著位置标明其经营许可证编号或者备案编号。</p>
+    <p><b>什么时候必须备案？</b>服务器在中国大陆，并且要通过域名对外提供 HTTP 服务。用境外服务器（包括中国香港）不需要 ICP 备案，但访问稳定性、延迟和后续合规是另一笔账，接单时要跟客户讲清楚，不要为了省事选了境外服务器又承诺"国内秒开"。</p>
+    <p><b>流程与耗时。</b>以阿里云备案系统公示的流程为例，一共五步：① 登录阿里云账号填报信息并上传资料 → ② <b>阿里云初审</b>（1～2 个工作日完成电话核验并告知初审结果）→ ③ <b>工信部短信核验</b>（需在 24 小时内完成）→ ④ <b>管局审核</b>（20 个工作日内完成）→ ⑤ 备案成功，下发备案号，并需完成<b>公安备案</b>。阿里云开发者社区的经验帖给出的整体区间是"快的话 2 天，慢的话 20 多天"，主要时间花在各省通信管理局。</p>
+    <div class="chart"><h4>备案时间线（阿里云口径，各省有差异）</h4>
+      <div class="hbar-row"><span>接入商初审</span><div class="hbar-track"><div class="hbar-fill" style="width:10%"></div></div><span class="hbar-val">1–2 个工作日</span></div>
+      <div class="hbar-row"><span>短信核验</span><div class="hbar-track"><div class="hbar-fill" style="width:5%"></div></div><span class="hbar-val">24 小时内</span></div>
+      <div class="hbar-row"><span>通管局审核</span><div class="hbar-track"><div class="hbar-fill" style="width:85%"></div></div><span class="hbar-val">≤20 个工作日</span></div>
+      <div class="cap">接单排期时，把「备案 3–20 个工作日」单独列一行，不要和开发工期混在一起。</div>
+    </div>
+    <p><b>地域性与时效性提醒（必读）：</b>备案由各省、自治区、直辖市通信管理局具体审核，<b>各省的材料口径、审核时长、命名规则会有差异</b>；同时个人备案通常对网站名称和内容有限制（涉及经营性内容、在线交易、评论互动等一般不被允许），具体要求以你的接入商和省通管局的当期口径为准。查询备案号请用工信部官方系统（beian.miit.gov.cn），不要用来路不明的第三方查询页——它们常在你查完弹"证书下载"收费。</p>
+    <p><b>备案不是一次性的。</b>换服务器、换接入商要走"取消接入 + 重新接入"；主体信息变更要办变更备案；域名换了要重新做域名核验；长期不维护的备案会被清理成"空壳主体"并公示。</p>
+    <blockquote class="xq">💬 <span class="who">法条原文：</span>「未取得许可或者未履行备案手续的，不得从事互联网信息服务。」——《互联网信息服务管理办法》第四条，国务院令第 292 号。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔒</span><h3>HTTPS 与三个最常见的安全错误</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>HTTPS 为什么必要。</b>HTTP 是明文传输：同一咖啡馆的 Wi-Fi 上、链路上的任何一跳，都能看到并篡改你的请求和响应。登录密码、表单内容、支付跳转全靠它保护。浏览器已经在强推——MDN 对混合内容的处理说明，upgradable 资源会被自动升级、blockable 资源会被直接阻止，本质上是在倒逼全站 HTTPS。</p>
+    <p><b>怎么开。</b>Let's Encrypt 提供免费证书，默认有效期 <b>90 天</b>，官方建议 <b>每 60 天续期一次</b>（另有 6 天短期证书，建议每 3 天续期）；官方已公告 2027 年 2 月起证书生命周期将缩短到 <b>64 天</b>。好消息是：Cloudflare Pages、Vercel、GitHub Pages、阿里云、腾讯云都<b>自动签发并自动续期</b>，通常你什么都不用做；只有自建服务器（云主机 + Nginx）才需要自己用 acme.sh 或 certbot 配置。</p>
+    <p><b>错误一：密钥泄露。</b>把 API Key、数据库密码、支付商户密钥提交进 Git 仓库，或者写死在前端 JS 里。GitHub 的 Secret Scanning 会扫描仓库的<b>整个 Git 历史（所有分支）</b>寻找硬编码的 API key、密码、token，命中后在仓库的 Security and quality 页产生告警，并直接通知对应的合作服务商。正确做法：密钥只放服务端环境变量；怀疑泄露时官方给的处置是"<b>立即轮换受影响的凭证</b>"（rotate the affected credential）——作废重签，而不是从提交历史里删掉了事；.gitignore 只能防未来，救不了过去。</p>
+    <p><b>错误二：注入。</b>OWASP Top 10:2025 把 Injection 列为 A05。根因是"不可信数据变成了查询 SQL 语法的一部分"。防护首选<b>参数化查询 / 预编译</b>——把 SQL 结构和数据值分开定义，绑定值只被当作数据而非语法；表名、列名、排序方向这类结构元素无法参数化，要用<b>白名单映射</b>到少量应用自有选项。OWASP 明确<b>强烈不建议</b>用手工转义替代参数绑定，因为转义行为依赖具体 SQL dialect 和配置；也应当配合最小权限，绝不给应用账号 DBA/ADMIN 级别的权限。</p>
+    <p><b>错误三：越权。</b>把数据库自增 ID 直接放在 URL 里（<code>/order/1024</code>），用户把数字一改就看到了别人的订单——这就是 IDOR / BOLA。OWASP 的授权防护速查表给了三条硬规矩：① <b>访问控制检查必须在服务端、网关或 Serverless 函数里做，"绝不能依赖客户端检查"</b>；② <b>每个请求都要校验"这个具体对象"的归属</b>，而不只是校验角色或类型；③ 默认拒绝 + 最小权限，并且把授权逻辑写进单元测试。日志是最重要的检测手段之一，但要小心别把敏感信息打进错误信息返回给用户。</p>
+    <p>把这三条变成交付清单上的三行字，客户会觉得你专业：<b>密钥不入库、不进前端；所有查询参数化；每个接口校验归属。</b></p>
+    <blockquote class="xq">💬 <span class="who">OWASP 原文：</span>「Developers must never rely on client-side access control checks.」——访问控制检查绝不能依赖客户端，因为客户端逻辑很容易被绕过。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gov.cn/gongbao/content/2011/content_1860864.htm" target="_blank">中国政府网《互联网信息服务管理办法》（国务院令第 292 号，2011-01-08 修订）</a>
+    <a href="https://beian.aliyun.com/" target="_blank">阿里云备案系统（流程与各环节审核时长）</a>
+    <a href="https://wanwang.aliyun.com/domain/" target="_blank">阿里云万网 · 域名注册（后缀价格）</a>
+    <a href="https://docs.volcengine.com/docs/6428/70978" target="_blank">火山引擎 · 域名核验（备案）文档</a>
+    <a href="https://letsencrypt.org/zh-cn/" target="_blank">Let's Encrypt 官方网站</a>
+    <a href="https://letsencrypt.org/docs/faq/" target="_blank">Let's Encrypt · FAQ（证书有效期与续期建议）</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content" target="_blank">MDN · Mixed content（混合内容）</a>
+    <a href="https://top10.owasp.org/2025/" target="_blank">OWASP Top 10:2025</a>
+    <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">OWASP · SQL Injection Prevention Cheat Sheet</a>
+    <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" target="_blank">OWASP · Authorization Cheat Sheet</a>
+    <a href="https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning" target="_blank">GitHub Docs · Secret Scanning</a>
+    <a href="https://www.ghyun.com.cn/home/default/beian/117" target="_blank">网站备案义务告知书（引用国务院令第 292 号第四条）</a>
+  </div>
+</section>
+
+<section id="c11" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 11 · PART 3 · 接单篇</span><h2>接单平台对比：国内外六大渠道<span class="accent">：门槛、抽成与第一单去哪</span></h2></div>
+  <p class="sec-desc">接单的第一步不是学技术，是选战场。这一章把国内外六个真实渠道的准入条件、抽成方式、客单价水平和竞争强度摊开对比，并回答一个最实际的问题：完全没接过单的人，第一单应该去哪接。所有平台数字均标注了检索日期（2026-10-29），动手前请再点开原文核对当期规则。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>六大渠道一张表：先看清门槛和抽成</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>选渠道只看三件事：<b>进不进得去、钱被分走多少、有没有人和你抢</b>。国内渠道的优势是沟通零障碍、结算走平台托管；国外渠道客单价高，但要用外语投标、自己处理收款和税务。下表把六个渠道放在一起对比，抽成与门槛一栏全部来自平台官方规则页或官方首页，检索日期为 2026-10-29。</p>
+    <table>
+      <tr><th>渠道</th><th>准入门槛</th><th>抽成 / 主要费用</th><th>客单价与竞争</th></tr>
+      <tr><td><b>猪八戒网</b>（国内威客）</td><td>可「0 元开店」，但需缴诚信保证金：未入驻一级类目的服务商基础金额统一 5000 元；个人认证支持芝麻信用免缴，新商户 180 天内按「就低原则」缴纳</td><td>速配版订单按成交额收 0%–20% 技术服务费；付费会员「八戒来客任务通」刊例价 12688–24388 元/年（开发行业 24388 元/年），年度版含「招标模式」2% 技术服务费</td><td>用户超 2600 万、800+ 服务品类，竞争激烈；单笔金额从几百元到数万元都有，平台未公布统一客单价统计</td></tr>
+      <tr><td><b>电鸭社区</b>（远程工作社区）</td><td>注册即可发帖与应聘，联系雇主或申请需消耗社区「电量」</td><td>首页未公示任何抽成或佣金比例，本质是社区撮合而非交易抽佣</td><td>共 2 万多个帖子，主打远程全职与项目合作</td></tr>
+      <tr><td><b>程序员客栈</b>（中高端开发者平台）</td><td>「开发者入驻」需实名认证、学历认证与项目经历审核，主打 BAT 级开发者</td><td>首页未公示抽成比例；资金模式为平台暂托管费用，企业验收无误后再结算给开发者</td><td>定位中高端，累计注册开发者数十万级</td></tr>
+      <tr><td><b>Upwork</b>（全球最大自由职业市场）</td><td>注册后用「Connects」虚拟币投标（每枚约 0.15–0.90 美元，一次投标通常消耗数枚）</td><td>自由职业者服务费按账单金额比例收取（第三方费用工具站 2026-02 口径为固定约 10%）；客户端另有市场费用</td><td>官方年报披露 2025 年平台撮合交易额（GSV）40 亿美元；注册自由职业者约 1200 万，新手时薪常见 20–35 美元区间</td></tr>
+      <tr><td><b>Fiverr</b>（服务货架平台）</td><td>注册后把服务打包成「Gig」上架，买家直接下单</td><td>对卖家每单抽成约 20%，小订单另有附加费；买家另付服务费</td><td>起售价低、以小额订单为主，靠走量和评价往上爬，适合把重复服务标准化的人</td></tr>
+      <tr><td><b>平台之外</b>（转介绍 / 社群 / 自媒体）</td><td>无准入，靠人脉与作品积累</td><td>无平台抽成，但也没有托管与仲裁</td><td>单价最稳、复购最高，问题是「从零开始没有客户」——它适合作为第二曲线，不适合当第一步</td></tr>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>电鸭社区把它的社区文化写成了「潜规则」——「不舍得花电量联系或申请，大概率是不值得」，同时「优先展示非传统坐班机会」。翻译成接单语言：雇主愿意付出成本筛人，你也别什么单都投。（来源：eleduck.com，2026-10-29 检索）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💸</span><h3>钱是怎么被一层层分走的</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">必读</span></div></div>
+    <p>新手最容易犯的错，是只看「平台抽几个点」，忘了后面还有支付通道费、提现费、会员费、保证金占用的资金成本。下面这张图按平台官方规则或当期公开口径，把主要抽成比例画在一起——注意<b>这是抽成比例，不是你实际到手的比例</b>。</p>
+    <div class="chart">
+      <h4>各渠道主要抽成比例对比（2026-10-29 检索）</h4>
+      <div class="hbar-row"><span>Fiverr 卖家抽成</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">约 20%</span></div>
+      <div class="hbar-row"><span>猪八戒·速配订单</span><div class="hbar-track"><div class="hbar-fill" style="width:90%"></div></div><span class="hbar-val">0%–20%</span></div>
+      <div class="hbar-row"><span>Upwork 服务费</span><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><span class="hbar-val">约 10%</span></div>
+      <div class="hbar-row"><span>猪八戒·招标模式</span><div class="hbar-track"><div class="hbar-fill" style="width:10%"></div></div><span class="hbar-val">2%</span></div>
+      <div class="hbar-row"><span>电鸭 / 社群撮合</span><div class="hbar-track"><div class="hbar-fill" style="width:4%"></div></div><span class="hbar-val">未公示抽成</span></div>
+      <div class="cap">口径说明：猪八戒两个比例来自平台规则中心；Upwork、Fiverr 比例来自第三方费用统计站（2026-02 更新），官方帮助页在本次检索时无法直接抓取，请以官方当期页面为准。</div>
+    </div>
+    <p>比抽成更贵的往往是<b>隐性成本</b>，有三笔一定要算进去。也要理解一个背景：猪八戒早年靠交易佣金盈利，佣金收入一度占总收入四成，后来取消前端佣金、转向数据与服务收费——这正是它今天的收费结构看起来零碎（保证金、会员费、按单技术服务费并存）的原因。</p>
+    <ul>
+      <li><b>会员与工具费：</b>猪八戒「八戒来客任务通」按行业分档，刊例价设计/其他 16288 元/年、开发 24388 元/年、营销/音视频 12688 元/年，年度版才含商机速配、投标排名提升等权益。一年接不到两三单的话，这笔钱直接吃掉利润。</li>
+      <li><b>保证金的资金占用：</b>猪八戒诚信保证金采取「基础金额 + 上浮金额」，退款率 10%–30% 上浮 30%、30%–50% 上浮 50%、≥50% 上浮 100%；交易纠纷率与违规记录会继续叠加。退出时还要满足「最后一笔交易完结超过 90 个自然日」等条件才可退还。</li>
+      <li><b>收款链路：</b>跨境渠道要自己解决收款、结汇与报税；国内渠道多是平台托管、验收后放款，但要接受账期。涉及税务与跨境收款的部分地域性与时效性很强，请以主管机关和收款机构的当期口径为准。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎯</span><h3>新手第一单更适合去哪</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">行动导向</span></div></div>
+    <p>如果只记一句话：<b>第一单去「能让你完整走完一遍流程」的地方，而不是去「单价最高」的地方</b>。综合门槛、抽成与竞争，给零基础读者的路径建议是——用国内平台完成从沟通到交付到收款的第一次闭环，同时用电鸭、社群这类低抽成渠道物色长期客户。</p>
+    <ul>
+      <li><b>为什么先国内：</b>没有语言与时差成本，平台托管资金，「验收后付款」的规则对双方都是约束；第一单最重要的是把「需求→报价→合同→交付→收款」整条链路跑通，国内平台摩擦力最小。</li>
+      <li><b>第一单的三个标准：</b>金额小到亏得起（多数从业者建议 Upwork 新手盯 50–300 美元的小单，国内可类比为千元级）；周期短到两周内能交付；成果能截图放进作品集。首单的目标是评价和案例，不是利润。</li>
+      <li><b>什么时候碰国外平台：</b>当你有一个可复用的服务（比如「小程序商城模板」「落地页速做」），能标准化报价和交付，且愿意用外语写提案时，再上 Upwork / Fiverr。新手时薪常见 20–35 美元，做到中级约 40–60 美元，别用专家价要求自己。</li>
+      <li><b>三个避坑信号：</b>投标人数已经超过 50 人的项目、需求模糊却要求超低价长周期的项目、要求先做「试稿」却不谈钱的「客户」。看到这三类，直接跳过。</li>
+    </ul>
+    <p>还有一类单，再高的价也不能接：<b>刷量刷评、代实名、外挂、越权爬虫、赌博棋牌类「包过审」开发</b>等。它们不只是道德问题——平台规则里写明「行为涉嫌违法犯罪的，平台将固定证据并移交公安等有关机关处理」，违规还可能被扣保证金、直接清退；情节严重会触及刑责。灰产单的「利润」是账面上的，风险是真实的。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📡</span><h3>平台之外的信源渠道</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">长期主义</span></div></div>
+    <p>平台解决「冷启动」，但抽成、会员费和流量分配永远捏在平台手里。真正让接单变稳定的是平台之外的信源——它们的共同点是<b>零抽成、高复购、靠信任转化</b>：</p>
+    <ul>
+      <li><b>老客户转介绍：</b>每交付完一单，主动问一句「你身边有没有同样需求的朋友」。这是成本最低、成交率最高的渠道，前提是上一单交付得干净。</li>
+      <li><b>社群与社区：</b>垂直技术社群、行业微信群、Discord、本地创业者圈子。先回答问题建立存在感，再让人知道你能接活——不要进去就发广告。</li>
+      <li><b>自媒体作品集：</b>把做过的项目写成案例（问题、方案、结果、截图），发在公开平台。客户搜「小程序 接单」时能找到你，比你在平台投标便宜得多。</li>
+      <li><b>线下与半线下：</b>本地商会、产业园区、孵化器、传统企业的数字化转型需求，往往单价高、竞争少，且需要面对面信任。</li>
+    </ul>
+    <p>必须提醒的是：平台外交易没有托管和仲裁，<b>合同、定金、验收标准、付款节点一样都不能省</b>，具体写法见第 12 章；涉及企业资质、备案、发票与税务的合作，请以当地主管机关当期口径为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.zbj.com/" target="_blank">猪八戒网首页（0 元开店、服务品类、资金托管表述，2026-10-29 检索）</a><a href="https://rule.zbj.com/ruleshow-0?pid=148" target="_blank">猪八戒平台诚信保证金规则（ZBJ-GZ-20260518 版，2026-05-18 生效）</a><a href="https://rule.zbj.com/ruleshow-0?categoryId=432&amp;pid=1801" target="_blank">猪八戒网八戒来客任务通订购协议修订公示（ZBJ-CPXY-20260727 版）</a><a href="https://rule.zbj.com/ruleshow-0?categoryId=420&amp;pid=958" target="_blank">猪八戒速配版交易佣金规则修订公示（技术服务费 0%–20%）</a><a href="https://rule.zbj.com/ruleshow-0?categoryId=285&amp;pid=1816" target="_blank">猪八戒平台服务商管理规则修订公示（ZBJ-GZ-20261028 版）</a><a href="https://zx.ipr.zbj.com/qyzx/wzdt/36.html" target="_blank">猪八戒网资讯：佣金模式的历史变化（2018-01-10）</a><a href="https://eleduck.com/" target="_blank">电鸭社区首页（远程工作社区定位与「电量」机制）</a><a href="https://www.proginn.com/" target="_blank">程序员客栈首页（开发者入驻与托管结算模式）</a><a href="https://www.sec.gov/Archives/edgar/data/1627475/000162747526000012/upwk-20251231.htm" target="_blank">Upwork 10-K 年报（SEC EDGAR，2026-02-13 提交，2025 年 GSV 40 亿美元）</a><a href="https://blog.csdn.net/2401_83816794/article/details/137129256" target="_blank">CSDN：国内外软件外包平台对比（Upwork 注册规模等）</a><a href="https://www.ipdodo.com/news/12101/" target="_blank">Upwork 新手接单指南（时薪区间与小单策略）</a><a href="https://www.freelancecompare.com/" target="_blank">FreelanceCompare 费率工具（Upwork / Fiverr 费率，2026-02 更新）</a></div>
+</section>
+
+<section id="c12" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 12 · PART 3 · 接单篇</span><h2>报价与合同：怎么报才不亏<span class="accent">：定价方法、条款清单与加价话术</span></h2></div>
+  <p class="sec-desc">新手亏钱几乎不是因为技术差，是因为不会算账、不会写合同。这一章给你三样能直接用的东西：一张报价方式选择表、一份按法律条文核对过的合同条款清单、一套「客户改需求时怎么加价」的话术。所有法律条文引自最高人民法院官网公布的《民法典》原文，检索日期 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>三种报价方式：按小时、按项目、按阶段</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>报价方式决定了风险由谁承担。<b>按小时，客户承担「你不熟练」的风险；按项目，你承担「需求会变」的风险。</b>所以需求越清楚，越敢按项目报价；需求越模糊，越应该按小时或按阶段报。</p>
+    <table>
+      <tr><th>方式</th><th>适用场景</th><th>优点</th><th>风险与对策</th></tr>
+      <tr><td><b>按小时</b></td><td>需求说不清、长期维护、技术咨询、按周投入的协作</td><td>改来改去也按时间算钱，不怕需求蔓延</td><td>做得越快赚得越少；对策是约定工时记录方式（每日打卡/截图），并设「效率封顶」条款，如「相同任务二次实现按半价计」</td></tr>
+      <tr><td><b>按项目</b></td><td>边界清晰的小项目：落地页、表单工具、小程序展示版</td><td>客户好决策，你做熟了利润率最高</td><td>需求蔓延最致命；对策是合同附《交付物清单》和《不含项清单》，把「改需求」单列成流程</td></tr>
+      <tr><td><b>按阶段</b></td><td>两周以上的中型项目：原型→开发→联调→上线</td><td>每阶段结束都有可见产出，客户敢付钱，你也敢往下做</td><td>阶段之间容易返工；对策是写清每阶段的验收标准与「进入下一阶段的确认动作」</td></tr>
+    </table>
+    <p>无论选哪种，动手前先做一道算术：<b>预估工时 × 时薪 × 风险系数</b>。新手最常见的失误是只估「写代码的时间」，漏掉沟通、改稿、部署、教客户使用的时间——实际可计费工时通常只有名义工时的一半左右，风险系数建议先乘 1.3 到 1.5。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💵</span><h3>价位区间：先算底线，再谈市场价</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">算账专用</span></div></div>
+    <p>市面上的报价参考大多是「别人收多少」，但对新手更有用的是「你最低能收多少」。用底线价守住不亏，再用市场价决定报多少。</p>
+    <ul>
+      <li><b>第一步，算底线价：</b>（每月想拿到手的钱 + 每月固定开支）÷ 每月真正能卖出去的工时。假设你每月想落袋 6000 元、固定开支 1000 元、一个月能卖出 80 小时，底线就是每小时 87.5 元。低于这个数，你是在用自己的积蓄补贴客户。</li>
+      <li><b>第二步，把平台费加回去：</b>如果走 Fiverr，卖家被抽约 20%；走 Upwork，第三方工具站 2026-02 口径的服务费约 10%；走猪八戒，速配订单可能收 0%–20% 技术服务费，买会员的话开发行业刊例价一年 24388 元。报价 ≈ 到手价 ÷（1 − 抽成比例），会员费还要摊到每一单里。</li>
+      <li><b>第三步，对照市场区间：</b>跨境平台上，新手时薪常见 20–35 美元、中级 40–60 美元、专家 80 美元以上；国内平台<b>暂无公开的权威客单价统计</b>（我们检索了平台规则中心与公开报道，未找到官方公布的单笔均价数据），只能参考同行报价与自己的底线价倒推。第一单建议主动报底线价附近，用评价换案例，第二单开始每次上浮 10%–20%。</li>
+      <li><b>第四步，报「价」也要报「范围」：</b>成熟的做法是报区间加前提——「在附录需求清单不变的前提下，总价 X 至 Y 元；若清单调整，按变更流程重新报价」。这比一个拍脑袋的数字更容易通过，也更容易防守。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「国内接单最重要的是商务沟通能力（管理好客户的心理预期），否则容易出现『客户认为钱给多了，你活干少了』这类信息不对称。」（来源：CSDN《全球与国内软件外包平台》分析，2026-10-29 检索）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>服务合同必须写清的条款清单</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">签字前逐条核对</span></div></div>
+    <p>《民法典》第四百七十条给了合同的一般条款：当事人的姓名或名称和住所、标的、数量、质量、价款或报酬、履行期限地点和方式、违约责任、解决争议的方法；同条还写明「当事人可以参照各类合同的示范文本订立合同」。第八百五十一条则明确<b>技术开发合同应当采用书面形式</b>。把这两条当骨架，接单合同至少要写清下面十项：</p>
+    <ul>
+      <li><b>交付物清单：</b>逐项列出「给什么」——页面数、功能点、源码、部署方式、账号归属。写「做一个 App」等于没写。</li>
+      <li><b>验收标准与验收期：</b>客户几天内确认、逾期未提异议视为验收通过；不写这条，尾款可能永远拖下去。</li>
+      <li><b>修改次数：</b>包含几轮免费修改、超出怎么计费；「改到满意为止」这种承诺只在你可控范围内才写。</li>
+      <li><b>源码与知识产权归属：</b>尾款结清后源码归客户，署名权与展示权归你（你还要用它做作品集）；开源组件与第三方服务的授权责任要写清。</li>
+      <li><b>需求变更流程：</b>任何变更须书面提出、书面确认工作量与加价后才实施——这条是你唯一的加价依据。</li>
+      <li><b>付款节点：</b>定金比例、各期金额与触发条件、收款账户、发票与税费承担（见下卡）。</li>
+      <li><b>延期与违约：</b>双方责任对等：客户逾期提供资料可顺延工期，你逾期交付的赔偿上限建议约定为「合同金额的 X%」。</li>
+      <li><b>保密条款：</b>客户数据、业务资料不得外传；涉及个人信息的处理方式要单独写明（见第 13 章合规红线）。</li>
+      <li><b>终止与善后：</b>合作中止时已完工具结算、未完工具如何计价、源码交付到哪一步。</li>
+      <li><b>争议解决：</b>先协商，再约定仲裁或诉讼；小额合作尽量约定一个对你便利、维权成本低的争议解决方式，具体写法建议咨询当地律师或以法院当期立案口径为准。</li>
+    </ul>
+    <p>合同不必写得像律所文件，但<b>必须落成文字、双方各留一份</b>。口头约定和零散聊天在纠纷里很难说清，一份双方确认过的书面清单，比一百条消息更省事。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔧</span><h3>定金、分期与改需求加价</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">钱怎么收</span></div></div>
+    <p><b>定金有法律上限，别随口写。</b>《民法典》第五百八十六条规定：「定金的数额由当事人约定；但是，不得超过主合同标的额的百分之二十，超过部分不产生定金的效力。」第五百八十七条是定金罚则：给付方违约无权要求返还，收受方违约应当双倍返还。实操上的通行做法是：合同金额 20% 以内写「定金」（受罚则保护），超出部分写「预付款」或直接并入首期款，避免「定金」名义下的超额部分被认定无效。</p>
+    <table>
+      <tr><th>项目规模</th><th>常见分期（行业惯例，非法律强制）</th><th>说明</th></tr>
+      <tr><td>小额（数千元内）</td><td>50% 启动 + 50% 验收后</td><td>简单直接，客户决策快</td></tr>
+      <tr><td>中型（数千至数万元）</td><td>30% 定金 + 40% 中期 + 30% 验收</td><td>按阶段推进，每期都有可见产出</td></tr>
+      <tr><td>长期 / 按月协作</td><td>按月结算，月初预付当月</td><td>避免垫资，写清工时记录方式</td></tr>
+    </table>
+    <p><b>改需求是加价的唯一正当窗口，流程要走满三步：</b>一、把新需求写下来发给客户确认（「我理解你要增加的是……对吗？」）；二、评估工作量与工期影响，给出加价金额；三、双方书面同意后实施，并更新合同附件。口头答应的「顺手加个功能」，最后都会变成免费加班。区分两类情况也很重要：<b>没按约定做好是 Bug，你免费修；约定之外的新功能是变更，重新报价。</b>对付「就加一小个」的标准回应是：「可以，我评估一下要加多久，今天回你报价和工期。」</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.court.gov.cn/zixun/xiangqing/233181.html" target="_blank">《中华人民共和国民法典》全文（最高人民法院官网：第四百七十条、第五百八十六/五百八十七条、第八百五十一条）</a><a href="https://rule.zbj.com/ruleshow-0?pid=148" target="_blank">猪八戒平台诚信保证金规则（ZBJ-GZ-20260518 版，资金托管与保证金占用）</a><a href="https://rule.zbj.com/ruleshow-0?categoryId=432&amp;pid=1801" target="_blank">猪八戒网八戒来客任务通订购协议修订公示（会员刊例价与 2% 技术服务费）</a><a href="https://www.freelancecompare.com/" target="_blank">FreelanceCompare 费率工具（Upwork / Fiverr 费率，2026-02 更新）</a><a href="https://www.ipdodo.com/news/12101/" target="_blank">Upwork 新手接单指南（新手/中级/专家时薪区间）</a><a href="https://www.sec.gov/Archives/edgar/data/1627475/000162747526000012/upwk-20251231.htm" target="_blank">Upwork 10-K 年报（SEC EDGAR：平台按账单比例向人才收费的模式描述）</a><a href="https://blog.csdn.net/2401_83816794/article/details/137129256" target="_blank">CSDN：国内外软件外包平台对比（商务沟通与预期管理）</a></div>
+</section>
+
+<section id="c13" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 13 · PART 3 · 接单篇</span><h2>需求沟通：把「我想要个 App」变成清单<span class="accent">：提问、原型与红线识别</span></h2></div>
+  <p class="sec-desc">客户说的第一句话永远不是需求，只是一个念头。这一章给你一套可以直接复制的提问清单、一套用原型对齐预期的流程，以及一组「这个需求做不了或不该做」的识别信号。把模糊念头变成可执行条目，是你和「熟练工」之间最明显的差距。文中合规红线引自国家网信办等四部门公开发布的文件，检索日期 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>提问清单：四层追问，把念头拆成条目</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>常用的框架是 <b>5W2H</b>：是什么（What）、为什么（Why）、是谁（Who）、什么时候（When）、在哪里（Where）、怎么做（How）、多少（How much）。但直接按七个维度问客户，会把客户问晕。更顺的顺序是<b>四层追问</b>，从「为什么」一路问到「怎么做」：</p>
+    <ul>
+      <li><b>目标层（为什么）：</b>这个东西做给谁用？解决什么问题？现在他们怎么解决的，哪里不满意？做成了怎么判断成功——是省了多少时间，还是多接了多少钱？</li>
+      <li><b>场景层（谁、何时、何地）：</b>用户是老板、员工还是顾客？主要用手机还是电脑？在家用还是在店里用？一天用几次，一次几分钟？</li>
+      <li><b>功能层（做什么）：</b>把「我想要个 App」拆成动作——谁能看到什么、能点哪里、点完发生什么、数据存在哪。每一条都写成「谁 + 能做什么 + 结果是什么」。</li>
+      <li><b>约束层（多少）：</b>预算区间、希望上线时间、必须对接的现有系统（微信支付？企业微信？已有的 Excel？）、有没有必须遵守的行业规定。</li>
+    </ul>
+    <p>沟通时有四个技巧来自一线产品方法：先做功课再提问；<b>「切忌用系统语言或者技术语言去沟通」</b>，用客户生意里的词说话；追问背后逻辑，「让用户不单单停留在需求表面，要让他们讲出背后的逻辑」；不要事先对需求做假设，保持开放。最后一条最容易被忽略：<b>谈完必须发一封确认邮件</b>，把结论落成文字请客户回复确认——《民法典》第八百五十一条明确技术开发合同应当采用书面形式，需求确认就是这份书面材料的地基。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「需求分析的结果要邮件同步，相关人员确认。」——这条出自产品经理社区总结的需求分析方法论，对接单同样成立：口头共识在结款时不算数，文字共识才算。（来源：人人都是产品经理《一文搞懂需求分析》，2026-10-29 检索）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>用原型和样例对齐预期</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">零基础可上手</span></div></div>
+    <p>客户看不懂需求文档，但一定看得懂页面。<b>先画出来，再写代码</b>，是避免「我以为」和「你以为」撞车最便宜的办法。流程建议是三步：用原型工具画 3 到 5 个核心页面（首页、核心功能页、结果页）；让客户在原型上「点一遍」，边点边问「这里点了之后你希望发生什么」；客户确认后，再扩展成完整功能清单。</p>
+    <ul>
+      <li><b>工具门槛已经很低：</b>国产原型工具墨刀提供免费使用入口，内置移动端、PC 端模板与素材，还支持用一句话生成多页面原型、扫码真机预览——不会画图的人也能在半小时内拿出可交互的样子。工具会变，选你顺手的那一个即可。</li>
+      <li><b>用「参考网站」对齐审美：</b>让客户发两三个他喜欢的网站或 App，你照着分析「他喜欢的其实是配色、信息密度还是交互」。这比反复猜「高端一点」高效十倍。</li>
+      <li><b>用 MVP 思路砍范围：</b>业内对 MVP 的共识是「用最低成本验证核心假设」，裁剪原则是——能复用的坚决不重新开发，能人工替代的暂时不开发，能只做前端的先不做后端。第一版只保留让用户感知到价值的那部分，其余排进二期。</li>
+      <li><b>把样例当合同附件：</b>原型截图、参考网站清单、核心流程图，全部作为合同附件。客户后期说「我当时不是这个意思」时，附件就是证据。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚩</span><h3>识别「做不了或不该做」的信号</h3><div class="badges"><span class="badge r5">难度 ★★★★</span><span class="badge">保命必读</span></div></div>
+    <p>有些单子不是钱的问题，是<b>接了会出事</b>的问题。三类信号，见到任何一条都要停下来。</p>
+    <ul>
+      <li><b>合规红线（数据与资质）：</b>只要涉及收集用户个人信息，就要对照国家网信办、工信部、公安部、市场监管总局四部门印发的《App 违法违规收集使用个人信息行为认定方法》。该文件认定的情形包括：没有隐私政策或规则、未逐一列明收集目的方式范围、未经用户同意就收集、收集与服务无关的信息、未经同意向第三方提供、没有提供删除更正和投诉举报渠道等。客户如果说「先采集了再说」「权限全都默认打开」，这就是明确的拒绝信号。App 上架与备案另有资质要求，且规定更新较快，请以工信部等主管机关当期口径为准。</li>
+      <li><b>技术红线（承诺做不到的事）：</b>「保证百分百不被封号」「绕过平台检测」「把对方网站数据全量抓过来」「包过审」。这类需求要么违反平台规则，要么触碰刑事风险，做成了你也可能是共犯，做不成你要背锅。</li>
+      <li><b>商业红线（项目本身不成立）：</b>一周内「做一个淘宝」、预算三百元但要求「功能全都有」、不肯为需求确认花时间、不肯付定金就要你先开工。判断标准很简单：<b>这个项目的成功不依赖你的技术，而依赖奇迹</b>——那就是不该做。</li>
+    </ul>
+    <p>拒绝的方式也有讲究：<b>先说不接，再给替代方案，最后留文字记录。</b>例如「批量抓取别人平台数据这个我做不了，风险太大；如果你需要的是把公开的行业信息汇总成表格，我可以按公开页面手动整理一份，这是另一种报价。」这段话既守住底线，又可能转化成合法的小单。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>一份可以复制的《需求确认单》</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">模板直接抄</span></div></div>
+    <p>每次谈完需求，把下面这张单子填完发给客户，请对方回复「确认」。它就是第 12 章里合同的附件，也是你后期拒绝免费改需求的依据。</p>
+    <table>
+      <tr><th>栏目</th><th>要写清的内容</th></tr>
+      <tr><td><b>项目目标</b></td><td>给谁用、解决什么问题、怎么算做成</td></tr>
+      <tr><td><b>用户与场景</b></td><td>使用者角色、使用设备、典型使用流程</td></tr>
+      <tr><td><b>功能清单</b></td><td>逐条列「谁 + 能做什么 + 结果是什么」，编号管理</td></tr>
+      <tr><td><b>明确不做的事</b></td><td>本期不含的功能、不含的设计、不含的对接</td></tr>
+      <tr><td><b>验收标准</b></td><td>每条的完成定义、验收期限、修改轮次</td></tr>
+      <tr><td><b>资料与配合</b></td><td>客户需提供的内容（文案、图片、账号、接口权限）与时限</td></tr>
+      <tr><td><b>报价与周期</b></td><td>总价或时薪、分期节点、交付日期、延期规则</td></tr>
+      <tr><td><b>附件</b></td><td>原型截图、参考网站、流程图、涉及个人信息的数据清单</td></tr>
+    </table>
+    <p>最后提醒一个行业常识：客户在平台上看到的服务承诺，往往是「保证提供源码」「修改到满意为止」「中途不加价」这类条款。你要在自己的合同里把「满意」定义成<b>可验收的客观标准</b>，把「不加价」定义成<b>清单不变的前提</b>——承诺写得越模糊，返工越无限。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.cac.gov.cn/2019-12/27/c_1578986455686625.htm" target="_blank">《App 违法违规收集使用个人信息行为认定方法》（国家网信办等四部门印发，国信办秘字〔2019〕191 号）</a><a href="https://www.woshipm.com/share/6063411.html" target="_blank">人人都是产品经理《一文搞懂需求分析》（5W2H、伪需求、Y 模型与沟通技巧）</a><a href="https://www.woshipm.com/pd/6382883.html" target="_blank">人人都是产品经理《MVP 是什么？如何快速设计 MVP》（裁剪原则与五步法）</a><a href="https://modao.cc/" target="_blank">墨刀官网（原型工具、免费使用入口与 AI 生成原型）</a><a href="https://www.court.gov.cn/zixun/xiangqing/233181.html" target="_blank">《中华人民共和国民法典》全文（最高人民法院官网，第八百五十一条：技术开发合同应当采用书面形式）</a><a href="https://www.zbj.com/" target="_blank">猪八戒网首页（平台服务承诺表述：保证提供源码、修改到满意为止、中途不加价）</a></div>
+</section>
+
+<section id="c14" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 14 · PART 3 · 接单篇</span><h2>交付与验收<span class="accent">：让客户痛快结款</span></h2></div>
+  <p class="sec-desc">活儿干完只算上半场，把钱收回来才算完。这一章讲三件能照着做的事：交付物清单和验收标准怎么写、钱怎么分阶段收、客户拖着不结款时按什么顺序动手。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📦</span><h3>交付物清单与验收标准：把「验收」两个字写进合同</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>很多人以为交付就是「把网址发给客户」。法律上不是这样。<b>《中华人民共和国民法典》第七百八十条</b>写得很清楚：承揽人完成工作的，应当向定作人<b>交付工作成果，并提交必要的技术资料和有关质量证明</b>，定作人应当验收该工作成果。也就是说，「交付」是一个有清单、有资料、有验收动作的正式过程，不是甩个链接就结束。</p>
+    <p><b>交付物清单模板</b>（复制就能用）：</p>
+    <ul>
+      <li>可正常访问的网站地址（测试地址 + 正式地址），以及管理员账号密码；</li>
+      <li>完整源代码（含部署脚本），数据库结构说明和数据字典；</li>
+      <li>部署文档：服务器配置、域名解析、环境变量、如何重启；</li>
+      <li>第三方服务清单：短信、邮件、支付、统计各用了哪家、账号归谁；</li>
+      <li>设计源文件（Figma / PSD / 切图），字体与图片的授权说明；</li>
+      <li>发票或收据，以及一份双方签字的《交付确认单》。</li>
+    </ul>
+    <p><b>验收标准必须可判定。</b>写「能在 Chrome 与微信内置浏览器最新版正常打开首页」「新用户能用手机号注册并收到验证码」「管理员能在后台新增一条商品并在前台显示」——这种能一条条打勾的句子。千万别写「界面美观大方」「体验流畅」这类没法验证的词，那是给扯皮留门。</p>
+    <p><b>验收期限和「视为通过」条款：</b>写「甲方应在收到交付物后 5 个工作日内完成验收并书面反馈；逾期未书面提出异议的，视为验收通过」。客户不回复最常见，这条就是防这个的。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>《民法典》第七百八十一条规定，承揽人交付的工作成果不符合质量要求的，定作人可以合理选择请求承揽人承担<b>修理、重作、减少报酬、赔偿损失</b>等违约责任。反过来看，只要交付物符合约定，客户就没有理由无限期拖着不验收、不付款。</blockquote>
+    <p><b>变更控制是验收扯皮的根源。</b>程序员客栈的帮助文档明确写着：平台会协助双方把需求以书面形式确定后再得出报价，若需求大幅变动（<b>超过 10%</b>）需重新追加定价。你自己接单也要照做：口头说的新需求，一律写进《变更单》，写明新增工时和费用，双方确认后再动手。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>分期交付与里程碑收款：永远不要全款押在最后</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：有点经验后</span></div></div>
+    <p>平台托管是这个逻辑的标准版。程序员客栈的帮助文档写：整包项目<b>费用由平台代管，验收完毕后结算给开发者</b>；若未达到项目约定结果，原则上平台不进行任何结算；云端工作则「资金按月托管」，客户可随时中止合作，平台退还剩余资金。一句话：<b>钱在第三方手里，验收是放款的开关。</b></p>
+    <p>不走平台、自己接单，就靠合同里的里程碑。一位 37 岁被裁后转做外包的程序员在 CSDN 分享了他的硬规则（2026-10-23）：</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「定金必须 40% 以上，没有定金不开工；项目分阶段交付，每阶段验收后付阶段款；尾款在验收后 7 天内结清，写进合同。」新增需求则记进变更单，报价后双方确认再开发，增量部分按新工时的八折算，给老客户一个折扣价。——CSDN，2026-10-23</blockquote>
+    <p>一个常见可抄的里程碑切分（按合同总额）：</p>
+    <table>
+      <tr><th>阶段</th><th>交付内容</th><th>收款比例</th><th>放款条件</th></tr>
+      <tr><td>1 立项</td><td>需求确认单、原型图、里程碑计划</td><td><b>30%–40%</b></td><td>双方签字确认需求文档</td></tr>
+      <tr><td>2 开发中</td><td>可点击的半成品、周进度说明</td><td>0%–20%</td><td>可选，用于长项目</td></tr>
+      <tr><td>3 上线</td><td>正式地址可访问、部署文档</td><td><b>30%</b></td><td>上线成功并交付文档</td></tr>
+      <tr><td>4 验收</td><td>交付物清单全部交齐、验收通过</td><td><b>20%–40%</b></td><td>验收期满无书面异议</td></tr>
+    </table>
+    <p>注意程序员客栈帮助文档里那句提醒：<b>「项目未完成，不要进行打款和源码交付。」</b>源码是你最后的筹码，全款到账前不要先交完整源码——可以交演示版、交部署包，但把仓库权限留到结款后。反过来，如果客户已经付清，就要按清单爽快移交，别为拿捏客户而拖着，那是砸自己口碑。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>源码与账号的移交清单</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>尾款到账那天，按这张表逐项移交，每移一项打一个勾，最后双方各留一份签字版。</p>
+    <table>
+      <tr><th>项目</th><th>具体内容</th><th>移交方式与注意</th></tr>
+      <tr><td>代码</td><td>前端、后端、脚本、数据库迁移文件</td><td>Git 仓库加对方为 owner，或打包 + 网盘；附 README 说明如何本地跑起来</td></tr>
+      <tr><td>服务器与域名</td><td>云服务器、域名、DNS、SSL 证书</td><td>过户或续费责任写清楚；域名 whois 与备案信息要改到客户名下</td></tr>
+      <tr><td>第三方服务</td><td>短信、邮件、支付、统计、对象存储</td><td>改成客户自己的账号，或书面约定由谁续费；支付商户号归属要明确</td></tr>
+      <tr><td>设计与素材</td><td>设计源文件、字体、图片、图标</td><td>附授权说明，避免客户日后收到字体公司律师函</td></tr>
+      <tr><td>账号</td><td>后台管理员、数据库、第三方平台管理员</td><td>移交后<b>立即修改密码</b>，并把自己移出协作成员</td></tr>
+    </table>
+    <p>合同用电子方式签有没有效力？有。<b>《电子签名法》第十四条</b>规定：「可靠的电子签名与手写签名或者盖章具有同等的法律效力。」第十三条给了四个条件：签名数据专属于签名人、签署时仅由签名人控制、签署后改动可被发现。用主流电子签平台，或至少用能证明身份与意思表示的微信/邮件确认并保存记录，别用匿名小号。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏰</span><h3>客户拖着不结款：按这个顺序动手</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：所有接单者</span></div></div>
+    <p>超过约定付款日 3 天没动静，就开始按顺序走，每一步都留痕：</p>
+    <ul>
+      <li><b>第一步，书面催告。</b>微信发文字（不要只打电话），附三样东西：合同里关于付款的条款、你已经完成交付的证据（交付确认单、上线截图、验收记录）、一个明确期限（例如「请于 7 日内支付」）。语气平和不情绪化，重点是留证据。</li>
+      <li><b>第二步，走平台。</b>如果是在程序员客栈、Upwork 这类有托管或仲裁机制的平台上成交，立刻在平台内提交争议，让平台按规则处理，不要先私下撕破脸。</li>
+      <li><b>第三步，律师函。</b>金额较大或客户是公司时，委托律师发函，成本通常几百到一两千元，很多客户到这一步就付了。</li>
+      <li><b>第四步，申请支付令。</b>《民事诉讼法》第二百二十五条规定：债权人请求债务人给付金钱、有价证券，且债权人与债务人没有其他债务纠纷、支付令能够送达债务人的，可以向有管辖权的基层人民法院申请支付令。第二百二十七条：债务人应当自收到支付令之日起<b>十五日内</b>清偿债务，或者向人民法院提出书面异议。手续比起诉简单、速度快，适合事实清楚、有书面合同或确认记录的案子。</li>
+      <li><b>第五步，起诉。</b>前面都不行，向被告住所地或合同履行地法院提起民事诉讼。</li>
+    </ul>
+    <p><b>时间红线只有一条：三年。</b>《民法典》第一百八十八条：向人民法院请求保护民事权利的诉讼时效期间为三年，自权利人知道或者应当知道权利受到损害以及义务人之日起计算；自权利受到损害之日起超过二十年的，人民法院不予保护。别因为「不好意思催」把账拖成死账。</p>
+    <p><b>三件事绝对不要做：</b>删客户的数据库或服务器、把客户网站挂黑页、在公开场合曝光客户公司或个人信息。这些行为会让你从「讨债方」变成「侵权方」，有理也变没理，严重的还要负法律责任。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://tjca.miit.gov.cn/zwgk/zcwj/flfg/art/2020/art_20cf1a2e1b854924b5caa744c8045d1f.html" target="_blank">《中华人民共和国民法典》全文（工信部转载，检索日 2026-10-29）</a><a href="https://wap.miit.gov.cn/zwgk/zcwj/flfg/art/2022/art_4ed0e4a46946479c90a9e0f2c76a11ef.html" target="_blank">《中华人民共和国电子签名法》（工信部，2019 年修正）</a><a href="https://www.jyg.gov.cn/fgj/zwxxgk/zc/zcfg/art/2023/art_d1d69a3a8b09493197dbe412a37115fb.html" target="_blank">《中华人民共和国民事诉讼法》全文（济源市政府，2023 年修正）</a><a href="https://www.qinglite.cn/doc/86956486d40bc922c" target="_blank">程序员客栈帮助文档《项目审核与实施》（平台规则）</a><a href="https://bbs.csdn.net/weixin_28007513/article/details/100675437" target="_blank">CSDN《37 岁程序员被裁后：从接外包到自媒体》（2026-10-23）</a></div>
+</section>
+
+<section id="c15" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 15 · PART 3 · 接单篇</span><h2>复购与转介绍<span class="accent">：一个客户变长期饭票</span></h2></div>
+  <p class="sec-desc">接单最大的隐形成本，是每一单都要重新找客户。这一章讲维护型收入怎么定价、怎么让客户心甘情愿给你转介绍、长期合作的合同和记账要怎么弄。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔁</span><h3>维护型收入怎么定价：把「一次性」变成「月月有」</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>维护型收入分三种，报价方式完全不同：<b>托管型</b>（服务器、域名、备份、SSL 续期、安全更新、监控报警）、<b>更新型</b>（换图、改文案、上活动页、加个小功能）、<b>修复型</b>（打不开、样式错乱、手机端不兼容）。第一种适合包月包年，第二种适合工时包，第三种按次或按工时。</p>
+    <p>先看市场行情。博客园一篇 2024-10-10 发布的《网站维护费用一般多少钱》给出的区间是：域名年费通常几十元、很少超过一百元；虚拟主机 200–500 元/年；云服务器 1000–3000 元/年；域名加服务器合计通常 <b>300–1000 元/年</b>，要求高的能到 2000–3000 元；日常维护与更新从几百元到几千元不等，个别项目维护总价上限可达 <b>27000 元</b>。计费方式上，文章明确说维护「可能按小时或按月收取」，也有按项目总价的。（以上为第三方文章口径，仅作定价参考，不同城市、不同交付内容差异很大。）</p>
+    <p><b>推荐的三层报价结构</b>，直接把上面三类装进去：</p>
+    <ul>
+      <li><b>基础托管包（月费或年费）：</b>覆盖域名与服务器续费、每日备份、SSL 续期、 uptime 监控，外加每月 2–4 小时免费小改。月费常见区间 <b>200–800 元/月</b>，功能多、要盯着数据的网站可以到 1000–2000 元/月——这是行业常见区间，不是官方定价，请按你的实际工作量调整。</li>
+      <li><b>工时包（超出部分）：</b>按小时或按人天单独计费，事前报价、事后按记录结算。</li>
+      <li><b>项目包（新功能）：</b>超过几小时的活一律另立一个小合同，走第 14 章那套定金＋里程碑流程，不要塞进维护费里。</li>
+    </ul>
+    <p><b>人天计价法</b>（CSDN，2026-10-23 那位转外包的程序员原话）：上班时月薪 2.4 万，按 22 个工作日算，日薪约 1090 元；外包没有社保、有空窗期和沟通成本，所以「对外报价至少是日薪的 1.8 到 2 倍，也就是 2000 元一个人天」。你可以照这个公式算自己的底价：<b>目标月薪 ÷ 22 × 1.8</b>，低于这个数就是在做慈善。</p>
+    <p>平台也验证了「按月」这个节奏。程序员客栈的帮助文档写：云端工作模式下<b>资金按月托管</b>，客户可随时中止合作，平台退还剩余资金。也就是说，按月付费、按月结算，是双方都接受的习惯做法。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤝</span><h3>让客户愿意转介绍：四个动作加一个时机</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有接单者</span></div></div>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「一个程序员维护好三五个老客户的关系，让每个老客户每年给你转介绍一单，这就已经比每天刷平台强十倍了。」——CSDN，2026-10-23</blockquote>
+    <p>转介绍不是求来的，是干出来的。四个可以照做的动作：</p>
+    <ul>
+      <li><b>每月一页月报。</b>用一页纸（或一段微信文字）写清：这个月我做了什么、网站访问/订单数据怎么样、发现什么问题、下个月建议做什么。客户老板看不懂代码，但看得懂「有人在替我盯着」。</li>
+      <li><b>把活干在客户提出来之前。</b>SSL 证书还有 20 天过期、备份已经三天没成功、服务器磁盘快满了——主动说、主动修。这种小事最能换来信任。</li>
+      <li><b>结款环节做到零摩擦。</b>报价清晰、发票及时、账目对得上。很多转介绍就发生在客户财务夸你「这人账目清楚」的时候。</li>
+      <li><b>给老客户一条明写的折扣规则。</b>比如「老客户的新需求，增量部分按新工时八折」。规则写在维护合同里，比每次口头讨价舒服得多。</li>
+    </ul>
+    <p><b>最好的开口时机有两个：</b>交付后客户满意度最高的那一两周，和你发月报、对方回复「挺好的」的时候。别在催款、改 bug 的当口提。</p>
+    <p><b>把转介绍的门槛降到最低：</b>给客户一段可以直接转发给同行的介绍文案（一两句话：我这边有个做网站/小程序的技术，响应快、账目清楚，这是他的案例页链接），再加一句「您觉得我做得还行的话，有朋友需要麻烦帮我说一声」。客户不用自己想词，转发成本就低了。</p>
+    <p><b>两条红线：</b>不要给客户个人现金返佣——很多客户本身是公司员工，收返佣可能违反其公司制度，也会把你拖进商业贿赂的嫌疑里；也不要群发消息「求转发」，那只会被屏蔽。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>长期合作的合同与记账要点</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：有稳定客户后</span></div></div>
+    <p><b>维护合同必须写清的六条：</b></p>
+    <ul>
+      <li>服务范围：每月含几小时免费小改，超出怎么算；</li>
+      <li>响应时间：例如「工作日内 24 小时响应，紧急故障 4 小时内处理」；</li>
+      <li>付款周期：建议月付或季付，尽量不要年付——年付等于你把钱垫给了客户；</li>
+      <li>终止条款：提前 30 天书面通知，未用完的工时怎么退；</li>
+      <li>知识产权与保密：你写的代码归谁、客户数据你不得外传；</li>
+      <li>源码与账号归属：服务器、域名、代码仓库在谁名下，写明白。</li>
+    </ul>
+    <p><b>记账用一张表就够</b>，至少六列：日期、客户、项目/性质（开发还是维护）、金额、是否开票、到账日。域名服务器续费是成本，单独记。月底加一次总，你就知道这个月真正赚了多少。</p>
+    <p><b>税务部分请务必以主管机关当期口径为准</b>（各地执行有差异，且政策会调整）：</p>
+    <ul>
+      <li><b>增值税：</b>湖南省人民政府门户「政企通」页面汇总的政策显示，对月销售额 10 万元以下（含本数，按季纳税的季度销售额未超过 30 万元）的增值税小规模纳税人免征增值税，适用 3% 征收率的应税销售收入减按 1% 征收，依据为《财政部 税务总局关于增值税小规模纳税人减免增值税政策的公告》（2023 年第 19 号）等文件。国家税务总局 2025-08-01 的政策问答引用了 19 号公告原文：<b>「截至 2027 年 12 月 31 日，对月销售额 10 万元以下（含本数）的增值税小规模纳税人，免征增值税。」</b></li>
+      <li><b>个人所得税：</b>贵州省税务局《办税指南——经营所得个人所得税年度申报》说明，经营所得按年计算个人所得税，以收入总额减除成本、费用及损失后的余额为应纳税所得额，年度汇算清缴需在取得所得的<b>次年 3 月 31 日</b>前办理；适用对象包括个体工商户业主，以及个人从事办学、医疗、咨询等有偿服务取得所得的个人。</li>
+      <li><b>实务提示：</b>个人取得劳务报酬与注册个体工商户按「经营所得」计税，税负和申报方式不同；能否开发票、是否需要办个体工商户、能否核定征收，各地口径有差异，请在收入稳定后咨询当地税务机关或代理记账公司。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://bbs.csdn.net/weixin_28007513/article/details/100675437" target="_blank">CSDN《37 岁程序员被裁后：从接外包到自媒体》（2026-10-23）</a><a href="https://www.cnblogs.com/hwrex/p/18453485" target="_blank">博客园《网站维护费用一般多少钱》（2024-10-10）</a><a href="https://www.hunan.gov.cn/zqt/hqzc/202509/t20250929_33817650.html" target="_blank">湖南省人民政府《增值税小规模纳税人减免增值税》政策</a><a href="https://www.chinatax.gov.cn/chinatax/c102414/c5242160/content.html" target="_blank">国家税务总局政策问答（2025-08-01，引 19 号公告原文）</a><a href="https://www.xifeng.gov.cn/zwgk/zdlygk/ssgl_5741606/bslc_5741608/202106/t20210602_68376493.html" target="_blank">贵州省税务局《办税指南——经营所得个人所得税年度申报》（2021-06-02）</a><a href="https://www.qinglite.cn/doc/86956486d40bc922c" target="_blank">程序员客栈帮助文档《项目审核与实施》（平台规则）</a></div>
+</section>
+
+<section id="c16" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 16 · PART 3 · 接单篇</span><h2>作品集与接单主页<span class="accent">：让客户主动找你</span></h2></div>
+  <p class="sec-desc">客户加你微信之前，通常会先搜一下你。这一章讲没有案例时怎么攒出第一批作品、作品集页面放什么怎么排序、主页和社交账号怎么配合引流、以及报价到底该前置还是后置。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧱</span><h3>零案例时，怎么攒出第一批作品</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>没有客户案例不等于没有作品。三个可以立刻开始的来源：</p>
+    <ul>
+      <li><b>给自己或身边的人做真东西。</b>社区团购接龙页、小吃店菜单二维码、活动报名表、健身打卡表——这些东西有人真的在用，就是你最好的案例。做完截图、写清楚解决了什么问题。</li>
+      <li><b>把练手 demo 包装成「概念项目」。</b>挑一个你想接的细分方向（比如「奶茶店点单小程序」），从头做个完整的，注明「这是为练习做的概念作品」。</li>
+      <li><b>低价甚至公益做首单，换书面展示授权。</b>给朋友的小店免费做个官网，条件是允许你署名展示。注意：必须拿到<b>书面授权</b>，有些客户就是不愿意公开，那就只能私发，不能放公开页面。</li>
+    </ul>
+    <p><b>一条不能碰的红线：</b>自研 demo 必须标注清楚是概念作品，不能冒充成「某客户的项目」，也不能盗用他人网站截图。客户圈很小，一次造假能毁掉后面所有转介绍。</p>
+    <p><b>放哪里？</b>GitHub Pages 是零成本的起点。GitHub 官方文档说明它是静态站点托管服务，处理 HTML、CSS 和 JavaScript 文件后发布网站，可以用 `github.io` 域名，也可以绑你自己的域名。限制是：用户或组织站点<b>每个账号最多一个</b>，项目站点<b>每个仓库最多一个</b>，用户站点源码必须放在名为 `用户名.github.io` 的仓库里。</p>
+    <p>开通步骤（GitHub 快速入门）：新建仓库，名字填 `用户名.github.io`，勾选 Add README，点 Create repository；进入仓库 Settings，在 Code, planning, and automation 下点 Pages，Build and deployment 的 Source 选 Deploy from a branch，再选一个分支；完成后访问 `用户名.github.io`。文档提醒：推送更改后<b>最多可能需要 10 分钟</b>才会发布，第一次看不到不要以为失败了。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🖼️</span><h3>作品集页面放什么、怎么排序</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>先记住一句话。一位讲 Upwork 作品集的作者把它比作<b>「无声销售员」</b>，理由是「客户可能不会读完你的简介，但一定会点击你的案例」（CSDN）。所以页面要围着案例转，不是围着你转。</p>
+    <p><b>放什么：</b></p>
+    <ul>
+      <li><b>开头一句定位：</b>「我帮本地小店做能收钱的网站和小程序」比「资深全栈工程师」更能让客户对号入座。</li>
+      <li><b>案例 3–5 个就够。</b>那篇文章的建议是「精选 3-5 个代表作品，按行业分类」。掘金那篇 2022-04-19 的作品集指南也强调：动手前先想清楚作品集是给谁看的，「将你为作品集选择的项目集中在你想追求的工作类型上」。</li>
+      <li><b>每个案例写成小故事，四段固定结构：</b>客户是谁、遇到什么问题、你怎么做的、结果如何。掘金的建议是附上可下载的简历，用分类和分区让作品集「易于浏览」，设计上「抛开所有华而不实的东西」。</li>
+      <li><b>用数字说话。</b>「上线 30 天带来 46 个订单」比「效果很好」有力得多；同时「展示从需求分析到交付的完整流程」，不要只放一张最终截图。</li>
+      <li><b>信任件：</b>2–3 条客户原话评价、交付周期说明、报价方式、联系方式（微信/邮箱至少留一个能秒回的）。</li>
+    </ul>
+    <p><b>怎么排序：</b>把<b>你最想接的那类项目</b>放在第一位，第二个放数据最好的，后面按行业归类。客户通常只看第一个案例就决定要不要继续翻。</p>
+    <p><b>一个常见错误：</b>把十个练习作业全堆上去。案例越多越显得杂，客户反而看不出你能干什么。宁可五个讲透，不要十个讲浅。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📣</span><h3>个人主页与社交账号的引流配合</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：愿意露脸写字的人</span></div></div>
+    <p>逻辑很简单：<b>作品集主页是总部，社交账号是分店</b>，所有渠道最后都指回同一个落地页。</p>
+    <ul>
+      <li><b>统一身份：</b>GitHub 用户名、主页域名、公众号/小红书/B站/知乎的名字尽量一致，客户搜哪个都能找到你。</li>
+      <li><b>主页要能被搜到：</b>标题里写清「网站开发 / 小程序 / 接单」，简介里放关键词，页面留一个明显的联系方式。</li>
+      <li><b>每周发一个「做过的真东西」：</b>解决过的问题、做过的小功能、踩过的坑，配三张图，文末挂主页链接。内容不用专业，真实就行——客户看的是「这人靠不靠谱」。</li>
+      <li><b>拿到授权再发：</b>客户项目的截图必须脱敏并取得书面同意，demo 和概念项目可以随便发。</li>
+      <li><b>别忘了最便宜的量：</b>CSDN 那篇文章提醒，离职后不要删掉靠谱的前同事，「他们是最便宜的获客渠道」——作者第一单就来自前 leader 介绍的公司后台改版，工期约三周，报价两万。</li>
+    </ul>
+    <p>引流是慢功夫，别指望一周见效。但它的复利和接单平台完全不同：平台流量是租来的，内容和你的人脉是自己的。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏷️</span><h3>报价前置还是后置：一条折中线</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：准备涨价的人</span></div></div>
+    <p><b>前置（公开起步价）的好处：</b>过滤掉只询价不成交的人，省下大量沟通；先把价格摆出来，来的客户信任成本更低。搜狐 2025-03-18 一篇讲网站定制开发的文章就把透明报价称作<b>「行业规范与客户信任的基石」</b>，并批评一些商家先以低价吸引客户、再在项目执行中不断追加费用的做法，认为「明码标价、无隐藏费用」才能赢得长期信任。</p>
+    <p><b>后置（询价后再报）的好处：</b>需求复杂时报价更准，不容易被一张价格表框死；可以按客户预算给方案。</p>
+    <p><b>建议的折中做法：</b>公开「起步价 + 常见套餐价」（例如「企业官网 3000 元起，含首页+三个内页+移动端适配+一年基础维护」），复杂需求写「询价后 48 小时内出具书面报价」。既有价格锚，又不把自己锁死。</p>
+    <p><b>但前置报价有监管约束，这不是吓唬人。</b>《明码标价和禁止价格欺诈规定》（国家市场监督管理总局令第 56 号，2022 年 4 月 14 日公布，自 2022 年 7 月 1 日起施行）第七条规定：经营者提供服务，应当标示<b>「服务项目、服务内容和价格或者计价方法」</b>。第三条把价格欺诈定义为「经营者利用虚假的或者使人误解的价格手段，诱骗消费者或者其他经营者与其进行交易的行为」。</p>
+    <p>翻译成接单场景：你公开挂出去的价，就要认；不能用「999 元建站」把人吸引进来，再靠加功能、加页面层层加价；也不能挂一个你根本不打算接的超低价。个人接单是否完全适用该规定、如何适用，建议以市场监管部门当期解释为准，但<b>「标了价就要认」这条底线，在任何场景下都不过时。</b></p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" target="_blank">GitHub 官方文档：About GitHub Pages（检索日 2026-10-29）</a><a href="https://docs.github.com/en/pages/quickstart" target="_blank">GitHub 官方文档：GitHub Pages 快速入门</a><a href="https://www.samr.gov.cn/zt/ndzt/2022n/scjgzjlswjjylzzcjchjxzc/zcwj/art/2023/art_1564ba4662d4491ba5e03fee7f676471.html" target="_blank">国家市场监督管理总局《明码标价和禁止价格欺诈规定》（令第 56 号）</a><a href="https://juejin.cn/post/7088226118645317639" target="_blank">掘金《自由职业者作品集指南》（2022-04-19）</a><a href="https://blog.csdn.net/qq_61813593/article/details/145805452" target="_blank">CSDN《Upwork 作品集：如何展示你的最佳作品》</a><a href="https://m.sohu.com/a/872509887_122044632/" target="_blank">搜狐《杭州网站定制开发价格解析：透明报价》（2025-03-18）</a><a href="https://bbs.csdn.net/weixin_28007513/article/details/100675437" target="_blank">CSDN《37 岁程序员被裁后：从接外包到自媒体》（2026-10-23）</a></div>
+</section>
+
+<section id="c17" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 17 · PART 4 · 进阶篇</span><h2>从接单到产品：把重复需求做成模板<span class="accent">：同一份代码卖出第二遍</span></h2></div>
+  <p class="sec-desc">接单的本质是卖时间：一天只有 24 小时，报价再高也有天花板。这一章讲怎么把接单中反复出现的那部分需求抽出来，做成能重复卖的东西，以及动手之前必须搞懂的代码归属与授权问题——搞错了，你辛苦写的代码可能根本不归你卖。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>第一步先判断：哪些定制需求值得产品化</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：接过 3 单以上</span><span class="badge">周期：2–4 周</span></div>
+    </div>
+    <p>判断标准其实只有一句话：<b>这个需求，你是不是已经第三次遇到了？</b>同一个行业、同一类小店、同一套流程——宠物店要预约、培训机构要排课、外贸公司要询盘表单。第一次接单叫定制，第二次叫复用，第三次还在从零开始写，就是你自己的损失。</p>
+    <p>用四个条件筛，全中才动手：</p>
+    <ul>
+      <li><b>需求同构：</b>两个客户要的东西骨架一样，差别只在配色、字段和几个开关。如果每个客户的流程都不一样，说明你还没摸到这个行业的规律，再接两单再说。</li>
+      <li><b>差异能收敛成一份配置：</b>抽出来之后，不同客户之间应该只差一个配置文件（店名、主色、营业时间、栏目开关都写在里面）。开关超过二十个就要警惕，多半是抽象切错了地方。</li>
+      <li><b>合同没把你锁死：</b>接单合同里最常见的一句是"源码归客户所有、不得二次使用"。如果你答应过独占，这个项目的代码就不能进模板库（下一张卡片讲怎么改）。</li>
+      <li><b>不碰钱、不碰敏感数据：</b>支付、身份证、健康、行踪这些环节，各家合规要求都不一样，责任也重，别往模板里塞。</li>
+    </ul>
+    <p>反过来，最值得产品化的是<b>"有固定套路的展示型 + 表单型需求"</b>：企业官网、活动落地页、预约页、报价单生成器、内部报表看板。它们变化慢、验收标准清晰、客户自己能看懂，做一次能吃很久。而定制业务系统、对接客户内部老接口、要求实时同步硬件设备的单子，抽象成本高、复用率低，继续按项目接更划算。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛠️</span><h3>三条起步路径与真实成本</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">起步成本：0–249 美元</span><span class="badge">风险：被平台官方功能替代</span></div>
+    </div>
+    <p>从"复用代码"到"卖产品"有三条路，门槛和风险递增，建议按顺序走，别一上来就做 SaaS。</p>
+    <table>
+      <tr><td><b>① 模板站（最稳）</b></td><td>把做得最好的案例脱敏，做成可在线演示的 demo 加部署脚本</td><td>接单时当作品集用，把交付周期从三周压到三天，收的是"定制费"</td></tr>
+      <tr><td><b>② 半成品出售</b></td><td>整理成可下载的代码包，附部署文档和授权说明，一次性收费</td><td>买家在自己账号部署，你不承担运维，售后也轻</td></tr>
+      <tr><td><b>③ 真 SaaS</b></td><td>一套代码多租户，客户注册即用，你负责运维、备份、更新</td><td>按月或按年收订阅，收入可持续，但你也背上了服务器和客服</td></tr>
+    </table>
+    <p>第三条路的真实样本：<b>ShipFast</b> 是一个 Next.js 项目模板。其官网（2026-10-29 抓取）显示一次性付费，Starter 199 美元、All-in 249 美元（划线价 299 / 349 美元），宣传语是"Pay once. Build unlimited projects!"，页面称有 8443 名独立开发者在用，并列出用户反馈如"上线一天赚了 170 美元""450 美元 MRR""收入是模板价格的 8 倍"。同一位作者 Marc Lou 的个人页（同日抓取）显示其合计月收入 91.1 千美元，其中 ShipFast 贡献 1.7 千美元/月、CodeFast 4.6 千美元/月，另有项目 MakeLanding 以 3.5 万美元售出。<b>结论：模板不是摇钱树，但是一条不占时间的现金流。</b></p>
+    <p>起步成本低到可以忽略。Vercel 免费 Hobby 套餐（定价页 2026-10-29 抓取）含每月 100 万次 CDN 请求、100 GB 传输、4 小时 Active CPU、360 GB·时 Provisioned Memory 与 100 万次函数调用，但只有 1 个开发席位，超量或需要团队协作要升 Pro（20 美元/月起）。Cloudflare Pages 的静态资源请求在免费与付费套餐下都"免费且无限"，函数请求计入 Workers 免费额度，每日 5 万次函数请求加 5 万次 Workers 请求，UTC 午夜重置。两家都不要求你先注册公司。</p>
+    <blockquote class="xq">💬 <span class="who">一句话记住：</span>模板卖的不是代码，是你已经踩完的坑。买家省下的是一周试错时间，这一周就是你的定价权。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📜</span><h3>动手前必须搞懂：代码归谁、能不能复用</h3>
+      <div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">门槛：读懂一份合同</span><span class="badge">风险：代码卖了但不是你的</span></div>
+    </div>
+    <p>中国的默认规则对接单方有利。《计算机软件保护条例》（国务院令第 339 号，司法部法规文本 2026-10-29 抓取）第十一条规定：<b>"接受他人委托开发的软件，其著作权的归属由委托人与受托人签订书面合同约定；无书面合同或者合同未作明确约定的，其著作权由受托人享有。"</b>翻译一下：只要客户没在合同里把所有权买走，你写的代码著作权默认是你的。</p>
+    <p>所以每份接单合同里要写清三件事，缺一件后面都可能有麻烦：</p>
+    <ul>
+      <li><b>源码归属：</b>写"交付后源码归客户所有"还是"归客户无限期使用，著作权仍归受托方"。前者你拿不到复用权，后者可以。别留空白。</li>
+      <li><b>案例展示权：</b>能不能截图、能不能脱敏后放进作品集、能不能给潜在客户演示。这一条最容易被忘，也最影响你后面接单。</li>
+      <li><b>复用边界：</b>同样的代码能不能给同行业其他客户用。建议写成"通用组件可复用，客户数据与品牌素材不可复用"。</li>
+    </ul>
+    <p>如果你确实要把著作权专有许可或转让给别人，法律要求书面合同：同条例第十九条"许可他人专有行使软件著作权的，当事人应当订立书面合同"，第二十条"转让软件著作权的，当事人应当订立书面合同"。另外，自然人的软件著作权保护期是终生及其死亡后 50 年（第十四条第二款），这是一项可以长期持有的资产。</p>
+    <p>模板里如果用了开源组件（UI 库、图表库、模型 SDK），要遵守它们各自的许可证。MIT 许可证（choosealicense.com 官方页 2026-10-29 抓取）把"商业使用"列为允许的权限，条件是<b>保留版权与许可声明</b>，且明确不提供任何担保、不承担责任。GitHub 官方文档特别提醒：仓库不选许可证时，默认适用版权法、作者保留全部权利，他人"不得复制、分发或创作衍生作品"——所以你自己写的代码要想清楚是开放复用还是保留所有权利，别沉默。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚦</span><h3>切换信号：什么时候该从卖时间转向卖产品</h3>
+      <div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：连续接单 6 个月以上</span><span class="badge">周期：边接单边做</span></div>
+    </div>
+    <p>不要靠"灵感"决定产品化，靠信号。出现下面任意两条，就说明你该把重复劳动抽出来了：</p>
+    <ul>
+      <li><b>同一个需求第三次出现</b>，且你能在两天内交付——说明它已经成熟到可以参数化。</li>
+      <li><b>客户开始说"这么简单还要两周？"</b>——在客户眼里你的交付物已经标准化了。标准化等于可替代，也等于该产品化。</li>
+      <li><b>档期成了瓶颈</b>：这个月不接新单，下个月就断粮。这是最危险的状态，产品化是把"一次劳动"变成"多次收入"的唯一办法。</li>
+      <li><b>客户问"能不能便宜点""能不能按月付"</b>——说明客户认可的是持续价值，考虑订阅制而不是买断。</li>
+      <li><b>你已经能默写这个项目的部署步骤</b>——把它写成脚本和文档，这就是模板的第一版。</li>
+    </ul>
+    <p><b>税务与主体要提前想。</b>个人出售代码、模板取得的收入，属于个人所得税法第二条列明的应税所得范围（该条同时列有"劳务报酬所得"等项），具体归入哪一类、要不要登记个体工商户或企业、能不能开发票，取决于你的经营形态，以主管税务机关当期口径为准；该法第九条规定"以支付所得的单位或者个人为扣缴义务人"。一次性买断还要预留售后成本：客户来问"能不能改个颜色"，你收不收费？建议模板类产品明示"不含定制修改，定制另议"，否则省下的时间会还回去。</p>
+    <p><b>今天就能做的第一步：</b>翻出你交付过的项目，挑一个客户最满意、你最熟的，把其中与客户业务无关的部分（布局、表单、部署脚本、说明文档）复制到一个新文件夹，删掉客户名称、Logo、真实数据，写一份《怎么把它变成你的版本》。这份东西就是你第一个模板的雏形，也是你下一单报价时可以展示的"半成品"。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://xzfg.moj.gov.cn/front/law/detail?LawID=913" target="_blank">司法部：《计算机软件保护条例》（国务院令第339号）</a><a href="https://choosealicense.com/licenses/mit/" target="_blank">choosealicense.com：MIT License 全文</a><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank">GitHub Docs：Licensing a repository（无许可证时的默认规则）</a><a href="https://shipfa.st/" target="_blank">ShipFast：Next.js 模板定价与用户反馈（2026-10-29 抓取）</a><a href="https://marclou.com/" target="_blank">Marc Lou 个人页：各产品 MRR 与总月收入（2026-10-29 抓取）</a><a href="https://vercel.com/pricing" target="_blank">Vercel 定价页：Hobby / Pro 套餐额度（2026-10-29 抓取）</a><a href="https://developers.cloudflare.com/pages/functions/pricing/" target="_blank">Cloudflare Docs：Pages Functions 定价（2026-10-29 抓取）</a><a href="https://www.chinatax.gov.cn/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">国家税务总局：《中华人民共和国个人所得税法》</a></div>
+</section>
+
+<section id="c18" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 18 · PART 4 · 进阶篇</span><h2>AI 编程的边界：什么单能接、什么会砸手里<span class="accent">：先学会说不</span></h2></div>
+  <p class="sec-desc">会用 AI 之后，接单的"能力幻觉"很强——好像什么都能做。这一章把边界画清楚：AI 在哪类任务上真能省时间，在哪类任务上会把你坑进去；哪些需求一看就该拒绝或转介；以及支付、数据、合规三类高风险单子的识别信号。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧠</span><h3>AI 擅长什么、不擅长什么</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span><span class="badge">结论：能跑不等于能上线</span></div>
+    </div>
+    <p>先看一个被反复引用的实验。斯坦福团队 Perry、Srivastava、Kumar、Boneh 的论文《Do Users Write More Insecure Code with AI Assistants?》（arXiv:2211.03622，发表于 ACM CCS 2023）做了大规模用户研究，结论是：<b>能用 AI 助手的参与者，写出的代码明显比没有 AI 的那组更不安全，而且他们更倾向于认为自己写的代码是安全的。</b>研究者还发现，那些"不太信任 AI、更认真修改提示词"的参与者，代码里的安全漏洞反而更少。</p>
+    <p>换成接单场景，这句话的意思是：<b>AI 把"写代码"变便宜了，但没有把"判断对错"变便宜。</b>你交付的每一行代码，签字负责的还是你。具体分工是这样：</p>    <ul>
+      <li><b>AI 确实擅长：</b>有标准答案的重复劳动——CRUD 页面、表单校验、图表展示、样式调整、写部署脚本、解释报错信息。</li>
+      <li><b>AI 经常掉链子：</b>边界条件与异常流程（断网、超时、重复提交、并发覆盖）、安全相关代码（上面那篇论文的核心结论）、需要理解客户业务规则的地方（"这个字段为空时到底该报错还是跳过"）、以及任何"错了会出事"的环节。</li>
+      <li><b>AI 的另一个陷阱是自信：</b>OWASP 发布的 LLM 应用十大风险 2025 版里，LLM09 是"错误信息（Misinformation）"——模型会流畅地说出不对的答案。你问它"这样写安全吗"，它很可能说"是的，已经很好了"。</li>
+    </ul>
+    <p>OWASP 2025 版完整清单（genai.owasp.org，2026-10-29 抓取）依次为：LLM01 提示注入、LLM02 敏感信息泄露、LLM03 供应链、LLM04 数据与模型投毒、LLM05 输出处理不当、LLM06 过度代理权、LLM07 系统提示泄露、LLM08 向量与嵌入缺陷、LLM09 错误信息、LLM10 无限制消耗。其中 LLM05、LLM06、LLM10 正是你接单时最容易踩的坑：<b>把 AI 输出直接当成可信内容、给 AI 开了超出必要的权限、以及没有限额导致客户账单爆炸。</b></p>
+    <blockquote class="xq">💬 <span class="who">一句话记住：</span>AI 像个话术流利的实习生——产出快、态度好、但不担责。验收标准不能因为它写得快就放松。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💳</span><h3>高风险需求之一：碰钱的单子</h3>
+      <div class="badges"><span class="badge r5">难度 ★★★★★</span><span class="badge">门槛：牌照与合规</span><span class="badge">后果：资金损失与法律责任</span></div>
+    </div>
+    <p>单子里出现"用户要付钱"，风险就上一个台阶，原因有两个。第一，支付有行业安全标准：PCI 安全标准委员会（PCI SSC）发布的 PCI DSS 目前版本为 v4.0.1，面向处理支付卡数据的商户与服务提供商，合规评估由 Qualified Security Assessor（QSA）或 Internal Security Assessor（ISA）执行（PCI SSC 官网，2026-10-29 抓取）。第二，在中国，收款的资格有门槛。</p>
+    <p>微信支付商户平台的 PC 网站接入指引（2026-10-29 抓取）写得很直接：可申请主体是<b>个体工商户、企业，以及党政机关、事业单位、民办非企业、社会团体、基金会</b>，PC 网站场景还要求"完成域名 ICP 备案"；页面未把"个人"列为申请主体。费率"一般与商家选择的经营类目有关，为 0.6%–1% 不等"，申请本身不收费。</p>
+    <p>对你意味着三件事：</p>
+    <ul>
+      <li><b>客户没有商户号时，别自己"想办法"。</b>最常见的歪路是让用户把钱打到你的个人账户再转给客户——这叫"二清"，涉嫌无证经营支付业务，监管明令禁止，不要碰。</li>
+      <li><b>只用官方 SDK 或文档明确的接入方式</b>，不要把银行卡号、CVV 这类数据写进你自己的数据库，也不要图省事自己实现一套加密。</li>
+      <li><b>涉及退款、对账、分账的单子</b>，先问清钱在谁手里、按什么规则分；规则说不清，报价再高也别接。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔐</span><h3>高风险需求之二：碰数据与合规的单子</h3>
+      <div class="badges"><span class="badge r5">难度 ★★★★★</span><span class="badge">门槛：法律义务</span><span class="badge">后果：罚款按营业额比例计</span></div>
+    </div>
+    <p>数据类需求的罚则是可以算出来的。《个人信息保护法》（2021-11-01 施行）第五十一条要求处理者制定内部制度、分类管理、采取加密与去标识化等技术措施、合理确定操作权限、制定安全事件应急预案。第六十六条：一般情形责令改正、警告、没收违法所得，拒不改正的并处 100 万元以下罚款；情节严重的，<b>并处 5000 万元以下或者上一年度营业额 5% 以下罚款</b>。第二十八条把生物识别、宗教信仰、特定身份、医疗健康、金融账户、行踪轨迹，以及不满十四周岁未成年人的个人信息列为"敏感个人信息"。</p>
+    <p>《数据安全法》（2021-09-01 施行）第二十一条确立数据分类分级保护制度，关系国家安全、国民经济命脉、重要民生、重大公共利益的数据属于国家核心数据；第四十五条对不履行保护义务的处 5 万至 50 万元罚款，拒不改正或造成大量数据泄露的处 50 万至 200 万元，涉及核心数据的处 200 万至 1000 万元。</p>
+    <p>《网络安全法》也刚过修订：据《中国网信》杂志解读（2026-09-14），十四届全国人大常委会第十八次会议表决通过修改决定，<b>新修改的网络安全法自 2026 年 1 月 1 日起施行</b>，内容包括完善人工智能伦理规范与风险监测评估、加重法律责任、扩大域外适用。这意味着客户今年提出的合规要求，可能和去年不一样。</p>
+    <ul>
+      <li><b>看到这些词就升级警戒：</b>身份证号、手机号、人脸、病历、定位、未成年人、征信、员工信息、"内部数据不能出网"、"要过等保"。</li>
+      <li><b>等保是运营者的义务，不是开发者的义务</b>——但客户会把它写进需求，并且期望你配合出材料、改配置、留日志。这类单子要么加价，要么只做你确实能负责的那部分。</li>
+      <li><b>客户给的数据怎么用，要写进合同：</b>能否留备份、能否用于测试、项目结束后是否删除。别用客户真实数据在开发环境里调试。</li>
+      <li><b>地域性提醒：</b>上述均为中国大陆现行规定，监管口径持续更新；涉及数据跨境传输的规则另有一套，以主管机关当期口径为准。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚧</span><h3>第三类高危：实时、硬件与"我说不清"的需求</h3>
+      <div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">门槛：现场调试</span><span class="badge">后果：尾款拿不到还倒贴</span></div>
+    </div>
+    <p>前两类能提前识别，这一类只能靠经验。共同特征是<b>"错了立刻可见，但原因可能不在你的代码里"</b>：</p>
+    <ul>
+      <li><b>实时系统：</b>直播弹幕、在线抢答、秒杀倒计时、协同编辑。这类需求对延迟和一致性的要求高，客户的网络、客户的服务器、客户的带宽都可能是瓶颈。你要么明确写"不承诺实时性指标"，要么不接。</li>
+      <li><b>硬件与现场：</b>连接打印机、扫码枪、门禁、POS 机、PLC。AI 帮不上硬件兼容的忙，你得上现场，差旅和工时都容易失控。</li>      <li><b>需求本身说不清：</b>客户的原话是"你先做个大概的我看看"。没有边界就没有终点，改到第 12 版时你们已经反目成仇。</li>
+      <li><b>要求"永不宕机""绝对安全""保证不丢数据"：</b>任何工程师都不敢签这种字。签了就是给自己埋雷。</li>
+    </ul>
+    <p><b>识别口诀：</b>需求里只要出现"必须""一定""保证""实时""不能出错"，就先停下来问三个问题——失败了谁承担？验收标准是什么？有没有书面确认？三个都答不上来，这一单就是在预支你的风险。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤝</span><h3>该拒绝的、该转介的，长什么样</h3>
+      <div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：所有人</span><span class="badge">收益：拒绝也是专业</span></div>
+    </div>
+    <p>把客户的需求分成四类，处理方式完全不同：</p>
+    <table>
+      <tr><td><b>直接拒绝</b></td><td>刷量刷单、外挂、越权爬虫、赌博棋牌、洗钱通道、任何要你"绕过平台风控"的需求</td><td>这类需求本身违法，做的人可能被判刑（见第 19 章）。不要报价，不要试探，直接说不接</td></tr>
+      <tr><td><b>拒绝但留个口子</b></td><td>要你对接支付清结算、要做等保测评、要处理敏感个人信息</td><td>"这块我不专业，硬接会耽误你。我可以做外围部分，支付/合规建议找有资质的服务商"</td></tr>
+      <tr><td><b>转介给同行</b></td><td>需要原生 App、需要特定行业经验（医疗、金融、教育备案）、需要长期驻场</td><td>介绍给靠谱同行。转介是接单里回报率最高的动作之一</td></tr>
+      <tr><td><b>接下来，但要写清楚</b></td><td>常规展示型、表单型、内部工具型需求</td><td>把 AI 生成代码的验收标准写进合同：你交付的是"按需求文档实现并自测通过的功能"，不是"永不出错的系统"</td></tr>
+    </table>
+    <p>拒绝的话术可以很朴素，不用编理由："这个需求超出了我目前的能力范围，我不想接了之后做不好耽误你。"客户听到这句话，多数会记住你的可靠；硬接下来做砸，损失的是一单的钱加上一个圈子的口碑。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://genai.owasp.org/llm-top-10/" target="_blank">OWASP：Top 10 for LLM Applications 2025 版清单</a><a href="https://arxiv.org/abs/2211.03622" target="_blank">arXiv:2211.03622｜Perry 等：Do Users Write More Insecure Code with AI Assistants?（CCS '23）</a><a href="https://www.pcisecuritystandards.org/" target="_blank">PCI 安全标准委员会：PCI DSS 与 QSA/ISA 评估项目</a><a href="https://pay.weixin.qq.com/static/applyment_guide/applyment_detail_website.shtml" target="_blank">微信支付商户平台：PC 网站接入指引（主体资质与费率）</a><a href="https://dsj.guizhou.gov.cn/zwgk/zcwj/fgwj/202108/t20210823_86418781.html" target="_blank">《个人信息保护法》全文（贵州省大数据发展局转载）</a><a href="https://www.cac.gov.cn/2021-06/11/c_1624994566919140.htm" target="_blank">中央网信办：《数据安全法》全文</a><a href="https://www.cwl.gov.cn/c/2026-09-14/666751.shtml" target="_blank">《中国网信》杂志：新修改的网络安全法解读（2026-01-01 施行）</a></div>
+</section>
+
+<section id="c19" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 19 · PART 4 · 进阶篇</span><h2>纠纷与骗局：跑单、压价与代码白嫖<span class="accent">：把证据留好，把灰产挡在门外</span></h2></div>
+  <p class="sec-desc">接单越久，越会碰到不痛快的事：做到一半客户失联、验收后压价、源码被拿走不付款、被拉去"做个外挂赚快钱"。这一章讲它们长什么样、怎么提前防、碰上了按什么顺序处理，以及为什么灰产单一分钱都不能接。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎭</span><h3>五种最常见的纠纷与骗局</h3>
+      <div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">适合：所有接单的人</span><span class="badge">共同点：都要你"先付出"</span></div>
+    </div>
+    <p>这些套路的共同点是<b>让你在拿到钱之前先付出不可收回的成本</b>——时间、源码、账号、保证金。认清了，就能提前躲开。</p>
+    <ul>
+      <li><b>跑单（做到一半失联）：</b>需求聊得很随意，没有书面确认，你做了一半对方突然不回消息。过几周发现他晒出了"功能很像"的产品。对策：每阶段交付都要有书面确认，别一次性把全部源码发过去。</li>
+      <li><b>代码白嫖：</b>以"看看实力"为由让你先写 demo、做方案、甚至给一份完整代码，然后就没有然后了。对策：demo 只给截图或录屏，核心代码走合同与预付款。</li>
+      <li><b>验收后压价：</b>东西做完了，对方挑毛病："这里和我想的不一样""我预算没这么多"。对策：验收标准提前书面化，交付分阶段，每阶段都有书面确认。</li>
+      <li><b>假需求骗保证金/骗账号：</b>任何要你先交"保证金""押金""平台激活费"的，任何要你提供银行卡、验证码、支付密码的，一律是骗子——正规平台不会在接单前向你收钱。</li>
+      <li><b>压价拖延战术：</b>"我再考虑考虑""等领导批""月底一起结"，用拖延消耗你的耐心，逼你接受更低的价。对策：合同写明付款节点，到期不付就停工。</li>
+    </ul>
+    <p><b>三个通用识别信号：</b>① 沟通全在私人微信，不肯用平台；② 只谈愿景不谈需求细节，催你"先做起来"；③ 报价高得反常但付款条件异常宽松。后两条同时出现，多半是骗方案或骗劳动。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📸</span><h3>证据怎么留：聊天记录、合同、付款凭证</h3>
+      <div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">门槛：会截图就会做</span><span class="badge">作用：决定你能否要回钱</span></div>
+    </div>
+    <p>纠纷打的是证据。先说个让人安心的前提：<b>电子合同和电子签名在中国有法律效力。</b>《电子签名法》第十四条规定"可靠的电子签名与手写签名或者盖章具有同等的法律效力"，第十三条给出四个条件：电子签名制作数据属于签名人专有、签署时仅由签名人控制、签署后对电子签名和数据电文内容的任何改动能够被发现。《民法典》第四百六十九条也明确："以电子数据交换、电子邮件等方式能够有形地表现所载内容，并可以随时调取查用的数据电文，视为书面形式。"所以微信里谈定的内容、邮件确认的需求，都不是"不算数"。</p>
+    <p>最高人民法院《关于民事诉讼证据的若干规定》（2019 修正）第十四条把电子数据范围列得很清楚：网络平台发布的信息、短信与电子邮件、即时通信与通讯群组信息、电子交易记录与登录日志，以及文档、图片、音视频、数字证书、计算机程序等。你平时随手要留的正是这几类：</p>
+    <table>
+      <tr><td><b>聊天记录</b></td><td>微信、QQ、企业微信、邮件</td><td>全程保留别删，重要节点录屏（含对方微信号与头像），云盘和本地各存一份</td></tr>
+      <tr><td><b>合同与需求文档</b></td><td>电子合同、PDF、在线文档</td><td>留存签署版本与历次修改记录</td></tr>
+      <tr><td><b>交付凭证</b></td><td>源码包、部署记录、Git 提交历史</td><td>Git 历史是最硬的交付时间证据</td></tr>
+      <tr><td><b>付款凭证</b></td><td>转账记录、发票、平台结算单</td><td>导出带流水号的凭证，截图容易被质疑</td></tr>
+      <tr><td><b>验收记录</b></td><td>对方的确认消息、验收单</td><td>"可以了""没问题"这类消息也要存，它是结款依据</td></tr>
+    </table>
+    <p>证据的真实性怎么被认可？同规定第九十三条要求结合软硬件环境是否完整可靠、是否在正常往来中形成和存储等因素综合判断；第九十四条明确<b>"电子数据的内容经公证机关公证的，人民法院应当确认其真实性"</b>。金额较大、对方可能耍赖的单子，花几百元做一次公证，是最省事的保险。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>出事以后：平台申诉与法律途径的顺序</h3>
+      <div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">门槛：按顺序走</span><span class="badge">周期：平台天级，法院月级</span></div>
+    </div>
+    <p>顺序不能乱：<b>先在平台内解决，平台解决不了再走法律。</b>反过来做，往往两头落空。</p>
+    <p><b>第一步，用平台机制。</b>主流接单平台都有资金托管。程序员客栈官网（2026-10-29 抓取）把合作流程写成五步，关键在后两步：<b>"客栈托管费用，全程跟进开发过程"</b>、企业验收无误后平台再给开发者结算，原则是"先面试、后开发，先验收、再结算"。猪八戒网平台保障页（同日抓取）的表述是"资金全程托管，验收后付款"，并设有<b>规则中心</b>、<b>交易纠纷调解室</b>和举报中心入口。<b>在平台内接的单，一定要走平台托管收款</b>——私下转账等于放弃了平台这套保护。</p>
+    <p><b>第二步，平台内申诉。</b>按平台规则提交聊天记录、合同、交付记录、验收记录。平台规则遵循"谁主张，谁举证"，别只写情绪。调解不成，平台会给出处理结论或建议。</p>
+    <p><b>第三步，法律途径。</b>金额较小（通常几千元）时，可以先发律师函或自行起诉；标的额在各地小额诉讼适用范围内的，一审终审、周期较短。依据是《民法典》第五百七十七条："当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。"合同里约定了违约金的，按第五百八十五条处理。成本（时间、律师费、执行难度）要和可能收回的金额对比着看。</p>
+    <p><b>第四步，涉及刑事犯罪直接报警。</b>对方虚构事实骗你交付代码或骗取费用，可能不是纠纷而是诈骗。判断不了的，先打 110 或到派出所咨询，由警方定性。</p>
+    <blockquote class="xq">💬 <span class="who">一句实话：</span>接单纠纷里，赢的往往不是"更有理"的人，而是"证据更全"的人。把每次沟通都当成可能呈堂的材料来留，成本几乎为零。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>灰产单为什么不能接：刷量、外挂、越权爬虫</h3>
+      <div class="badges"><span class="badge r5">难度 ★★★★★</span><span class="badge">门槛：报价通常很高</span><span class="badge">后果：行政拘留到有期徒刑</span></div>
+    </div>
+    <p>这类单子的共同卖点是"钱多、周期短、没人管"，但每一项都有明确的法律后果。</p>
+    <ul>
+      <li><b>刷量、刷单、刷评价：</b>新修订的《反不正当竞争法》（2025 年 6 月 27 日通过，2025 年 10 月 15 日起施行）第九条第二款规定："经营者不得通过组织虚假交易、虚假评价等方式，帮助其他经营者进行虚假或者引人误解的商业宣传。"你写的刷量脚本、接的单平台任务，就是这条管的行为。</li>
+      <li><b>外挂、辅助、破解：</b>最高人民检察院破坏计算机信息系统犯罪指导案例（检例第 69 号）指出，刑法第二百八十六条破坏计算机信息系统罪"法定刑是最高的，后果特别严重的，处五年以上有期徒刑"；相关司法解释把"违法所得五千元以上或者造成经济损失一万元以上"列为"后果严重"的认定情形。真实判决更直接：2023 年 6 月 29 日，昆山市人民法院对何某良、王某端非法销售《和平精英》"鸡腿"外挂案一审宣判，二人违法所得分别为 1956 万余元与 978 万余元，<b>均以侵犯著作权罪判处有期徒刑四年，并处罚金二千万元</b>（澎湃新闻，2023-06-30）。</li>
+      <li><b>越权爬虫：</b>绕过登录、绕过频率限制、抓取对方明确禁止抓取的数据、把抓来的公民个人信息打包出售，可能同时触碰非法获取计算机信息系统数据与侵犯公民个人信息的红线。技术上是"能爬到"，法律上是"不能爬"。</li>
+    </ul>
+    <p><b>识别信号：</b>客户说不清数据或流量的合法来源；要求你"不要留日志""不要记 IP"；用现金或私人转账结算；需求描述里出现"绕过""突破""跳过验证""模拟点击""自动抢"。遇到这些，无论报价多高，都不接、不问价、不试探——你以为只是写段代码，实际上可能被认定为共同犯罪的一环。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://wap.miit.gov.cn/zwgk/zcwj/flfg/art/2022/art_4ed0e4a46946479c90a9e0f2c76a11ef.html" target="_blank">工业和信息化部：《中华人民共和国电子签名法》</a><a href="https://www.spp.gov.cn/spp/ssmfdyflvdtpgz/202008/t20200831_478413.shtml" target="_blank">最高人民检察院：《民法典》第三编·合同（第四百六十九条等）</a><a href="https://ipc.court.gov.cn/zh-cn/news/view-393.html" target="_blank">最高人民法院知识产权法庭：《关于民事诉讼证据的若干规定》（2019 修正）</a><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_3737890d856a4e44a8ea07c50c90c116.html" target="_blank">国家市场监督管理总局：《反不正当竞争法》（2025 年修订）</a><a href="https://www.spp.gov.cn/spp/llyj/202108/t20210807_526020.shtml" target="_blank">最高人民检察院：指导案例第 69 号·破坏计算机信息系统罪办案要点</a><a href="https://www.thepaper.cn/newsDetail_forward_23665449" target="_blank">澎湃新闻：全国最大"吃鸡"外挂案宣判，两被告获刑 4 年（2023-06-30）</a><a href="https://www.proginn.com/" target="_blank">程序员客栈官网：五步合作流程与资金托管机制</a><a href="https://www.zbj.com/ensurance/" target="_blank">猪八戒网：平台保障页（资金全程托管、验收后付款）</a><a href="https://rule.zbj.com/" target="_blank">猪八戒网：规则中心（含交易纠纷调解室、举报中心入口）</a></div>
+</section>
+
+<section id="c20" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 20 · PART 4 · 进阶篇</span><h2>30 天行动计划：从零到第一单<span class="accent">：一张能贴在桌上的日程表</span></h2></div>
+  <p class="sec-desc">前面十九章都是知识，这一章是动作。四周拆成四件事：把手用起来、把作品做出来、把自己挂出去、把第一单谈下来。每周都有明确的产出物和验收标准，卡住了有降级方案。所有工具与价格以 2026-10-29 抓取的官方页面为准，动手前请再核对当期口径。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗓️</span><h3>四周总览：每周只干一件事</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">每天投入：90 分钟</span></div>
+    </div>
+    <p>不要一开始就同时学工具、做作品、找客户。四周各有唯一目标：</p>
+    <table>
+      <tr><td><b>第 1 周（Day 1–7）</b></td><td>工具上手</td><td>装好工具，跟着教程做出第一个能打开的网页，并部署到公网</td><td>一个公网可访问的 URL</td></tr>
+      <tr><td><b>第 2 周（Day 8–14）</b></td><td>做作品</td><td>做两个能演示的作品：一个展示型网站，一个带表单或数据库的小工具</td><td>两个可点开的 demo</td></tr>
+      <tr><td><b>第 3 周（Day 15–21）</b></td><td>上架与展示</td><td>作品集页面、平台账号、报价单、需求确认模板</td><td>陌生人 30 秒能看懂你的服务</td></tr>
+      <tr><td><b>第 4 周（Day 22–30）</b></td><td>谈首单</td><td>主动沟通、报价、签约、收款</td><td>1 份报价进入合同阶段</td></tr>
+    </table>
+    <p>时间不够的人，把周期拉长到 60 天，但顺序不要变。<b>顺序是本计划唯一不能妥协的部分</b>——没做过作品就去谈单，等于没学走先学跑。</p>
+    <p>把第 1 周再拆到天，你就知道每天该干什么了（后面三周照这个粒度自己排）：</p>
+    <table>
+      <tr><td><b>Day 1</b></td><td>注册 GitHub 账号，装好编辑器，申请 AI 工具免费档</td><td>能打开编辑器，AI 工具能对话</td></tr>
+      <tr><td><b>Day 2–3</b></td><td>跟一个"一句话做网页"的完整教程，从零做出第一个页面</td><td>本地能打开，改一句话页面会变</td></tr>
+      <tr><td><b>Day 4–5</b></td><td>学部署：把页面推到 GitHub，用 Pages 或 Vercel 发布</td><td>拿到一个公网 URL，手机能打开</td></tr>
+      <tr><td><b>Day 6</b></td><td>绑定自己的域名（可选），补 HTTPS 与 favicon 等细节</td><td>链接发给别人不会显得粗糙</td></tr>
+      <tr><td><b>Day 7</b></td><td>写《我的工具清单》与《本周踩坑记录》</td><td>一份能复述给别人的操作文档</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>每周的产出物与验收标准</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">用法：做到就打勾</span><span class="badge">原则：能演示才算会</span></div>
+    </div>
+    <ul>
+      <li><b>第 1 周验收：</b>① 装好一个 AI 编程工具和一个代码编辑器；② 用一句话让 AI 生成一个网页，本地能打开；③ 把这个网页部署到公网，手机浏览器能打开；④ 写下《我的工具清单》（用了什么、每一步点哪里、卡在哪怎么解决的）。第三项过不去就反复练，它是后面一切的基础。</li>
+      <li><b>第 2 周验收：</b>作品一"展示型"——给一个虚构的小店（花店、健身房、家政）做的官网，含首页、服务、联系方式；作品二"功能型"——一个带表单和数据列表的小工具，比如预约登记、报价计算器、内部台账。两个作品都要做到：手机能打开、首屏 3 秒内出来、页面上有一句"这是给谁用的"。</li>
+      <li><b>第 3 周验收：</b>① 作品集页面（用 GitHub Pages 或 Vercel 免费档部署，把两个作品放上去，每个配三行说明：做什么的、用什么做的、多少钱能做一个类似的）；② 两个接单平台账号，资料填满，头像用真人正装照；③ 一页纸报价单（三个档位：基础版、标准版、含维护版）；④ 一页纸《需求确认清单》，含功能范围、交付时间、修改次数、付款节点。</li>
+      <li><b>第 4 周验收：</b>① 完成 10 次有效沟通（对方明确说过需求）；② 发出 3 份书面报价；③ 至少 1 单进入合同阶段。第 4 周的核心不是成交，是<b>把报价说出口</b>——多数人卡在不敢报，不是没人要。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">验收标准的本质：</span>每周五问自己一句"这东西我能给一个陌生人看吗？"答不上来，就是还没做完，不要进入下一周。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>预算与工具清单：0 元也能开始</h3>
+      <div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">总预算：0 元起</span><span class="badge">注意：平台规则会变</span></div>
+    </div>
+    <p>下面每一项都用免费档起步，全部来自 2026-10-29 抓取的官方定价页或文档：</p>
+    <ul>
+      <li><b>AI 编程工具：</b>GitHub Copilot 免费档每月 2000 次代码补全，聊天与 agent 用量受限；Pro 10 美元/月，补全无限并含 15 美元/月 AI Credits。Cursor 定价页列有免费档（有限的 agent 与 Chat 请求）与从 8 美元/月起的付费档。<b>第一个月用免费档完全够。</b></li>
+      <li><b>部署：</b>GitHub Pages 可托管静态站点并支持自定义域名与 HTTPS；Vercel 免费 Hobby 档含每月 100 万次 CDN 请求、100 GB 传输与 100 万次函数调用，但只有 1 个开发席位；Cloudflare Pages 的静态资源请求在免费与付费档下都"免费且无限"。</li>
+      <li><b>接单平台：</b>注册免费。注意平台通常抽成，比例与规则以各平台当期公示为准，接单前先看清抽成与结算周期。</li>
+      <li><b>域名：</b>可选项。第一周用平台给的默认域名即可，域名年费以注册商当期页面为准，本手册不引用未核实的数字。</li>
+      <li><b>备用金：</b>留 500 元左右，用于可能产生的云资源超量、公证费或平台增值服务。多数人一个月花不掉。</li>
+    </ul>
+    <p><b>两个合规提醒（有地域性与时效性）：</b>① 网站绑定<b>你自己域名并用中国内地服务器</b>时，需要 ICP 备案——四川通信管理局办事页说明，"在中华人民共和国境内的组织或个人"提供非经营性互联网信息服务都需备案，通过接入服务企业提交，材料齐全的"应在二十个工作日内予以备案"。② 微信支付商户号的申请主体是个体工商户、企业及相关组织，<b>个人不能申请</b>；微信小程序的个人主体也暂不支持微信认证，因而无法申请微信支付，且服务类目受限。所以第 2 周做作品时，收款先用平台或个人转账，别在产品里嵌支付。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛟</span><h3>卡住时的降级方案</h3>
+      <div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">用法：卡住就降一级</span><span class="badge">原则：完成优于完美</span></div>
+    </div>
+    <p>计划一定会有地方卡住。每一周都准备了一条退路，退路不是失败，是换一条路继续走：</p>
+    <ul>
+      <li><b>工具装不上 / 学不会：</b>降级为"最笨方案"——直接用一个在线页面生成器或现成模板，改文字和图片。先求"有一个能打开的东西"，工具熟练度是后面的事。</li>
+      <li><b>部署失败：</b>降级为录屏演示。把本地跑起来的项目录一段视频，配上说明，先拿这个去沟通；部署留到下一周解决。录屏比讲一百句"我会做"都管用。</li>
+      <li><b>作品做不出来：</b>降级为"跟做改造"。找一份公开教程的案例，跟着做完，然后改掉三处：换成另一个行业、换一套配色、加一个小功能。这就是你的作品，注明"参考教程改造"不丢人。</li>
+      <li><b>平台审核不过 / 没流量：</b>降级为"身边人渠道"。同学群、前同事、本地商家微信群，先发一段自我介绍加作品链接。第一单来自熟人的概率，远高于来自平台搜索。</li>
+      <li><b>没人理你：</b>降级为"小单策略"。主动接 500 元以内的单页、改版、数据整理，目标不是赚钱，是攒三个真实交付记录和一句客户好评。</li>
+      <li><b>时间不够：</b>降级为"90 分钟法则"。每天只保证 90 分钟，周期从 30 天改 60 天。每天 90 分钟连续 60 天，胜过某一天拼命 12 小时然后放弃。</li>
+    </ul>
+    <p>最后一句提醒：<b>第一单的金额不重要，重要的是你完整走完了"沟通—报价—交付—收款"这条链路。</b>走完一次，你就知道下一单该改哪里；走不完，看再多教程也接不到钱。</p>
+    <p><b>每周五花十五分钟复盘，只问三个问题：</b>① 这周的产出物，我能拿给一个陌生人看吗？② 这周卡我最久的那件事，下次能不能少花一半时间？③ 下一周最重要的一件事是什么，写下来只留一件。三个问题的答案写进同一个文档，30 天后你会看到一条清晰的进步曲线——那比任何教程都更能说明你真的入门了。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://docs.github.com/en/pages" target="_blank">GitHub Docs：GitHub Pages 文档（静态托管与自定义域名）</a><a href="https://vercel.com/pricing" target="_blank">Vercel 定价页：Hobby / Pro 套餐额度（2026-10-29 抓取）</a><a href="https://developers.cloudflare.com/pages/functions/pricing/" target="_blank">Cloudflare Docs：Pages Functions 定价（2026-10-29 抓取）</a><a href="https://github.com/features/copilot/plans" target="_blank">GitHub：Copilot 方案与额度（Free / Pro / Pro+ / Max）</a><a href="https://cursor.com/pricing" target="_blank">Cursor 定价页（2026-10-29 抓取）</a><a href="https://scca.miit.gov.cn/bsfw/bszn/art/2019/art_15d01ee4deae479291bb4d9998f003d4.html" target="_blank">四川通信管理局：非经营性互联网信息服务备案说明</a><a href="https://developers.weixin.qq.com/miniprogram/introduction/" target="_blank">微信开放文档：小程序注册（账号主体类型与认证）</a><a href="https://pay.weixin.qq.com/static/applyment_guide/applyment_detail_website.shtml" target="_blank">微信支付商户平台：PC 网站接入指引（主体资质）</a></div>
+</section>
+
+<footer class="wrap">
+  <div><b>全书使用建议</b></div>
+  <div style="margin-top:12px;color:var(--muted);max-width:860px;">
+    <p>· 零基础请从第 01-04 章顺着读；已经会用 Cursor 之类工具的，可直接跳到第 11 章接单篇——那是全书离钱最近的部分；</p>
+    <p>· 每章末尾的来源链接是本章结论的依据，平台规则、抽成比例、价格区间变动很快，动手前请点开原文核对当期口径（数据截至 2026-10-29）；</p>
+    <p>· 第 20 章《30 天行动计划》是一张可以直接打印贴在桌上的日程表，卡住的时候就回到那一章。</p>
+  </div>
+  <div class="disclaimer">⚠️ <b>免责声明：</b>本手册由 6 个并行 AI 研究员于 2026-10-29 实时检索公开资料写成，仅作技术学习与合规经营参考，不构成任何法律或投资意见。文中涉及的平台规则、费率与案例来自公开报道与官方文档，可能已发生变动；接单、签约、收款与报税请以平台当期规则和当地主管部门口径为准。</div>
+  <div style="margin-top:20px;text-align:center;">💻 《AI 编程从零到接单手册》· 20 章并行调研汇编 · 2026-10-29 · 配套 <a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a></div>
+</footer>
+
+<a class="backtop" href="#toc" title="回到目录">↑</a>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.toc a, .tocbox a');
+  var byId = {};
+  Array.prototype.forEach.call(links, function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  secs.sort(function (a, b) { return a.offsetTop - b.offsetTop; });
+  function update() {
+    var y = window.scrollY + 170, cur = null;
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = !!cur && a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('active', on);
+    });
+  }
+  var fold = document.querySelector('details.tocfold');
+  if (fold && window.matchMedia('(max-width: 700px)').matches) {
+    fold.removeAttribute('open');
+    Array.prototype.forEach.call(fold.querySelectorAll('.toc-list a'), function (a) {
+      a.addEventListener('click', function () { fold.removeAttribute('open'); });
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

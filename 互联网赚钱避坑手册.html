@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《互联网赚钱避坑手册》· 20 章深度版 · 2026-10</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --bg2:#fbfaf5; --card:#ffffff;
+    --line:#e7e3d8; --line2:#efecdf;
+    --ink:#2f3345; --text:#3d4256; --muted:#6b7280; --dim:#9aa1ae;
+    --accent:#5a67c2; --accent-soft:#eef0fb;
+    --cyan:#2e7fa3; --green:#2e8b6e; --amber:#b07a1e; --red:#c25468; --pink:#b8618f;
+    --purple:#6a5fc9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1100px 460px at 85% -120px, rgba(90,103,194,.07), transparent 60%),
+      radial-gradient(900px 420px at 5% -90px, rgba(46,127,163,.06), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  a{color:#3b63c4;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px;}
+  header.hero{padding:58px 0 28px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid #d6d9f0;padding:5px 14px;border-radius:999px;background:var(--accent-soft);font-weight:600;}
+  h1.title{font-size:38px;line-height:1.3;margin:20px 0 10px;font-weight:800;
+    background:linear-gradient(92deg,#2f3345 20%,#5a67c2 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .subtitle{color:var(--muted);font-size:16px;max-width:780px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:13px;color:var(--muted);}
+  .hero-meta span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 12px;}
+  .method-note{margin-top:20px;border-left:3px solid #d9a441;background:#faf3e0;
+    padding:12px 16px;border-radius:0 10px 10px 0;color:#7a5c1c;font-size:13.5px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:26px 0 4px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(31,35,53,.04),0 6px 18px rgba(31,35,53,.05);}
+  .stat .num{font-size:21px;font-weight:800;letter-spacing:.5px;}
+  .stat .lbl{color:var(--muted);font-size:12px;line-height:1.5;margin-top:1px;}
+  .stat.p .num{color:var(--purple);} .stat.g .num{color:var(--green);} .stat.r .num{color:var(--red);} .stat.c .num{color:var(--cyan);}
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-top:24px;}
+  nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;}
+  nav.toc a{font-size:13px;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid transparent;}
+  nav.toc a:hover{color:var(--text);text-decoration:none;background:var(--card);border-color:var(--line);}
+  nav.toc a.part-label{color:var(--accent);font-weight:700;border-color:#d6d9f0;background:var(--accent-soft);}
+  nav.toc a.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  @media(max-width:700px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    nav.toc .wrap::-webkit-scrollbar{display:none;}
+    nav.toc a{white-space:nowrap;flex:0 0 auto;padding:5px 10px;}
+  }
+  section{padding:50px 0 8px;}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:700;}
+  h2{font-size:26px;font-weight:800;color:var(--ink);}
+  h2 .accent{color:var(--accent);}
+  .sec-desc{color:var(--muted);margin:8px 0 24px;max-width:820px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px 20px;margin-bottom:24px;box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px;}
+  .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:var(--accent-soft);border:1px solid #d6d9f0;flex:none;}
+  .card h3{font-size:19px;font-weight:700;color:var(--ink);flex:1;min-width:200px;}
+  .badges{display:flex;flex-wrap:wrap;gap:7px;}
+  .badge{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg2);}
+  .badge.r1{color:#1f6e52;border-color:#bfe0d2;background:#e3f3ec;}
+  .badge.r2{color:#4a6e1f;border-color:#d3e3b4;background:#eff5df;}
+  .badge.r3{color:#8a5f12;border-color:#ecd9a8;background:#faf0d8;}
+  .badge.r4{color:#9a4f1f;border-color:#f0d2b8;background:#fbeee2;}
+  .badge.r5{color:#a03a4e;border-color:#f0c3cd;background:#f9e3e8;}
+  .card p{margin:10px 0;color:var(--text);}
+  .card p b,.card li b{color:var(--ink);font-weight:700;}
+  .card ul{margin:8px 0 8px 22px;color:var(--text);}
+  .card li{margin:6px 0;}
+  blockquote.xq{border-left:3px solid #8d97d8;background:#f0f2fc;
+    padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;color:#454c78;font-size:14.5px;}
+  blockquote.xq .who{color:var(--accent);font-weight:700;}
+  .src{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;}
+  .src .tag{color:var(--amber);font-weight:700;flex:none;}
+  .src a{color:#3b63c4;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:800px){.cols{grid-template-columns:1fr;}}
+  .chart{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;}
+  .chart .cap{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center;}
+  .chart h4{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .legend{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;}
+  .chart text{fill:var(--ink);}
+  .chart text[fill="#dfe5f1"]{fill:var(--ink);}
+  .chart text[fill="#8b94ab"]{fill:var(--muted);}
+  .chart text[fill="#ff5d73"]{fill:var(--red);}
+  .chart text[fill="#2fd6a5"]{fill:var(--green);}
+  .chart [stroke="#242d42"]{stroke:#dcd7c9;}
+  .chart rect[fill="#0d1119"]{fill:#efede4;}
+  .chart stop[stop-color="#8b7cff"]{stop-color:#7d76cf;}
+  .chart stop[stop-color="#4dd6ff"]{stop-color:#6fa8c9;}
+  .chart stop[stop-color="#f5b83d"]{stop-color:#dfa63e;}
+  .chart stop[stop-color="#ff5d73"]{stop-color:#d3707f;}
+  .chart stop[stop-color="#2fd6a5"]{stop-color:#4aa583;}
+  .hbar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;margin:9px 0;font-size:13.5px;}
+  .hbar-track{height:16px;background:#efede4;border-radius:8px;overflow:hidden;border:1px solid var(--line2);}
+  .hbar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#7d76cf,#6fa8c9);}
+  .hbar-val{color:var(--muted);font-size:12.5px;text-align:right;}
+  @media(max-width:640px){.hbar-row{grid-template-columns:110px 1fr 74px;}}
+  .bignum{display:flex;align-items:baseline;gap:8px;justify-content:center;}
+  .bignum .v{font-size:42px;font-weight:800;color:var(--red);}
+  .bignum .u{color:var(--muted);font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  th{color:var(--muted);font-weight:600;text-align:left;font-size:12.5px;letter-spacing:.5px;}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:hover td{background:#f6f7fd;}
+  td b{color:var(--ink);}
+  .tocbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;}
+  @media(max-width:800px){.tocbox{grid-template-columns:1fr;gap:10px;}}
+  .toc-part{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 14px 10px;}
+  .toc-part-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .toc-part-no{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px;letter-spacing:1px;}
+  .toc-part-head b{font-size:15px;color:var(--ink);}
+  .toc-part-en{margin-left:auto;font-size:11.5px;color:var(--dim);}
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin:0;}
+  .toc-list a{display:flex;align-items:baseline;gap:10px;padding:4px 8px;border-radius:8px;color:var(--text);font-size:14px;transition:background .15s;}
+  .toc-list a:hover{background:#f1f2fa;text-decoration:none;}
+  .toc-list a.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 0 0 1px #d6d9f0;font-weight:600;}
+  .toc-no{font-weight:800;color:var(--accent);font-size:12px;min-width:22px;letter-spacing:.5px;}
+  .toc-sub{color:var(--dim);font-size:12px;margin-left:auto;text-align:right;}
+  @media(max-width:700px){.toc-sub{display:none;}}
+  details.tocfold{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  details.tocfold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:13px 18px;font-weight:700;color:var(--ink);font-size:15px;}
+  details.tocfold>summary::-webkit-details-marker{display:none;}
+  details.tocfold>summary::after{content:"▾";margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s;}
+  details.tocfold[open]>summary{border-bottom:1px dashed var(--line);}
+  details.tocfold[open]>summary::after{transform:rotate(180deg);}
+  .fold-hint{font-weight:400;color:var(--dim);font-size:12px;}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:34px 0 50px;color:var(--muted);font-size:13px;}
+  footer .disclaimer{background:#faecee;border:1px solid #eccdd3;border-radius:12px;padding:14px 18px;color:#9c4a5c;margin-top:18px;}
+  .backtop{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;
+    text-decoration:none;box-shadow:0 6px 20px rgba(31,35,53,.12);z-index:60;}
+  .backtop:hover{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="kicker">🛡️ ANTI-SCAM HANDBOOK · 20 CHAPTERS</span>
+  <h1 class="title">《互联网赚钱避坑手册》</h1>
+  <p class="subtitle">20 章深度拆解：别人教赚钱，这本教你不亏钱。每章由一名独立研究员实时检索写成——公安机关通报、权威媒体报道、公开判例与受害者真实复盘。四大板块：避坑心法、骗局图鉴、防身术、家庭防线。</p>
+  <div class="hero-meta">
+    <span>📅 生成日期：2026-10-26</span>
+    <span>🤖 20 个子代理并行调研</span>
+    <span>📎 每章附来源链接</span>
+    <span>🔗 配套：<a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a></span>
+  </div>
+  <div class="method-note">📖 <b>使用说明：</b>四章一部。第一部分是心法——识别收益承诺、查证项目、及时止损；第二部分和第三部分是 15 类骗局的完整图鉴（培训贷、刷单、资金盘、AI 带单、灰产、貔貅盘、加盟、起号神话、杀猪盘……），每类都拆到"钱怎么流动、信号是什么、中招怎么办"；第四部分是防身术——证据保全、报案、维权与家庭防线。所有案例数据以成稿当日（2026-10-26）检索为准。</div>
+  <div class="stats">
+    <div class="stat p"><div class="num">20</div><div class="lbl">深度章节 · 每章 1500–2500 字</div></div>
+    <div class="stat c"><div class="num">4</div><div class="lbl">大板块 · 心法 → 图鉴 → 防身</div></div>
+    <div class="stat g"><div class="num">15 类</div><div class="lbl">骗局完整拆解 · 每类含案例与信号</div></div>
+    <div class="stat r"><div class="num">维权</div><div class="lbl">从证据保全到报案的实操路径</div></div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a class="part-label" href="#c01">PART 1 避坑心法</a>
+  <a href="#c01">01 为什么被割</a><a href="#c02">02 收益承诺识别</a><a href="#c03">03 查证工具箱</a><a href="#c04">04 止损决策</a>
+  <a class="part-label" href="#c05">PART 2 骗局图鉴·上</a>
+  <a href="#c05">05 培训贷</a><a href="#c06">06 刷单返利</a><a href="#c07">07 资金盘</a><a href="#c08">08 AI 带单</a><a href="#c09">09 灰产接单</a><a href="#c10">10 假副业卖课</a>
+  <a class="part-label" href="#c11">PART 3 骗局图鉴·下</a>
+  <a href="#c11">11 貔貅盘</a><a href="#c12">12 加盟代理</a><a href="#c13">13 起号神话</a><a href="#c14">14 二手保证金</a><a href="#c15">15 杀猪盘</a>
+  <a class="part-label" href="#c16">PART 4 防身术</a>
+  <a href="#c16">16 信息保护</a><a href="#c17">17 证据报案</a><a href="#c18">18 追赃维权</a><a href="#c19">19 真机会清单</a><a href="#c20">20 家庭防线</a>
+</div></nav>
+
+<section id="toc" class="wrap">
+  <div class="sec-head"><span class="sec-no">CONTENTS</span><h2>目录</h2></div>
+  <p class="sec-desc">四个部分按“先修内功、再认敌人、最后留后路”排列：心法四章教你识别与止损；图鉴十一章把 15 类骗局逐个拆到机制级；防身五章讲证据、报案、维权与家庭防线。点击任意条目直达对应章节。</p>
+  <details class="tocfold" open>
+    <summary>📖 完整目录 · 4 部分 · 20 章<span class="fold-hint">点击展开 / 收起</span></summary>
+    <div class="tocbox">
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第一部分</span><b>避坑心法</b><span class="toc-part-en">CH 01–04</span></div>
+        <ul class="toc-list">
+          <li><a href="#c01"><span class="toc-no">01</span>为什么你总被割<span class="toc-sub">被骗的人性漏洞</span></a></li>
+          <li><a href="#c02"><span class="toc-no">02</span>收益承诺识别法<span class="toc-sub">钱从哪来三问</span></a></li>
+          <li><a href="#c03"><span class="toc-no">03</span>查证工具箱<span class="toc-sub">扒一个项目的底裤</span></a></li>
+          <li><a href="#c04"><span class="toc-no">04</span>止损决策<span class="toc-sub">什么时候认赔离场</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第二部分</span><b>骗局图鉴 · 上</b><span class="toc-part-en">CH 05–10</span></div>
+        <ul class="toc-list">
+          <li><a href="#c05"><span class="toc-no">05</span>培训贷与天价训练营<span class="toc-sub">卖课敛财的金融化</span></a></li>
+          <li><a href="#c06"><span class="toc-no">06</span>刷单与做任务返利<span class="toc-sub">小额甜头大额陷阱</span></a></li>
+          <li><a href="#c07"><span class="toc-no">07</span>资金盘与互助盘<span class="toc-sub">借新还旧的死亡倒计时</span></a></li>
+          <li><a href="#c08"><span class="toc-no">08</span>AI 量化交易与带单<span class="toc-sub">技术话术包装的老骗局</span></a></li>
+          <li><a href="#c09"><span class="toc-no">09</span>灰产接单<span class="toc-sub">跑分/刷号的法律后果</span></a></li>
+          <li><a href="#c10"><span class="toc-no">10</span>假副业真卖课<span class="toc-sub">9.9 元漏斗全拆解</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第三部分</span><b>骗局图鉴 · 下</b><span class="toc-part-en">CH 11–15</span></div>
+        <ul class="toc-list">
+          <li><a href="#c11"><span class="toc-no">11</span>链上资金盘与貔貅盘<span class="toc-sub">只进不出的合约</span></a></li>
+          <li><a href="#c12"><span class="toc-no">12</span>加盟与代理骗局<span class="toc-sub">招商敛财的套路</span></a></li>
+          <li><a href="#c13"><span class="toc-no">13</span>自媒体培训与起号神话<span class="toc-sub">流量焦虑的变现</span></a></li>
+          <li><a href="#c14"><span class="toc-no">14</span>二手交易与保证金骗局<span class="toc-sub">平台外交易的陷阱</span></a></li>
+          <li><a href="#c15"><span class="toc-no">15</span>情感杀猪盘<span class="toc-sub">感情铺垫的精密骗局</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第四部分</span><b>防身术</b><span class="toc-part-en">CH 16–20</span></div>
+        <ul class="toc-list">
+          <li><a href="#c16"><span class="toc-no">16</span>个人信息保护<span class="toc-sub">被骗前的第一道防线</span></a></li>
+          <li><a href="#c17"><span class="toc-no">17</span>证据保全与报案实操<span class="toc-sub">黄金时间窗口</span></a></li>
+          <li><a href="#c18"><span class="toc-no">18</span>被骗后的追赃与维权<span class="toc-sub">止损之后做什么</span></a></li>
+          <li><a href="#c19"><span class="toc-no">19</span>识别"真机会"的正面清单<span class="toc-sub">好项目的共同特征</span></a></li>
+          <li><a href="#c20"><span class="toc-no">20</span>家庭防骗与助人清单<span class="toc-sub">守护一老一小</span></a></li>
+        </ul>
+      </div>
+    </div>
+</details>
+</section>
+
+<section id="c01" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 01 · PART 1 · 避坑心法</span><h2>为什么你总被割<span class="accent">被骗的人性漏洞</span></h2></div>
+  <p class="sec-desc">被骗不丢人，也不代表笨。这一章不骂"贪心活该"，只拆一件事：骗局按动了人身上哪几个正常开关。把漏洞补上，比背一百个骗局名字管用。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧠</span><h3>先说实话：被骗不是智商问题，是"攻心"</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：零</span><span class="badge">损失：看后续动作</span></div>
+    </div>
+    <p>2026年6月，公安部把"全民反诈在行动"宣传月主题定为<b>"不听不信不贪恋，构筑反诈'心'防线"</b>。刑侦局副局长朱磊在发布会上说得很直白：<b>诈骗本身就是"攻心战"</b>。骗子攻的不是你的智商，是你的情绪。正常人身上有几个开关，几乎每个骗局都在按：</p>
+    <ul>
+      <li><b>贪婪——"想多赚一点"</b>：平台先让你看见盈利。海南68岁的李先生投6万元，软件显示盈利26万元；数字好看，钱是假的。</li>
+      <li><b>恐惧——"怕错过、怕出事"</b>：健康类骗局先制造焦虑。人民日报调查的净水器骗局里，商家把电解棒插进清澈的自来水中，"变"出铁锈色泡沫，喊"你家自来水多脏"，老人当场就慌了。</li>
+      <li><b>信任——"对面是自己人"</b>：军人、券商高管、专家、客服，人设是批量生产的。北京63岁的王女士遇到的"军人"，几天后就以"身份不便"为由，把她带进一个小众聊天软件。</li>
+      <li><b>从众与沉没成本——"都投了，不能停"</b>：讲座捧场、群里晒收益、抽奖名单造气氛；钱一投进去，"再充一点就能提现"就比"承认被骗"好听得多。</li>
+    </ul>
+    <p>那"我知道很多骗局"为什么还会中招？因为骗局不是考你"知不知道"，而是让你在<b>信任已建立、利益在眼前、时间被催紧</b>的状态下做决定。知识在情绪面前经常不设防：王女士听过民警的96110预警，李先生"反复强调自己没有被骗"——人都倾向维护自己正在做的选择，提醒反而被当成耳旁风。这不是嘴硬，是正常心理。至于"高学历、高智商就不会被骗"，公开通报很少按学历统计受害者，<b>暂无按学历分列的全国数据</b>；但年龄跨度能说明问题：美国FBI IC3报告显示，2024年<b>60岁以上群体损失近50亿美元、居各年龄段之首</b>；上海警方2025年3月27日发布会通报，当地电诈受害者<b>平均年龄38岁、最小受害者仅7岁</b>（7岁小学生网上找免费代打网游被骗）、最大86岁，而25岁以下青少年的占比<b>暂无公开数据</b>。老人、学生、白领都在名单上——骗局挑的是"当时正被情绪占满的人"，不是"笨人"。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>公安部刑侦局副局长朱磊在2026年6月12日发布会上说："诈骗本身就是'攻心战'，我们反诈的宣传活动也是一个'心'防战。"（中国警察网发布会实录）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎣</span><h3>骗局的普适结构：引流 → 信任 → 收网</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：极低，一个链接就够</span><span class="badge">损失：几千~上百万</span></div>
+    </div>
+    <p>不管换成"刷单""理财""康养"哪张皮，骨架都一样。公安部通报：当前最高发的诈骗共<b>10类，占全部电诈案件的85%</b>；其中刷单返利发案最多（占<b>25%</b>），虚假网络投资理财损失最大（约占全部损失的<b>40%</b>），百万以上的大案大多出在这类。这条流水线分三步：</p>
+    <table>
+      <thead><tr><th>高发类型</th><th>发案占比</th><th>损失占比</th><th>典型长相</th></tr></thead>
+      <tbody>
+        <tr><td>刷单返利</td><td>约25%（最高）</td><td>暂无公开数据</td><td>小额返利当诱饵，单案金额小、发案量大</td></tr>
+        <tr><td>虚假网络投资理财</td><td>10类之一</td><td>约40%（最高）</td><td>百万以上大案多出自这类，常配小众软件、黄金交割</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>引流（鱼从哪来）</b>：过去靠电话短信，现在<b>66%</b>从网络平台来——社交软件、短视频、直播间、电商私信、评论区扫码入群。一个陌生链接或一条私信，就是入口。</li>
+      <li><b>信任（怎么养）</b>：加好友后诱导你换到<b>小众聊天软件</b>（用户少、关注度低，专门躲开预警），用定制话术长期洗脑；同时伪造身份、伪造平台（假交易所、假炒股App），再给小额甜头：首充后"盈利5000元"、小额提现成功，让你亲眼"验证"平台是真的。</li>
+      <li><b>收网（钱去哪）</b>：等你投大的，提现就开始"出故障"——活跃度不够、要交税、要保证金。钱的路线是：你的卡 → 假平台"充值"通道（实为对公或个人账户）→ 小额返利养信任 → 大额一到账就被转走、经多层账户和虚拟货币分层洗白 → 出境。你看到的"盈利"只是后台改了个数字；小额提现是饵，大额一进就锁死。新趋势更直接：让你<b>取现金、买黄金，交给上门取金的人或寄到指定地点</b>——王女士就把300克黄金连发票证书一起交给了上门人员。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>北京市公安局刑侦总队通报的王女士案中，民警多次拨打96110提示防骗，"她都以生活正常需要搪塞，拒绝和民警见面"；商场售货员提醒她防骗，"她都置若罔闻"。（中国警察网，2026年6月12日公安部发布会）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>识别信号 checklist 与两个真实结局</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：会打字就能遇上</span><span class="badge">损失：几千~上百万（含房产）</span></div>
+    </div>
+    <p>中招之前，信号其实都亮过。对照下面几条，中三条以上就该停手：</p>
+    <ul>
+      <li>陌生人在社交平台、短视频或评论区加你，聊几天就带你"赚钱"——66%的诈骗从这里开始</li>
+      <li>被要求下载"内部版"或小众聊天软件，或脱离官方应用市场扫码装App</li>
+      <li>宣称"稳赚不赔、高息保本、内部消息""活跃度够才能提现"</li>
+      <li>先给小额甜头（返利、显示盈利），再诱导大额加仓</li>
+      <li>要求取现金、买黄金手机等贵重物品，交给上门人员或寄到指定地点</li>
+      <li>催你"保密""别告诉家人""当场操作"</li>
+      <li>96110来电或民警上门——这是最后一道闸门，务必接听、配合</li>
+    </ul>
+    <p><b>案例一（收网成功，损失100.97万元）</b>：北京王女士，63岁。3月底在网上认识自称"军人"的骗子，被诱导下载小众软件"JustTalk"，扫码进入假"郑州商品交易所"。首充后客服告知盈利5000元；4月16日起她陆续充值58万余元，又购买300克黄金交给上门取金人员；5月3日对方称"活跃度不够"无法提现、要求继续充值时，她才报警，共损失<b>100.97万元</b>。</p>
+    <p><b>案例二（刹车成功，保住56万元）</b>：海南李先生，68岁。9月下载"炒股软件"获取"内幕消息"，投入6万元后平台显示盈利26万元；随后他抵押三亚房产贷款<b>56万元</b>准备全投，到银行取现19万元时触发反诈预警。民警当面演示"这个软件根本提不了现"，劝导6小时，56万元被<b>保护性止付</b>，事后协助他解除抵押、解冻账户。区别只在一步：<b>发现得早，钱就追得回</b>。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办 + 今天10分钟能做的设置</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：零</span><span class="badge">止损黄金时间：以小时计</span></div>
+    </div>
+    <p><b>已经中招（或怀疑中招），按顺序做四件事：</b></p>
+    <ul>
+      <li><b>立刻停</b>：不追加、不信"再充一点解锁提现"、不删记录。这时候沉没成本最危险——"都投了58万，再交5万税就能取出来"是收网话术，不是救命稻草。</li>
+      <li><b>马上报警</b>：拨110或去派出所，讲清转账时间、金额、对方账号、平台链接、聊天记录。北京警方在发布会上明确提示：老人被骗要<b>第一时间报警，越早报警追回损失可能性越大</b>。李先生的56万元就是预警后几小时内止付保住的。</li>
+      <li><b>留证据</b>：转账凭证、聊天记录、对方电话和通话录音、App下载链接、寄黄金的快递单，一并交警方。</li>
+      <li><b>冻卡、防二次伤害</b>：联系银行和支付机构挂失冻结涉案卡；用云闪付"一键查卡"查名下银行卡，防止被冒用转移涉诈资金。凡自称"维权律师""黑客""内部渠道帮你追回"的，都是冲着你焦虑来的第二波骗局，追损只走警方和司法机关。</li>
+    </ul>
+    <p><b>第一步操作（今天10分钟）：</b>①给手机开通<b>境外来电提醒</b>（工信部门服务，2025年累计提醒用户25.23亿次），无涉外需要的直接关闭境外来电短信接收；②用<b>"一证通查"</b>查名下电话卡和互联网账号，不用的注销解绑；③给自己和老人的支付账户设<b>转账限额</b>，应用商店打开"应用风险提醒"；④装好<b>国家反诈中心App</b>（免费），96110来电务必接。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>北京市公安局刑侦总队政治处主任李小燕："若是发现家里的老人被骗，一定要第一时间报警，越早报警追回损失可能性越大。同时，还要注意保留相关的证据，例如转账、聊天记录、对方通话的电话、通话的录音等等。"（中国警察网，2026年6月12日公安部发布会）</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://special.cpd.com.cn/wzzb/20260612/" target="_blank">公安部新闻发布会实录（2026-06-12，中国警察网）</a><a href="https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report" target="_blank">FBI IC3《2024年互联网犯罪报告》新闻稿</a><a href="https://news.cpd.com.cn/n3569/1026/t_1255387.html" target="_blank">人民日报《对净水器"坑老"骗局说不》（中国警察网转载）</a><a href="https://news.cpd.com.cn/n12021581/n12021601/1125/t_1208049.html" target="_blank">中国警察网《遭遇投资骗局 民警及时劝阻为群众挽损56万元》</a><a href="https://www.51ldb.com/shsldb/sz/content/0195d60da2d8c0010000d7c90f012edc.html" target="_blank">劳动报《平均被骗超5万元，受骗年龄最小者仅7岁！上海公布最新网络电信诈骗案件类型》（2025-03-27，上海市公安局发布会）</a><a href="https://tousu.sina.com.cn/" target="_blank">黑猫投诉（新浪消费者投诉平台）</a></div>
+</section>
+
+<section id="c02" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 02 · PART 1 · 避坑心法</span><h2>收益承诺识别法<span class="accent">钱从哪来三问</span></h2></div>
+  <p class="sec-desc">所有"高收益"项目的入口都是同一句话。这一章教你用三个问题拆穿它：钱从哪来、收益谁付、账对不对得上——附判例原话、数学识别法和一份 10 分钟自查清单。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>话术解剖室：四种包装，一个内核</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：零门槛，一句话入局</span><span class="badge">损失：几百元~全部积蓄</span></div>
+    </div>
+    <p>骗局的开场白高度统一：把收益说成确定的事，把风险说成不存在的事。据公安部网站 2025 年 12 月发布的稿件，虚假网络投资理财类诈骗<b>发案只占电诈的一成左右，造成的财产损失却超过总损失的三成</b>。翻遍通报和报道，话术翻来覆去就这几种：</p>
+    <table>
+      <thead><tr><th>话术包装</th><th>通报 / 报道里的原话</th><th>翻译成数学</th></tr></thead>
+      <tbody>
+        <tr><td><b>保本保息</b></td><td>"承诺保证本金并获取固定收益"（最高检 2025 年通报·养老旅居案）</td><td>收益与风险彻底脱钩</td></tr>
+        <tr><td><b>年化收益</b></td><td>"许诺 5%—15% 的年化收益"（央视《法治在线》·全民养牛案）</td><td>15% 年化，约 5 年翻倍</td></tr>
+        <tr><td><b>月息 / 日息</b></td><td>"退还本金并支付月息 0.5% 至 1% 的利息"（最高检·黄金延期交付案）</td><td>折合年化 6%—12%</td></tr>
+        <tr><td><b>日结算</b></td><td>"日息 1%，天天到账"</td><td>按复利一年约 <b>37.8 倍</b></td></tr>
+        <tr><td><b>高倍返利</b></td><td>"返还客户本金及 20% 至 300% 不等的收益"（最高检·虚假 MT4 炒汇案）</td><td>任何实体生意都撑不住</td></tr>
+        <tr><td><b>躺赚</b></td><td>"线上认养肉牛，坐等高额收益"（央视《法治在线》报道，网易转载）</td><td>钱不来自劳动，也不来自经营</td></tr>
+      </tbody>
+    </table>
+    <p><b>庞氏结构的死穴，数学上早就写死了</b>：你的收益来自后来者的本金。日息 1%，平台每天要拿出全体本金的 1% 去兑付；用户每复投一次，明天要还的利息就厚一圈——按 72 法则，日复利 1% 时本金约每 72 天翻一倍（1.01<sup>72</sup>≈2.05），到第 100 天，待兑付规模约为第 10 天的 <b>2.4 倍</b>（1.01<sup>90</sup>≈2.45）；要滚到 5000 倍，得等约 856 天。新增资金一断，兑付立刻抽老本，直到连利息都凑不齐；提现设槛、送替代品（牛肉额度、积分、股权）、关网，是它们共同的结局。</p>
+    <p><b>法律边界比你想的低。</b>《防范和处置非法集资条例》（国务院令第 737 号，2021 年 5 月 1 日施行）第二条明确：非法集资就是"以许诺还本付息或者给予其他投资回报等方式，向不特定对象吸收资金"——这是定义要件，不等亏光就算。郭树清 2018 年 6 月在陆家嘴论坛给出的尺子更直白：<b>收益率超过 6% 就要打问号，超过 8% 很危险，10% 以上就要准备损失全部本金</b>（新华网报道）。而最高检 2025 年通报的案例里，"承诺给付 6%—12.5% 年化收益率"已被直接称为"高额回报"。所以别问"多少算违法"，先问"钱从哪来"。</p>
+    <blockquote class="xq">💬 <span class="who">涉案人员自述：</span>报道中的平台实控人事后对记者说，"之前做的事情就像一次赌博"。（澎湃新闻，2018-05-14）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">❓</span><h3>钱从哪来：三个问题问倒一切</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：会提问就行</span><span class="badge">作用：从源头避开全额损失</span></div>
+    </div>
+    <p>真实世界里，你的收益只可能来自三个地方：<b>① 投的资产自己生钱</b>（经营利润、租金、利息）；<b>② 资产本身涨价</b>（低买高卖）；<b>③ 别人口袋里的本金</b>。前两种都有真实资产和真实经营撑着，第三种就是庞氏——用后来者的钱先垫给先来的人。平台新开张时账面上很好看：提现秒到、收益天天涨，因为池子里全是新钱；等新增放缓，就开始抽老本兑付。三个问题，挨个问：</p>
+    <ul>
+      <li><b>① 我的钱具体买到了什么？</b>要能说出底层资产（哪里的牛、谁的债权），拿得出托管方、审计报告、登记编码；只有"理财计划""份额""牧场画面"的，先停。</li>
+      <li><b>② 我的收益是谁付的？</b>如果是平台"补贴"给你的，先问平台赚什么；如果平台靠新钱付旧钱，收益越高，倒得越快。</li>
+      <li><b>③ 收益和经营数据对得上吗？</b>让对方出示可对账的数据。澎湃报道的 P2P 案里，平台以 5%—18% 年化吸金 <b>30 亿元</b>、注册用户 <b>43 万</b>，实际放款不到投入的 <b>10%</b>，近七成被运营成本占用，"每天需 900 多万元开支，每天填补约 500 万窟窿"——这种账，永远对不上。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>经办该类案件的经侦人员对记者说——"投资人必须弄清资金去向和收益来源，如果没有清晰可信的解答，那还是不投为好。"（澎湃新闻，2018-05-14）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>识别信号清单：中两条以上，就该停手</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：谁都可能中招</span><span class="badge">损失：积蓄~房产</span></div>
+    </div>
+    <p>这些信号单独出现未必是骗，叠在一起就是庞氏的典型脸，且大多能在上面的判例里找到原型：</p>
+    <ul>
+      <li>☐ 把"保本保息""稳赚不赔""零风险高收益"写进宣传——持牌机构现在都不敢这么写</li>
+      <li>☐ 底层资产说不清，只有监控画面和图片素材——全民养牛案里的"牧场直播"被指为网上拼凑</li>
+      <li>☐ 收益主要跟"拉人"挂钩：推荐返佣、团队奖、层级分红</li>
+      <li>☐ 提现从"秒到"变成 T+1、T+7，出现"系统维护""缴税解冻"</li>
+      <li>☐ 兑付开始送替代品：牛肉额度、积分、股权、期权——就是不给钱</li>
+      <li>☐ App 只能通过链接、二维码下载，机构和产品在监管官网查不到牌照</li>
+      <li>☐ 群里只许晒收益，谁质疑谁被踢；"老师"天天催加仓："最后一天""额度有限"</li>
+      <li>☐ 黑猫投诉等平台上，涉理财 App 投诉的高频标签正是"虚假宣传""钱无法提现"（2026 年 10 月检索所见，聚合总量暂无公开数据）</li>
+    </ul>
+    <table>
+      <thead><tr><th>维度</th><th>持牌机构理财</th><th>收益承诺型骗局</th></tr></thead>
+      <tbody>
+        <tr><td>风险怎么讲</td><td>"业绩比较基准，不保本"</td><td>"保本保息、稳赚不赔"</td></tr>
+        <tr><td>底层资产</td><td>定期披露，可查登记编码</td><td>说不清，只有故事和画面</td></tr>
+        <tr><td>收益来源</td><td>对应资产的真实运作</td><td>新用户的本金</td></tr>
+        <tr><td>销售渠道</td><td>官方 App、网点、持牌平台</td><td>微信群、私聊、链接下载</td></tr>
+        <tr><td>提现规则</td><td>按合同执行</td><td>随时改，层层设槛</td></tr>
+        <tr><td>服务者身份</td><td>持牌机构官方客服</td><td>"导师""助理"加收益截图轰炸</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>一个真实案例：5.6 亿元与 12 万人的"空气牛"</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：5000 元起投</span><span class="badge">损失：数千元~数百万元</span></div>
+    </div>
+    <p>央视《法治在线》2025 年 10 月报道的"全民养牛"App 集资诈骗案（多家媒体转载）：花 <b>5000 元</b>认养一头澳洲肉牛，平台代养代卖，宣传"年化收益 5% 至 15%"、18 个月后一头牛能卖 3 万元。平台 2016 年上线，累计注册 <b>130 多万人</b>，<b>12 万余人</b>投入，涉案 <b>5.6 亿余元</b>。2024 年 5 月，平台毫无通知地强制回购牛只，此后所谓牛肉份额"一斤都没能卖出去"；真正用于采购牛肉的资金<b>只有 800 多万元</b>，其余大部分用于借新还旧。主犯张盛博被以集资诈骗罪判处<b>有期徒刑十年六个月</b>（据媒体转载央视报道；罚金数额暂无一致公开口径）。上海的武先生累计投入 <b>300 万元</b>、认养 600 头牛，崩盘后账户里的"牛"被折算成无法变现的兑换额度。</p>
+    <p>最高检 2025 年通报的刘某香等人以"黄金延期交付"为名，承诺"退还本金并支付月息 0.5% 至 1% 的利息"，非法集资 <b>4 亿余元</b>、损失 <b>2 亿余元</b>、<b>1600 余人</b>受害，被判处<b>无期徒刑</b>、没收个人全部财产；沈移平以"以房养老"为名诱使老年人抵押房产后转投其公司并承诺高息，吸收资金 <b>2.98 亿余元</b>、损失 <b>1.68 亿余元</b>，同样被判<b>无期徒刑</b>（山东法院网通报）。收益越高、故事越完美，清算越狠。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>央视报道里的受害者武先生，300 万元换来 600 头"空气牛"和一份卖不掉的牛肉额度——他不是贪心，他只是信了"平台帮养帮卖、坐收其利"这句话。（据央视《法治在线》报道转述）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办 + 10 分钟第一步</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：现在就做</span><span class="badge">作用：决定还能追回多少</span></div>
+    </div>
+    <p><b>中招之后的五件事，按顺序做：</b></p>
+    <ul>
+      <li><b>立刻停手。</b>不再充值、不借钱补仓、不信"内部消息"抄底复活——追加只会扩大损失。</li>
+      <li><b>固定证据。</b>宣传页、群聊、"老师"发言、收益截图、银行流水、App 下载链接、对方收款账户，全部截图留存——话术原文是定案的核心证据，退群删记录等于自毁证据。</li>
+      <li><b>尽快报案。</b>拨 110 或去辖区派出所（经侦大队），报案事由写"非法吸收公众存款"或"集资诈骗"；平台注册地在外地，也可以在你自己所在地报案。</li>
+      <li><b>警惕二次诈骗。</b>群里晒"追回成功"让你交"解冻费""手续费""保证金"的，全是骗子。真退款只可能从官方渠道原路退回。</li>
+      <li><b>提醒身边人。</b>把话术截图转给亲友——这类骗局靠熟人拉熟人扩散，你的一次提醒可能就断了一条链。</li>
+    </ul>
+    <p><b>第一步操作（10 分钟，现在就能做）：</b></p>
+    <ul>
+      <li>第 1—3 分钟：把该项目所有"承诺收益"的页面和聊天记录截图，统一存档。</li>
+      <li>第 4—5 分钟：打开国家反诈中心 App，举报该平台和它的下载链接。</li>
+      <li>第 6—8 分钟：查牌照——在国家金融监督管理总局官网查该机构是否持牌；如果是银行理财，去中国理财网查产品登记编码，查不到就不是合规理财。</li>
+      <li>第 9—10 分钟：导出近半年转到该平台的银行流水，算出真实亏损额，拨打 110 报案。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/gongbao/content/2021/content_5588815.htm" target="_blank">中国政府网·国务院公报：《防范和处置非法集资条例》（国务院令第737号）</a><a href="https://www.spp.gov.cn/xwfbh/dxal/202506/t20250610_697881.shtml" target="_blank">最高人民检察院：检察机关打击非法集资犯罪典型案例（2025-06-10）</a><a href="http://jninggxqfy.sdcourt.gov.cn/dykfqfy/397053/397093/9026915/index.html" target="_blank">山东法院网：沈移平集资诈骗案通报</a><a href="https://www.samr.gov.cn/zt/ndzt/2022n/djzzylzpscjgzxd/xwbd/art/2023/art_dcf2be07a3b043a9b19228efabbe6621.html" target="_blank">国家市场监督管理总局：打击整治养老诈骗专项行动典型案例</a><a href="https://m.thepaper.cn/newsDetail_forward_2129000" target="_blank">澎湃新闻："保本保息""高收益率"P2P平台一夜崩盘，解析庞氏骗局（2018-05-14）</a><a href="https://www.163.com/dy/article/L94NFVBR0550KKDR.html" target="_blank">网易（转央视《法治在线》）：央视起底5.6亿云养牛骗局（2026-10-13）</a><a href="https://www.sohu.com/a/1089374722_100152983" target="_blank">搜狐号（转央视《法治在线》）：央视曝光"云养牛"骗局：12万人投资5.6亿（2026-10-19）</a><a href="https://www.sohu.com/a/1090305620_122105234" target="_blank">搜狐号：又一庞氏骗局暴雷！央视曝光，12万人被割韭菜，坑骗5.6亿血汗钱（2026-10-20）</a><a href="https://www.mps.gov.cn/n2255079/n4876594/n5104076/n5104080/c10331482/content.html" target="_blank">公安部网站：全链条打击涉诈黑灰产稿件（2025-12-01）</a><a href="https://toutiao.com/group/6566796581058642439/" target="_blank">新华网：郭树清——收益率超6%要打问号 让庞氏骗局无所遁形（2018-06-14）</a></div>
+</section>
+
+<section id="c03" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 03 · PART 1 · 避坑心法</span><h2>查证工具箱<span class="accent">扒一个项目的底裤</span></h2></div>
+  <p class="sec-desc">一个"赚钱项目"找上门，先别掏钱。这套查证组合拳全部免费：从公司主体、网站备案、法院判决到投诉记录，七步走完，是骡子是马当场现形。本章讲每一步具体怎么查、能查出什么。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛠️</span><h3>查证七件套：先查"是谁"，再查"有没有"，最后查"骂声"</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：免费，一台手机</span><span class="badge">作用：花钱前的验货</span></div>
+    </div>
+    <p>所有骗局都要先解决一个问题：怎么让你相信它"存在"。查证就是反着拆。顺序记牢——<b>先查"是谁"</b>（公司主体），<b>再查"有没有"</b>（备案和牌照），<b>最后查"骂声"</b>（判决和投诉）。前三步十分钟内能做完，挡掉的却是绝大多数低级假项目。</p>
+    <table>
+      <thead><tr><th>查什么</th><th>去哪儿查（免费）</th><th>能查出什么</th><th>看到就要警惕</th></tr></thead>
+      <tbody>
+        <tr><td><b>公司底细</b></td><td>国家企业信用信息公示系统 gsxt.gov.cn、天眼查</td><td>成立时间、注册资本、实缴出资、经营状态、行政处罚、有无被列入经营异常名录或严重违法失信名单</td><td>成立不到一年却讲"十年老品牌"；认缴写得巨大、实缴为 0；已被列入异常名录</td></tr>
+        <tr><td><b>网站身份</b></td><td>工信部备案系统 beian.miit.gov.cn</td><td>主办单位名称、备案号、审核通过时间</td><td>网站底部没有备案号；备案主体和宣传的公司对不上；备案号在官网查不到</td></tr>
+        <tr><td><b>APP 身份</b></td><td>工信部备案系统（APP / 小程序备案）＋应用商店页面</td><td>开发者主体、上架时间、版本记录</td><td>应用商店搜不到，只能扫码或点链接安装；开发者是个人</td></tr>
+        <tr><td><b>官司历史</b></td><td>中国裁判文书网 wenshu.court.gov.cn</td><td>该公司和主要股东涉及的刑事、民事判决</td><td>查不到不等于干净；但查到诈骗、非法集资类刑事判决，立刻停手</td></tr>
+        <tr><td><b>投诉口碑</b></td><td>黑猫投诉 tousu.sina.com.cn</td><td>按公司名、APP 名搜投诉聚合，看"无法提现""客服失联"类关键词</td><td>大量同类投诉；投诉集中在最近几个月——往往是收网前的信号</td></tr>
+        <tr><td><b>域名年龄</b></td><td>Whois 查询（如 whois.chinaz.com）</td><td>域名注册时间、注册商、到期日、是否开启隐私保护</td><td>注册才几个月；到期日很近；批量注册多个相似域名</td></tr>
+        <tr><td><b>钱进谁口袋</b></td><td>打款页面、收款账户户名</td><td>收款方到底是谁，和宣传主体是不是同一家</td><td>收款方是个人账户、陌生个体户，或让你买黄金、购物卡"充值"</td></tr>
+      </tbody>
+    </table>
+    <p>投诉平台值得单独说一句：截至 2023 年 8 月 18 日，黑猫投诉有效投诉量已突破 <b>1500 万件</b>，累计帮 700 余万名消费者处理纠纷（南方都市报）。这个量级意味着——稍微有点名气的项目，大概率能搜到痕迹；搜不到任何声音的"新平台"，要么太新，要么太会删。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>机制拆解：你的钱根本没进"投资"</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：一部手机就能入局</span><span class="badge">损失：几千~几十万，大案上千万</span></div>
+    </div>
+    <p>这类骗局的本质一句话：<b>你的钱从头到尾没碰过任何真实资产，进的是骗子完全控制的资金池</b>。钱的典型流向是：引流（婚恋交友、荐股群、假 APP 广告）→ 第一笔小额投入"顺利提现"，信任就此建立 → 你加大投入 → 后台把数字改成大涨，让你看账面盈利 → 你想提现时，对方以"缴税""保证金""流水不够"为由要求再转一笔 → 平台关门、群解散、人消失。你看到的"盈利"只是别人屏幕上能改能删的一行数字；小额提现是饵，大额一进就锁死。</p>
+    <p><b>真实案例（金额与结局都来自官方披露）：</b>最高检、公安部联合挂牌督办的一起特大跨境虚假投资平台诈骗案（最高人民检察院 2024 年 12 月披露）中，犯罪集团 2019 至 2020 年在柬埔寨搭建多个虚假投资平台，宣称"预计收益在 30%"，后台控制涨跌营造升值假象，再通过限制提现、关闭平台占有钱款；业务员用统一发放的手机和微信号，在微信群里分饰"讲师""群内助理""普通股民"，按话术一唱一和。该案骗取 <b>500 余名受害人共 1.4 亿余元</b>，2020 年 12 月 30 日由浙江金华警方立案，<b>426 人分案移送审查起诉</b>；团队老板葛某一审被判<b>无期徒刑</b>、没收个人全部财产，团队长等 10 人获刑 14 年至 10 年 3 个月，其余 379 人获刑 3 年以上。浙江舟山中院 2019 年 8 月 29 日一审宣判的另一起案件更直白：被告人搭建虚假现货投资平台，用直播间"老师"诱导投资，再"修改平台后台数据控制价格升降"制造亏损假象，截至 2017 年 8 月 4 日已引诱 <b>200 多名客户、诈骗金额 1217 万余元</b>，主犯闫某获刑 <b>12 年 6 个月并处罚金 200 万元</b>，同案 23 人全部获刑。查证的意义就在这：这两起案子的平台，但凡有人提前查过备案主体和收款账户，都不会走到最后一页。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>警方通报冒充军工投资诈骗案时的提醒原话——"任何涉及'军工''机密'的投资极有可能是骗局，正规投资不会通过个人名义招募或要求现金交易。"（警方通报，2026 年 1 月媒体报道）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚩</span><h3>识别信号 checklist ＋ 10 分钟第一步</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：对照清单就行</span><span class="badge">作用：三分钟验货，挡掉多数假项目</span></div>
+    </div>
+    <p>把这份清单存在手机里，遇到任何"赚钱项目"过一遍。<b>中三条以上基本可以判死刑</b>；只中一条也别急着掏钱，先把那一条查清楚。</p>
+    <ul>
+      <li>☐ 把"稳赚不赔""内幕消息""名师指导"写进宣传——央视网 2025 年 6 月点名，这几类话术都是套路，虚假网络投资理财诈骗被列入当年十大高发电信网络诈骗类型</li>
+      <li>☐ 收益率高得反常：日结、月息 5% 以上、宣称"预计收益 30%"</li>
+      <li>☐ APP 只能扫码或点链接安装，应用商店搜不到——工信部反诈专班已多次公布涉诈高风险 APP 名单，套路正是冒用"国家支持项目""国家惠民工程"名义</li>
+      <li>☐ 网站没有 ICP 备案号，或备案主体与宣传公司对不上——证券时报提示：无备案的属于高风险平台</li>
+      <li>☐ 公司成立时间短、注册资本认缴巨大而实缴为 0、被列入经营异常名录</li>
+      <li>☐ 收款方是个人账户或陌生个体户，或要求取现金、买黄金、充值购物卡</li>
+      <li>☐ 客服催"限时""名额有限"，不让你细看合同和资质</li>
+      <li>☐ 黑猫投诉上能搜到"无法提现""跑路"记录</li>
+      <li>☐ 域名注册不足一年，Whois 显示开启隐私保护</li>
+      <li>☐ 群里人人赚钱、晒单截图风格统一——那是话术本里的剧本，不是客户</li>
+    </ul>
+    <p><b>第一步操作（10 分钟，现在就能做）：</b></p>
+    <ul>
+      <li>第 1—3 分钟：把 gsxt.gov.cn、beian.miit.gov.cn、wenshu.court.gov.cn、tousu.sina.com.cn 四个官网加进浏览器书签，以后只从书签进——搜"备案查询"跳出来的前几条，不少是李逵李鬼。</li>
+      <li>第 4—5 分钟：装好国家反诈中心 APP 并开启预警，把项目名称输进去搜一遍。</li>
+      <li>第 6—8 分钟：查眼前这个项目——公司全称进 gsxt；网址底部备案号进 beian，核对主体名称是否一致；公司名和 APP 名分别在 tousu.sina.com.cn 和裁判文书网各搜一次。</li>
+      <li>第 9—10 分钟：打款前多看一眼收款方户名，和宣传主体对不上就停。再给钱包上把锁：单笔超过 5000 元的转账，强迫自己隔天再付。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办：五件事，按顺序做</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：现在就做</span><span class="badge">作用：决定还能追回多少</span></div>
+    </div>
+    <p>发现自己可能被骗，最要紧的是快——<b>钱一旦转出，每一分钟都在被拆分转移</b>。按顺序做五件事：</p>
+    <ul>
+      <li><b>① 立刻停手。</b>不再充值、不借钱补仓、不信"内部消息"抄底复活——"再交一笔才能提现"是所有骗局的统一收尾台词，目的就是让窟窿更大。</li>
+      <li><b>② 固定证据。</b>聊天记录、转账凭证、APP 和收款账户截图、群聊记录，全部截图加录屏，别退群、别删记录。话术原文是定案的核心证据，删了就等于自毁证据。</li>
+      <li><b>③ 马上报案。</b>拨 110 或去辖区派出所，说清"遭遇电信网络诈骗"，提供对方账号、支付记录和平台链接。越早报案，资金拦截和追赃的希望越大。</li>
+      <li><b>④ 联系银行和支付机构。</b>银行卡转账打银行客服申请紧急止付，第三方支付同理，一分半秒都别拖。</li>
+      <li><b>⑤ 别信"维权追损"。</b>网上声称"帮你追回被骗款"的，绝大多数是二次诈骗——他们早就盯着受害者名单了。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>据大象新闻转安徽宿州埇桥警方通报，2026 年 10 月，民警上门拦截一起虚假投资理财诈骗时，居民宋某某一开始觉得警方"坏我好事"，几小时后才醒悟，最终止损 9 公斤白银。骗子最深的控制不是技术，是让你觉得"别人在挡你发财"——所以反诈民警上门时，请让他们把话说完。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.spp.gov.cn/zdgz/202412/t20241203_675281.shtml" target="_blank">最高人民检察院：特大跨境虚假投资平台诈骗案（涉案1.4亿余元、500余名受害人）</a><a href="https://3w.huanqiu.com/a/96194f/9CaKrnKmDPE" target="_blank">环球网：舟山中院判决虚假投资平台诈骗案（主犯获刑12年6个月）</a><a href="https://news.cctv.com/2025/06/23/ARTIVOHSJiRwDuC0lhZKuS64250623.shtml" target="_blank">央视网：警惕虚假理财——2025年十大高发电信网络诈骗类型</a><a href="https://www.shantou.gov.cn/stsgaj/gkmlpt/content/2/2314/post_2314218.html" target="_blank">汕头市人民政府转发：工信部反诈专班公布涉诈高风险APP名单</a><a href="http://m.163.com/news/article/KJGLRV1U05345ARG.html" target="_blank">网易转警方通报：轻信"向俄罗斯买坦克"，龙某投资被骗42万</a><a href="https://toutiao.com/group/7269761654232891961/" target="_blank">南方都市报：黑猫投诉有效投诉量突破1500万</a><a href="https://m.mps.gov.cn/n6935718/n6936554/c8454547/content.html" target="_blank">公安部：最高检、公安部联合挂牌督办5起特大跨境电诈案（涉案1.5亿余元）</a><a href="http://www.chinapeace.gov.cn/chinapeace/c100047/2021-06/28/content_12504409.shtml" target="_blank">中国长安网：浙江警方破境外特大虚假投资诈骗案（涉案5亿元、抓获452人）</a><a href="https://toutiao.com/group/7660293874639847999/" target="_blank">证券时报：假冒券商荐股新型诈骗频发，高仿APP背后收割链条曝光</a><a href="https://special.cpd.com.cn/wzzb/20260612/" target="_blank">中国警察网：公安部2026年6月12日"全民反诈在行动"发布会专题</a></div>
+</section>
+
+<section id="c04" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 04 · PART 1 · 避坑心法</span><h2>止损决策<span class="accent">什么时候认赔离场</span></h2></div>
+  <p class="sec-desc">"都投这么多了，现在停就全亏了"——这句话本身就是骗局最后一道收割工序。这一章只讲信号出现时怎么把损失摁住，以及摁住之后按什么顺序做。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛑</span><h3>机制拆解：你账户里的"钱"，只是后台里的一行字</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">触发：已入局或正在观望</span><span class="badge">损失：几千~几十万</span></div>
+    </div>
+    <p>先看清楚钱怎么流动，再谈止损。虚假投资平台、资金盘的入金通道，通常是运营者指定的收款账户或链上地址；钱一旦转出，并不进入任何真实托管，而是被迅速分层转移。你在 App 里看到的"余额"和"收益"，只是后台数据库里一个可以随时修改的数字，行情页上只涨不跌的 K 线也是后台画的。配套的是一条成熟的出金流水线：<b>小额提现秒到账</b>（试出甜头、放心加码）→ <b>提现开始排队</b>（"系统升级""银行清算"）→ <b>提现被附加条件</b>（先缴"个人所得税""保证金""激活费"）→ <b>客服拖延</b> → <b>群解散、App 打不开、团队长失联</b>。走到这一步，钱已转完整整一圈，剩下的只有账户里那串数字。</p>
+    <p>这不是推演。2026 年 9 月，中国互联网联合辟谣平台发布核查，引述民政部回应：民政部<b>"从未设立或批准设立'民惠通'等项目，也未推出任何类似产品和相关APP"</b>。该 App 伪造公文、假冒民政部人员，以"高龄补贴"名义索取"保险金、保证金、激活费"，再用"签到赚钱""高额返利""拉人头返佣"诱骗充值，最终资金无法取出——官方已定性的骗局，走的正是这条流水线。</p>
+    <p>人为什么会在这种局面里继续加注？心理学的解释相当一致。实验心理学经典研究（Arkes 与 Blumer，1985）发现，人一旦投入了金钱、精力或时间，继续做下去的倾向就会显著上升，即"沉没成本谬误"；而前景理论又表明，<b>损失带来的痛感被显著放大，远超等额收益的快感</b>。于是"再投一笔就能回本"听起来格外合理。但对平台来说，这份想回本的冲动正是他们反复预演的收割工序：你的加注，就是他们的到账。</p>
+    <ul>
+      <li>沉没成本不参与未来决策："已经投了多少"和"还能不能回来"没有因果关系，它只影响你的情绪，不影响平台的兑付能力。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>国家反诈中心提示（经新华社发布）："陌生链接不点击、陌生来电不轻信"，警惕"低投入高回报""无抵押快放款"等话术，<b>"一旦遇到异常情况请立即拨打110报警"</b>。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>止损信号清单：出现任意一条，立刻停止加码</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">触发：任一信号出现</span><span class="badge">损失：从小亏变全亏</span></div>
+    </div>
+    <p>止损不是心情问题，是信号问题。下面每一条都来自公开通报与权威媒体反复出现的共性描述。<b>出现任意一条就立刻停止加码；同时出现两条以上，按"正在崩盘"处理</b>，别再等"下一个公告"。</p>
+    <ul>
+      <li>☐ <b>提现到账时间变长</b>：以前 T+0，现在 T+3 起，理由永远是"系统升级""银行清算"。</li>
+      <li>☐ <b>提现被附加条件</b>：到账前要求缴"个人所得税""保证金""激活费""解冻费"，或要求"再充值满 X 万解锁提现额度"。</li>
+      <li>☐ <b>规则悄悄变更</b>：锁仓期变长、提现门槛提高、手续费上调；公告措辞从"喜报""利好"变成"安抚""请理解"。</li>
+      <li>☐ <b>催促加码的话术密集出现</b>："最后几个名额""老带新返佣""充值 VIP 优先兑付""错过再等一年"。</li>
+      <li>☐ <b>客服与团队长失联</b>：群里突然禁言、晒单催单的人集体沉默、App 闪退或无法登录、应用商店查不到备案。</li>
+      <li>☐ <b>收益曲线不合常识</b>：宣称"稳定月化 10% 以上""只涨不跌"，大盘剧烈波动时，你的仓位纹丝不动。</li>
+      <li>☐ <b>入金与出金待遇悬殊</b>：充值通道永远畅通无阻，提现处处"风控"。</li>
+    </ul>
+    <p>国家反诈中心对此的概括一针见血：骗子挑选目标并非随机，"而是围绕受害人个人信息、行为习惯、心理弱点等设置套路，实施精准诱骗"（新华社，2026 年 10 月）。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>分批撤出 vs 一刀切：怎么撤，比撤多少更重要</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">决策窗口：提现还能走通时</span><span class="badge">损失：几千~几十万</span></div>
+    </div>
+    <p>先确立一条原则：<b>平台账户里的"余额"是数字，银行卡里的到账才是钱</b>。所以"分批撤出"的唯一含义是"分几笔把钱取出来"，而不是"分几次投进去"——"再补一单就能全额提现"这类说法，都是加码话术。</p>
+    <table>
+      <tr><th>局面</th><th>做法</th><th>理由</th></tr>
+      <tr><td>提现畅通，暂无异常信号</td><td>一次性全额撤出</td><td>信号出现再撤往往已晚，别用"再观察一天"拖延</td></tr>
+      <tr><td>刚出现 1 个信号（如到账变慢）</td><td>当天能提多少提多少</td><td>分批的前提是通道还在，不是给自己加码找理由</td></tr>
+      <tr><td>已被要求"缴费解锁提现"</td><td>一分钱都不再付，直接报警</td><td>这是典型的终局话术，付款只会扩大损失</td></tr>
+      <tr><td>平台无法登录或已失联</td><td>不再尝试"充值解封"，固定证据报案</td><td>二次转账等于二次受骗</td></tr>
+    </table>
+    <p>最常见的错误，是舍不得"前面的投入打水漂"选择再等等。但资金盘的兑付只按"还有多少新钱进场"排序，不按"你投了多少"排队——等下去不会让沉没的钱回来，只会让还没投出去的钱一起消失。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办：止血、留证、报案、防二次被骗</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">时效：转账后越快越好</span><span class="badge">目标：止损+固定证据+报案</span></div>
+    </div>
+    <p>顺序很重要：先止血，再留证，再报案，最后防二次被骗。不要跳步，也不要因为羞愧拖着不做——拖延是骗局流程里设计好的一环。</p>
+    <ul>
+      <li><b>一、立刻停手。</b>所有"回本操作"——补仓、缴费解冻、借钱翻本、抵押房产——全部停下。人力资源社会保障部、中央网信办、教育部、公安部、国务院国资委<b>五部门</b>的联合风险提示点明，这类套路就是"公域引流、私域转化、收费后拖延失联"。</li>
+      <li><b>二、固定证据。</b>五部门提示明确建议"保留聊天记录、协议文本和转账凭证"，其中转账凭证最不能删：已判决案件里的退赔金额，就是拿你的充值流水减去已提现金额算出来的——没有这些记录，连"你该拿回多少"都无从算起。</li>
+      <li><b>三、报案与举报。</b>拨打 <b>110</b> 或反诈专线 <b>96110</b>——转账后越快报案，紧急止付的可能性越大。涉及仿冒国家机关、银行、企事业单位网站的诈骗信息，可向中央网信办举报中心（12377）"诈骗类"入口举报，或通过公安部网络违法犯罪举报网站提交线索。</li>
+      <li><b>四、防二次诈骗。</b>刚刚报案或正在等待退赔的家庭，是“维权律师”“专业追损”“黑客追款”最主要的猎物——记住一条硬线：公安机关追赃不收一分钱，凡是“先交手续费再追款”的，直接拉黑。</li>
+    </ul>
+    <p><b>一个真实案例：</b>已经走完全程的"e租宝"案，把"留证早晚决定结果"写得很直白。2017 年 9 月 12 日，北京市第一中级人民法院一审宣判：钰诚系两家公司于 2014 年 6 月至 2015 年 12 月间，通过"e租宝""芝麻金融"两家平台发布虚假的融资租赁债权项目和个人债权项目，包装成理财产品销售，以承诺还本付息为诱饵向社会公众非法吸纳巨额资金；主犯丁宁数罪并罚被判处无期徒刑、剥夺政治权利终身，并处没收个人财产 50 万元、罚金 1 亿元，两家公司被并处罚金合计 <b>19.03 亿元</b>，张敏等 24 人分别被判处 15 年至 3 年有期徒刑（央广网，2017-09-12）。判决同时载明：追缴到案的资产将按比例发还集资参与人。而"按比例"落到个人头上时，第一道门槛是登记——2020 年 1 月，北京市第一中级人民法院发布该案首次资金清退公告，清退对象只限<b>已参加信息核实登记</b>的受损集资参与人，未参加登记的不列入本次清退范围；每人的清退金额，按"充值金额减去提现金额"得出的受损金额乘以统一清退比例确定（中国证券报，2020-01-09）。报案登记、流水、凭证，就是你在退赔名单上的位置；留证做得越早越全，算得清、退得到的部分才越多。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>第一步操作：10 分钟内能做完的自查清单</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">耗时：10 分钟</span><span class="badge">作用：把"再投一笔"挡在门外</span></div>
+    </div>
+    <p>如果你此刻正捏着一个"提现提不出来"或"规则刚变过"的仓位，先放下那个 App 按清单走一遍——10 分钟能做完，目的是在冲动最响的时候，把出口堵小、把证据留牢。</p>
+    <ul>
+      <li>☐ 打开银行 App，把涉事卡片的流水截图，标注可疑转账的时间、金额、对手账户。</li>
+      <li>☐ 拨打银行客服电话，问清涉事卡片能否挂失或冻结，防止继续被扣款。</li>
+      <li>☐ 拨打 110 或 96110，说明"疑似被骗、钱已转出"，询问紧急止付的可能——越快越有机会。</li>
+      <li>☐ 截图保存：平台余额页、提现失败提示、客服对话、群公告、收款账号、App 下载链接。</li>
+      <li>☐ 下载"国家反诈中心"App，对涉诈网址、账号、App 一键举报。</li>
+      <li>☐ 把复用过同一密码的账号（尤其是邮箱和支付类）改一遍密码。</li>
+      <li>☐ 给一个信任的人打电话，把"我停了，不再投"说出口——让决定接受一次外部监督。</li>
+      <li>☐ 在纸上写一句话："如果今天从零开始，我还会投吗？"这个问题的答案，通常就是止损的答案。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>心理学家 Susan Albers（Cleveland Clinic）："改变方向不是失败"，"那是自知，也是力量"。已经亏掉的钱不会因为你再投一笔回来；但还没投出去的钱，可以因为你停下来而保住。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.news.cn/legal/20261021/90598222a44048bcb96a642a33b00f1c/c.html" target="_blank">新华社《骗子为何"精准盯上你"？反诈部门拆解套路》（2026-10-22，素材来自国家反诈中心）</a><a href="https://www.news.cn/politics/20261021/ce82eb08290044f0abdc9a4dce47f3cb/c.html" target="_blank">人民日报/新华社《多部门发布风险提示：求职者，警惕"央国企内推"骗局》（2026-10-21）</a><a href="https://www.piyao.org.cn/20260923/ec4794d293e04169856cc4be79f1dc4b/c.html" target="_blank">中国互联网联合辟谣平台《"民惠通APP可发高龄补贴"不实》（2026-09-23，含民政部回应）</a><a href="http://china.cnr.cn/gdgg/20170912/t20170912_523945504.shtml" target="_blank">央广网《北京一中院对"e租宝"案一审宣判 丁宁、丁甸被判无期徒刑》（2017-09-12，含判决金额与"按比例发还集资参与人"表述）</a><a href="https://www.cqn.com.cn/ms/content/2020-01/09/content_8008677.htm" target="_blank">中国证券报/中国质量新闻网《"e租宝"案首次资金清退工作将于1月16日启动》（2020-01-09，清退对象、受损金额计算方式）</a><a href="https://health.clevelandclinic.org/how-the-sunk-cost-fallacy-could-be-keeping-you-in-bad-situations" target="_blank">Cleveland Clinic：The Sunk Cost Fallacy</a><a href="https://www.economicshelp.org/blog/27047/economics/sunk-cost-fallacy/" target="_blank">Economics Help：Sunk Cost Fallacy（含 Arkes & Blumer 1985、Thaler 心理账户等）</a><a href="https://www.12377.cn/jbxzxq/zpljbxzxq.html" target="_blank">中央网信办违法和不良信息举报中心（12377）·诈骗类举报</a><a href="http://cyberpolice.mps.gov.cn/wfjb/" target="_blank">公安部·网络违法犯罪举报网站</a></div>
+</section>
+
+<section id="c05" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 05 · PART 2 · 骗局图鉴·上</span><h2>培训贷与天价训练营<span class="accent">卖课敛财的金融化</span></h2></div>
+  <p class="sec-desc">招聘页上一条"急招"，面试官一句"你能力还差点"，一次刷脸、一个电子签名——工作没到手，贷款先背上。本章拆的，就是把卖课包装成"上岗通行证"的金融化玩法。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎓</span><h3>一、机制拆解：钱是怎么从你口袋里流走的</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：有身份证、会刷脸</span><span class="badge">损失：几千～几万元负债，附征信记录</span></div>
+    </div>
+    <p>这套东西的核心不是"课"，是<b>债</b>。2026年5月15日，人社部、中央网信办、教育部、公安部、金融监管总局五部门联合发布风险提示，点名"招转培""培训贷"（公安部网站）。换成"招转培"更准确：<b>先把你当求职者招进来，再把你当学员卖出去</b>。</p>
+    <ul>
+      <li><b>前端引流</b>：招聘平台挂"急招、不限专业、门槛低"的岗位，把你约去面试。</li>
+      <li><b>中场转换</b>：面试不谈业务，先否定你——"经验不够""作品不行，需要培训"，顺势推出"岗前培训""内部名额"。</li>
+      <li><b>关键一步</b>：你说没钱，对方立刻接"可以先学后付""教育分期""从工资里慢慢扣"，然后拿过你的手机让你刷脸、签电子合同。你签的往往不是培训合同，而是<b>一份网络贷款合同</b>。</li>
+      <li><b>资金落地</b>：放款方把钱打给你或打给机构，机构当场全额收走课程费，你名下多了一笔分期债务。金融业人士称，这类培训消费贷"金额多在几万元以内"，钱"直接发放至借款人账户"，"对资金去向很难逐一核实"（腾讯新闻）。</li>
+      <li><b>后端维稳</b>：课不值这个价，"包就业"不兑现，你想退，对方就拖、就分期代偿稳住你，直到公司更名、负责人失联（腾讯新闻）。</li>
+    </ul>
+    <p>看出来了吗：<b>卖课的收益是前置的、确定的；你的还款义务是长期的、确定的</b>，中间那个"就业承诺"是虚的。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"用人单位不得向劳动者收取任何形式的培训费用。"——律师房玉，腾讯新闻2026年"3·15"调查</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>二、"保证就业/高薪"话术，和八条识别信号</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一场面试就能进场</span><span class="badge">损失：冲动签约 + 长期月供</span></div>
+    </div>
+    <p>这些话术高度模板化，目标只有一个：让你在"没付现金"的错觉里完成借贷。</p>
+    <ul>
+      <li>"学习技能不是消费，是投资。"——江西大一学生张晓文回忆，最终打动她的就是这句（新华网）。</li>
+      <li>"边学边做兼职，赚的钱付学费""月收入能到1000元左右。"——甘肃学生袁圆（同上）。</li>
+      <li>"首付100元抵扣3000元""一个月仅还331元，没有任何压力。"——安徽应届高考生周娜（同上）。</li>
+      <li>"这是公司内部教育分期。"——广东学生林茜，她说"机构老师说这是'教育分期'，没说是贷款"（同上）。</li>
+    </ul>
+    <p>共同点是<b>先谈梦想和收益，再算"每月只要几百块"，全程绕开"贷款""利息""征信"</b>。对照下面八条，命中三条以上，基本就是"招转培"。</p>
+    <ul>
+      <li>招聘信息写"急招""不限专业""门槛低"，却说不清岗位职责。</li>
+      <li>面试不谈业务，先否定你："你经验不够／作品不行，需要培训。"</li>
+      <li>任何环节冒出"培训费""学费""分期"，哪怕包装成"从工资里扣"。</li>
+      <li>让你在手机上刷脸、签电子合同，且不让你完整看合同。</li>
+      <li>承诺"包就业""保底薪""学完接单月入过万"，并出示收入截图。</li>
+      <li>合同里的收款方或放款方是第三方小贷、保理公司。</li>
+      <li>催你"今天不定名额就没了"，机构还频繁更名、换地点。</li>
+      <li>只肯口头承诺"安排工作""可以退"，不肯写进合同。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"根本不存在'一单就能挣1万元'的派单。之前培训公司所说的截图，均为伪造。"——上海警方办案人员，央视网2023年8月报道</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>三、真实案例：上海奉贤，154人落网</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一场"兼职面试"</span><span class="badge">损失：涉案金额达千万元</span></div>
+    </div>
+    <p>2023年8月，央视网转载中青报报道：记者从上海市公安局奉贤分局获悉，该局捣毁<b>两个</b>新型"培训贷"诈骗团伙，抓获<b>154名</b>犯罪嫌疑人，查证<b>涉案金额达千万元</b>，涉及受害人<b>2000余名</b>；已联系上的受害人中，<b>80%以上是大学生和宝妈</b>。</p>
+    <p>课程设计得很"贴心"：7到10天视频制作课，宣称学成就能接单赚钱；学费"分12期付款，每期加上几元钱手续费，也就400多元"——一个月四百多，听着毫无压力。实际运转起来，所谓接单群"一个群至少500人，每天最多50个单，每单平均只能挣10元左右"。</p>
+    <p>警方认定这是诈骗而不是退费纠纷，依据是学习周期承诺失实、派单报酬与承诺严重不符、伪造大量物料和虚假截图。结局是团伙被打掉、154名嫌疑人被抓获；<b>刑期与追回比例暂无公开数据</b>。</p>
+    <p>放大看：黑猫投诉平台上含"培训贷"关键词的投诉<b>超过8000条</b>（截至2026年3月15日）；新华网2023年引用的第三方平台相关投诉<b>超过1.8万条</b>；维权人士范先生的团队一年收到<b>上万条</b>求助，"九成以上是应届大学生"（腾讯新闻）。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>四、和正规职业培训的区别</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：会查资质就会分</span><span class="badge">损失：识破即零损失</span></div>
+    </div>
+    <p>"培训贷"本身是中性的——正规形态是培训机构与持牌金融机构合作、面向经济困难学员的专项贷款。分界线不在"有没有分期"，而在下面这些地方。</p>
+    <table>
+      <tr><th>看什么</th><th>正规职业培训</th><th>"招转培"式培训贷</th></tr>
+      <tr><td>招生名义</td><td>明码标价招学员，课程大纲、课时公开</td><td>挂招聘岗位，面试时才说要培训</td></tr>
+      <tr><td>收费方式</td><td>合同写清培训费金额与退费规则</td><td>引导办网络贷款，钱打给机构或放款方</td></tr>
+      <tr><td>就业表述</td><td>提供就业指导与推荐，不承诺岗位薪资</td><td>"包就业""保底薪""接单月入过万"</td></tr>
+      <tr><td>借钱这件事</td><td>明确告知利率、期限、逾期后果和征信</td><td>说成"教育分期""先学后付"，回避贷款属性</td></tr>
+      <tr><td>主体稳定性</td><td>有固定场所和许可，可在人社部门平台查</td><td>频繁更名、注册新主体、转移办公地点</td></tr>
+    </table>
+    <p>监管早有口径：2021年3月，原银保监会等五部门要求不得虚假、诱导性宣传，不得针对大学生精准营销，未经批准不得向大学生提供信贷服务；2023年5月底，教育部全国学生资助管理中心发布第1号预警，提示"培训贷"面临退费困难和高利贷风险（均据新华网）。中消协提示：查验资质与口碑，避免一次性大额缴费，警惕"包高薪就业"幌子。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛟</span><h3>五、已经中招怎么办</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一部手机加证据</span><span class="badge">损失：越早处理越省</span></div>
+    </div>
+    <p>先说一句：会中招不是因为笨。这套流程是设计过的——正规注册、签了协议、有资金流水、有上课记录，北师大彭新林教授指出，正是这些"合规外壳"让取证变难。</p>
+    <ul>
+      <li><b>先固定证据，别先吵架。</b>合同、付款记录、聊天记录、宣传页、收入截图、课程内容，全部截图录屏。</li>
+      <li><b>书面向机构提出解约退费。</b>用微信文字或邮件写清理由（宣传与事实不符），留痕。</li>
+      <li><b>同时联系放款方。</b>打给网贷平台或消费金融客服，说明"虚假宣传、诱导借贷"，要求暂停代扣、协商解除贷款合同，并问培训费能否原路退回。</li>
+      <li><b>多渠道投诉。</b>12315、12345、黑猫投诉；涉及持牌金融机构的，也可向金融监管部门投诉。</li>
+      <li><b>涉嫌诈骗就报警。</b>刘德良教授认为，虚假宣传、误导消费构成民事欺诈，可向消协或市监部门投诉、起诉，涉嫌诈骗的可报警。</li>
+      <li><b>不要失联，更不要以贷养贷。</b>上海奉贤案的学员，面对的就是"退费难"和"还贷压力"两头夹（央视网）。</li>
+    </ul>
+    <p>两个结果对比：安徽考生周娜先在投诉平台举报，机构法务承诺"5到7个工作日解决"，最终扣除100元报名费退还其余费用，但过程被拖延、要反复施压；云南应届生林晓娅262节课只上13节，机构核算后告知已缴4462.5元仅退0.29元（均据新华网）。<b>差别就在有没有留证据、同时施压。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>六、第一步操作：10分钟能做完的自查</h3>
+      <div class="badges"><span class="badge r1">风险 ★</span><span class="badge">门槛：10分钟</span><span class="badge">损失：零，纯防御</span></div>
+    </div>
+    <ul>
+      <li><b>查名下有没有不明贷款。</b>登录中国人民银行征信中心官网，或用云闪付、银行App查信用报告，看有没有你不认识的分期、消费贷，有就记下放款机构和日期。</li>
+      <li><b>翻一遍电子合同。</b>在微信"服务—钱包—账单"里查交易对手方，在邮箱搜"合同""协议""分期"，确认自己签过什么。</li>
+      <li><b>给手机设一道闸。</b>背下这句话——"我今天不决定，回去考虑"。任何要求当场刷脸、当场签电子合同的，一律挡掉。现场逼单靠的就是"现在不定就没了"。</li>
+      <li><b>查对方公司。</b>上国家企业信用信息公示系统，看成立时间、经营范围、有没有经营异常或大量诉讼。</li>
+      <li><b>告诉一个人。</b>家人、同学、信任的老师都行。一个人扛，最容易在催收压力下二次中招。</li>
+      <li><b>如果此刻就在面试现场。</b>起身走人，不丢人。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.mps.gov.cn/n2254098/n4904352/c10469881/content.html" target="_blank">公安部网站：五部门发布警惕"招转培""培训贷"等风险提示</a><a href="https://news.cctv.com/2026/05/16/ARTIAVURCvLDymu3IiBWFKTQ260516.shtml" target="_blank">央视网：人社部等五部门联合发布警惕"招转培""培训贷"等风险提示（2026-05-16）</a><a href="https://news.cctv.com/2023/08/07/ARTIK4CMf54UjHM3VZbOwOcg230807.shtml" target="_blank">央视网：维权难、执法难……"培训贷"为何盯上大学生（2023-08-07）</a><a href="https://www.xinhuanet.com/politics/2023-08/01/c_1129779310.htm" target="_blank">新华网转《法治日报》：警惕"培训贷"套路涉世未深大学生（2023-08-01）</a><a href="https://news.qq.com/rain/a/20260315A03O3500" target="_blank">腾讯新闻"3·15"调查：求职变培训、培训骗贷款，一条不断换壳的灰产链（2026-03-15）</a><a href="https://www.peopleapp.com/column/30046879919-500005818671" target="_blank">人民日报客户端：求职不成还要贷款培训？谨防"培训贷"乱象抬头</a><a href="https://jc.mohrss.gov.cn/" target="_blank">人力资源社会保障部：就业创业和职业培训在线服务平台</a></div>
+</section>
+
+<section id="c06" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 06 · PART 2 · 骗局图鉴·上</span><h2>刷单与做任务返利<span class="accent">小额甜头大额陷阱</span></h2></div>
+  <p class="sec-desc">刷单返利常年是发案量最大的电信网络诈骗类型之一。它的内核不是"贪小便宜"，而是一套精心设计的信任实验：先用几十块钱买下你的信任，再让你主动垫付全部积蓄。这一章拆解它的两段式结构、变种套路和止损方法。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📦</span><h3>骗局怎么运作：两段式，先给甜头再动刀</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：几乎为零</span><span class="badge">损失：几千~几十万</span></div>
+    </div>
+    <p>这套骗局固定分两段。第一段是<b>建立信任</b>：你在兼职群、短视频评论区或陌生快递里看到"做任务领佣金"的广告，加上"客服"后，前几单都是不疼不痒的小活——点赞、关注账号、在音乐软件里听歌，佣金<b>每单几元</b>，秒到账。第二段是<b>收割</b>：等你尝到甜味，"客服"推出"高级别项目"，要求垫付几百到几万元，承诺佣金更高、三天回本。钱一转出去，页面立刻提示"操作失误""流水不足""账户冻结"，要么继续充钱"解冻"，要么直接被拉黑。</p>
+    <ul>
+      <li><b>钱怎么流动：</b>你转出的钱不进入任何真实交易，而是流向陌生个人账户、扫码付款，或被换成礼品卡、购物卡、金条寄出。</li>
+      <li>央视报道的湖州张先生案中，骗子让他把资金拆成<b>每个不超过1万元</b>的"口令红包"发出，被境内"红包手"秒抢，再逐层汇总、用虚拟币转移出境，共损失<b>26万余元</b>。</li>
+      <li>2026年10月，云南一男子被诱导把<b>7.5万元（79.85克）黄金</b>寄给"客服"，此前还垫付3000元买了台不发货的洗衣机。</li>
+      <li>资金一旦离开你的账户，分钟级就被拆分转移，追回窗口以小时计——止损必须抢时间。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"嫌疑人向全国不同地区、不同的人发送了<b>90多万条</b>诈骗快递，从发货日期上看，他们每天发货将近<b>1万条</b>，而且通过我们简单统计，大部分都是女性。"——办案民警谈刷单返利诈骗链条，央视网2025年6月26日报道</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎭</span><h3>真实案例：一张"中奖"刮刮卡，骗走70多万</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">引流：陌生快递</span><span class="badge">结局：6人被公诉</span></div>
+    </div>
+    <p>河南秦女士没网购却收到一个快递，里面是品牌家纺宣传页和一张"中奖"刮奖券。扫码进群后，"客服"先送她一袋洗衣液建立信任；随后任务是按群主给的曲目在音乐软件听歌，<b>每首奖5元</b>，连续7天又送了台空气炸锅。等她习惯每天"领钱"，对方推出"高级别项目"，承诺"投1万元，三天回本，还能挣1000元"。前三次小额投入都按时返利，之后她<b>累计参与10次、损失70多万元</b>，其中一次就投入17万元；大额投入后对方称"还要继续做任务才能返还本金"，最后把她拉黑。警方顺着快递单号打掉了购买单号、雇人打包的诈骗链条，<b>刘某等6人因涉嫌诈骗被公诉</b>。还有个细节：秦女士按"客服"要求删过聊天记录——骗子让你删证据，本身就是最大的破绽。</p>
+    <ul>
+      <li>同一模板有无数变体：快递刮奖、短视频评论区链接、"交友软件"、涉黄小卡片，入口不同，进去后都是同一套返利任务界面。</li>
+      <li>公安部2022年公布的数据显示，刷单返利类约占全部电诈发案的<b>三成</b>，是五类高发案件中发案最多的一类；2026年6月公安部发布会又通报，全国电诈发案已<b>连续8个月同比下降</b>——总量在降，套路却没退场。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>变种与法律定性：色情引流"复合局"，刷单本身违法</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">入口：扫码即入局</span><span class="badge">损失：几千~百万级</span></div>
+    </div>
+    <p>近年高发的变体是<b>"色情引流+刷单"复合骗局</b>：路边车辆后视镜上的涉黄小卡片、短信里的"同城交友"链接，扫码后下载的不是约会软件，而是"既能挣钱又能交友"的任务平台。先用色情内容留住你，再用刷单返利让你垫钱，有的还叠加赌博环节和裸聊敲诈——先骗钱，再拿隐私二次要钱。</p>
+    <ul>
+      <li>2024年6月公安部集中收网：打掉替电诈引流的团伙<b>106个</b>、抓获<b>3350余人</b>；这类卡片印着网址、二维码和淫秽色情信息，最终导向刷单返利、虚假投资理财。同篇报道中，浙江黄某扫了卡片陷入返利骗局，损失<b>近百万元</b>。</li>
+      <li>山西晋城两名专职贴卡者被行政拘留<b>10日</b>，后备箱里查出未张贴的卡片<b>300多张</b>——你扫的码，背后是一条分工明确的产业链。</li>
+      <li><b>法律定性：</b>刷单本身就是违法行为。《反不正当竞争法》禁止虚构交易、虚假宣传，《电子商务法》禁止经营者虚构交易——所以正规平台和店铺不会招"刷单兼职"。警方提示原话："刷单就是诈骗！网络刷单本身就是违法行为！"</li>
+      <li>出借账户、帮陌生人转账或发红包"过账"，可能被认定为电诈"工具人"，要承担法律责任；这不是帮忙，是踩在共犯边缘。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>识别信号：见到任何一条，直接停手</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">用途：2分钟自查</span><span class="badge">适用：所有"兼职"</span></div>
+    </div>
+    <ul>
+      <li>☐ 宣称"做任务返佣金""垫付立返"——佣金高得反常，一律当骗子处理</li>
+      <li>☐ 第一单返利特别快，从第二单开始要你垫钱</li>
+      <li>☐ 让你下载来路不明的App，或扫来源不明的二维码</li>
+      <li>☐ 反复提示"操作失误""账户冻结"，要求继续充钱"解冻"</li>
+      <li>☐ 收款方是陌生个人账户，或让你买礼品卡、购物卡、寄黄金</li>
+      <li>☐ 被要求删除聊天记录——绝对是骗局，没有例外</li>
+      <li>☐ 用小众聊天软件沟通，"导师""接待员"分工明确，群里人人晒收益</li>
+      <li>☐ 拿"色情约会"当诱饵——后面必然跟着刷单或赌博</li>
+    </ul>
+    <table>
+      <tr><th>对比项</th><th>正规兼职</th><th>刷单骗局</th></tr>
+      <tr><td>结算方式</td><td>平台担保，按劳动付酬</td><td>先垫付，佣金高得反常</td></tr>
+      <tr><td>沟通渠道</td><td>官方App内沟通</td><td>私人微信、小众聊天软件</td></tr>
+      <tr><td>提现规则</td><td>随时提，无附加条件</td><td>"操作失误""流水不足"卡住你</td></tr>
+      <tr><td>要不要先掏钱</td><td>不会</td><td>垫付、充值、买卡、寄金条</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办：抢时间，留证据</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">黄金时间：转账后半小时</span><span class="badge">动作：止付+报警</span></div>
+    </div>
+    <ul>
+      <li><b>立刻止付：</b>拨打110或反诈专线<b>96110</b>，同时打银行客服电话申请紧急止付、冻结对方账户——转账越久，钱被转移得越干净。</li>
+      <li><b>别删记录：</b>聊天记录、转账截图、对方账号、快递单号全部保存好，这是破案和定损的依据。</li>
+      <li><b>App举报：</b>在"国家反诈中心"App里提交举报材料和通话记录。</li>
+      <li><b>防二次诈骗：</b>凡自称"黑客追款""律师帮你追损失"的，都是盯着你的剩余存款来的。</li>
+      <li><b>如实说明：</b>如果被诱导出借过账户、帮人过账，主动向警方说明全部经过，争取被认定为受害人而非"工具人"。</li>
+    </ul>
+    <p><b>第一步操作（10分钟，现在就能做）：</b>① 安装并开启"国家反诈中心"App的来电预警；② 打运营商客服关闭境外来电和短信；③ 把微信、支付宝的转账延时到账打开，给自己留一个反悔窗口；④ 存好110和96110两个号码；⑤ 翻一遍最近一个月的账单，看有没有给陌生个人账户转过账、加过"做任务"的群。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"刷单返利本身就是诈骗，凡要求邮寄现金、黄金的，都是骗局。"——云南警方提醒，央视网2026年10月22日报道</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://news.cctv.com/2025/06/26/ARTIBPhZRrChW6AjlkJk7haI250626.shtml" target="_blank">央视网：陌生快递"中奖"刷单骗局·秦女士案（2025-06）</a>
+    <a href="https://news.cctv.com/2025/06/23/ARTI8kBYiQ8DCHb3AEnVPgPC250623.shtml" target="_blank">央视网：反诈必修课·刷单返利套路·张先生案（2025-06）</a>
+    <a href="https://city.news.cctv.com/2026/10/22/ARTIy8ioitnypU9bz4FC1h2c261022.shtml" target="_blank">央视网：刷单被骗邮寄7.5万元黄金（2026-10）</a>
+    <a href="https://news.cctv.com/2022/05/12/ARTIZynJZDrx8XLbu7xShYwf220512.shtml" target="_blank">央视网：五类高发电诈案中刷单返利占三成（公安部数据，2022-05）</a>
+    <a href="https://news.cctv.com/2025/06/19/ARTIZy9dyF6q5m7WeNDLdEHv250619.shtml" target="_blank">央视网：公安机关发布20个防诈关键词（2025-06）</a>
+    <a href="https://news.cctv.com/2025/04/03/ARTIUtiGgEUEy81cHYlnxhr8250403.shtml" target="_blank">央视网：涉黄小卡片二维码"局中局"（2025-04）</a>
+    <a href="https://news.cctv.com/2024/06/28/ARTIVNw2oVfp5OuO2JwMHj3X240628.shtml" target="_blank">央视网：公安部打击涉诈地推引流集中收网（2024-06）</a>
+    <a href="https://news.cctv.com/2026/06/12/ARTI4NciOymCT77FAmpquY2G260612.shtml" target="_blank">央视网：公安部通报电诈发案连续8个月同比下降（2026-06）</a>
+  </div>
+</section>
+
+<section id="c07" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 07 · PART 2 · 骗局图鉴·上</span><h2>资金盘与互助盘<span class="accent">借新还旧的死亡倒计时</span></h2></div>
+  <p class="sec-desc">这类盘子不生产收益，只搬运本金：后来者的钱付给先来者，鼓声一停，最后一棒的人买单。这一章拆开它的钱路、话术、崩盘前兆，以及中招之后真正能做的事。</p>
+  <div class="card">
+    <div class="card-head"><span class="icon">🌀</span><h3>钱是怎么流动的：没有"收益"，只有"搬运"</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：300元起投</span><span class="badge">损失：几千元～上千万元</span></div>
+    </div>
+    <p>先说结论：<b>资金盘里没有投资，只有转账</b>。你的"收益"不是项目赚出来的，是下一个人刚投进来的本金。平台把后面人的钱搬给前面的人，搬不动的那天就是崩盘。</p>
+    <p>以已经判掉的善心汇为例（据一审判决报道，主犯张天明获刑17年、罚金1亿元）：参加者花<b>300元</b>买一颗"善种子"取得加入资格，按发展下线的数量拿返利，层级层层往上抽。法院查明，会员的获利收益<b>全部来源于后期会员投入的资金，而非实体经济支持</b>——这就是"借新还旧"在法律文书里的原样表述。</p>
+    <p>互助盘是同一套逻辑换了件衣服，把投资包装成"互相帮助"：你先"帮助"别人，过段时间由后面加入的人"帮助"你，中间往往还加一层"排队匹配"。听着温暖，算下来还是后面的人给前面的人付款——善心汇当年打的就是"扶贫互助"的旗号。</p>
+    <p>为什么必然崩盘？按复利算：承诺月息10%，今天投1万元，一年后账面要变成<b>3.1万元</b>（1.1的12次方），两年变成<b>9.8万元</b>（1.1的24次方）。这些钱没有一分来自经营，全得由后面的人出。雪球越滚越大，能拉的人终究有限。</p>
+    <p>为了让雪球滚下去，操盘手靠三招，这三招你在明处都能看出破绽：<b>拆单</b>——充值被拆成多笔小额、对方给你多个不同的收款账户，就是在规避监控，正规平台不会这么干；<b>复利话术</b>——把不可能的数字说成常识；<b>动态奖励</b>——拉人头拿提成，让你从受害者变成推广者。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>央视《东方时空》2017年7月28日的报道标题为「"善心汇"的真相 张天明：不劳而获是走不通的」——设计骗局的人，自己把答案说了出来。</blockquote>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🎭</span><h3>这些话术和前兆，出现一个就要警惕</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：零门槛</span><span class="badge">损失：全部本金</span></div>
+    </div>
+    <p>资金盘的话术十几年没怎么变，变的只是包装。这些句子，几乎在每个已崩盘的平台里都能找到原句。</p>
+    <div class="cols">
+      <ul>
+        <li>"国家支持／内部项目／限量额度"——用稀缺感逼你当晚决定</li>
+        <li>"静态收益月息30%，动态收益拉人另算"——把投资回报和传销奖励绑在一起</li>
+        <li>"只涨不跌，早加入早受益"——违背基本市场规律的承诺</li>
+        <li>"复利一年翻十倍，错过再等十年"——把算术题讲成命运题</li>
+        <li>"不要告诉外人，低调赚钱"——用保密要求隔开你和家人的判断</li>
+        <li>"系统升级，把钱转到新平台继续收益"——崩盘前夜的经典动作</li>
+      </ul>
+      <ul>
+        <li>☐ 提现到账越来越慢，理由从"银行通道维护"变成"缴税、保证金解冻"</li>
+        <li>☐ 突然加大拉新奖励和复投优惠，团队长频繁开会"打气"</li>
+        <li>☐ APP更换域名、要求下载"新版本"或迁移到另一家公司主体</li>
+        <li>☐ 客服从有问必答变成只回复"请耐心等待"</li>
+        <li>☐ 群里晒收益的人突然变多，质疑的帖子被秒删</li>
+        <li>☐ 工商信息变更、办公地址搬空，或突然炒作"上市"消息</li>
+        <li>☐ 监管部门、媒体发布风险提示，而团队长说那是"抹黑"</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>两个已经判掉的案子，金额和结局都公开</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：300元起投</span><span class="badge">损失：61亿余元（已判决认定）</span></div>
+    </div>
+    <p><b>案例一：善心汇</b>（2018年12月一审宣判）。湖南省双牌县人民法院查明：截至案发，参与传销活动人员共<b>598万余人</b>，涉案金额<b>1046亿余元</b>。张天明犯组织、领导传销活动罪、聚众扰乱公共场所秩序罪，判处有期徒刑17年，并处罚金1亿元；其余9名被告人获刑1年6个月至10年。案发后他还煽动600余名会员聚集、抗拒民警执法，同样被法院认定。</p>
+    <p><b>案例二：中战华信集团</b>（2014年8月起作案，2026年4月27日一审宣判）。长沙市中级人民法院以集资诈骗罪判处刘必安<b>无期徒刑</b>，剥夺政治权利终身，并处没收个人全部财产；其余15人分别获刑5至15年。法院查明：累计募集资金<b>314亿余元</b>，造成集资参与人经济损失<b>61亿余元</b>，手法是虚构投资项目、公开虚假宣传、承诺还本付息和高额回报，而<b>大部分集资款用于兑付到期本息</b>——判决书意义上的"借新还旧"（据中国网2026年6月30日报道，该案已二审宣判）。</p>
+    <table>
+      <tr><th>平台</th><th>包装</th><th>涉案金额</th><th>涉及人数</th><th>主犯结局</th></tr>
+      <tr><td>善心汇</td><td>"扶贫互助"</td><td>1046亿余元</td><td>598万余人</td><td>17年＋罚金1亿元</td></tr>
+      <tr><td>中战华信集团</td><td>虚构投资项目、高额回报</td><td>314亿余元（损失61亿余元）</td><td>未公开</td><td>无期＋没收全部财产</td></tr>
+      <tr><td>博鑫洗码理财</td><td>洗码理财</td><td>3.54亿元</td><td>未公开</td><td>无期</td></tr>
+      <tr><td>MAK理财平台</td><td>理财</td><td>5929万余元</td><td>近6万人</td><td>无期</td></tr>
+      <tr><td>云联通</td><td>电商</td><td>数亿元</td><td>未公开</td><td>多人无期，运营时长暂无公开数据</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🚔</span><h3>你不只是"受害者"，也可能是"参加传销的人"</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">触发：拉人、出借账户、收提成</span><span class="badge">后果：罚款～刑责</span></div>
+    </div>
+    <p>这是资金盘最容易被忽略的一层：法律上，"投了钱"和"拉了人"是两回事。</p>
+    <ul>
+      <li>《禁止传销条例》（国务院令第444号）第二十四条写明：<b>参加传销的，责令停止违法行为，可以处2000元以下的罚款</b>；介绍、诱骗他人参加传销的，处10万元以上50万元以下罚款。</li>
+      <li>"两高一部"2019年《关于办理非法集资刑事案件若干问题的意见》把"<b>为非法集资活动提供帮助并获取经济利益的单位和个人</b>"排除在"集资参与人"之外——帮着拉人、收款、转账并拿了提成的，不按受害人对待。</li>
+      <li>善心汇案里有会员"直接或间接发展下线<b>11层2438个会员</b>，获利<b>238230元</b>"，这种层级和金额已进入组织、领导传销活动罪（《刑法》第二百二十四条之一）的打击范围，起刑点就是五年以下有期徒刑。</li>
+      <li>把银行卡、微信、支付宝借给平台"走账"，可能涉嫌帮助信息网络犯罪活动罪或掩饰、隐瞒犯罪所得罪——这是独立的刑责，不以"我不知道"免责。</li>
+    </ul>
+    <p>一句话：投过钱不等于不用负责。拉过人、收过提成、出借过账户的，主动向办案机关说明并退缴，是对自己最有利的选择。</p>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办：止损、留证、报案</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">黄金期：崩盘前后72小时</span><span class="badge">追回率：暂无公开数据</span></div>
+    </div>
+    <p>崩盘之后最贵的三样东西是时间、证据和冷静。按顺序做：</p>
+    <ul>
+      <li><b>1. 停止一切"抢救本金"的操作。</b>平台让你"补税、缴保证金、平移数据到新平台"才能提现，都是二次收割；拉人填坑则会让你从受害者变成加害者。</li>
+      <li><b>2. 固定证据。</b>APP首页和公告截图、账户余额与"收益"记录、提现失败记录、与团队长的聊天记录、转账凭证（含对方户名和账号）、宣传材料——越早固定，越难被删。</li>
+      <li><b>3. 报案，走刑事。</b>带身份证和证据复印件，到平台所在地或自己居住地的公安机关经侦部门报案，也可以直接打110。举报是法定权利——《防范和处置非法集资条例》第十六条规定，任何单位和个人有权向处置非法集资牵头部门或者其他有关部门举报。同时装"国家反诈中心"APP，开启预警、提交线索。</li>
+      <li><b>4. 对结果有正确预期。</b>《条例》第二十五条写明：因参与非法集资受到的损失，由集资参与人自行承担。这不是狠话，是提醒你尽早停手。"两高一部"意见明确：涉案财物不足全部返还的，按集资参与人的集资额比例返还，退赔损失一般优先于罚金和没收财产执行。钱多半追不回，能拿回的是按比例清偿的零头，周期以年计。</li>
+      <li><b>5. 警惕"二次诈骗"。</b>崩盘后最活跃的不是警察，是"维权律师""专业追赃""内部关系赎本金"——凡是先收钱的，都是骗子。黑猫投诉等消费者平台可以作为反映问题的补充渠道（该平台累计有效投诉已超过3900万件），但不能替你追回投资款。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>现在就能做的 4 件事（10分钟）</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">耗时：10分钟</span><span class="badge">作用：防患于未然</span></div>
+    </div>
+    <ul>
+      <li>☐ 装"国家反诈中心"APP，开启来电和短信预警，帮家里人也装上。</li>
+      <li>☐ 查牌照：证券期货类查中国证监会，银行保险类查国家金融监督管理总局，私募查基金业协会——查不到牌照的"理财平台"，一律不碰。</li>
+      <li>☐ 算一笔账：对方承诺的年化超过8%就要打问号，超过15%基本可以判定是骗局。把你投进去的每一笔和承诺收益写在纸上对比一次。</li>
+      <li>☐ 留证据：把平台资料、账户、合同、聊天记录截图，存到家人也能找到的地方——真出事时，这些截图比你的记忆值钱。</li>
+    </ul>
+  </div>
+  <div class="src"><span class="tag">📎 来源</span><a href="https://finance.sina.com.cn/money/lczx/2018-12-14/doc-ihqackac6442651.shtml" target="_blank">新浪财经（转蓝鲸财经）：善心汇传销案主犯张天明一审获刑17年 涉案1046亿元</a><a href="https://news.sina.com.cn/o/2018-12-14/doc-ihqackac6681905.shtml" target="_blank">新浪新闻中心（转中国网）：善心汇传销案一审宣判：涉案金额1046亿 主犯获刑17年</a><a href="https://tv.cctv.com/2017/07/28/VIDESRYYq0AXtDwA9RYhIJrn170728.shtml" target="_blank">央视网《东方时空》："善心汇"的真相 张天明：不劳而获是走不通的</a><a href="https://m.163.com/dy/article/H5IK9VVR05535DXJ.html" target="_blank">网易号：善心汇传销案，涉案金额超过千亿元，为什么判了17年？</a><a href="https://k.sina.cn/article_7880068208_1d5b04c7006801iaym.html" target="_blank">新浪（转央视新闻客户端）：涉案金额314亿余元！刘必安等16人非法集资案一审宣判</a><a href="http://m.cyol.com/gb/articles/2026-04/27/content_NVm2AKF8WV.html" target="_blank">中青在线：非法募资314亿余元 刘必安等十六人非法集资案一审宣判</a><a href="https://m.163.com/dy/article/GSG8DHL90517S64I.html" target="_blank">网易号：盘点币圈、盘圈被判无期徒刑的部分案例（2021）</a><a href="https://m.163.com/dy/article/FG0P1D790524OSOD.html" target="_blank">网易号：追踪 盘点最近被警方抓捕以及判刑的资金盘（2020）</a><a href="https://www.gov.cn/zhengce/zhengceku/2021-02/10/content_5586632.htm" target="_blank">中国政府网：《防范和处置非法集资条例》（国务院令第737号）</a><a href="https://www.gov.cn/zhengce/zhengceku/2008-03/28/content_4237.htm" target="_blank">中国政府网：《禁止传销条例》（国务院令第444号）</a><a href="https://www.gov.cn/zhengce/zhengceku/2019-09/05/content_5427593.htm" target="_blank">中国政府网：两高一部《关于办理非法集资刑事案件若干问题的意见》（2019）</a><a href="https://tousu.sina.com.cn/" target="_blank">黑猫投诉（新浪旗下消费者投诉平台）</a></div>
+</section>
+
+<section id="c08" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 08 · PART 2 · 骗局图鉴·上</span><h2>AI 量化交易与带单<span class="accent">技术话术包装的老骗局</span></h2></div>
+  <p class="sec-desc">把"AI选股""智能合约""带单老师"这层包装剥掉，底下还是二十年前就有的那一套：假平台、假数据、假老师、真入金。本章拆它的资金暗道和识别信号，讲清中招后怎么把损失按住。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤖</span><h3>机制拆解：话术三件套，资金一条暗道</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：几乎为零</span><span class="badge">损失：几千~几十万，大案上亿</span></div>
+    </div>
+    <p>这类骗局的话术就三样：<b>"AI量化""大数据算法""智能合约"</b>撑门面，一个"带单老师"催你下单，一个随时在线的"客服"负责收钱。扒开看，钱的路径清清楚楚，一共六步。</p>
+    <ul>
+      <li><b>一、引流。</b>短视频、社交软件、理财直播间里，"量化导师""华尔街博士"晒收益曲线和交割单，先聊"投资心得"不提钱，慢慢卸下你的防备。</li>
+      <li><b>二、入金。</b>你被引导下载来路不明的App、登录一个备案都查不到的网站，按"客服"给的账户转账；有的直接要 USDT 等虚拟币。</li>
+      <li><b>三、甜头。</b>平台后台可以直接改数据，让你账面盈利，小额提现秒到账——这是整个局里成本最低的一环。</li>
+      <li><b>四、加仓。</b>"老师"喊单诱导你频繁交易，手续费、延期费源源不断。对骗子来说，这是少数真实的收入。</li>
+      <li><b>五、收割。</b>提现时被"缴纳保证金""个人所得税""流水不足""再充值10%激活资产"卡住，或者平台直接关停、客服失联。</li>
+      <li><b>六、转移。</b>资金经虚拟币和拆分转账出境，追回窗口以小时计。</li>
+    </ul>
+    <p>记住一句话：<b>你屏幕上的K线、胜率、账户余额，全是后台数字</b>。这不是猜测——公安部2024年通报的兰州虚假期货平台案里，警方查明嫌疑人无期货经营资质，买来软件搭平台、修改期货数据制造虚假走势，再用直播间假"荐股老师"和水军按投资金额分等级施骗；该案<b>涉案金额6.45亿元</b>，<b>3300余名投资者亏损2.24亿余元</b>，<b>冻结涉案资金6000余万元</b>，捣毁窝点15处、96人被采取刑事强制措施。办案民警把群里的真相说得很直白：</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"一个群有20多人，其中只有一人是受害者，其他成员全是诈骗者或水军，他们相互鼓动、诱导受害者下载安装交易平台。"——兰州警方办案民警张向阳谈虚假期货平台案，法治日报2024年4月报道（公安部网站发布）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>识别信号：见到任何一条，直接停手</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">用途：2分钟自查</span><span class="badge">适用：所有"投资群"</span></div>
+    </div>
+    <ul>
+      <li>☐ 宣称"AI量化稳赚""日化收益1%""保本高息"——真有这个本事，机构自己融资就行，不需要拉你</li>
+      <li>☐ App只能通过群链接、陌生人发的安装包下载，正规应用商店查不到</li>
+      <li>☐ 收款方是陌生个人账户，或要求换成 USDT 等虚拟币入金</li>
+      <li>☐ 账面一直盈利，一提现就要"保证金""个人所得税""解冻费"</li>
+      <li>☐ 群里人人晒收益，"老师""客服""助理"分工明确，却没人说自己亏过</li>
+      <li>☐ 鼓励你发展下线、按层级拿"推荐奖""保底月薪"</li>
+      <li>☐ 手续费听着低，实际暗收：兰州虚假期货平台案里，平台"声称万分之八，实际按本金20倍收"，一进一出实扣万分之三百二十（兰州警方办案民警王哲）</li>
+      <li>☐ "老师"喊单图的是返佣：最高检首例在线"喊单"案里，有投资人一笔交易的手续费就达2万元，是期货公司正常收费的五六倍</li>
+      <li>☐ 被要求删除聊天记录、卸载App、对家人保密</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>边界：正规量化、券商AI工具与假平台的区别</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">判断核心：钱进谁的口袋</span><span class="badge">工具：证监会"合法机构名录"</span></div>
+    </div>
+    <p>AI选股、量化策略本身不是骗局——华泰、银河、国金、国泰君安等多家券商的App里就有AI选股模块；2021年底头部量化私募幻方量化还因业绩回撤公开致歉、主动缩减管理规模逾百亿元。技术是中性的，分野只在三件事：<b>谁在经营、钱进谁的口袋、收益谁说了算</b>。</p>
+    <table>
+      <tr><th>对比项</th><th>正规机构</th><th>"AI量化"假平台</th></tr>
+      <tr><td>资质</td><td>持牌，能在证监会"合法机构名录"查到</td><td>查不到，或碰瓷知名机构、交易所的名义</td></tr>
+      <tr><td>入金去向</td><td>进入你名下的交易账户，可随时查询对账</td><td>转入"客服"指定的个人账户或虚拟币地址</td></tr>
+      <tr><td>收益表述</td><td>讲历史业绩和回撤，从不承诺稳赚</td><td>承诺日化收益、保本、"跟着老师大概率赚"</td></tr>
+      <tr><td>提现</td><td>随时可提，无附加条件</td><td>设"保证金""税费""流水"门槛，或直接关闭</td></tr>
+      <tr><td>收费</td><td>明码标价，不收"激活费""解冻费"</td><td>手续费暗收，提现前再收一道</td></tr>
+    </table>
+    <ul>
+      <li>证监会四川监管局2025年6月提示：未取得证券投资咨询业务许可、有偿提供个股分析和操作建议，就是<b>非法荐股</b>；宣称低风险高收益并诱使转账的，涉嫌诈骗。</li>
+      <li>官方口诀是<b>"四查四不"</b>：查资质、查身份、查业务、查账户；不轻信、不点击、不转账、不跟随。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏛️</span><h3>真实案例：从"股票大神"到假平台，一个月被骗上百万</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">入口：社交软件加群</span><span class="badge">结局：报警，判决另有其人</span></div>
+    </div>
+    <p>2023年，珠海拱北的王先生在社交软件上认识一位"股票大神"，被拉进QQ交流群，通过群内链接下载了一款App，绑定银行卡后开始"买股票"。群里先后有多名"专家""教授"讲课，声称"包赚不赔"，让他按推荐下单；他则按"客服"提供的指定账号转账充值。第一笔利润到账后他加大了投入，<b>短短一个月陆续投入上百万元</b>。等他准备抛售时无法提现，"客服"以"需要缴纳保证金才能提现"推脱，随后平台关闭、无法登录，他才报警（珠海刑侦，光明网2023年11月报道）。这个案例的每一步，都和上面六步对得上。</p>
+    <ul>
+      <li><b>带单的老师要担责。</b>最高检披露的首例在线"喊单"案：宋某2019年设立咨询公司，招"分析师"和业务员，网上发期货行情分析，客户开户后再通过微信发具体"买点""卖点""止盈点""止损点"，诱导频繁交易，按80%—90%比例从期货公司拿手续费返佣，有投资人一笔交易的手续费就达2万元、相当于期货公司正常收费的五六倍。宣传"胜率80%至90%"，投资人依然亏损。2023年2月，上海奉贤法院以非法经营罪判处宋某<b>有期徒刑一年、罚金30万元</b>，同案佘某有期徒刑八个月、罚金10万元。</li>
+      <li><b>规模最大的一类长这样。</b>鑫慷嘉平台碰瓷"迪拜黄金与商品交易所（DGCX）"名义，宣称握有"独家大数据算法"、承诺<b>日化收益1%</b>，USDT入金、拉人头设九级"兵团"返利；2025年6月25日全面停止提现、次日系统瘫痪，据媒体复盘涉案金额约<b>130亿元</b>、波及投资者超百万人——完整复盘与资金追踪详见第11章《链上资金盘与貔貅盘》。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办：抢时间、留证据、防二次诈骗</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">黄金时间：转账后半小时</span><span class="badge">动作：止付+报警</span></div>
+    </div>
+    <ul>
+      <li><b>立刻止付。</b>拨打110或反诈专线<b>96110</b>，同时联系银行和支付平台申请紧急止付、冻结对方账户——钱走得越久越追不回来。</li>
+      <li><b>证据全留下。</b>聊天记录、转账凭证、App安装包、对方账号、收益截图，一件都别删；被要求"删记录、保密"本身就是破绽。</li>
+      <li><b>走官方举报。</b>在"国家反诈中心"App提交材料和通话记录；涉及非法荐股、非法经营的，同时向证监会12386热线反映。</li>
+      <li><b>防二次诈骗。</b>凡是自称"黑客追款""内部渠道退款""律师包追回"的，都是盯着你剩余存款来的，没有例外。</li>
+      <li><b>别为羞耻感闭嘴。</b>有骗子在群里嘲讽受害者"智商与财富匹配"——说这种话，就是为了让你觉得丢脸、不去报警。中招不是因为笨，是因为对方是团伙作案、话术分工专业化。</li>
+    </ul>
+    <p><b>第一步操作（10分钟，现在就能做）：</b>① 安装"国家反诈中心"App并开启来电预警；② 给银行客服打电话，关闭卡片的小额免密和境外无卡交易；③ 把微信、支付宝的转账延时到账打开，给自己留一个反悔窗口；④ 存好110、96110、证监会12386三个号码；⑤ 翻一遍最近三个月的账单，看有没有给陌生个人账户转过账、进过"投资群"、装过群链接里发的App。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"（平台）虽声称手续费是万分之八，实际则是在本金20倍的基础上收取。"——兰州警方民警王哲谈虚假期货平台的收费套路，法治日报2024年4月报道</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="http://www.mps.gov.cn/n2255079/n4242954/n4841045/n4841074/c9531417/content.html" target="_blank">公安部网站：兰州警方侦破涉6.45亿元虚假期货平台案（法治日报，2024-04）</a>
+    <a href="https://credit.fuxin.gov.cn/fxts/202405/t20240520_43256.html" target="_blank">阜新市信用平台转载该案详情：亏损2.24亿余元、冻结6000余万元、96人（2024-05）</a>
+    <a href="https://www.spp.gov.cn/zdgz/202303/t20230328_609630.shtml" target="_blank">最高人民检察院：首例在线"喊单"诱导交易的期货居间人获刑（2023-03）</a>
+    <a href="https://www.csrc.gov.cn/sichuan/c106369/c7561738/content.shtml" target="_blank">证监会四川监管局：非法荐股骗局揭秘与"四查四不"（2025-06）</a>
+    <a href="https://m.gmw.cn/2023-11/17/content_1303574219.htm" target="_blank">光明网转珠海刑侦：跟"大师"投资一个月被骗上百万（2023-11）</a>
+    <a href="http://finance.ce.cn/jjpd/jjpdgd/202112/29/t20211229_37213094.shtml" target="_blank">中国经济网：幻方量化业绩回撤公开致歉、主动降规模逾百亿（2021-12）</a>
+    <a href="https://m.thepaper.cn/baijiahao_30377632" target="_blank">澎湃新闻：AI选股已成多家券商App标配功能及其风险争议（2024）</a>
+    <a href="https://krebsonsecurity.com/2025/05/u-s-sanctions-cloud-provider-funnull-as-top-source-of-pig-butchering-scams/" target="_blank">KrebsOnSecurity: U.S. sanctions Funnull, tied to $200M+ in pig-butchering losses（2025-05）</a>
+    <a href="https://www.gzdaozhen.gov.cn/zfbm/sfj/zfxxgk_5696745/fdzdgknr_5696748/ggflfw_5698390/202210/t20221031_76961520.html" target="_blank">道真自治县政府：贵州启用96110反诈短信预警平台（2022-10）</a>
+  </div>
+</section>
+
+<section id="c09" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 09 · PART 2 · 骗局图鉴·上</span><h2>灰产接单的法律后果<span class="accent">跑分/刷号/搬砖</span></h2></div>
+  <p class="sec-desc">"轻松日结""借张卡就能赚钱"——这类广告背后不是兼职，而是把骗子不敢亲自经手的赃款经你手洗一遍。代价不是"亏点小钱"，而是刑事案底、五年金融惩戒和跟着你走的征信记录。本章只讲两件事：钱怎么流动，以及为什么"我只是借了张卡"也构成犯罪。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⛓️</span><h3>机制拆解：你经手的每一分钱，都是别人的赃款</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：一张卡、一个号</span><span class="badge">损失：刑期＋5年金融惩戒</span></div>
+    </div>
+    <p>上游的诈骗、网络赌博平台骗到钱后，最头疼的是怎么把钱取出来——直接转进自己账户，几分钟就被银行风控和警方冻结。于是他们需要大量陌生人账户当"中转站"：赃款打进你的卡，你再转给下一张卡，层层拆分汇总，最后换成虚拟币或现金流出境外。你的作用就一个：让这笔钱多绕几个弯，把警方的追查链条打断。检察官的定性很直白：<b>跑分本质是洗钱，就是给诈骗分子当"资金搬运工"</b>。</p>
+    <ul>
+      <li><b>跑分：</b>先缴一笔"保证金"进平台，绑定本人及亲属多张银行卡接单，钱到账立即转出，按流水拿"返利"。最高检通报的白银案中，<b>21人</b>各缴<b>2000元至几万元</b>保证金，帮助非法结算资金<b>55万余元至1144万余元</b>，返利<b>千分之六或千分之七</b>，软件为逃避打击不断变换名称和图标。</li>
+      <li><b>刷号／接码／租码：</b>批量注册社交账号、代收短信验证码、解封账号，再卖给上游注册诈骗账号和引流。最高检2022年通报将其与跑分、验证码收发并列为帮信罪<b>三类典型行为</b>。</li>
+      <li><b>"搬砖"／代收款：</b>2025年罗江一案中，"上线"承诺"<b>佣金20%、稳赚不赔</b>"，诱使几人把茶楼商家收款二维码拍照发给诈骗团伙收赃款，提现后经上游二维码回款，累计转移赃款<b>上万元</b>。</li>
+      <li><b>为什么"只是借了张卡"也犯罪：</b>法律看的不是你赚了多少，而是你是否提供了"支付结算"帮助且<b>明知或应知</b>对方在犯罪。《刑法》第287条之二规定，明知他人利用信息网络犯罪仍提供支付结算等帮助，情节严重的，处<b>三年以下有期徒刑或者拘役</b>，并处或者单处罚金。司法解释列举了"交易价格或者方式明显异常"等情形来认定"明知"——来路不明的钱按千分之几给你"过账费"，本身就说不过去。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"跑分"本质是洗钱，就是以赚取佣金为目的，通过银行卡、微信、支付宝等为他人代收款再转至指定账户，属于给诈骗分子当"资金搬运工"。——罗江检察"蓝姐说法"，2025年11月3日发布</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>真实案例：50元佣金、800元报酬与2年4个月刑期</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">案例来源：最高检通报</span><span class="badge">结局：判刑＋罚金＋追缴</span></div>
+    </div>
+    <p>先说最扎心的一个：山东菏泽<b>19岁</b>在校生王某经同学介绍"出借银行卡帮人中转资金，<b>每转10万元获50元</b>佣金"。5月的一个下午，他的卡在1个多小时里收到<b>约8万元</b>、转出<b>6万多元</b>后被冻结——实际到手<b>50元</b>。甘肃警方以涉嫌帮信罪对其上网追逃并采取刑事强制措施。帮电诈分子转移赃款，等来的是刑事强制措施，不是"退钱就行"。</p>
+    <ul>
+      <li>最高检通报的白银案：21人团伙缴保证金跑分，帮助非法结算资金<b>55万余元至1144万余元</b>；<b>18人被判六个月至一年有期徒刑并处罚金</b>，另3人（含一名在校大学生）因情节轻微、自愿认罪认罚被不起诉。</li>
+      <li>陕西兴平赵某等4人，2021年7月至2022年8月为境外赌博公司跑分，团伙非法获利<b>逾百万元</b>、每人分得<b>20万元以上</b>；2024年6月法院以帮信罪分别判处<b>1年10个月至2年4个月</b>有期徒刑、各并处罚金1万元，并追缴没收20万元以上违法所得。</li>
+      <li>最不对称的对比：泉州王宣出租<b>4张银行卡</b>、获利<b>3500元</b>，涉违法转账<b>8000余万元</b>，判<b>1年3个月</b>；伍娟收集亲友多张银行卡、涉案近<b>1亿元</b>、获利近<b>1万元</b>，判<b>2年6个月</b>并处罚金2万元。</li>
+      <li>浙江余姚20多岁大专毕业生姜某，此前已因出借银行卡被取保候审，2022年10月又受引诱在酒店安装GOIP设备（伪装境外诈骗电话），3天内外呼<b>342人次</b>，致<b>2名</b>被害人被骗<b>6.5万元</b>、获利<b>800元</b>，以诈骗罪、帮信罪<b>数罪并罚</b>。</li>
+      <li>量级：2021年全国起诉帮信犯罪嫌疑人约<b>12.9万人</b>、同比上升<b>8.43倍</b>，升至全部刑事罪名<b>第3位</b>；起诉人员中<b>近90%无犯罪前科</b>。2025年7月两高一部《关于办理帮助信息网络犯罪活动等刑事案件有关问题的意见》指出帮信罪犯呈"低龄化、低学历、低收入、初犯比例高"特点，约<b>三分之一</b>被告人年龄在25岁以下。</li>
+    </ul>
+    <table>
+      <tr><th>可能触犯的罪名</th><th>典型情形</th><th>法定刑</th></tr>
+      <tr><td>帮助信息网络犯罪活动罪（《刑法》第287条之二）</td><td>出租出借银行卡、跑分、接码、批量供号</td><td>三年以下有期徒刑或拘役，并处或单处罚金</td></tr>
+      <tr><td>掩饰、隐瞒犯罪所得罪（《刑法》第312条）</td><td>亲自取现、转移、兑换赃款（如罗江收款码案）</td><td>三年以下有期徒刑；情节严重处三年以上七年以下</td></tr>
+      <tr><td>诈骗罪（《刑法》第266条，视通谋程度认定）</td><td>与上家形成通谋、参与实施（如姜某GOIP案）</td><td>按诈骗数额量刑，最高可至无期徒刑</td></tr>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"综合考虑法律、政治、社会效果，区分主观恶性与情节轻重"——白银区检察院对21人跑分团伙分层处置，3名情节轻微者（含在校大学生）被相对不起诉，并致函学校提醒"不随意向他人出租、出借实名制银行卡"。最高人民检察院2022年8月15日通报</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>识别信号：见到任何一条，立刻退出</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">用途：2分钟自查</span><span class="badge">适用：一切"日结兼职"</span></div>
+    </div>
+    <ul>
+      <li>☐ 宣称"轻松日结""动动手指""无本万利"——佣金高得反常，一律当犯罪线索看</li>
+      <li>☐ 要你的银行卡、电话卡、社交账号，或让你代收短信验证码</li>
+      <li>☐ 要先缴"保证金""押金"才能接单（白银案中保证金为2000元至几万元）</li>
+      <li>☐ 用"飞机"等小众加密聊天软件沟通，群里"客服""上线"分工明确、晒收益——多起已判案件通报点名过这类软件</li>
+      <li>☐ 让你拍下店铺或个人收款二维码发给别人"代收款"——罗江检察原话：遇到就报警</li>
+      <li>☐ 话术是"只是走个账，不犯法""出借银行卡不违法"</li>
+      <li>☐ 要你拿本人身份证去开房、办卡、装设备（GOIP／"手机口"窝点）</li>
+      <li>☐ 承诺"佣金20%""稳赚不赔"并用熟人拉熟人——罗江案几人正是被"神秘大佬"这话术拉下水</li>
+    </ul>
+    <p>刷号、搬砖不是"游走灰色地带"，而是直接提供犯罪工具：账号背后是引流、诈骗一条龙，验证码和设备是诈骗电话落地的通道。经手的资金一旦被认定为赃款，"不知道"挡不住追责——<b>主动退赃、如实供述、认罪认罚</b>才是从宽方向。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办：止损、留证、主动说明</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">黄金时间：账户冻结前</span><span class="badge">动作：停手＋留证＋说明</span></div>
+    </div>
+    <ul>
+      <li><b>立刻停手：</b>不再接单、不再转一分钱。转出的每一笔都在加重刑责，也断了"情节轻微"的可能。</li>
+      <li><b>保留全部记录：</b>聊天记录、平台截图、对方账号、佣金流水全部保存——这是区分"末端从犯"与"组织者"的关键证据。骗子让你删记录，恰说明它最有用。</li>
+      <li><b>主动联系银行和警方：</b>账户被冻结后，带材料到银行网点说明；同时拨打<b>110</b>或<b>96110</b>如实讲清经过。2025年7月两高一部《意见》明确，对在校学生及犯罪链条末端、情节较轻的人员依法从宽——<b>主动投案、如实供述、认罪认罚是从宽情节，藏着不说只会更糟</b>。</li>
+      <li><b>别信"花钱平事"：</b>案发后自称"有关系撤案""消除案底"的，是盯上你钱包的二次诈骗。</li>
+      <li><b>要有心理准备：</b>这不是"退赃就没事"。即便不起诉，金融惩戒也躲不掉——最高检通报的措施包括<b>5年内</b>暂停银行账户非柜面业务和支付账户全部业务，惩戒期内仅保留<b>1个</b>手机号，并影响贷款和信用卡申请。</li>
+    </ul>
+    <p><b>第一步操作（10分钟，现在就能做）：</b>① 打开云闪付App"一键查卡"，查名下到底有几张银行卡；② 翻微信、支付宝账单和银行卡流水，找"陌生钱进来、马上转出"的记录；③ 检查社交账号是否曾借给陌生人登录、代收过验证码；④ 只要卡曾离开过你手（哪怕只是"借给朋友帮忙"），立即打银行客服挂失改密，并拨打96110说明；⑤ 把110、96110存进通讯录，退出所有"日结""兼职返利"群聊。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"所有一夜暴富的美梦背后早已标好代价。"——兴平市检察院检察官提醒"天下没有免费的午餐"，勿因贪图小利以身试法，兴平市政府网站2024年12月发布</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.spp.gov.cn/spp/zdgz/202208/t20220815_572466.shtml" target="_blank">最高人民检察院：参与"跑分"赚返利帮助洗钱危害大 18人被法院判刑（2022-08）</a>
+    <a href="https://www.spp.gov.cn/spp/zdgz/202205/t20220517_557036.shtml" target="_blank">最高人民检察院（检察日报）："帮信罪"一年增长21倍 已成电诈"第一罪"（2022-05）</a>
+    <a href="https://www.spp.gov.cn/spp/dfjcdt/202304/t20230420_611844.shtml" target="_blank">最高人民检察院：浙江余姚大专毕业生沦为电诈帮凶被判刑（2023-04）</a>
+    <a href="https://www.luojiang.gov.cn/gk/cdgk/jczwgkbzml/lybl/ggflbw/fcxcjy/flzspjbw/1573110.htm" target="_blank">罗江检察（德阳市罗江区人民政府）：【蓝姐说法】跑分赚钱快，获刑也快（2025-11）</a>
+    <a href="http://www.snxingping.gov.cn/ywdt/jjms/202412/t20241220_1891538.html" target="_blank">兴平市检察院（兴平市人民政府）："跑分"赚钱快 兴平男子犯"帮信罪"获刑（2024-12）</a>
+    <a href="https://m.thepaper.cn/baijiahao_15869489" target="_blank">菏泽巨野县法院政务号（转菏泽开发区公安）：在校大学生挣了50元因涉嫌"帮信"被抓（2021-12）</a>
+    <a href="https://m.thepaper.cn/baijiahao_31629084" target="_blank">澎湃新闻：宽严相济 破解惩治帮信罪的司法难题（解读两高一部2025年7月《意见》，2025-09）</a>
+    <a href="https://m.gmw.cn/2023-02/21/content_1303289807.htm" target="_blank">光明网（转江苏警方）："帮信罪"正式成为我国第三大罪名 大量学生涉案（2023-02）</a>
+  </div>
+</section>
+
+<section id="c10" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 10 · PART 2 · 骗局图鉴·上</span><h2>假副业真卖课<span class="accent">9.9 元漏斗全拆解</span></h2></div>
+  <p class="sec-desc">九块九的"副业体验课"、一句"学完就能接单"，把你从体验课拉进高价训练营，再拉进工具和社群的层层续费。本章拆这条漏斗的每一级：钱怎么流、话术怎么说、接单收入能兑多少、中招怎么退。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🪝</span><h3>一、机制拆解：九块九进门，钱在漏斗里怎么流</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一部手机、九块九</span><span class="badge">损失：几百~数万元，常背分期负债</span></div>
+    </div>
+    <p>这套玩法的商品不是"课"，是"你能靠副业赚到钱"这个预期。漏斗分四级，每级只干一件事：</p>
+    <ul>
+      <li><b>第一级·低价引流</b>：九块九、一块钱的体验课或"免费直播公开课"，价格低到不需要犹豫——它的任务不是教会你什么，是把你拉进群、加上"班主任"的微信。</li>
+      <li><b>第二级·高价转化</b>：群里晒收益截图，直播里讲"普通学员"逆袭，再用"今天报名减免3000元"这类限时折扣催你买高价课或训练营，从几千到几万元。学员王晓被推销的培训费是<b>28000元</b>，对方"承诺只要培训结束就能安排工作"（腾讯新闻）。</li>
+      <li><b>第三级·分期减压</b>：一次性拿不出，就拆成"每月只要几百块"。上海奉贤案里，7到10天视频制作课"分12期付款，每期加上几元钱手续费，也就400多元"（央视网）——对没有收入的学生和宝妈，这一脚最要命：近5000元的课听起来毫无压力。</li>
+      <li><b>第四级·续费与换壳</b>：进群之后还有进阶课、素材库、工具会员、社群年费在等着；投诉多了就换名字——仅大众日报统计到的名字"<b>就有200多个</b>"（腾讯新闻）。</li>
+    </ul>
+    <p>钱的方向很清晰：你的付费<b>前置、确定</b>，机构全额收走，装进壳主体；"接单收入"<b>后置、虚拟</b>。2026年5月15日，人社部等五部门联合发布风险提示，点名"招转培""培训贷"（央视网）；截至2026年3月发稿，黑猫投诉平台含"培训贷"关键词的投诉<b>超8000条</b>（腾讯新闻）——这就是漏斗规模的注脚。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>二、话术清单，和八条识别信号</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一节体验课就能进场</span><span class="badge">损失：冲动全款或分期负债</span></div>
+    </div>
+    <p>下面这些话在多个案子里反复出现，共同点是<b>先谈收益和梦想，再算"每月只要几百"，全程绕开"贷款""违约金""退费规则"</b>：</p>
+    <ul>
+      <li>"边学习边赚钱""赚的钱付学费""月收入能到1000元左右。"——甘肃大一学生袁圆；"先学后付""公司内部教育分期"，机构没说是贷款（均据新华社）。</li>
+      <li>"学费零门槛""包找工作""培训完就上岗"——办案法官提示的危险信号（人民日报客户端）。</li>
+      <li>"减免3000元学费"——王晓遇到的条件是：减免可以，但剩余款项要"直接交给学校，由学校再按月代为转账偿还贷款"（腾讯新闻）。</li>
+      <li>收益截图——警方查证，平台合作与大额收益的截图系<b>伪造</b>（央视网）。</li>
+    </ul>
+    <p>命中以下三条以上，直接按卖课漏斗处理：</p>
+    <ul>
+      <li>用九块九或免费体验把你拉群，第一节课还没上完就开始推销高价课。</li>
+      <li>承诺"学完接单""月入过万"，并出示收入截图。</li>
+      <li>课还没上，先催"今天不定名额、优惠就没了"。</li>
+      <li>一次性付不出，就主动教你"分期""先学后付"，回避贷款性质。</li>
+      <li>让你刷脸、签电子合同，合同里出现第三方小贷或保理公司。</li>
+      <li>"包接单""包就业"只肯口头说，不肯写进合同；退费规则含糊或缺失。</li>
+      <li>公司成立时间短、频繁更名换地点。</li>
+      <li>群里晒单晒收入的"活跃学员"，头像和话术高度相似。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📉</span><h3>三、"学完就能接单"的兑现率：一个群500人，一天50单</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：相信"学完就能接单"</span><span class="badge">损失：学费加债务，收入趋近于零</span></div>
+    </div>
+    <p>这是全章最该算的一笔账。上海警方查证，奉贤案的派单群：<b>"一个群至少500人，每天最多50个单，每单平均只能挣10元左右"</b>（央视网）。50个单乘10元是500元，500人分——<b>人均日收入上限约1元</b>。学员阿豪通过考核后的原话是："一个单子也只能挣10元钱。"（同上）</p>
+    <p>警方认定这类案子"是诈骗不是纠纷"，依据包括夸大学习速度、派单报酬与承诺严重不符、伪造平台合作和收益截图（央视网）。换句话说：<b>不是课值不值的问题，是那个"接单市场"被虚构了。</b></p>
+    <table>
+      <tr><th>宣传口径</th><th>警方查证的现实</th></tr>
+      <tr><td>"学完就能接单，边学边赚"</td><td>500人的群每天最多50单，每单约10元（央视网）</td></tr>
+      <tr><td>"月入过万"的收益截图</td><td>平台合作与收益截图系伪造（央视网）</td></tr>
+      <tr><td>"7—10天学会剪辑/配音"</td><td>夸大学习速度，是认定诈骗的依据之一（央视网）</td></tr>
+      <tr><td>"教育分期，每月400多没压力"</td><td>月供是确定的，对应的接单收入接近零</td></tr>
+      <tr><td>"学完安排工作、包就业"</td><td>办案法官提示的典型危险信号（人民日报客户端）</td></tr>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"仅我们联系到的400多名受害人，就有80%以上是大学生和宝妈群体。"——上海市公安局奉贤分局办案民警方彬彬，央视网2023年8月报道</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>四、真实案例：上海奉贤，154人落网</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一条"接单"广告</span><span class="badge">损失：涉案约1000万元，2000余人受害</span></div>
+    </div>
+    <p>2023年8月，据央视网转载中青报报道：上海奉贤警方捣毁<b>两个</b>以"培训贷"为名的诈骗团伙，抓获<b>154名</b>犯罪嫌疑人，查证<b>涉案金额约1000万元</b>，涉及受害人<b>2000余名</b>；检法提前介入，结论是"<b>是诈骗不是纠纷</b>"。</p>
+    <p>套路是：短视频剪辑课宣称学成就能接单，学费拆成12期、每期400多元。山西一名学生一年生活费5000元，报了<b>4980元</b>的10天课，后被要求交<b>1245元</b>违约金，还被威胁"上征信黑名单"——银行记录显示并没有（央视网）。另一名学生18个月共<b>21000元</b>，外加"工作一年"的绑定（同上）。</p>
+    <p>两个对照：广东一家科技公司用"媒体运营"岗位招走<b>10多名</b>应届毕业生，人均通过网贷平台贷款<b>2.6万余元</b>（人民日报客户端）；学员王晓贷款<b>28000元</b>参加培训，"减免3000元"的代价是把剩余款项交给"学校"代还，用他的话说——"一来一去，被骗了更多钱，债务还在自己身上"（腾讯新闻）。奉贤案以刑事打击收场；<b>具体刑期与资金追回比例暂无公开数据。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛟</span><h3>五、已经中招怎么办：退费与维权路径</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一部手机加证据</span><span class="badge">损失：越早处理越省</span></div>
+    </div>
+    <p>先说一句：会中招不是因为笨。这套流程有正规注册、有协议、有资金流水，专门设计成"像纠纷、不像诈骗"的样子。维权拼的是证据和渠道，不是谁嗓门大。</p>
+    <ul>
+      <li><b>先固定证据，再交涉。</b>宣传页、直播录屏、聊天记录、收入截图、合同、付款记录全部存证，尤其"包接单""包就业"的原始承诺。</li>
+      <li><b>书面提出解约退费。</b>用微信文字或邮件写清理由（宣传与事实不符），别只做口头交涉。</li>
+      <li><b>核实"违约金""黑名单"威胁。</b>自己拉一份征信报告核对，征信中心官网、云闪付都能办。奉贤案那名学生被威胁上黑名单，银行记录证明并没有（央视网）。</li>
+      <li><b>多渠道投诉。</b>12315、12345、黑猫投诉；涉及贷款的，同时联系放款平台要求暂停代扣、协商解除分期。</li>
+      <li><b>涉嫌诈骗就报警。</b>接单承诺和收益截图被伪造的，警方口径是"是诈骗不是纠纷"（央视网）——带证据去派出所或经侦报案。</li>
+      <li><b>别失联，更别以贷养贷。</b>甘肃学员袁圆的分期协议写明：逾期按每日<b>0.0667%</b>向保理商支付违约金（新华社）——拖着的成本是实打实的。</li>
+    </ul>
+    <p>两个真实结局的差别：安徽考生周娜被机构冷处理后先在投诉平台举报，机构答复"5到7个工作日解决，扣除100元报名费，退还其他全部费用"，接着又是拖字诀；一周后她联系法务、表示再不解决就再次举报或请律师，才真正拿回钱。云南应届生林晓娅262节课只上了13节，机构"核算"后告知已缴<b>4462.5元</b>仅退<b>0.29元</b>，分期要"学员自行对接网络借贷平台"（均据新华社）。<b>差别就在有没有留证据、同时施压。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>六、第一步操作：10分钟能做完的自查</h3>
+      <div class="badges"><span class="badge r1">风险 ★</span><span class="badge">门槛：10分钟</span><span class="badge">损失：零，纯防御</span></div>
+    </div>
+    <ul>
+      <li><b>查名下有没有不明贷款。</b>登录中国人民银行征信中心官网或用云闪付拉一份信用报告，逐笔核对分期和消费贷。</li>
+      <li><b>翻一遍电子合同。</b>在微信"服务—钱包—账单"里查交易对手方，邮箱搜"合同""协议""分期"，确认自己签过什么。</li>
+      <li><b>算一遍接单账。</b>把群人数、日均单量、每单金额乘一下：500人分50个10元的单，人均一天约1元。任何接单承诺，先做这道算术。</li>
+      <li><b>查对方公司。</b>上国家企业信用信息公示系统，看成立时间、经营范围、经营异常和诉讼记录。</li>
+      <li><b>背下一句话："我今天不决定，回去考虑。"</b>催你"今天不定就没了"的，一律用这句挡掉。</li>
+      <li><b>告诉一个人。</b>家人、同学、朋友都行。一个人扛，最容易在压力下二次中招。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://news.cctv.com/2023/08/07/ARTIK4CMf54UjHM3VZbOwOcg230807.shtml" target="_blank">央视网（转中青报）：维权难、执法难……"培训贷"为何盯上大学生（2023-08-07）</a><a href="https://www.xinhuanet.com/politics/2023-08/01/c_1129779310.htm" target="_blank">新华网（转《法治日报》）：警惕"培训贷"套路涉世未深大学生（2023-08-01）</a><a href="https://news.qq.com/rain/a/20260315A03O3500" target="_blank">腾讯新闻（大众日报"3·15"调查）：求职变培训、培训骗贷款，一条不断换壳的灰产链（2026-03-15）</a><a href="https://www.peopleapp.com/column/30046879919-500005818671" target="_blank">人民日报客户端（半月谈）：求职不成还要贷款培训？谨防"培训贷"乱象抬头（2024-10-09）</a><a href="https://news.cctv.com/2026/05/16/ARTIAVURCvLDymu3IiBWFKTQ260516.shtml" target="_blank">央视网：人社部等五部门联合发布警惕"招转培""培训贷"等风险提示（2026-05-16）</a><a href="https://tousu.sina.com.cn/" target="_blank">黑猫投诉平台</a></div>
+</section>
+<section id="c11" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 11 · PART 3 · 骗局图鉴·下</span><h2>链上资金盘与貔貅盘<span class="accent">只进不出的合约</span></h2></div>
+  <p class="sec-desc">貔貅是中国传说里只进不出的神兽，币圈把这个词借给了最狠的一类骗局：你买得进，卖不出。本章拆两类东西——写在合约里让你"只能买不能卖"的貔貅盘，和靠USDT入金、拉人头返利的链上资金盘。它们不是"运气差亏了钱"，而是有人提前把出口焊死了。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔒</span><h3>机制拆解：出口是提前焊死的，账面盈利只是后来者的钱</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：一个钱包地址</span><span class="badge">损失：几千~全部身家</span></div>
+    </div>
+    <p>先说钱怎么流动的。操盘手先写好一个代币合约，塞进几样东西：<b>白名单</b>（只有指定地址能卖）、<b>高额卖出税</b>（你卖100块，90块被合约收走）、<b>黑名单</b>（拉黑想卖的人），或一个"暂停交易"的开关。然后在去中心化交易所（DEX）放一笔流动性让币能被买，接着在电报群、短视频评论区喊单，K线只涨不跌——代码不让普通地址卖，池子里只进不出，价格当然好看。</p>
+    <ul>
+      <li><b>你的钱去哪了：</b>买入时付出的USDT、ETH进的是<b>流动性池</b>，不是项目方的"公司账户"。操盘手最后一步通常是<b>撤走池子里的流动性</b>（俗称撤池子/rug pull），池子一空，你手里的币连一毛都换不回来。</li>
+      <li><b>账面盈利是什么：</b>你看到的"翻了好几倍"，只是后来者新打进来的钱堆在池子里托着价格。没有退出通道，它永远只是屏幕上的数字。</li>
+      <li><b>假机构背书是常规操作：</b>操盘手会自己调用交易所合约、把币"买入"到知名机构地址，伪装成"三箭资本都买了"。貔貅盘"由合约部署者预先设置为投资者无法卖出，所以只涨不跌"（律动BlockBeats）。</li>      <li><b>链上资金盘是同一个逻辑的另一种壳：</b>搭一个假交易所或假理财App，承诺<b>日息1%</b>、强制USDT入金、只给USDT提现，再叠一套拉人头返利。钱压根没上链，全在后台数据库里。</li>
+      <li>规模：Chainalysis《2026加密犯罪报告》估算，<b>2025年全球因加密诈骗与欺诈损失约170亿美元</b>，高于2024年的120亿美元；<b>平均单笔损失从782美元涨到2764美元</b>——单笔越骗越大。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"你买入的'币'合约禁止卖出，盘口显示的价格是骗子自己拉的——账户显示'盈利'了，但这个盈利只是骗子写给你看的数字。"——币圈从业者复盘，知乎专栏</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>真实案例：三个已经判了，一个跑了的</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">定性：集资诈骗/传销</span><span class="badge">结局：无期至外逃</span></div>
+    </div>
+    <p><b>GUCS"空气币"案（人民法院案例库入库编号2025-04-1-134-001）。</b>2020年起，王某剑等人<b>篡改其他虚拟货币源代码</b>造出GUCS币和仿冒钱包App"Wa11et Pro"（用数字1冒充字母l），诱导用户把人民币换成USDT再买币，同时隐瞒自己锁定增发权限，虚构"靠算力不断产出""与国际金融挂钩"，再安排人<b>自买自卖</b>做价格。<b>2.9万余名集资参与人损失17.94亿元。</b>成都中院2023年12月一审判处王某剑<b>无期徒刑、没收个人全部财产</b>，马某洗钱罪判<b>八年</b>；四川高院2024年6月二审维持原判。</p>
+    <p><b>"某Token"跨境网络传销案（最高法、市场监管总局2024年6月28日联合发布的典型案例）。</b>2018年初起盘，交<b>500美元以上</b>虚拟货币当"门槛费"，号称能用"智能狗搬砖"套利。经统计，平台<b>注册会员账号超260万个、层级达3293层</b>，收取比特币、泰达币、柚子币等<b>各类虚拟货币超900万枚</b>。盐城经开区法院判处主犯陈某<b>有期徒刑十一年、罚金600万元</b>，其余被告人八年八个月至二年不等。</p>
+    <p><b>欧比特（OURBIT）假平台案（鄂州中院，2025年3月通报）。</b>平台宣称"新加坡注册""持美英金融牌照"，<b>完全伪造9种虚拟货币的K线图</b>，实际是封闭的"用户—平台对赌市场"，靠改数据、设滑点、制造"插针"让客户亏。一年内<b>近3万人被骗、涉案4.6亿元</b>，34人获刑<b>三年至十二年</b>。</p>
+    <ul>
+      <li>还没判但影响最大的是<b>鑫慷嘉（DGCX）</b>：2023年5月起盘，冒充"迪拜黄金与商品交易所中国分部"，承诺<b>日息1%</b>、最低1000USDT起投，全国分"四大战区"、设9级层级拉人头。<b>2025年6月25日全面停止提现</b>，崩盘前48小时把<b>约18亿USDT（约合129亿元人民币）</b>经混币器转到开曼、英属维尔京群岛的匿名账户，主犯黄鑫外逃，多地警方已立案。崩盘后还冒出"安裕财富"等换壳盘专吃老受害者的回本心理，2026年3月同样暴雷——<b>二次收割比第一次更狠</b>。</li>    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"起初爆仓亏损，追加投资后稍有盈利，可平台频繁卡顿，恢复后又开始亏损，还遭遇'插针'直接爆仓。"——欧比特案受害者梁某（被骗300余万元），法院通报</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🕵️</span><h3>识别信号：见到任何一条，直接停手</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：会看链上浏览器</span><span class="badge">损失：几分钟就能避开</span></div>
+    </div>
+    <ul>
+      <li>☐ <b>合约没开源或只开源一半</b>——看不到全部代码，等于把命交给对方</li>
+      <li>☐ <b>合约权限没放弃</b>：还能改税率、拉黑、暂停交易、增发的，一律当貔貅处理</li>
+      <li>☐ <b>买入几乎不收费，卖出税高得离谱</b>（常见50%—99%），或提示"滑点设高才能卖出"</li>
+      <li>☐ 拉一下交易记录，<b>满屏买入成功、一堆卖出失败</b>——貔貅盘最硬的痕迹</li>
+      <li>☐ K线<b>只涨不跌、毫无回调</b></li>      <li>☐ <b>流动性池很小、没锁仓或锁几天就解</b>——池子小才容易被拉飞，才好撤</li>
+      <li>☐ 官网粗糙、只有群，<b>没有实名团队</b>，白皮书只讲故事</li>
+      <li>☐ <b>假空投</b>：钱包突然多出不认识的代币，或"连接钱包领空投"的页面——点进去往往是授权签名</li>
+      <li>☐ 任何网页<b>要求输入12/24位助记词</b>的，100%是诈骗</li>
+      <li>☐ 授权额度是<b>"无限"（Unlimited）</b>——签了等于把钱包交给对方</li>
+      <li>☐ <b>日息1%、月收益40%</b>——违背经济规律的部分，一定来自后来者的本金</li>
+      <li>☐ <b>强制USDT入金、只给USDT提现</b>，或App只能靠私发链接下载、不在官方应用商店</li>
+      <li>☐ 小额提现秒到，<b>大额立刻要你"缴税/保证金/解冻费"</b>——这是收网信号，不是运气差</li>    </ul>
+    <table>
+      <tr><th>对比项</th><th>正常链上项目</th><th>貔貅盘 / 假平台</th></tr>
+      <tr><td>合约代码</td><td>开源、可查、多有第三方审计</td><td>未开源或藏后门，权限未放弃</td></tr>
+      <tr><td>卖出</td><td>随时可卖，税透明且低</td><td>卖不出、税极高、只进不出</td></tr>
+      <tr><td>价格曲线</td><td>有涨有跌</td><td>只涨不跌，涨得越好看越假</td></tr>
+      <tr><td>团队</td><td>实名、可追溯、长期更新</td><td>匿名，只有群和喊单</td></tr>
+      <tr><td>收益来源</td><td>产品与协议收入</td><td>新用户的本金</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办：先止血，再留证，别信"追款"</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">黄金时间：发现后立刻</span><span class="badge">动作：撤授权+报警</span></div>
+    </div>
+    <ul>
+      <li><b>立刻停止转账。</b>凡是"再交一笔税/保证金/解冻费就能提"，都是同一把刀的第二下。有人复盘时提到，亏的10万里有7万是在"不甘心"这一步又转出去的。</li>
+      <li><b>马上撤销授权。</b>连接过钱包、签过名的，去钱包的"授权管理"查，或用 revoke.cash，把不认识的和额度为"无限"的授权全撤掉。授权不撤，骗子还能继续转走你钱包里其他资产。</li>
+      <li><b>助记词、私钥作废处理。</b>只要在网页里输过助记词，那个钱包就永远别再存钱，剩余资产转到新钱包，别心疼手续费。</li>
+      <li><b>固定证据。</b>合约地址、交易哈希、对方钱包地址、网站域名、聊天记录、转账截图全部存好。链上记录删不掉，这是最硬的证据。</li>
+      <li><b>报警，别只报一次。</b>打110或通过"国家反诈中心"App提交材料。追赃确实难，但同一地址报案的人多了会被风控标记，能挡住后面的人。</li>
+      <li><b>对法律结果有预期。</b>福州鼓楼法院审理过一起48万元USDT理财纠纷，最终<b>驳回起诉并移送公安机关</b>，并明确：投资虚拟货币违背公序良俗的民事法律行为无效，<b>由此引发的损失由参与者自行承担</b>。这话不好听，但提前知道比事后崩溃好。</li>
+      <li><b>发展过下线的，主动说清楚。</b>为拿提成拉过亲友的，尽早向警方如实说明全部经过——这是争取被认定为受害人而非传销参与者的关键。</li>
+      <li><b>警惕二次诈骗。</b>所有自称"黑客追款""律师包追回"的，目标都是你剩下的钱。</li>
+    </ul>
+    <p><b>第一步操作（10分钟，现在就能做）：</b>① 打开钱包的"授权管理"或用 revoke.cash，把不认识的、无限额度的授权全部撤销；② 检查助记词、私钥有没有存在截图、云笔记、聊天记录里，有就删；③ 装好"国家反诈中心"App并开启来电预警，存好110和96110；④ 把最近一个月连接过的钱包网站域名列出来，逐个核对是否官方域名；⑤ 买了小币的，去链上浏览器拉一下交易记录，看是不是满屏买入成功、一堆卖出失败。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"每一步都有'你的自愿行为'：你是自己点的转账，自己签的授权，自己输入的密码。在法律上这叫'处分自己的财产'，而不是盗窃。所以第一时间该做的只有两件事：立刻撤销全部授权，然后保留全部证据报警。"——受害者复盘，知乎专栏</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.pbc.gov.cn/tiaofasi/144941/3581332/2026020619591971323/index.html" target="_blank">中国人民银行等八部门《关于进一步防范和处置虚拟货币等相关风险的通知》（银发〔2026〕42号）</a>
+    <a href="https://www.rmfyb.com/content/202406/29/article_934356_1390378492_5529421.html" target="_blank">人民法院报：最高法、市场监管总局联合发布依法惩治网络传销犯罪典型案例（2024-06-28）</a>
+    <a href="https://zhuanlan.zhihu.com/p/2045579726111125666" target="_blank">人民法院案例库参考案例：王某剑、马某等集资诈骗、洗钱案（GUCS币，2025-04-1-134-001）</a>
+    <a href="https://law.rednet.cn/content/646947/75/7633.html" target="_blank">红网法律频道：鄂州中院审结虚拟货币网络诈骗案，34人获刑（2025-03）</a>
+    <a href="https://finance.sina.com.cn/wm/2026-04-06/doc-inhtpzzy4427535.shtml" target="_blank">新浪财经：DGCX鑫慷嘉130亿崩盘案复盘（2026-04）</a>
+    <a href="https://www.sohu.com/a/913236441_355158" target="_blank">搜狐（引警方通报）：DGCX鑫慷嘉爆雷、多地监管部门风险提示</a>
+    <a href="https://www.163.com/dy/article/KUIM2AA205149FK7.html" target="_blank">娄底市市场监督管理局：关于警惕虚拟币传销陷阱的风险警示（2026-05-25）</a>
+    <a href="https://www.mpaypass.com.cn/news/202601/19101853.html" target="_blank">移动支付网：Chainalysis数据，2025年加密诈骗损失约170亿美元</a>
+    <a href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank">Scam Sniffer：2025年加密钓鱼损失年度报告</a>
+    <a href="https://www.sohu.com/a/969924650_122500878" target="_blank">搜狐：拉菲协议（LAF）被曝为貔貅盘、资金池枯竭</a>
+    <a href="https://zhuanlan.zhihu.com/p/2091547463975019407" target="_blank">知乎专栏："只能买不能卖"的貔貅币，10万本金是怎么没的</a>
+    <a href="https://cloud.tencent.com/developer/article/2585788" target="_blank">腾讯云开发者社区：Bitget发布假空投钓鱼风险警示</a>
+  </div>
+</section>
+
+<section id="c12" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 12 · PART 3 · 骗局图鉴·下</span><h2>加盟与代理骗局<span class="accent">招商敛财的套路</span></h2></div>
+  <p class="sec-desc">加盟骗局瞄准的不是"贪小便宜"的人，而是真想改善生活的小店主、返乡创业者、想给家里添份收入的普通人。套路核心只有一句话：把招商本身做成一门稳赚不赔的生意——你投的是钱，他赚的是你的加盟费。这一章拆开"快招公司"的流水线，教你在签字前拦下它。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏪</span><h3>机制拆解：一条"快速招商、快速开店、快速消失"的流水线</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：低（有积蓄即可）</span><span class="badge">损失：几千~几十万</span></div>
+    </div>
+    <p>所谓"快招公司"，赚的不是开店的钱，是<b>招加盟的钱</b>。流水线分六步，每一步都冲着"让你尽快掏钱"设计：</p>
+    <ul>
+      <li><b>① 引流：</b>短视频招商广告（"全年无淡季、无需经验"）、搜索引擎里与真官网高度相似的"李鬼"网站。你留下的电话，会被转给招商公司。</li>
+      <li><b>② 考察：</b>招商人员报销路费请你去"样板店"看，拿出"政策单"，承诺<b>技术人员指导、每月补贴、安排网红推广</b>，再用"名额已满、先到先得"催你当场签字。</li>
+      <li><b>③ 签约：</b>钱分几笔付——加盟费、物料费、保证金。关键在合同名称：正规是受《商业特许经营管理条例》监管的<b>《商业特许经营合同》</b>，快招用的是<b>《品牌服务协议》</b>，刻意绕开条例的备案、信息披露和"冷静期"义务。口头承诺？合同里写着"其他资料、广告及宣传等，均不是本合同条款"。</li>
+      <li><b>④ 吸血：</b>承诺的补贴缩水或消失（央视报道中"每月补贴2000元"变成"拿货满2000元返200元"），物料必须从总部高价进货——<b>一箱上千元</b>，远超市场价。日营业额长期在一两百元，开门即亏损。</li>
+      <li><b>⑤ 分钱：</b>你交的加盟费，大头被招商公司分走。最高法公布的案例中，加盟费按<b>22:78</b>分成，品牌方只拿22%，极少投入实际运营——项目从设计上就注定失败。</li>
+      <li><b>⑥ 善后：</b>拖延、敷衍、拉黑；签约、招商、供货由"同一控制人名下的多家壳公司"分工，追责找不到人。找商务部门，只得到"属于民事合同纠纷，建议走司法途径"的答复。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"一开始，他们态度极好，把项目说得天花乱坠，让你觉得加盟这个品牌一点亏都不会吃。"——加盟商赵娟（化名）回忆签约前情景，央视《锋面》调查（2026年）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>真实案例：从民事纠纷到刑事判刑</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">定性：合同诈骗罪</span><span class="badge">结局：最高判12年</span></div>
+    </div>
+    <p><b>案例一（刑事，最高人民法院2026年8月发布）：</b>叶某、谭某实际控制一家公司，购买"蜜桃里"商标后委托招商公司短期快速招商，加盟费按<b>22:78</b>分成。招商人员虚构该品牌"与知名品牌属同一集团"、虚增业绩、<b>购买知名品牌产品冒充自有产品</b>，诱骗被害人签约。截至案发，骗取<b>300余名被害人加盟费共计5400余万元</b>。南京市秦淮区人民法院认定四名被告人构成<b>合同诈骗罪</b>，判处<b>有期徒刑十二年至五年并处罚金</b>，南京中院二审驳回上诉、维持原判。</p>
+    <p><b>案例二（央视网报道）：</b>杨某等人仿制知名快递公司官网、注册近似公司名称，以"加盟快递驿站"为名骗取投资款。被害人樊某被要求"缴纳<b>3000元定金</b>、再付<b>4000元尾款</b>"，只收到一份"合同"和一台旧电脑；此后客服虚构"等待开通快递系统"拖延，客户上门维权或报警时，又以"系统费用、出差费用"为由<b>扣下钱款</b>。该案历时约一年半，<b>800多名被害人</b>被骗<b>390余万元</b>，5名被告人被判处有期徒刑<b>十二年至十一个月</b>、罚金30万元至1万元（南通崇川法院一审，南通中院二审维持原判）。同类还有"5G基站加盟"骗局：湖北巴东警方破获的案件中，嫌疑人谎称中标"5G通信铁塔建设项目"，骗取一家公司<b>100万元</b>"加盟费"后被刑拘。</p>
+    <ul>
+      <li>两个案例的共同点：<b>多少都提供了点"形式化服务"</b>（一台旧电脑、一次考察、一份手册），极易被伪装成合同纠纷。检察机关指出，这类案件"虚实结合"，往往并联多起民事案件线索后，才能发现背后是系统性诈骗。</li>
+      <li>最高法同时明确了民事救济通道：合同没写"冷静期"条款，加盟人仍享有<b>法定单方解除权</b>；签约后第15天提出解除的，法院判决全额退还3.5万元；特许人编造"一天流水3万多"等经营数据的，构成<b>欺诈</b>，合同可撤销。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>识别信号：签字前逐条核对</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">用途：签约前自查</span><span class="badge">耗时：10分钟</span></div>
+    </div>
+    <ul>
+      <li>☐ 合同名称是<b>《品牌服务协议》《服务协议书》《项目标识使用协议》</b>，而不是《商业特许经营合同》——大概率在规避条例监管</li>
+      <li>☐ 在商务部商业特许经营信息管理系统里<b>查不到该公司或该品牌的备案</b></li>
+      <li>☐ 招商主体是<b>个体工商户</b>或成立不满一年的新公司——条例要求特许人须为企业，且拥有至少2个直营店、经营时间超过1年（"两店一年"）</li>
+      <li>☐ 口头承诺天花乱坠，合同里却写着"<b>其他资料、广告及宣传均不是合同条款，不得作为抗辩证据</b>"</li>
+      <li>☐ 合同约定"<b>服务启动后所交款项不得退还</b>"，且违约责任严重失衡：你违约罚5万~10万，对方"几乎无实质性惩罚条款"</li>
+      <li>☐ 话术全是制造焦虑和贴靠大牌："名额已满""原班人马打造""已获A轮融资""港股上市""首批红利"</li>
+      <li>☐ 被引导去"样板店"考察，看到的"营业火热"与真实客流不符；打官方客服求证，对方<b>明确否认与该品牌有关联</b></li>
+      <li>☐ 收款账户与签约公司不是一家，或让你打给个人——典型的壳公司分工</li>
+      <li>☐ 搜"品牌名+骗局/维权/退费"，出现成规模的投诉和维权群</li>
+    </ul>
+    <table>
+      <tr><th>对比项</th><th>正规特许经营</th><th>快招骗局</th></tr>
+      <tr><td>合同性质</td><td>《商业特许经营合同》，受条例监管</td><td>《品牌服务协议》，刻意规避条例</td></tr>
+      <tr><td>备案与资质</td><td>商务部系统可查，"两店一年"</td><td>查无备案，甚至是个体工商户</td></tr>
+      <tr><td>盈利来源</td><td>靠加盟店持续经营成功</td><td>靠收加盟费、高价卖物料</td></tr>
+      <tr><td>退出机制</td><td>有冷静期，费用可协商退还</td><td>"服务启动后一律不退"</td></tr>
+      <tr><td>出事后</td><td>持续履约、承担责任</td><td>拖延、拉黑、换壳公司</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办：抢"冷静期"，留证据，并联报案</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">黄金窗口：签约后数日内</span><span class="badge">路径：投诉+报警+起诉</span></div>
+    </div>
+    <ul>
+      <li><b>立刻主张"冷静期"退费：</b>《商业特许经营管理条例》第十二条规定，被特许人在合同订立后一定期限内可单方解除合同。最高法明确这是<b>法定权利</b>——哪怕合同没写，哪怕对方写了"领取资料不退费"（该格式条款被判无效），只要<b>经营资源尚未被实际利用</b>，就应立即书面提出解除合同、要求退费。参考判例：签约后第15天提出，3.5万元全额退还。</li>
+      <li><b>固定全部证据：</b>合同、转账记录、收据、聊天记录、宣传页、"政策单"、通话录音、对方营业执照与收款账户——这是认定欺诈和并联定性的基础。</li>
+      <li><b>多渠道投诉：</b>向当地<b>商务部门</b>投诉其无备案招商（未备案可被责令整改、罚款）；拨<b>12315</b>或<b>12345</b>；多人时向消协、市场监管部门集中反映。</li>
+      <li><b>涉嫌诈骗就报警：</b>对方无资质、无实际履约能力、收款后失联的，可能不是"纠纷"而是诈骗。单人金额小更难立案，<b>尽量联系其他受害者并联报案</b>——多地加盟商串联，正是揭开"系统性诈骗"的关键。</li>
+      <li><b>起诉有明确抓手：</b>虚假宣传构成欺诈可请求撤销合同；特许人是个体工商户的合同可主张无效；备案资格被撤销的，可请求解除并退费。</li>
+      <li><b>防二次收割：</b>声称"包赢追款""先交手续费帮你退加盟费"的律师和中介，绝大多数是盯上你剩余存款的新骗局。</li>
+    </ul>
+    <p><b>第一步操作（10分钟，现在就能做）：</b>① 打开商务部商业特许经营信息管理系统（txjy.syggs.mofcom.gov.cn），用<b>公司名称、特许品牌、备案号</b>各查一遍，查不到就是重大风险信号；② 在国家企业信用信息公示系统查该公司成立时间、股东、是否被列入经营异常名录、有多少诉讼；③ 把合同从头读到尾，重点找"不得退还""不得作为抗辩证据""违约金"三条；④ 搜索"品牌名+骗局/维权/退费"，看有没有维权群和投诉；⑤ 拨打12315或12345备案投诉；⑥ 任何口头承诺，当场要求写进合同补充条款，写不进去的，视为不存在。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>北航法学院副教授赵精武建议"多写""多走"——涉及自身权益的约定全部写进书面合同，签约前实地考察公司资信与经营状况。中国政法大学李维华教授则指出，真正的特许经营应满足"法、商、德、情"四要素，快招公司"无备案、无资质、无成功经验、说辞不一"，条条全缺。——央视《锋面》调查（2026年）</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="http://www.court.gov.cn/zixun/xiangqing/508501.html" target="_blank">最高人民法院：商业特许经营典型案例（含"蜜桃里"合同诈骗案，2026-08-12）</a>
+    <a href="https://opinion.cctv.com/2026/09/14/ARTIRvjIRgvw3cffrYICdiq8260914.shtml" target="_blank">央视《锋面》调查："十万投资、轻松回本"？部分快招公司正批量收割"创业者"</a>
+    <a href="https://news.cctv.com/2024/02/29/ARTIb7IKND1bkAEKzcSolNTO240229.shtml" target="_blank">央视网："快递驿站加盟"骗局：一年半800多人上当（2024-02-29）</a>
+    <a href="https://news.cctv.com/2022/11/10/ARTIwIMafnRQw31ojihDa94g221110.shtml" target="_blank">央视网：湖北警方侦破一起"5G加盟"骗局（涉案约100万元，2022-11-10）</a>
+    <a href="http://txjy.syggs.mofcom.gov.cn/" target="_blank">商务部商业特许经营信息管理系统（官方备案查询入口）</a>
+    <a href="https://news.cctv.com/2026/08/12/ARTI3GieuzZoRigKo5AdcgKc260812.shtml" target="_blank">央视网：最高法发布7件特许经营典型案例 明确"冷静期"单方解除权（2026-08-12）</a>
+  </div>
+</section>
+<section id="c13" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 13 · PART 3 · 骗局图鉴·下</span><h2>自媒体培训与起号神话<span class="accent">流量焦虑的变现</span></h2></div>
+  <p class="sec-desc">"7天起号、保底收益、内部算法"——这套话术卖的不是运营方法，是"你也能靠流量翻身"的预期。本章拆"起号"的话术、真实数据与培训机构收入结构，再讲中招后怎么办。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📣</span><h3>一、机制拆解：钱怎么流动</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一条"官方"私信</span><span class="badge">损失：几千~几十万元</span></div>
+    </div>
+    <p>2025年，上海市静安区人民检察院对一起短视频"起号"课诈骗案<b>64名</b>涉案人员提起公诉。经查，该团伙<b>约5个月</b>内骗取<b>约2000万元</b>，涉及<b>数千名</b>被害人：开设诈骗课堂骗取<b>1700万余元</b>，另组"售后团队"骗取<b>280万余元</b>（中国青年报、法治日报）。钱分四段流动，每段只对收款方确定：</p>
+    <ul>
+      <li><b>前端·推课团队</b>：冒充"短视频平台官方"客服或老师，头像带平台logo，用免费资料拉你进直播课——"我们是短视频平台官方，现在有扶持创业者的计划，让你的账号迅速'起号'，视频直接上热门"（光明网）。</li>
+      <li><b>中端·开课团队</b>：在免费直播课里用虚假收益截图和退款承诺哄你报名——"学费只要2997元，没有任何二次收费，包教会、包收益""十天之内赚回学费"；这一环<b>分走约20%报名费</b>（法治日报）。</li>
+      <li><b>后端·售后团队</b>：你付完款，先见到"专属老师""班主任"：课程是<b>剽窃或低价买来的录像</b>，承诺的推流和一对一指导不兑现；取得信任后再诱充SVIP——"成为SVIP会员即赠送影视剪辑工具、获取每日保底收益"，<b>SVIP充值款被售后独占</b>（法治日报）。</li>
+      <li><b>二次收割</b>：你醒悟了要退款，对方不退钱，反而再收一笔"升级费"，乃至把你引向<b>假冒的反诈网站</b>，以"测试金"为名再骗。被害人王先生2024年3月付费2997元后未见收益，退款时被诱导再付799元"升级"，又在假反诈网站损失一笔"测试金"后报案（中国青年报）。</li>
+    </ul>
+    <p>看清结构就明白：<b>卖课的收益前置、确定，"起号收益"后置、虚拟</b>；课程成本近乎为零，利润全来自新学员学费——机构的精力都用在拉新和加码收费上，而不是帮你把号做起来。目前相关人员已被以诈骗罪、帮助信息网络犯罪活动罪追责；吴某被判处<b>有期徒刑12年6个月、并处罚金35万元</b>，陈某、姜某案件在审理中（法治日报）。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>承办检察官阮晓宇指出，该团伙"总打着合法市场交易的幌子"，其行为是"用'正规售卖课程'的假象掩盖非法占有的真实目的"。——中国青年报2025年8月报道</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>二、"保底收益、内部算法"话术，和六条识别信号</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一节免费直播课</span><span class="badge">损失：学费与数月时间</span></div>
+    </div>
+    <p>这些话术高度模板化：先给身份幻觉（官方），再给收益幻觉（保底）——"我们是平台官方，有创业者扶持计划""账号迅速起号、视频上热门""交钱就能上热门""官方流量扶持""包教会、包收益""每日保底收益""无理由退款"。直播课里的"学员逆袭"和收益截图，警方查证多系<b>伪造</b>。</p>
+    <p>看真实供给：中国网络视听节目服务协会报告显示，截至2024年底，我国<b>短视频创作者账号规模达16.2亿</b>，<b>日均新上线短视频超1.3亿条</b>，<b>职业主播约3880万人</b>（《中国网络视听发展研究报告(2025)》，鞭牛士转引）。供给是这个量级，注意力却固定——你看到的"起号成功"是从巨大分母里浮上来的幸存者，还有一部分是课堂安排的"演员"：<b>晒收益的人，往往正是靠卖课赚钱的人</b>。</p>
+    <p>命中以下三条以上，按"起号神话"培训处理，不要付费：</p>
+    <ul>
+      <li>自称"平台官方"，头像带平台logo，或提"创业者扶持计划""官方流量扶持"。</li>
+      <li>承诺"保底收益""包赚不赔""七天见收益""无风险退款"。</li>
+      <li>提"内部算法""内部名额""交钱上热门"——平台规则从未被任何机构垄断。</li>
+      <li>催"今天不定名额、优惠就没了"，付款后立刻被转给"售后""班主任"。</li>
+      <li>想退款时，对方要求你先再付一笔（升级费、测试金）。</li>
+      <li>用"先学后付""分期"减轻痛感——中消协提示，此类"分期"<b>实质是消费贷款</b>。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>三、培训机构收入结构：钱从卖课来，不从账号来</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：会看分工与公开信息</span><span class="badge">损失：看清即避开</span></div>
+    </div>
+    <p>判断"起号培训"靠不靠谱，先看钱从哪来。上海静安案的分工就是一张收入表：<b>推课团队拿引流分成、开课团队分约20%报名费、售后团队独占SVIP充值款</b>——三层收入全来自学员缴费，没有一分钱来自"把账号做起来"（法治日报）。真能稳定起号的团队，收入该在平台分成和商单里，而非学费。</p>
+    <p>不止一例。中国消费者协会《2026年第一季度全国消协组织受理投诉情况分析》（2026年5月发布）指出，职业技能培训纠纷呈"类型多样化、营销套路化、<b>风险金融化</b>"等特点，<b>平均涉诉金额超7000元</b>；"数字技能培训类"借AI、数字人、短视频带货概念营销，虚假宣传"学会即可接单""轻松月入过万"，课程缩水、退费难。个案：王女士参加配音培训<b>累计付费15968元</b>，接单承诺未兑现、退款被拒；刘先生花2880元买数字技能课，又被加2000元购"专用机"，共<b>4880元</b>，经调解才退回；另有学员被诱导办<b>12期分期共6000元</b>。</p>
+    <p>同类套路也在被打击：据"平安安阳"账号2026年10月通报，河南汤阴警方打掉一个"培训贷"诈骗团伙，<b>抓获15人</b>，主要针对<b>大学生、宝妈</b>。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>四、和正规运营教育的区别</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：会查资质、会看合同</span><span class="badge">损失：识破即零损失</span></div>
+    </div>
+    <p>学运营不是坏事——平台规则、选题、剪辑都有正规途径。分界线不在"收不收费"，而在这些地方：</p>
+    <table>
+      <tr><th>看什么</th><th>正规运营教育</th><th>"起号神话"式培训</th></tr>
+      <tr><td>身份</td><td>名称资质公开，可查信用信息</td><td>冒充"平台官方"，用平台logo，提"扶持计划"</td></tr>
+      <tr><td>收益表述</td><td>讲方法、案例、规则变化，不承诺结果</td><td>"保底收益""包赚不赔""七天回本""内部算法"</td></tr>
+      <tr><td>课程</td><td>大纲课时公开，可试听，随规则更新</td><td>剽窃或低价买来的通用录播，不更新</td></tr>
+      <tr><td>收费</td><td>一次性明码标价，退费写进合同</td><td>分层加码：体验课→正课→SVIP→工具→"测试金"</td></tr>
+      <tr><td>退费</td><td>按合同约定处理，有申诉渠道</td><td>拖延、失联，或要求再付费才能"退"</td></tr>
+      <tr><td>贷款</td><td>不碰贷款，或告知利率与征信后果</td><td>"先学后付""分期"实为消费贷款，弱化属性</td></tr>
+    </table>
+    <p>一个简单动作：各平台的<b>创作者学习中心、创作规则、官方公告都免费</b>。正规教育教你看懂规则，"起号神话"卖绕过规则的幻觉——规则恰恰绕不过去。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛟</span><h3>五、已经中招怎么办</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一部手机加证据</span><span class="badge">损失：越早处理越省</span></div>
+    </div>
+    <p>会中招不是因为笨，也不是因为贪——这套流程有正规注册、协议、上课记录和资金流水作外壳，专击中"想靠自己努力改变生活"的人。按顺序做：</p>
+    <ul>
+      <li><b>先固定证据，别先吵架。</b>付款记录、聊天记录、宣传页、收益截图、课程链接、对方公司主体，全部截图录屏；再书面提出解约退费，写清理由（宣传与事实不符），留痕。</li>
+      <li><b>涉及"先学后付"、分期的，马上联系放款方：</b>说明"虚假宣传、诱导借贷"，要求暂停代扣、协商解除贷款合同，询问培训费能否退回。</li>
+      <li><b>向平台举报"冒充官方"，并多渠道投诉：</b>伪造平台身份、用平台logo引流属平台明令禁止；12315、全国消协"智慧315"、黑猫投诉——中消协报告多个案例表明，投诉调解是拿回部分钱款的路径。</li>
+      <li><b>涉嫌诈骗就报警。</b>冒充官方身份＋虚构收益承诺＋收款后失联，已符合诈骗特征；上海静安案就是由被害人报案侦破的。</li>
+      <li><b>最关键：停止加码。</b>任何"再付一笔才能退费/才能享受收益"的说法都是二次诈骗——假"反诈网站"骗"测试金"，骗的就是已经醒悟的人。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>六、第一步操作：10分钟能做完的自查</h3>
+      <div class="badges"><span class="badge r1">风险 ★</span><span class="badge">门槛：10分钟</span><span class="badge">损失：零，纯防御</span></div>
+    </div>
+    <ul>
+      <li><b>核实"官方"身份（2分钟）。</b>把对方头像、logo、"扶持计划"截图拿去平台官方客服核一句"有没有这个活动"——冒充官方一查就穿。</li>
+      <li><b>查对方公司（3分钟）。</b>上国家企业信用信息公示系统，看成立时间、经营范围、异常和诉讼；新注册、无资质、诉讼缠身的排除。</li>
+      <li><b>翻一遍付款与合同（3分钟）。</b>微信"服务—钱包—账单"查交易对手方；"先学后付""分期"要确认签的是培训合同还是贷款合同。</li>
+      <li><b>给冲动设一道闸（1分钟）。</b>背下这句话——"我今天不决定，回去考虑"。催"现在不定就没了"的，用它挡掉。</li>
+      <li><b>把承诺截图存档，再告诉一个人。</b>每句收益承诺都截图，将来维权就是证据；一个人扛最容易连续加码，多一个人问"这钱凭什么归你赚"，往往就醒了。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://s.cyol.com/articles/2025-08/27/toutiao_ajaeq8Uz.html" target="_blank">中国青年报：短视频"起号"课程处处是坑，5个月诈骗钱财约2000万元（2025-08-27）</a><a href="https://m.gmw.cn/toutiao/2025-09/10/content_38277161.htm" target="_blank">光明网转《法治日报》：宣称能迅速"起号"实为诱骗充值 上海静安检察依法对64人提起公诉（2025-09-10）</a><a href="https://m.gmw.cn/toutiao/2025-10/21/content_38357561.htm" target="_blank">光明网：声称"包教会包收益"实为空头支票 64名涉案人员被提起公诉（2025-10-21）</a><a href="https://cca.org.cn/single/11186/63307.html" target="_blank">中国消费者协会：2026年第一季度全国消协组织受理投诉情况分析（2026-05-11）</a><a href="https://m.gmw.cn/toutiao/2025-03/27/content_37929790.htm" target="_blank">光明网：我国网络视听用户规模达10.91亿人（《中国网络视听发展研究报告(2025)》发布，2025-03-27）</a><a href="https://toutiao.com/group/7486058472509850139/" target="_blank">鞭牛士：2024年我国网络直播用户8.33亿人，职业主播3880万人（2025-03-26）</a><a href="https://toutiao.com/group/7699020462466122280/" target="_blank">"平安安阳"账号：汤阴警方打掉"培训贷"诈骗团伙，抓获15人（2026-10）</a></div>
+</section>
+<section id="c14" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 14 · PART 3 · 骗局图鉴·下</span><h2>二手交易与保证金骗局<span class="accent">平台外交易的陷阱</span></h2></div>
+  <p class="sec-desc">卖闲置、买二手，本该是双赢的小事。但只要你离开平台担保、扫了对方发来的码，这笔交易就从"平台管得着"变成"没人管得着"。本章拆两种最常见的剧本：假客服"解冻"和"保证金"。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔄</span><h3>一、机制拆解：钱是怎么绕开平台流走的</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：挂过一件闲置</span><span class="badge">损失：几百～几万元，学生高发</span></div>
+    </div>
+    <p>正规二手交易里，钱走的是：买家付款→平台担保→发货→确认收货→放款给卖家，全程没有"向个人账户交钱"的环节。保证金骗局做的，就是<b>把你从这条链上摘下来</b>。以卖家视角为例，钱通常走四步：</p>
+    <ul>
+      <li><b>第一步，伪造"已付款"。</b>假买家私信称已下单付款，却因你"未开通某项服务"资金被冻结，催你处理，仿佛耽误了是你的责任（郑州警方通报，2025年12月）。</li>
+      <li><b>第二步，送你一个"客服"。</b>对方发来二维码或链接，扫码进入仿冒的"平台在线客服"界面，做得和真的一样，域名却和官方 App 无关——从这一刻起，你已经不在平台里。</li>
+      <li><b>第三步，名目收费。</b>"解冻保证金""商品保障金""授权费""假一赔三服务费"换着名字来，共同点是<b>要求转到指定个人账户</b>。最高检公布的案情里，钱被转进昵称"核查"的支付宝账号（2025年5月）。</li>
+      <li><b>第四步，加速抽干。</b>小额只是试探。骗子随后以"操作未完成无法退款""中途退出钱一律不退"施压，诱导屏幕共享，直接窃取验证码和支付密码盗刷（阳江市公安局，2025年12月）。</li>
+    </ul>
+    <p>还有一种变体走<b>共享资金工具</b>：骗子让你发"小荷包"式资金池红包二维码，同伙加入后几分钟内领走转移。最高检披露的案情中，有人半个月提供<b>10余个</b>支付宝账号、领近<b>200个</b>红包，转移资金<b>11万余元</b>；上游多在境外，到账即转走，<b>追回难度很大</b>。这套骗局不靠技术，靠的是伪造的冻结通知、假客服身份和"不处理就是你的责任"的心理压力。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"所有以'保证金''解冻费''风险金'等名义要求先行转账的，均为诈骗。"——阳江市公安局提醒，2025年12月</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>二、常见话术与八条识别信号</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一条私信就能开始</span><span class="badge">损失：识破即零损失</span></div>
+    </div>
+    <p>骗子的话术高度模板化，下面是公开通报里反复出现的原句：</p>
+    <ul>
+      <li>"学生急出""毕业清仓，给钱就卖"——用低价人设催你脱离平台。</li>
+      <li>"不砍价、不问细节"——最高检提示的异常信号：有诚意的买家会问成色要细节图，只有骗子怕节外生枝。</li>
+      <li>"账户被冻结了""24小时不处理自动取消""不交保证金解冻，买家资金无法到账，你要担责、可能上失信名单"——伪造平台通知，再用担责吓住卖家（九龙网，2025年12月）。</li>
+      <li>"我是官方客服，加这个号码处理""开一下屏幕共享我教你操作"——真客服不会让你离开官方 App；共享屏幕等于交出验证码和密码。</li>
+    </ul>
+    <p>对照八条自查，命中三条以上，不管对面说得多急，都按骗子处理：</p>
+    <ul>
+      <li>沟通被从平台站内引导到微信、QQ 或陌生链接、二维码。</li>
+      <li>出现任何名目的"先交钱"：保证金、解冻金、保障金、服务费、授权费。</li>
+      <li>收款方是个人账户，而不是平台担保交易。</li>
+      <li>对方自称客服，却让你扫码进入的页面不是官方 App。</li>
+      <li>买家异常"爽快"：不砍价、不问细节、秒下单。</li>
+      <li>被要求屏幕共享或安装来路不明的"交易"软件。</li>
+      <li>通知你"账户冻结""订单异常"，还带倒计时。</li>
+      <li>用"中途退出钱不退""影响征信""上失信名单"威胁你继续操作。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>三、真实案例：从 499 元到 1.3 万元</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：一次扫码、一次屏幕共享</span><span class="badge">损失：涉案资金多已转往境外</span></div>
+    </div>
+    <p>2025年10月，阳江一名<b>11岁</b>学生用家长手机卖游戏装备，被自称"高价收购"的网友拉进群，引导下载"XX交易"第三方软件。假客服先以"解除账号交易风险"要走<b>499元</b>，再诱导屏幕共享，以"操作不完成无法退款"施压；孩子想停，对方威胁"中途退出，之前转的钱一律不退"，最终窃取验证码和支付密码盗刷，合计损失<b>1.3万元</b>（阳江市公安局，2025年12月）。</p>
+    <p>成年人同样中招。郑州樊女士在闲鱼挂出闲置，假买家称已付款但因她"未开通闲置转卖服务"资金被冻结，她扫码进入仿冒客服页面，被要求缴<b>5000元</b>"解冻保证金"，对方威胁不处理就上失信名单；转账后又要她开"假一赔三"继续缴费，这才醒悟报警（九龙网，2025年12月）。</p>
+    <p>判例是有的：厦门湖里法院判处通过游戏账号交易骗保证金的杨某<b>有期徒刑六个月、缓刑一年、罚金5000元</b>（台海网，2019年12月）；上海长宁法院对以"交8000元保证金"行骗的团伙，判处王某等<b>9人</b>有期徒刑<b>11至13个月</b>不等（新闻晨报，2018年9月）；濮阳中院一起骗取"竞拍保证金"案件，被告人被判<b>有期徒刑三年、罚金8000元</b>。但钱的一面要说实话：最高检披露的案件中，被骗资金多已转往境外，<b>难以追回</b>——所以本章重点不是抓人，是别转那第一笔钱。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>四、平台与工具：哪些是真的，哪些是假的</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：会用 App 就会用</span><span class="badge">损失：用对工具，纠纷有处说理</span></div>
+    </div>
+    <p>闲鱼2014年上线，是中国规模最大的 C2C 二手交易平台（阿里巴巴集团官网），平台本身是中性的。骗局利用的是一个天然缝隙：<b>买卖双方可以私信，而交易和维权必须留在订单里</b>——一旦扫码离开订单页，风控、担保、客服全部失效，这是所有剧本的核心动作。</p>
+    <table>
+      <tr><th>看什么</th><th>平台内正规路径</th><th>平台外骗局特征</th></tr>
+      <tr><td>沟通渠道</td><td>订单页内私信，全程留痕</td><td>引导加微信/QQ，或扫码进入仿冒客服页面</td></tr>
+      <tr><td>付款方式</td><td>平台担保交易，确认收货后才放款</td><td>要求转个人账户，或发红包、共享资金池二维码</td></tr>
+      <tr><td>任何名目收费</td><td>平台收费规则公开可查，无"解冻金"一说</td><td>保证金、解冻费、保障金、服务费、授权费</td></tr>
+      <tr><td>客服身份</td><td>官方 App 内客服入口，不会让你离开 App</td><td>私加联系方式、发链接、要求屏幕共享</td></tr>
+      <tr><td>售后保障</td><td>订单内申请平台介入；部分品类有官方验货服务（如验货宝、官方验机，据平台公开规则）</td><td>平台外交易无订单号，平台想管也管不了</td></tr>
+    </table>
+    <p>平台处理能力也要客观看：黑猫投诉数据显示，截至2025年3月13日，闲鱼的投诉回复率仅<b>1.09%</b>，转转、95分、爱回收均超过<b>99%</b>（黑猫投诉）；截至2026年8月，转转在黑猫累计投诉超<b>12.3万条</b>，"回收端压价"是最主要类别（新浪财经）。<b>平台介入不是万能的，高回复率只说明"理有人听"，不等于每笔纠纷都能追回钱。</b>真正的防线在交易前：留在平台内、用担保交易、拒绝一切名目的先行转账。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛟</span><h3>五、已经中招怎么办</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：一部手机加证据</span><span class="badge">损失：越早止损越省</span></div>
+    </div>
+    <p>先说一句：会中招不是因为笨——这套剧本是利用"顺利成交"的善意和"怕担责"的心理设计的。中招后按顺序做：</p>
+    <ul>
+      <li><b>立刻停手。</b>"再交一笔才能解冻"是标准收尾，转出去就是纯损失。</li>
+      <li><b>固定证据。</b>聊天记录、对方账号 ID、付款凭证、扫码进入的页面链接全部截图录屏；先别删对方，但也绝不再回复。</li>
+      <li><b>走平台。</b>订单还在的，在订单页申请介入并提交证据；已被引到平台外的，把对方账号和仿冒页面交给官方客服核实。</li>
+      <li><b>报警。</b>110 或反诈专线 96110，带齐证据做笔录。涉案资金流和对手账户，只有警方能追。</li>
+      <li><b>联系银行和支付机构。</b>银行卡转出的，致电银行申请协助冻结对手账户；微信、支付宝转账的，在账单详情里投诉并申请拦截。</li>
+      <li><b>警惕二次诈骗。</b>"付费追损""帮你解冻资金"的全是骗子。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>六、第一步操作：10 分钟能做完的防御设置</h3>
+      <div class="badges"><span class="badge r1">风险 ★</span><span class="badge">门槛：10分钟</span><span class="badge">损失：零，纯防御</span></div>
+    </div>
+    <ul>
+      <li><b>找到官方客服入口。</b>打开闲鱼或转转，从"我的—官方客服/安全中心"进去看一眼：真客服只在这个入口里，私加你的都是假的。</li>
+      <li><b>关免密支付，设转账限额。</b>阳江市公安局的建议适用于所有人：保管支付密码、关闭免密支付、设置单日交易限额（2025年12月）。</li>
+      <li><b>立一条铁律。</b>"平台内交易，永远不需要向个人账户交任何名目的钱。"背下来能挡掉本章所有剧本。</li>
+      <li><b>查屏幕共享权限。</b>确认手机没有开启来路不明的远程协助类软件。</li>
+      <li><b>把规则告诉一个人。</b>本章最年轻的受害者只有 11 岁，用的是家长的手机。</li>
+      <li><b>正在交易中？</b>确认沟通和付款都在官方 App 订单内，不在就退回订单页重新来。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.yangjiang.gov.cn/yjgaj/gkmlpt/content/0/912/mpost_912211.html" target="_blank">阳江市公安局：学生卖游戏装备被骗1.3万元，凡以"保证金""解冻费"名义要求转账的都是诈骗（2025-12-22）</a><a href="https://m.gmw.cn/2025-05/01/content_1304027126.htm" target="_blank">最高人民检察院（光明网）：东西没卖掉，钱还没了！小心"共享理财"型诈骗（2025-05-01）</a><a href="https://m.163.com/news/article/KHF6QQEH0512C38J.html" target="_blank">九龙网（网易号）：二手平台转卖闲置物品，谨防"冒充客服"变种骗局（2025-12-23）</a><a href="https://pyzy.hncourt.gov.cn/public/detail.php?id=11653" target="_blank">濮阳市中级人民法院：【濮法说法】二手交易市场套路这么深？判了</a><a href="https://toutiao.com/group/6769461314910683660/" target="_blank">台海网：男子通过游戏账号交易诈骗保证金，在厦被判刑6个月（2019-12-12）</a><a href="https://toutiao.com/group/6605130430779752964/" target="_blank">新闻晨报（随申Hi）：出售二手商品要交8000元保证金？这是新型骗局！（2018-09-25）</a><a href="https://baijiahao.baidu.com/s?id=1826472357748863411" target="_blank">新浪财经引黑猫大数据中心：二手交易平台投诉数据对比，闲鱼回复率仅1.09%（2025-03-13）</a><a href="https://xueqiu.com/S/ZHUANZHUAN/405900103" target="_blank">新浪财经：转转黑猫投诉累计投诉量超12.3万条（2026-08-20）</a><a href="https://www.alibabagroup.com/en-US/about-alibaba-businesses-1747081802473799680" target="_blank">阿里巴巴集团官网：Xianyu（闲鱼）业务介绍</a></div>
+</section>
+
+<section id="c15" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 15 · PART 3 · 骗局图鉴·下</span><h2>情感杀猪盘<span class="accent">感情铺垫的精密骗局</span></h2></div>
+  <p class="sec-desc">骗子先谈感情，再谈钱。这一章拆开"杀猪盘"的流水线：人设怎么搭、感情怎么养、刀在哪一刻落下，以及中招后的黄金几小时该做什么。</p>
+  <div class="card">
+    <div class="card-head"><span class="icon">💔</span><h3>机制拆解：一条"感情生产线"</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：极低</span><span class="badge">损失：几千~上百万（常含借贷）</span></div>
+    </div>
+    <p>杀猪盘是产业化作业。黑话里，受害人叫"猪"，谈恋爱叫"养猪"，收钱叫"杀猪"。整条线分三步：<b>找猪</b>——在婚恋网站、交友软件、短视频评论区物色目标，单身、离异、情感空白者是重点；<b>养猪</b>——用一到三个月经营一段"恋爱"，聊家常、陪熬夜，立"珍惜感情、不谈钱"的人设，慢慢把你和现实中的朋友隔开；<b>杀猪</b>——带你做"投资"，后台改几个数字，钱就进了他们的账户。</p>
+    <p>钱的流向说穿了不复杂：你从银行卡或微信、支付宝充值进假平台，页面上的盈利、K线、提现记录全是后台编辑的数据；充值款经多层个人账户拆分转移，很快流向境外。央视网2019年9月报道的公安部调查里，重庆一起杀猪盘案的办案民警原话是，嫌疑人"通过随意修改网站后台数据引诱受害人不断加大资金投入，不断从受害人处榨取巨额钱财"——你看到的"账户余额"，从头到尾只是一串可以改的数字。</p>
+    <ul>
+      <li>假平台多通过二维码、网页链接下载，上不了正规应用市场；中国驻墨尔本总领馆2025年12月提醒，对他人推荐的平台务必详细了解，发现平台信息不全、资质不明确就应果断拒绝</li>
+      <li>小额投入必盈利、能提现，那是诱饵不是诚意；提现时被要求"交税、交保证金、升级VIP"，就是收刀的信号</li>
+      <li>公安部数据：2019年1—8月"杀猪盘"造成群众损失<b>38.8亿元</b>，约占全国电诈总损失的<b>21.3%</b>，平均每案损失约<b>18.1万元</b>，是其他类型案件的<b>4.8倍</b>（央视网转新华社）</li>
+      <li>公安部2026年6月12日新闻发布会通报：当前最高发的诈骗有10类（刷单返利、虚假购物服务、虚假网络投资理财、冒充电商物流客服、贷款征信、网络游戏虚假交易、网络婚恋交友、冒充公检法、冒充领导熟人、机票退改签），占全部电诈案件的85%；其中"虚假网络投资理财"<b>损失最高，约占全部电诈案件损失的40%</b>，损失百万、千万以上的案件大多是这种类型，"网络婚恋交友"同样在列——杀猪盘正是这两类的合体</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"'杀猪盘'真正可怕的，从来不是最后那个漏洞百出的投资项目，而是那套精密到令人后怕的人性操控手段。"——卧底过杀猪盘的上海博主莘女（化名），九派新闻2026年7月报道</blockquote>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>识别信号：十条自查清单</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">识别难度：高</span><span class="badge">止损窗口：提现失败前</span></div>
+    </div>
+    <p>下面十条，中三条以上，基本可以按骗局处理。这些话术和特征来自警方通报与卧底复盘，不是猜的：</p>
+    <ul>
+      <li>头像精致、资料完美的陌生人主动搭讪，自称"高富帅""白富美"，或身世曲折的苦命人（上海警方2019年通报的人设清单）</li>
+      <li>认识几天就确定关系、聊得火热，但拒绝清晰视频、拒绝见面，或视频只有几秒、画面模糊</li>
+      <li>相识约五天就要求"一起卸载原交友软件并录屏"，用承诺感换你的忠诚</li>
+      <li>刻意挑拨你和闺蜜、家人的关系，让你只剩他一个可以商量的对象</li>
+      <li>"无意"提起副业、投资、博彩"漏洞"，嘴上却说不在乎你有没有钱</li>
+      <li>你一谈钱他反而回避："我们的感情不掺这个"——把项目包装成"成为自己人之后的特权"</li>
+      <li>投资App只能扫二维码或点网页下载，应用市场里搜不到，网站可能连付费安全证书都没有</li>
+      <li>小额试水必盈利、能到账；加大投入后"账户被冻结""平台升级"，要你再交一笔</li>
+      <li>你一质疑，他就冷暴力："你不信我，就别联系了。"用感情逼你自证清白</li>
+      <li>开始暗示你借钱、抵押房子、撸网贷，"一起规划我们的未来"</li>
+    </ul>
+    <p>引流渠道对比（依据公开通报归纳，不点名具体产品）：</p>
+    <table>
+      <tr><th>引流渠道</th><th>常见开场</th><th>危险信号</th></tr>
+      <tr><td>婚恋/交友平台</td><td>精准搭讪，资料优秀</td><td>迅速转移到私聊，拒绝视频和见面</td></tr>
+      <tr><td>短视频/直播</td><td>评论区私信、直播间"偶遇"</td><td>导去私域"一对一指导"投资</td></tr>
+      <tr><td>二手交易/租房</td><td>买家卖家套近乎</td><td>不谈交易先谈恋爱，再引入"漏洞"</td></tr>
+      <tr><td>游戏/兴趣社群</td><td>陪玩、组CP</td><td>熟悉后被拉进"投资群"</td></tr>
+      <tr><td>虚假投资App</td><td>"老师""导师"带单</td><td>只能链接下载、平台信息与资质不全</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>真实案例：公诉21人，主犯判六年</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">单案受害人充值：超900万</span><span class="badge">判决：六年+罚金</span></div>
+    </div>
+    <p>央视网2023年10月报道的无锡案件：受害人吴某某在网上发布租房信息，被自称某公司技术主管的"小灿"接近。对方称给券商更新数据时发现漏洞，"内部人不能自己操作"，请她代为登录一个假冒"招商证券国际"的网站，买卖"国际黄金"。她看到对方账户盈利两三百万，便自己开户充值，<b>累计充值超900万元，只成功提现过9万余元</b>。另一名受害人劳某某在二手平台卖翡翠时与"袁凡"网恋，被同样的"漏洞"话术骗走<b>800余万元</b>。经核实，该案已有3名被害人，<b>涉案金额2000万余元</b>。受害人后来才从一个想离开团伙的人那里得知，自己的聊天记录（600余页）已被团伙当作学习"教材"传阅。</p>
+    <p>结局：无锡市滨湖区人民检察院对<b>21名</b>团伙成员提起公诉，主犯黄某某因诈骗罪被判<b>有期徒刑六年、并处罚金3万元</b>；张某某等5人分别因诈骗罪、偷越国境罪获刑六个月至八个月。人落了网，但大部分钱早已多层转移出境——这就是杀猪盘最残酷的地方：判刑赔不了你的账，所以事前识别和事后抢时间，比什么都重要。</p>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>资金追回的现实概率</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">追赃窗口：以小时计</span><span class="badge">二次诈骗风险：高</span></div>
+    </div>
+    <p>先把结论说白：能追，但窗口以小时计，整体追回比例低。全国性的"杀猪盘追回率"<b>暂无公开统计数据</b>，但公开报道里的机制和个案足以说明问题。</p>
+    <ul>
+      <li>有机制：依据《反电信网络诈骗法》和公安部、原银保监会《电信网络新型违法犯罪案件冻结资金返还若干规定》，权属明确、符合返还条件的冻结资金可依法返还受害人；2021年全国共追缴返还120亿元，紧急止付3291亿元（央视网2022年4月）</li>
+      <li>有速度：湖南临湘警方依托跨区域警银协作机制，6小时跨省拦截<b>70万元</b>被骗资金（冒充"中国银联"客服案，央视网2026年1月）；新疆和硕一名受害人报警后，<b>3.8万余元被骗资金全额追回、原路返还</b>（"免费游戏皮肤"骗局，央视网2026年8月）</li>
+      <li>有量级：大连2023年一年向受害单位和个人返还被骗资金<b>4600万余元</b>（央视网2023年12月）；昆明2025年以来追赃挽损<b>3.3亿元</b>（央视网2026年7月，均为全部电诈类型合计）</li>
+      <li>但杀猪盘特殊：充值款几分钟内就被拆到几十个账户、换成虚拟币或转出境，等外地协查函赶到，钱往往已经"洗白"。报警越早，冻结到的概率越大</li>
+      <li>警惕二次伤害：网上所有"黑客追款""内部渠道解冻""包赔律师"，都是针对受害者的第二轮收割，没有例外</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🆘</span><h3>已经中招怎么办 &amp; 10分钟自救</h3>
+      <div class="badges"><span class="badge">适用：已转账/未转账</span><span class="badge">耗时：10分钟</span><span class="badge">热线：110 / 96110</span></div>
+    </div>
+    <p>已经转了钱，按这个顺序做：</p>
+    <ul>
+      <li>立刻拨打110或96110报案，同时联系银行、支付平台尝试紧急止付、冻结对方账户</li>
+      <li>保存全部证据：聊天记录、转账凭证、对方账号、平台链接和App安装包，截图存档，别退群、别删记录</li>
+      <li>停止任何"再交一笔就能全部提现"的操作——那是最后一刀</li>
+      <li>如果已经借贷，主动向家人和银行说明，债务可以协商，别独自扛</li>
+      <li>心理上记住：这不是你的错。对面是团队作业、按剧本行事，单枪匹马的个人几乎不可能全程识破。持续情绪低落就寻求心理援助，崩溃之前先找人说话</li>
+    </ul>
+    <p>还没中招，10分钟能做完的自查：</p>
+    <ul>
+      <li>安装国家反诈中心App并打开来电预警，有可疑电话短信会弹窗提醒；另有上海市反电信网络诈骗中心2025年12月30日上线、面向全国开放的"803反诈"智能体App，可文字或语音提问，7×24小时做涉诈信息查询与反诈问答（上海市政府网转市公安局）</li>
+      <li>翻一遍手机，卸掉所有非应用市场来源的投资、博彩App</li>
+      <li>给微信、支付宝设好转账延时到账，给自己留一个反悔窗口</li>
+      <li>把上面那份识别清单转给最可能被盯上的家人——上海警方点名的易中招群体，是情感脆弱、有一定经济实力的单身人士，以及离异、空巢人群</li>
+    </ul>
+  </div>
+  <div class="src"><span class="tag">📎 来源</span><a href="https://news.cctv.com/2019/09/03/ARTI1vhMZjLBTMAfVtpjoqYp190903.shtml" target="_blank">央视网转新华社：受骗一次平均损失18万！"杀猪盘"诈骗大案调查（公安部数据，含重庆办案民警原话）</a><a href="https://news.cctv.com/2023/10/20/ARTIsavBO6RcQeLtItSMOEzm231020.shtml" target="_blank">央视网：充值800万后接到留言——你的网恋聊天已成诈骗团伙教材（无锡案判决）</a><a href="https://news.cctv.com/2019/05/22/ARTIU16uOGGnITi6MKxk857O190522.shtml" target="_blank">央视网：上海警方通报"网恋诈骗"解析——哪些人容易中招</a><a href="https://news.cctv.com/2025/12/05/ARTI6qw0t01ckT9QxNzOrraS251205.shtml" target="_blank">央视网：中国驻墨尔本总领馆提醒领区中国公民警惕"杀猪盘"</a><a href="https://news.qq.com/rain/a/20260701A056PS00" target="_blank">九派新闻：女子卧底"杀猪盘"——开始就像普通恋爱</a><a href="https://news.cctv.com/2022/04/14/ARTImO7hi89VswwsGyflL70s220414.shtml" target="_blank">央视网：坚决追缴返还电信网络诈骗受害人被骗资金</a><a href="https://dbzx.cctv.com/2023/12/05/ARTIFUjTSMG8PpX69VY5EkIs231205.shtml" target="_blank">央视网：《反电信网络诈骗法》实施一年来 大连向群众返还被骗资金4600万余元</a><a href="https://local.cctv.com/2026/01/29/ARTInaXsb6RRb9DOQRO5YuYL260129.shtml" target="_blank">央视网：湖南临湘公安6小时跨省拦截70万元被骗资金</a><a href="https://local.cctv.com/2026/08/28/ARTIzE6C0QQOsID1I1WbkQdu260828.shtml" target="_blank">央视网：新疆和硕——免费游戏皮肤竟是陷阱，3.8万元被骗资金全部追回</a><a href="https://city.news.cctv.com/2026/07/09/ARTIySePGkhRjf0dRAcfItmd260709.shtml" target="_blank">央视网：云南电诈案件发案数三年下降近三成（含昆明追赃挽损数据）</a><a href="https://news.cctv.com/2026/06/12/ARTI51aI6AsaB8IEm12K05ra260612.shtml" target="_blank">央视网：公安部通报电诈最新形势 这10类诈骗占案件总量85%</a><a href="https://ao.china-embassy.gov.cn/chn/lsfw_0/tzgg_138070/202606/t20260625_11951857.htm" target="_blank">中国驻安哥拉使馆：《2026版防范电信网络诈骗宣传手册》（公安部刑侦局、国家反诈中心编写）</a><a href="https://www.shanghai.gov.cn/nw31406/20260104/fac439966e1445119220724a6de05206.html" target="_blank">上海市政府网（转市公安局）："803反诈"智能体上线 守护群众钱袋子</a></div>
+</section>
+
+<section id="c16" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 16 · PART 4 · 防身术</span><h2>个人信息保护<span class="accent">被骗前的第一道防线</span></h2></div>
+  <p class="sec-desc">骗子能叫出你的名字、报出你上周的订单，不是他"懂你"，是你的信息早就被标好价转了几手。这一章拆信息怎么流出、怎么被拼成诈骗图纸，再给你一份十分钟能做完的防护清单。</p>
+  <div class="card">
+    <div class="card-head"><span class="icon">🕳️</span><h3>机制拆解：信息怎么到骗子手里，钱怎么流动</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：零门槛，人人有份</span><span class="badge">损失：几千~几十万（看下游骗局）</span></div>
+    </div>
+    <p>电信网络诈骗早就不是随机撒网，而是精准制导。骗子那句"您的快递丢了"，底气来自一条转了好几手的信息。公安部2023年8月公布的侵犯公民个人信息十大典型案例，把源头归成几类，每类都离普通人不远：</p>
+    <ul>
+      <li><b>行业内鬼</b>：电信运营商、医院、保险公司、房地产、物业、快递公司……2020年以来共抓获行业"内鬼"<b>2300余名</b>（公安部新闻发布会）</li>
+      <li><b>"地推"骗取</b>：有人打着"免费推广电子医保卡"旗号骗取医保部门授权，层层转包给地推团伙，诱骗乡镇居民注册，收走手机号、验证码、身份证信息后批量注册账号转卖。云南怒江一案打掉团伙<b>9个</b>、抓<b>141人</b>（含"内鬼"3名）</li>
+      <li><b>假业务引流</b>："居间助贷"中介伪装成借贷平台收集申请人信息，转卖给各地贷款公司——安徽宣城一案抓<b>39人</b>、涉案<b>1600余万元</b>；你刚填完申请表，同城贷款公司的电话就到了</li>
+      <li><b>黑客拖库与公开痕迹</b>：系统被攻破、社交平台公开信息被抓取拼图</li>
+    </ul>
+    <p>钱在这条链里这样流动：上游的内鬼、黑客、地推把原始信息几毛钱一条出手；中游代理按"是否实名、有没有银行卡"分拣加价；下游两类买家——电诈团伙用真实信息打消你的怀疑，把你引到转账那一步，营销公司拿它电话轰炸。骗到的钱几分钟内被拆散转移，这是追回率低的根本原因。</p>
+    <p>国外也一样。FBI的IC3中心2024年报：全年受理投诉<b>859,532件</b>、损失<b>166亿美元</b>（同比增33%），"个人信息泄露"<b>64,882件</b>（约<b>14.5亿美元</b>）；FTC的2024年欺诈损失<b>125亿美元</b>。机制一样：先偷信息，再精准收割。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"通过每天向市民发送防电诈预警信息和拨打预警电话，能有效处置干预市民可能掉入诈骗分子精心设计的诈骗陷阱。"——万州区反诈骗中心负责人。该中心运行半年，预警处置<b>9,813人次</b>、劝阻金额<b>59.86万元</b>（重庆长安网转重庆法制报，2020年12月）</blockquote>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">📵</span><h3>识别信号：陌生来电与短信的"信息最小化"</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">核心原则：电话里多一分怀疑</span><span class="badge">止损窗口：转账前</span></div>
+    </div>
+    <p>先记住一句话：<b>对方知道你的信息，不代表对方是官方。</b>该守的是12381预警短信那句"三不一多"：未知链接不点击，陌生来电不轻信，个人信息不透露，转账汇款多核实。下面这些信号，中一条就该警惕：</p>
+    <ul>
+      <li>自称客服、公检法、银行，却能报出你的姓名、订单号、身份证号——他刚从黑产买了信息，这不构成信任理由</li>
+      <li>索要短信验证码、银行卡密码，要求人脸识别或"屏幕共享"——<b>立即挂断，100%是诈骗</b></li>
+      <li>"安全账户""资金核查""注销校园贷""刷单返利"——凡是让你转账的剧本，都是骗局</li>
+      <li>陌生短信里的链接和App安装包不点不装；00/+开头境外号、95/400高频外呼、170/171虚拟号段，默认可疑</li>
+      <li>电话里催你"别挂、马上操作、不许告诉家人"——越急越假，真官方不怕你核实</li>
+      <li><b>96110来电一定要接</b>：这是反诈民警在拦你，不是骗子。官方提示："如接到该号码打来的预警电话，请您一定要及时接听，耐心听取民警的劝阻提示"；带"反诈名片"标记的可放心接</li>
+      <li><b>12381短信要读</b>：这是工信部联合公安部推出的涉诈预警系统，收到即意味着"你可能正在被骗"，最该做的是挂掉手里那通电话</li>
+    </ul>
+    <p>万州反诈中心通报的本地高发类型（截至2020年10月底）：贷款/代办信用卡<b>43.46%</b>、刷单返利<b>19.41%</b>、"杀猪盘"<b>11.39%</b>——终点都指向"转账"或"验证码"。</p>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>真实案例：一桩5万元的信息生意，判三缓四</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">违法所得：54,532.1元</span><span class="badge">结局：刑事加民事双重担责</span></div>
+    </div>
+    <p>山西平遥县人民法院2024年6月判决的陈某某案，把这条链的末端拍得很清楚：2022年1月起，陈某某通过微信、贴吧、朋友圈收购实名账号——每个账号裹着号主的身份证照片、账号密码、银行卡卡号——再加价卖给上线用于赌博等违法活动，违法所得共计<b>54,532.1元</b>。</p>
+    <p>结局：法院以侵犯公民个人信息罪判处其<b>有期徒刑三年、缓刑四年</b>，并处罚金<b>6万元</b>，没收违法所得；同时判令赔偿<b>54,532.1元</b>、在省级媒体公开赔礼道歉、永久删除所有非法获取的信息。这是该县首例个人信息保护刑事附带民事公益诉讼案——检察院提醒得很直白：个人信息不是敛财商品，买卖不仅要负刑责，造成损害还要赔。</p>
+    <p>法律边界：刑法第253条规定，情节严重的处三年以下有期徒刑，情节特别严重的处三年以上七年以下——买信息和卖信息，同罪。</p>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🛠️</span><h3>官方工具对比 &amp; 第一步操作</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：10分钟</span><span class="badge">费用：全免费</span></div>
+    </div>
+    <p>公安部会同工信部等部门推出的官方工具，全部免费，媒体常称"反诈利器"：</p>
+    <table>
+      <tr><th>工具</th><th>干什么用</th><th>关键数字（官方通报口径，2023年6月）</th></tr>
+      <tr><td>国家反诈中心App</td><td>来电/短信/App预警、举报、身份核验</td><td>2021年3月上线；累计受理举报<b>2,323万条</b>、预警<b>3.1亿次</b></td></tr>
+      <tr><td>96110专线</td><td>民警打给你劝阻；也可咨询、举报</td><td>2019年11月启用，<b>29个</b>省区市公安机关开通</td></tr>
+      <tr><td>12381预警短信</td><td>自动识别潜在受害人，短信实时提醒</td><td>累计发送<b>10.7亿条</b>，劝阻准确率<b>60%以上</b></td></tr>
+      <tr><td>手机卡"一证通查"</td><td>查名下电话卡数量，防被冒用</td><td>短信端口10699000，48小时内反馈；累计查询<b>1.2亿次</b></td></tr>
+      <tr><td>"一证通查2.0"</td><td>查手机号关联了哪些互联网账号</td><td>覆盖腾讯、阿里、支付宝、百度、快手、抖音、京东、美团；查询量<b>1,510万人次</b></td></tr>
+      <tr><td>云闪付"一键查卡"</td><td>查名下银行卡数量</td><td>覆盖<b>196家</b>银行，生成报告<b>690万份</b></td></tr>
+      <tr><td>12321举报中心</td><td>举报诈骗电话、垃圾短信、个人信息泄露</td><td>工信部委托中国互联网协会设立</td></tr>
+      <tr><td>运营商拦截</td><td>免费的高频骚扰电话防护</td><td>移动"高频骚扰防护"、电信"天翼防骚扰"、联通"智慧沃盾"，App内可开通</td></tr>
+    </table>
+    <p><b>第一步操作（10分钟清单）：</b></p>
+    <ul>
+      <li>下载"国家反诈中心"App，注册实名后打开来电、短信、App预警（约2分钟）</li>
+      <li>拨打10086/10010/10000或在运营商App开通免费的高频骚扰拦截（约2分钟）</li>
+      <li>进"一证通查"查名下手机卡，多出来的打运营商客服申诉注销（约3分钟）</li>
+      <li>微信关掉"允许陌生人查看十条照片"，朋友圈改成最近可见（约1分钟）</li>
+      <li>把110、96110、12321存进通讯录并备注"官方"（约1分钟）</li>
+      <li>把这份清单转给家里会用微信的长辈（约1分钟）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>社交平台暴露面 &amp; 已经中招怎么办</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">暴露面：一条动态=一组情报</span><span class="badge">止损顺序：报警→止付→留证</span></div>
+    </div>
+    <p>隐私设置那一章讲开关在哪，这一章讲骗子怎么拼。单看无害，拼起来要命：没打码的机票=姓名+身份证号+行程，快递面单=电话+住址，工牌加班照=公司+岗位，孩子校服加定位=学校。冒充客服说"您上周买的XX丢了"，底气就从这来。</p>
+    <div class="cols">
+      <ul>
+        <li>机票、车票、快递面单拍照前先打码，或干脆不拍</li>
+        <li>朋友圈、短视频别带实时定位，孩子照片避开校名和校服logo</li>
+        <li>旧手机出售前：退出所有账号、取出SIM卡、恢复出厂，再用视频大文件把存储占满一遍——普通"删除"能恢复</li>
+        <li>简历、问卷、扫码领礼品，不填身份证号和银行卡号——街头"扫码送玩偶"常是地推收信息的马甲</li>
+      </ul>
+      <ul>
+        <li>不在公开评论区留手机号、微信号和生日</li>
+        <li>不用"姓名加生日"做密码，这是社工库最常见的组合</li>
+        <li>陌生"领导""熟人"加微信，先打电话核实再通过</li>
+      </ul>
+    </div>
+    <p><b>已经中招怎么办，按顺序来：</b></p>
+    <ul>
+      <li>钱正在转或刚转走：立刻拨110，同时打银行或支付平台客服紧急止付——窗口以分钟计</li>
+      <li>账号异常：改密、踢下线、开登录保护；手机号被冒用办卡的，走"一证通查"查出来历，打客服申诉注销</li>
+      <li>留证据：通话记录、短信、转账凭证、对方账号全部截图，报警时用得上</li>
+      <li>找渠道留痕：涉诈电话短信在12321举报；平台泄露可在黑猫投诉等平台投诉。2026年9月起施行的《小型个人信息处理者个人信息保护简化措施规定》要求，发生信息泄露应立即补救并通知个人——没收到通知，本身就是追责线索</li>
+      <li>最重要的一条：别自责。骗子买的是你的信息，一个团队对付你一个人，"中招"说明对方专业，不说明你笨。该改的是设置，不是性格</li>
+    </ul>
+  </div>
+  <div class="src"><span class="tag">📎 来源</span><a href="https://sft.xinjiang.gov.cn/xjsft/fzsj/202308/1f0087fe0d9e4d2bb34fb50f0704cc8a.shtml" target="_blank">新疆司法厅（转发公安部）：公安部公布打击侵犯公民个人信息犯罪十大典型案例（2023-08-10）</a><a href="https://gaj.yuncheng.gov.cn/Site/public/showinfo.aspx?id=2023062817075187870108" target="_blank">运城市公安局："国家队"出手！推出七大反诈利器（2023-06-28）</a><a href="https://m.163.com/dy/article/IBPBR1RF0514R9KQ.html" target="_blank">网易（公安部新闻发布会）：行业"内鬼"2300余名、邮政快递领域专项治理数据（2023-08-10）</a><a href="http://www.sxpingyao.jcy.gov.cn/jcyw/202406/t20240611_6507302.shtml" target="_blank">山西平遥县人民检察院：【以案说法】侵犯公民个人信息，获刑！（2024-06）</a><a href="https://www.cac.gov.cn/2026-07/24/c_1786638889704872.htm" target="_blank">国家网信办、公安部令第25号：《小型个人信息处理者个人信息保护简化措施规定》（2026-07-24公布，2026-09-01施行）</a><a href="https://www.pacq.gov.cn/archives/101371.html" target="_blank">重庆长安网（转重庆法制报）：接到电话别急挂！这是来自反诈中心的提醒（2020-12-08）</a><a href="http://gat.shandong.gov.cn//art/2026/1/12/art_9250_10347804.html" target="_blank">山东省公安厅权威发布：2025年全省电信网络诈骗犯罪发案数下降16.8%（2026-01-12）</a><a href="https://www.12321.cn/" target="_blank">12321网络不良与垃圾信息举报受理中心（工信部委托中国互联网协会设立）</a><a href="https://m.thepaper.cn/newsDetail_forward_19615749" target="_blank">澎湃号·媒体：国家反诈中心APP具体使用教程（2022-08-25）</a><a href="https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2024" target="_blank">FTC：Consumer Sentinel Network Data Book 2024（2025年3月发布）</a><a href="https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf" target="_blank">FBI IC3：2024 Internet Crime Report（2025年发布）</a></div>
+</section>
+
+<section id="c17" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 17 · PART 4 · 防身术</span><h2>证据保全与报案实操<span class="accent">黄金时间窗口</span></h2></div>
+  <p class="sec-desc">这一章不讲怎么防骗，只讲中招之后的那几分钟到几天：钱是怎么流动的、你该留什么、该找谁、被推诿时怎么接。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>机制拆解：你的钱在几分钟里经历了什么</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：零门槛，人人可能遇到</span><span class="badge">损失：转出去多少算多少</span></div>
+    </div>
+    <p>报警不是把钱冻在原地。钱一转出，通常先在同一账户里和几十个受害人的钱混在一起，再被拆分、刷卡、取现、买黄金、换虚拟币，几分钟内洗成干净钱。梁平警方 2023 年那起冒充客服诈骗里，民警当天就发现涉案银行卡"进账 20 多笔涉诈资金、刷卡 8 次、最大一笔 22 万元"，钱随后被拿到江西一家金店刷 POS 机买黄金（重庆长安网，2023-09-05）。</p>
+    <p>止付因此是在和秒表赛跑。包头市公安局的反诈预警新模式叫"110+紧急止付+预警阻断"，对外表述是<b>70 秒实现止付流程</b>，该市一个月止付资金 <b>19.9 亿元</b>。全国层面，公安部 2022 年 4 月在国新办发布会说，2021 年共紧急止付群众被骗款 <b>3291 亿元</b>，让 <b>150 万名</b>正在打款的群众免于被骗；同年追缴返还被骗资金 <b>120 亿元</b>。</p>
+    <p>把这三个数摆在一起，"黄金时间"的意思就清楚了：<b>止付 3291 亿，最终返还 120 亿</b>，中间那一大截已经被转走、拆分、洗掉。而按比例返还有法律依据——法发〔2021〕22 号第十七条规定，查扣涉案账户内资金应优先返还被害人，不足全额返还的，<b>按比例返还</b>。</p>
+    <ul>
+      <li><b>资金路径：</b>你的卡 → 骗子指定账户（一级卡）→ 多级拆分 / 刷卡取现 / 买金买虚拟币 → 出境或沉淀</li>
+      <li><b>一级卡往往是"干净"的第三方：</b>渝中区杨阿姨的 8.77 万元打进福建一名外贸商人的账户，对方以为那是货款（重庆长安网，2023-10-13）</li>
+      <li><b>现金存款最难办：</b>九龙坡一位刘先生四次取现存进对方账户，因无交易记录、拿不到卡号，止付几乎无从下手（重庆长安网，2018-06-15）</li>
+      <li><b>识别信号：</b>催你共享屏幕、催你取现存现、给你"个人卡"收款、群里天天晒收益——出现任意一条，别再转第二笔，同时保全证据</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>重庆九龙坡民警马警官："一旦发现被骗，尽量记住对方的银行账号，要第一时间拨打110进行报警，以便警方进行止付冻结，尽量降低自己的损失，也警醒他人防止再次'中招'。"（重庆长安网，2018-06-15）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📸</span><h3>证据固定清单：中招后先别哭，先把这些存下来</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：会截图就会做</span><span class="badge">损失：证据灭失＝追不回</span></div>
+    </div>
+    <p>证据是立案定案的原料。没有对方账号，止付无从下手；没有聊天记录，"诈骗"和"经济纠纷"就说不清；没有平台页面，假 App 一关停，线索全没。</p>
+    <table>
+      <tr><td><b>转账记录</b></td><td>银行 App / 网银 / 支付宝 / 微信账单</td><td>导出带商户单号、流水号的凭证</td></tr>
+      <tr><td><b>对方账号</b></td><td>聊天窗口、转账确认页、收款码</td><td>抄全姓名、卡号、开户行、微信号、手机号</td></tr>
+      <tr><td><b>聊天记录</b></td><td>微信 / QQ / Telegram 等</td><td>全程录屏，含头像、ID 和转账前后对话</td></tr>
+      <tr><td><b>平台页面</b></td><td>涉事 App / 网站 / 小程序</td><td>录屏并存下域名、下载链接、客服工号</td></tr>
+      <tr><td><b>通话与短信</b></td><td>通话记录、短信箱</td><td>保留来电号码和时间，别删验证码短信</td></tr>
+    </table>
+    <ul>
+      <li>对方发链接让你下载 App：这类页面关停最快，当晚可能就打不开，<b>当天就要录屏</b></li>
+      <li>对方让你共享屏幕：共享期间的验证码等于把银行卡交出去，立刻挂断</li>
+      <li>材料导出两份，手机和邮箱各一份，防丢失</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📞</span><h3>报警渠道：真的只有这四个</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：认准官方渠道</span><span class="badge">损失：二次被骗几千~几十万</span></div>
+    </div>
+    <p>请背下来：<b>110、96110、国家反诈中心 App（只在官方应用商店下载）、就近派出所</b>。没有第五个。</p>
+    <p>调研时我随手在搜索引擎试了几个关键词，结果页前十条里七八个自称"110 网上报警平台""全国网上报案中心"的网站，域名全是第三方杂牌，点进去就是在线客服——这是等着二次收割慌神的人的第二拨骗子。同理，自称网警、反诈中心客服加你微信说能帮你"立案追回"的，都是骗子。</p>
+    <table>
+      <tr><td><b>110</b></td><td>紧急报警，启动止付冻结</td><td>第一句就说"钱刚转出去"</td></tr>
+      <tr><td><b>96110</b></td><td>反诈预警劝阻、咨询核实</td><td>打来一定要接，是提醒你正在被骗</td></tr>
+      <tr><td><b>国家反诈中心 App</b></td><td>举报、风险查询、预警</td><td>只从官方应用商店下载</td></tr>
+      <tr><td><b>就近派出所</b></td><td>受案、做笔录、拿回执</td><td>唯一能给你法律文书的地方</td></tr>
+      <tr><td><b>12389</b></td><td>公安及民警违纪违法举报</td><td>针对"不受理、推诿"的救济渠道</td></tr>
+    </table>
+    <ul>
+      <li>96110 是反电信网络诈骗专用号码，贵州 2022 年 4 月还上线了 96110 反诈短信预警平台（道真县政府网，2022-10-31）</li>
+      <li>报案后有权要一份<b>受案回执</b>，上面有案件编号和接警单位，拍照存档</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧱</span><h3>推诿、涉外与"平台已经跑路"</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：需要反复沟通</span><span class="badge">损失：时间成本数月至数年</span></div>
+    </div>
+    <p>报案被推回来，多数不是针对你，而是四个老问题，对应四种接法。</p>
+    <ul>
+      <li><b>"你这是经济纠纷，去法院"</b> → 拿出对方虚构事实、诱导转账的证据，明确说"我报的是刑事诈骗"；仍推，记下警号和时间，走 12389 或向检察院申请立案监督</li>
+      <li><b>"案发地不在我们辖区"</b> → 法发〔2021〕22 号第一条规定，"犯罪地"包括涉案银行账户、非银行支付账户的开立地、销售地、使用地，以及资金交易对手资金交付和汇出地——<b>你汇款的地方就可能构成犯罪地</b>，本地有权管</li>
+      <li><b>"对方在境外、平台已跑路"</b> → 越这样越要马上固定证据。2024 年 7 月两高一部的跨境电诈意见（3 部分 16 条）明确：查不清被害人及数额时，可按账户交易记录、群聊记录综合认定；境外警方移交的证据，因客观限制无法提供来源、移交过程等材料的，书面说明、审核真实即可作证据</li>
+      <li><b>"金额太小"</b> → 立案追诉有数额标准，但并案侦查是常态，你这一笔可能是大案里的一环</li>
+    </ul>
+    <p><b>一个真实案例（含金额与结局）：</b>重庆南岸李女士被拉进微信"天昊财团内部群"，按"投资操盘手"引导下载 App，前两天投入 8 万元共赢 1 万余元，第三天被诱导把 30 多万元全部投入，余额随即变为零。她 2 月 13 日报警，警方当即冻结涉案账户，5 月 21 日返还 30 余万元（重庆长安网，2020-06-05）。<b>结局是钱追回来了，但从报警到返还隔了三个多月</b>——这不是慢，是这类案件的正常节奏。</p>
+    <p>更难的对照：万州何女士一天损失 10 万余元，民警当时就止付，但资金已拆到大量账户，三年后只追回 <b>4.7 万元</b>；同场的周先生<b>一小时被骗 40 万元</b>，追赃近一年挽回 <b>8.7 万元</b>。何女士领款时说："被骗三年了，根本没想到你们还能帮我找回这些钱……"（重庆长安网，2023-07-04）</p>
+    <ul>
+      <li><b>窝点园区化、周期长：</b>2024 年那部意见的官方解读称，高峰时一些东南亚国家活跃的电诈园区"多达几十个甚至上百个"；央视 2026 年 10 月播出 3 集纪录片《缅北电诈覆灭纪实》，讲的就是铲除缅北"四大家族"的专项工作，从案发到判决以年计</li>
+      <li><b>洗钱工具升级：</b>解读点名区块链、虚拟货币、AI 智能、远程操控、共享屏幕——虚拟货币一旦出境，止付窗口基本为零</li>
+      <li><b>你可能被"连坐"冻结：</b>正常做生意收到涉案款，卡也可能被止付冻结。要主动联系冻结机关、提交交易凭证说明来源，别干等</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>已经中招怎么办：10 分钟内能做完的动作</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：10 分钟</span><span class="badge">损失：晚一分钟少一分希望</span></div>
+    </div>
+    <p>按顺序做，做完就停。</p>
+    <ul>
+      <li><b>1. 立刻打 110</b>，第一句"我被骗了，钱刚转出去"，然后把对方卡号、姓名、金额报给接警员——止付按秒算</li>
+      <li><b>2. 同时打开国家反诈中心 App</b>走报案 / 举报入口；没装让家里人装，别从搜索引擎下</li>
+      <li><b>3. 一分钱都别再转。</b>"解冻费""保证金""税费""刷流水"全是二次诈骗</li>
+      <li><b>4. 截图加录屏</b>，按上一张清单逐项存；存完开一会儿飞行模式</li>
+      <li><b>5. 用的是支持"延时到账"的渠道且资金未到账</b>，马上联系银行客服说明遭遇诈骗；已到账的只能靠警方止付</li>
+      <li><b>6. 去就近派出所做笔录</b>，拿受案回执，记下接警单位、警号、案件编号</li>
+      <li><b>7. 换掉支付和银行卡密码</b>，关闭免密支付，检查是否被开了共享屏幕</li>
+      <li><b>8. 之后只做两件事：</b>配合警方、按时问进度，别找"专业追款""黑客追回"</li>
+    </ul>
+    <p>最后：被骗不是因为你傻，这些局是成建制的产业链——有人写剧本、有人养号、有人洗钱、有人研究怎么绕过银行风控。2022 年国务院联席办有关负责人对新华社说："<b>快破案不如不发案，多追赃不如不受骗。</b>"真正划算的，从来是第一次就不转那笔钱。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://gaj.baotou.gov.cn/jffb/article/detail?articleId=925104726687748096" target="_blank">包头市公安局：110+紧急止付+预警阻断，70 秒实现止付流程（2023-11-23）</a><a href="https://m.163.com/dy/article/H4TN2IL70512DU6N.html" target="_blank">新民晚报：2021 年紧急止付 3291 亿元、追缴返还 120 亿元（2022-04-14）</a><a href="https://www.gov.cn/zhengce/zhengceku/2021-06/22/content_5620164.htm" target="_blank">两高一部：关于办理电信网络诈骗等刑事案件适用法律若干问题的意见（二）（法发〔2021〕22 号）</a><a href="https://www.gov.cn/zhengce/202407/content_6964835.htm" target="_blank">中国政府网：权威解读跨境电信网络诈骗刑事案件适用法律若干问题的意见（2024-07-28）</a><a href="http://www.gov.cn/zhengce/2022-04/18/content_5685897.htm" target="_blank">新华社：国务院联席办解读加强打击治理电信网络诈骗违法犯罪工作的意见（2022-04-18）</a><a href="https://www.pacq.gov.cn/archives/97113.html" target="_blank">重庆长安网：加入"内部群"投资理财掉陷阱，警方快速止付为她追回 30 万元（2020-06-05）</a><a href="https://www.pacq.gov.cn/archives/144290.html" target="_blank">重庆长安网：轻信"高回报"投资理财，阿姨被骗 8.77 万元，警方紧急止付（2023-10-13）</a><a href="https://www.pacq.gov.cn/archives/140562.html" target="_blank">重庆长安网：梁平警方 3 天追回 16 省市受害人被骗资金 61.7 万元（2023-09-05）</a><a href="https://www.pacq.gov.cn/archives/134446.html" target="_blank">重庆长安网：万州红光派出所追赃，返还受害群众被骗资金 13 万余元（2023-07-04）</a><a href="https://www.pacq.gov.cn/archives/80758.html" target="_blank">重庆长安网：男子贷款被骗七千元，民警指导其记下诈骗分子银行账户（2018-06-15）</a><a href="https://www.gzdaozhen.gov.cn/zfbm/sfj/zfxxgk_5696745/fdzdgknr_5696748/ggflfw_5698390/202210/t20221031_76961520.html" target="_blank">道真自治县人民政府：96110 反诈短信预警平台上线（2022-10-31）</a><a href="https://tv.cctv.cn/2026/10/06/VIDATs5qwh79ccKsm1BqSwoo261006.shtml" target="_blank">央视网：纪录片《缅北电诈覆灭纪实》（2026-10-06）</a></div>
+</section>
+
+<section id="c18" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 18 · PART 4 · 防身术</span><h2>被骗后的追赃与维权<span class="accent">止损之后做什么</span></h2></div>
+  <p class="sec-desc">发现被骗那一刻，人最容易犯的错不是绝望，而是"再赌一把"——把钱和信任交给声称能帮你追回的人。这一章讲止损之后真正该做的事：钱大概能追回多少、按什么顺序找谁、怎么认出朝你来的第二把刀，以及怎么把日子过下去。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>先看清现实：为什么追回来的总是少数</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：损失已发生</span><span class="badge">损失：几千~几十万甚至更多</span></div>
+    </div>
+    <p>钱一旦转出去，追回的窗口不是按"天"算，是按分钟算。央视报道的重庆案里，56岁的保洁员龚阿姨被冒充"公检法"的人骗走 <b>9.2万余元</b>，钱在数分钟内被拆成多笔，转入不明"数字人民币钱包"，最大一笔 <b>4.95万元</b>流进广州一张银行卡。北京通州警方2025年还破获 <b>2起</b>利用支付平台"红包"功能拆分转移涉诈资金的案件，抓获 <b>41人</b>，全年打掉 <b>29个</b>涉诈洗钱团伙。骗子的分工就是让到账的钱尽快洗"白"，所以警方的止付、冻结也只能按分钟赛跑。</p>
+    <p>公开数据里，官方通报的多是"拦截""避免损失"，不是"追回返还"。据公安部新闻发布会（2024年5月，央视报道），2021年以来国家反诈中心紧急拦截涉案资金 <b>1.1万亿元</b>；截至2021年11月，全国公安机关紧急拦截涉案资金 <b>3265亿元</b>。地方"返还"口径的数据是：北京通州2025年拦截电诈涉案资金近亿元，为群众挽回损失同比上升 <b>21%</b>，涉诈资金返还同比增长 <b>54%</b>。至于"全国被骗资金最终追回率"，暂无公开数据。</p>
+    <p>个案更能说明差别在哪。同样是中招，新疆赵女士在输入第三张银行卡密码时察觉不对，96110预警后半小时内冻结三张卡和两个钱包，<b>35万元</b>"一分没少"；龚阿姨的9.2万元只追回4.95万元，其余"仍在追查"。区别不在运气，在报警和止付的速度。抓人也有进度：公安部会同缅甸、泰国执法部门清剿妙瓦底赌诈园区，2025年以来累计 <b>7600余名</b>在妙瓦底从事网赌电诈犯罪的中国籍嫌疑人被押解回国——但人抓到了，钱回到你手上，周期往往以年计。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"这些是我辛辛苦苦帮人做清洁积攒的血汗钱啊，被骗子全骗走了。"——龚阿姨（重庆，警方通报，央视网2024年10月报道）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>止损之后找谁：三条路的先后顺序</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">门槛：按顺序走</span><span class="badge">损失：走错顺序会二次受伤</span></div>
+    </div>
+    <p>顺序不能乱：<b>先刑事报案，同时挂失止付</b>；平台投诉和民事诉讼是辅助，替代不了报警。</p>
+    <p>刑事报案是主渠道。《中华人民共和国反电信网络诈骗法》2022年9月2日表决通过、同年12月1日起施行，共七章五十条，电话卡、银行卡、支付账户、互联网账号全链条纳入治理，造成他人损害的要依法承担民事责任。对受害者来说，报案越早，公安启动紧急止付、冻结越早——警方在央视报道里说得很直白：发现被骗应立即报案，"这样有利于追回钱款，降低损失。"</p>
+    <p>如果钱是刚转出去的，第二件事是联系银行客服或微信、支付宝客服，申请挂失和紧急止付，并把自己名下其他账户做保护性冻结。金融消费纠纷可以拨 <b>12378</b> 金融消费者投诉热线；对平台、商家的投诉可以走黑猫投诉这类消费投诉平台（新浪旗下，页面显示累计有效投诉已超 <b>3905万条</b>），它能给平台施加协商和舆论压力，但对境外骗子基本无效。民事诉讼是在被告明确（某家公司、某个具体的人）时的选项，周期以月、年计，执行也难；要不要走、什么时候走，听办案民警和正规律师的，不要几头同时撒网——那正是"追赃律师"盯上你的信号。</p>
+    <table>
+      <thead><tr><th>渠道</th><th>主要作用</th><th>见效速度</th><th>局限</th></tr></thead>
+      <tbody>
+        <tr><td>110 / 96110 刑事报案</td><td>立案侦查、止付冻结、追缴返还</td><td>接警即启动，按分钟计</td><td>周期长，跨境主犯抓捕难</td></tr>
+        <tr><td>银行 / 支付机构挂失止付</td><td>冻结账户，拦截未转出资金</td><td>分钟级</td><td>只保得住还没转出去的钱</td></tr>
+        <tr><td>12378 金融消费投诉</td><td>银行保险消费纠纷调解</td><td>天到周</td><td>不是侦查，追不到骗子</td></tr>
+        <tr><td>黑猫投诉等平台</td><td>对平台施压、协商退费</td><td>天到周</td><td>对境外诈骗团伙基本无效</td></tr>
+        <tr><td>民事诉讼</td><td>向明确被告索赔</td><td>月到年</td><td>周期长、执行难，需律师评估</td></tr>
+      </tbody>
+    </table>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"全国单月立案数连续8个月下降，被骗损失金额下降近30%。"——公安部新闻发言人李国忠（2024年5月，央视报道）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔪</span><h3>第二把刀：盯上受害者的"专业追赃"</h3>
+      <div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">门槛：零门槛接触</span><span class="badge">损失：可被二次收割到倾家荡产</span></div>
+    </div>
+    <p>被骗过的人有个共同点：急于挽回损失。骗子把这份"急"做成了生意。北京丰台办理过一起养老诈骗"案中案"：旅游公司销售经理赵某先以"垫资"为由骗走张某 <b>80余万元</b>，离职后又拿原公司客户名单，专挑投资受骗的老人，声称"只要额外交付 <b>20%</b> 的好处费，就可以优先退费"，接连骗了多名老人。最终赵某一审以诈骗罪被判有期徒刑 <b>11年</b>、剥夺政治权利二年，并处罚金 <b>11万元</b>。承办检察官朱文革说，赵某是"利用投资被骗的老年人急于挽回损失的心理，进行'二次收割'"。</p>
+    <p>这类骗局话术万变不离其宗。下面这些信号，中一条就立刻停下：</p>
+    <ul>
+      <li><b>追回之前先要钱</b>：手续费、保证金、解冻费、差旅费、"打点费"——正规律师不会承诺"百分百追回"，更不会让你装软件、开屏幕共享</li>
+      <li>自称"黑客""内部有人""特殊渠道"，说你的钱"卡在某个账户里"，他能弄出来</li>
+      <li>让你下载不明App、开屏幕共享、远程控制手机，或把账号密码交出去</li>
+      <li>让你"别报警""别告诉家人"，理由是"警方追不回，我们才能"</li>
+      <li>用"追回进度"截图、"其他人都到账了"吊着你，隔三差五再要一笔</li>
+      <li>主动私聊拉你进"退费群""维权群"——真正的退费由办案机关或原平台发公告，不会加你私聊收钱</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>已经中招怎么办：10分钟清单</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">门槛：人人可做</span><span class="badge">损失：止损窗口以分钟计</span></div>
+    </div>
+    <p>已经中招，按这个顺序做，前10分钟最关键：</p>
+    <ul>
+      <li><b>第1分钟</b>：拨打 <b>110</b>，或到就近派出所报案；拿不准是不是诈骗，先打 <b>96110</b>（公安部推出的全国统一预警劝阻咨询电话，可咨询、可举报）</li>
+      <li><b>第2–5分钟</b>：截图保存转账记录、对方账号、聊天记录、通话记录、对方发来的链接和App，别删记录、别退群</li>
+      <li><b>第5–8分钟</b>：刚转出不久，立刻联系银行客服或微信、支付宝客服申请紧急止付，并把自己名下其他账户做保护性冻结</li>
+      <li><b>第8–10分钟</b>：告诉一个你信得过的家人或朋友——不是商量报不报警，是留个见证，防你被二次收割</li>
+      <li><b>之后</b>：安装并开启"国家反诈中心"App预警（公安部推出，2021年报道注册用户已超 <b>6500万</b>），96110来电一定要接；卸载骗子让装的软件，关闭屏幕共享，修改所有支付密码</li>
+    </ul>
+    <p>最后说点和钱无关的。央视报道的反诈调研里，有学生被骗后"觉得被骗了很没面子""害怕受到家长的责备"而不愿报警；中国政法大学网络法学研究所所长李怀胜因此建议建立心理疏导渠道，"防止发生被骗之后的二次伤害"。电信诈骗是团伙作业、有话术剧本、有个人信息"物料"的专业犯罪，中招不是你一个人的失误，先止损、再追赃、后修复，一步都别省。家里人的第一句话也很重要——天津市公安局民警"二喜警官"的提醒是："不要相信，不要删掉反诈软件，转账前一定要找家人或朋友核实和商量。"</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>"我那35万，我到现在都跟做梦一样，没缓过劲来……"——赵女士（新疆乌什，35万元经96110预警后全部保住，央视网2025年4月报道）</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://news.cctv.com/2024/05/27/ARTIqym7KllRzuW7i7KhNzoX240527.shtml" target="_blank">央视网：电信网络诈骗犯罪立案数连续8个月下降（公安部新闻发布会，2024-05-27）</a>
+    <a href="https://news.cctv.com/2024/10/12/ARTI1kdacYS0j65bX9LGl91J241012.shtml" target="_blank">央视网：假警察骗空阿姨存款，重庆警方紧急止付追损（2024-10-12）</a>
+    <a href="https://news.cctv.com/2022/08/22/ARTINHbqumWR5Ht0IQehBOYF220822.shtml" target="_blank">央视网："二次收割"被骗老人 北京丰台办理一起养老诈骗"案中案"（2022-08-22）</a>
+    <a href="https://news.cctv.com/2022/09/02/ARTI3sYVQ5ZRWzJ2AymOwa1J220902.shtml" target="_blank">央视网转新华社：反电信网络诈骗法表决通过（2022-09-02）</a>
+    <a href="https://news.cctv.com/2022/09/04/ARTIjkfAtUN7krGY2W7IVvu1220904.shtml" target="_blank">央视网：《反电信网络诈骗法》通过：加大惩戒，未雨绸缪（2022-09-04）</a>
+    <a href="https://news.cctv.com/2025/12/11/ARTIW1VEXWC2AnX6Fg5m9GKu251211.shtml" target="_blank">央视网：北京通州警方今年成功拦截电诈涉案资金近亿元（2025-12-11）</a>
+    <a href="https://news.cctv.com/2021/04/17/ARTIqeUb5AXcUStqMljxxcZg210417.shtml" target="_blank">央视网：走进国家反诈中心丨预警劝阻咨询电话：96110（2021-04-17）</a>
+    <a href="https://news.cctv.com/2025/04/10/ARTIgTzJLzIiWJM5hzEP4kll250410.shtml" target="_blank">央视网：关闭"百万医疗保险"被骗，96110成功预警止付35万（2025-04-10）</a>
+    <a href="https://local.cctv.com/2026/09/20/ARTIRhUxRk16HZ0Fe5njxG8B260920.shtml" target="_blank">央视网地方频道：浙商银行合肥分行提示——12378投诉与挂失止付（2026-09-20）</a>
+    <a href="https://edu.cctv.com/2023/08/22/ARTIeP50fbOsvMNhXOYnrIq4230822.shtml" target="_blank">央视网教育频道：兼职诈骗瞄准大学生 如何防范（2023-08-22）</a>
+    <a href="https://news.cctv.com/2025/12/25/ARTIHD6nY2HuUi5lcalSdJsV251225.shtml" target="_blank">央视网：952名缅甸妙瓦底地区涉电诈犯罪嫌疑人被押解回国（2025-12-25）</a>
+    <a href="https://tousu.sina.com.cn/" target="_blank">黑猫投诉平台（新浪旗下消费者服务平台）</a>
+  </div>
+</section>
+
+<section id="c19" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 19 · PART 4 · 防身术</span><h2>识别"真机会"的正面清单<span class="accent">好项目的共同特征</span></h2></div>
+  <p class="sec-desc">前面 18 章讲的是"怎么认出坑"，这一章讲另一面：真正能赚钱的机会长什么样。把骗局的识别信号反过来用。四条底牌、一个快速测试问题、一张对照表，外加一个已被警方判明的真实案例。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>机制拆解：钱从谁的口袋出来，决定它是机会还是坑</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适用：准备掏钱之前</span><span class="badge">损失：几千~几十万</span></div>
+    </div>
+    <p>判断一个项目是机会还是坑，先看钱怎么流动。<b>真机会的钱路很短</b>：客户为一件说得清的交付物付钱——你写的稿、你跑的业务、你交付的服务——你付出劳动，收入跟着工作量走，但每一分都答得上"谁付的、为什么付"。<b>骗局的钱路是另一套</b>：钱从新加入者的本金、下家的入门费、甚至你的借款里出，先进运营者控制的账户，再被迅速分层转移；你账户里跳动的"余额"和"收益"，只是后台数据库里一行能随时改写的数字。2025 年 6 月央视报道的南安"5·27"专案里，警方讲得很直白：虚假投资平台的"平台数据可后台操控，提现失败即拉黑"——你看到的盈利从来不是钱，是诱饵。</p>
+    <p>人容易在这里出事，往往不是因为贪心，而是假机会被包装得有模有样：有合同、有 App、有客服，甚至先让你成功提现几笔小额。别用"信不信人"判断，用"钱的来路"判断。</p>
+    <ul>
+      <li>☐ <b>谁在付你钱、钱买到了什么？</b>真实客户加说得清的交付物（机会）；新加入者加"额度""算力"这类说法（坑）。</li>
+      <li>☐ <b>不拉新人、不再投钱，收入链条还转不转？</b></li>
+      <li>☐ <b>提现是什么？</b>银行卡到账才是钱，账户数字只是数字。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>南安警方提示（央视网，2025-06-25）："只要是诱导在网上投资理财、炒数字货币（虚拟币）的都是骗局"；不要相信"稳赚不赔""内部消息"。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>正面清单：好项目的四个共同特征</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">用法：逐条核对</span><span class="badge">作用：把"听说能赚"变成"查得到"</span></div>
+    </div>
+    <p>把前 18 章拆过的骗局删掉共同点，剩下的就是真机会的样子。四条底牌缺一条就停下来查；缺两条以上，宁可不做。</p>
+    <ul>
+      <li>☐ <b>收入来自真实交付。</b>说得清"客户是谁、买了什么、什么时候到账"。反过来：收入主要靠拉人头、卖课给下家、靠新用户本金滚动的，不是机会。</li>
+      <li>☐ <b>资质与牌照边界清晰。</b>主体查得到、许可查得到。人社部明确：未经许可擅自开展职业中介活动的，依法"责令停止从事职业中介活动"并处罚款；碰投资理财的，只认持牌机构。美国 FTC 说得更直白："诚实的雇主，包括联邦政府，永远不会要求你为得到一份工作付钱。"（"Honest employers, including the federal government, will never ask you to pay to get a job."）</li>
+      <li>☐ <b>收益与努力和风险挂钩。</b>多劳多得、有淡旺季、有亏损可能。凡出现"稳赚不赔""保本高息""低投入高回报"，按骗局处理——这是国家反诈中心反复提示的典型话术（新华社，2026-10）。</li>
+      <li>☐ <b>规则透明稳定。</b>收费标准明示、规则变更提前公告、退出机制写清楚。人社部专门要求"督促明示收费标准"，还点名防范"以'内部推荐'为名收取高额费用"。正规平台不怕写清楚；怕写清楚、动辄"系统升级"的，本身就是信号。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚡</span><h3>一个快速测试问题，外加一张"反过来用"对照表</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">耗时：2 分钟</span><span class="badge">作用：排除大多数坑</span></div>
+    </div>
+    <p>问题只有一个：<b>"如果从今天起，我不拉任何新人、不再投一分钱，这个项目还能照常给我带来收入吗？"</b>能，才值得继续查；不能——无论它叫兼职、副业、理财还是"内部项目"——钱的结构都靠不断有新钱进场支撑，这时停下来就是止损。问完再反过来念一遍前 18 章的信号：</p>
+    <table>
+      <tr><th>前文章节</th><th>骗局信号</th><th>反过来问自己</th><th>正面答案</th></tr>
+      <tr><td>06 刷单返利</td><td>小额甜头引你垫付</td><td>要我垫钱吗？</td><td>不垫钱，按真实工作量结算</td></tr>
+      <tr><td>07 资金盘</td><td>借新还旧</td><td>收益来自新人入场吗？</td><td>收益与新人数量无关</td></tr>
+      <tr><td>10 假副业卖课</td><td>低价漏斗层层加价</td><td>对方靠"学员的钱"赚钱？</td><td>对方靠"客户的钱"赚钱</td></tr>
+      <tr><td>12 加盟代理</td><td>招商比卖货赚</td><td>收入主要来自加盟费？</td><td>收入主要来自真实零售</td></tr>
+      <tr><td>14 二手交易</td><td>催你平台外付款</td><td>钱走出担保了吗？</td><td>一切走平台担保</td></tr>
+      <tr><td>05 培训贷</td><td>先借钱后赚钱</td><td>要先交钱或贷款吗？</td><td>投入先于承诺</td></tr>
+      <tr><td>08 AI 带单</td><td>稳赚不赔话术</td><td>有人承诺收益吗？</td><td>没人承诺收益</td></tr>
+      <tr><td>15 情感杀猪盘</td><td>先谈感情后谈钱</td><td>谈钱之前谈了什么？</td><td>正经生意先谈交付</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📰</span><h3>真实案例：南安"5·27"专案——一个"机会"缺了哪几条</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">涉案：1.8 亿余元</span><span class="badge">结局：88 人落网、追赃进行中</span></div>
+    </div>
+    <p>据央视网 2025 年 6 月报道，福建泉州南安警方破获最高检、公安部联合督办的"5·27"专案：境外团伙非法获取公民信息，伪造身份和人设，以"婚恋交友"接近离异、丧偶等目标，建立恋爱关系后请受害人"代管投资账户"——账户里天天盈利，其实全是后台数字；受害人加大投入甚至借贷进场后，便是提现失败、拉黑失联。警方在 10 余省份收网，抓获嫌疑人 <b>88 名</b>（含"金主"<b>7 名</b>），已查实 <b>139 起</b>案件，其中 <b>14 起</b>个案损失超过 <b>100 万元</b>；涉案金额 <b>1.8 亿余元</b>，已查明被骗金额 <b>6100 万余元</b>。警方查扣现金 90 余万元、冻结资金 2000 万余元、查封房产 23 处，并动员嫌疑人及家属退赃，已累计返还受害人 <b>800 余万元</b>（约为已查明被骗金额的 13%），追赃仍在进行。</p>
+    <p>把这个"机会"放回正面清单逐条对：收入没有真实交付（盈利是后台数字）；资质不存在（虚假平台无牌无证）；收益与努力脱钩、只与"投入多少"挂钩；规则随平台心情改（想让你提不了现就改）——四条全缺，是教科书式的假机会。也要说清楚：受害人不是贪心——套路恰恰是利用信任，先让你看"恋人"的账户赚钱，再让你顺手参与。<b>识别信号从来比人品可靠。</b></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办：停手、留证、查主体、报案</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">时效：转账后越快越好</span><span class="badge">目标：止损+证据+报案</span></div>
+    </div>
+    <ul>
+      <li><b>一、立刻停手，也停止拉人。</b>所有"再充一笔就能全额提现"都是加码话术；继续拉亲友进场，可能从受害人变成关联违法人员——据公安部 2026 年 6 月通报（新华网转载），《电信网络诈骗及其关联违法犯罪联合惩戒办法》2024 年 12 月 1 日施行以来，已对 <b>2 万余名</b>涉诈及关联违法犯罪人员采取金融、电信、信用类惩戒。</li>
+      <li><b>二、固定证据。</b>聊天记录、转账凭证、合同、App 下载链接、群公告、收款账户全部截图留底，标注每笔转账的时间、金额、对手账户。</li>
+      <li><b>三、查主体。</b>上国家企业信用信息公示系统查公司状态；求职类查人社部门的人力资源服务许可；谈"投资理财"的查对应金融牌照——查不到，就是答案。</li>
+      <li><b>四、报案与举报。</b>拨打 <b>110</b> 或反诈专线 <b>96110</b>，转账后越快报案，紧急止付的可能性越大；涉仿冒国家机关、银行的，同步向中央网信办举报中心（12377）提交。</li>
+      <li><b>五、防二次诈骗。</b>主动找上门的"维权律师""专业追损""黑客追款"，绝大多数是第二次收割。公安机关追赃不收一分钱，"先交手续费再追款"的直接拉黑。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>人社部、中央网信办、教育部、公安部、国务院国资委五部门提示（人民日报，2026-10）："正规央国企招聘不会收取报名费、手续费、资料费、介绍费、服务费等费用"，"如遭遇付费内推诈骗，第一时间向公安机关报案"。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>第一步操作：10 分钟内能做完的自查</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">耗时：10 分钟</span><span class="badge">作用：掏钱之前先过一遍</span></div>
+    </div>
+    <p>如果你正捏着一个"听起来能赚"的项目，先别付款，按清单走一遍——10 分钟能做完，让冲动先冷静、证据先留好。</p>
+    <ul>
+      <li>☐ 上国家企业信用信息公示系统，输入对方公司全称，看是否存续、有无经营异常或处罚记录。</li>
+      <li>☐ 求职、兼职类：上人社部门官网查有没有人力资源服务许可证——没有，就是违法经营。</li>
+      <li>☐ 涉及"投资""理财""带单"的：查对方有没有金融牌照，查不到就当非法处理。</li>
+      <li>☐ 对照工信部《关于侵害用户权益行为的 APP（SDK）通报》（2026 年第 6 批，总第 59 批）自查手机里的"赚钱 App"，来路不明的直接卸载。</li>
+      <li>☐ 把"项目名+公司名"加上"骗局""投诉""怎么样"搜一遍，再去黑猫投诉搜一遍——该平台累计有效投诉已超过 <b>3900 万件</b>（2026-10-27 首页数据），先看别人踩过的坑。</li>
+      <li>☐ 大声回答那个快速测试问题："不拉新人、不再投钱，它还能照常给我收入吗？"把答案写在纸上。</li>
+      <li>☐ 打开"国家反诈中心"App，对可疑网址、账号、App 一键举报。</li>
+      <li>☐ 把你要做的事讲给一个信任的人听——愿意讲出来的决定，通常才是清醒的决定。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.news.cn/politics/20261021/ce82eb08290044f0abdc9a4dce47f3cb/c.html" target="_blank">人民日报/新华社《多部门发布风险提示：求职者，警惕"央国企内推"骗局》（2026-10-21）</a><a href="https://www.piyao.org.cn/20261020/79698b05fd0141d2b6f63aa346682262/c.html" target="_blank">中国互联网联合辟谣平台《求职者，警惕"央国企内推"骗局！》（2026-10-20）</a><a href="https://news.cctv.com/2025/06/25/ARTIPzLu5NAz7ZRDf0dNmkSp250625.shtml" target="_blank">央视网《揭秘"婚恋交友"背后的虚假投资理财陷阱》（南安"5·27"专案，2025-06-25）</a><a href="https://www.gov.cn/zhengce/202408/content_6971246.htm" target="_blank">中国政府网：人社部就《关于进一步加强人力资源市场规范管理的通知》答记者问（2024-08-29）</a><a href="https://www.piyao.org.cn/20261013/ff19d32d6848415db5cfc2b135a07ae9/c.html" target="_blank">工信微报《关于侵害用户权益行为的 APP（SDK）通报（2026 年第 6 批，总第 59 批）》</a><a href="https://consumer.ftc.gov/articles/job-scams" target="_blank">美国 FTC 消费者指南：Job Scams（2023-03）</a><a href="https://www.news.cn/legal/20261021/90598222a44048bcb96a642a33b00f1c/c.html" target="_blank">新华社《骗子为何"精准盯上你"？反诈部门拆解套路》（素材来自国家反诈中心，2026-10-21）</a><a href="https://news.cctv.com/2026/06/18/ARTIba0zIntuQSAl7qi3Xnkh260618.shtml" target="_blank">央视网《公安部公布 5 起依法联合惩戒电信网络诈骗及其关联违法犯罪典型案例》（2026-06-18）</a><a href="https://www.xinhuanet.com/legal/20260618/bc03d8cda3894889a4d64a0ee05bff33/c.html" target="_blank">新华网转载公安部通报《公安部公布 5 起依法联合惩戒电信网络诈骗及其关联违法犯罪典型案例》（据公安部微信公众号，2026-06-18）</a><a href="https://tousu.sina.com.cn/" target="_blank">黑猫投诉平台首页（投诉聚合数据，2026-10-27 抓取）</a></div>
+</section>
+
+<section id="c20" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 20 · PART 4 · 防身术</span><h2>家庭防骗与助人清单<span class="accent">守护一老一小</span></h2></div>
+  <p class="sec-desc">骗老人和骗孩子，是两条流水线，入口却都开在家里。这一章讲怎么给家人做防骗配置、中招后按什么顺序处理，以及怎么把预警说到对方听得进去。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">👴</span><h3>机制拆解：一老一小，两条流水线，一个终点</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">门槛：几乎为零</span><span class="badge">损失：几百~几十万</span></div>
+    </div>
+    <p>先看钱往哪走。FBI 互联网犯罪投诉中心（IC3）《2024 年互联网犯罪报告》显示，60 岁以上受害者全年投诉 <b>147,127 起</b>、损失 <b>48.85 亿美元</b>，同比增长 <b>46%</b> 和 <b>43%</b>。公安部 2026 年 1 月发布：2025 年全国共侦破电信网络诈骗案件 <b>25.8 万起</b>，拦截诈骗电话 <b>36 亿次</b>、短信 <b>33 亿条</b>，紧急止付资金 <b>2,170.7 万元</b>，见面劝阻 <b>674.7 万人次</b>。</p>
+    <p>老人线走"温情+权威"入口：免费礼品、健康讲座、"干儿子"式陪伴先建立信任，再用"内幕消息""稳赚不赔""导师带队"收割；钱经多层账户接力洗白——甘肃"3·10"特大跨境荐股诈骗案中，492 万元赃款走了 <b>6 个层级、96 个涉案账户</b>，且大量使用对公账户，民警解释，这类账户"转账限额高、有企业资质背书"，便于逃避侦查。孩子线走"免费+恐吓"入口：游戏里"免费送皮肤""代解除防沉迷"是饵，随后冒充公检法恐吓，最后落在<b>屏幕共享和短信验证码</b>上，拿到家长支付密码便盗刷。公安部网安局通报的案例里，有女孩被盗刷 <b>8 万余元</b>，有男孩从 50 元"技术费"开始累计被骗 <b>2 万多元</b>，还有孩子为 588 元皮肤出借账号，一周内被盗刷 <b>59 次、损失 18 万余元</b>。两条线一个终点：钱从家人的卡里出去，再也回不来。</p>
+    <table>
+      <tr><th>对比项</th><th>老人线</th><th>孩子线</th></tr>
+      <tr><td>入口诱饵</td><td>免费礼品、健康讲座、"干儿子"陪伴、荐股直播</td><td>免费皮肤、代解防沉迷、明星粉丝群、高价收账号</td></tr>
+      <tr><td>资金出口</td><td>指定收款账户、"对公账户"、虚假投资平台</td><td>家长银行卡、免密支付、被套取的验证码</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚨</span><h3>识别信号清单：家里出现这些迹象，先别急着吵架</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">触发：任一信号出现</span><span class="badge">损失：越晚介入越贵</span></div>
+    </div>
+    <p>骗子得手，靠的是让受害者"不敢说、不愿说"。家庭防骗第一课不是认骗局，是<b>让迹象能被看见</b>——下面每条都来自公开通报，中任意一条就该介入。</p>
+    <ul>
+      <li>☐ <b>老人侧：</b>突然频繁参加"免费"活动，家里出现来路不明的保健品、净水器；手机里多了要"邀请码"登录的小众软件，或被要求下载远程协助类 App。</li>
+      <li>☐ <b>老人侧：</b>话里出现"导师""内幕消息""稳赚不赔"，或让你帮忙"看看这 App 怎么提现"。</li>
+      <li>☐ <b>老人侧：</b>定期存单提前支取、频繁跑银行、给对公账户转账却说不清用途；接电话躲着人。</li>
+      <li>☐ <b>孩子侧：</b>游戏里有人"免费送皮肤、送账号"让扫码加好友，索要短信验证码、支付密码。</li>
+      <li>☐ <b>孩子侧：</b>说"账号涉嫌违法""不解冻爸妈会被抓"——冒充公检法的标准恐吓；被要求开启屏幕共享。</li>
+      <li>☐ <b>孩子侧：</b>设备异常扣费、银行卡动账短信一夜多条，孩子神色慌张、支支吾吾。</li>
+      <li>☐ <b>全家通用：</b>老人装了"国家反诈中心"App 却从没打开过"来电预警"——等于没装。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>公安部网安局的硬标准："<b>凡是要求打开屏幕共享的陌生人，100% 是骗子</b>。"</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📺</span><h3>真实案例：492 万与 80 万，中间隔着什么</h3>
+      <div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">涉案：8,600 余万元</span><span class="badge">结局：186 人落网</span></div>
+    </div>
+    <p><b>先说中的。</b>据新华社、央视新闻报道，甘肃嘉峪关的于先生有多年炒股经验，3 月初被短视频平台"荐股"直播拉进"粉丝群"，群里"导师"对大盘屡屡应验。他 3 月 3 日先转 3 万元试水，几天内被"聊手"一对一跟进，累计转账 11 笔、被骗 <b>492 万元</b>，提现受阻才报案。这条流水线靠水军按"剧本"炒群、冒用券商身份、伪造证书、仿冒投资平台营造专业感——于先生事后说，"两句话就说他是负责资管的，跟你视频核实一下"，连"核实"骗子都替他演好了。结局：警方打掉境内 6 个团伙、境外 3 处窝点，抓获 <b>186 人</b>；串并案件 300 余起，涉案 <b>8,600 余万元</b>，排查疑似受害人约 <b>1.2 万名</b>。</p>
+    <p><b>再说拦住的。</b>西安市公安局新城分局通报，2025 年 12 月 4 天里连续拦截 3 起针对老年人的诈骗，守住"养老钱"<b>80 余万元</b>：李奶奶接到冒充孙子的电话称"车祸急需用钱"，拿着 5 张未到期存单要去银行全部取出，银行警觉上报，民警联系家属确认孙子平安；同日另有老人被冒充"医院"索要抢救费、被民警劝住；一名九旬老人被冒充"儿子单位"索要手术费，经警银联动核查其子健康。这三起零损失，靠的不是老人识破骗局，而是<b>银行多问了一句、民警多跑了一趟、家属能立刻核实</b>。中招与拦截之间，隔的就是这个。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>甘肃省公安厅反诈中心负责人桑少军："凡宣称'内幕消息''稳赚不赔''导师带队操盘'的，均为诈骗话术。投资者应通过正规渠道核实机构资质，切勿轻信非正规平台。"</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>已经中招怎么办：不羞辱、先止损，按顺序来</h3>
+      <div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">时效：转账后越快越好</span><span class="badge">目标：止损+留证+报案</span></div>
+    </div>
+    <p>发现家人中招，第一句话决定后面的一切。骗子的剧本建立在"这事不能让别人知道"之上，第一反应不能是"你怎么这么傻"——那是把对方往骗子怀里推。顺序：先接住情绪，再止损、留证、报案，最后防二次被骗。</p>
+    <ul>
+      <li><b>一、先共情，再动手。</b>第一句话换成："这不是你的错，对方有剧本有团队，咱们看看还能拦住多少。"电话还通着别争吵揭穿，先让老人挂断、让孩子退出共享屏幕——断联就是止损。</li>
+      <li><b>二、立刻止损。</b>涉事银行卡马上拨打银行客服挂失或冻结，关闭免密支付，修改支付密码；手机装有陌生远程软件的，先断网再关机。</li>
+      <li><b>三、报警要快。</b>拨打 <b>110</b> 或反诈专线 <b>96110</b>，说明"疑似被骗、钱已转出"，询问紧急止付的可能。</li>
+      <li><b>四、固定证据。</b>保留聊天记录、转账凭证、对方账号、App 安装包、群聊信息——有没有证据，直接决定能追回多少。</li>
+      <li><b>五、防二次被骗。</b>刚报过案的家庭，正是"追损"骗局眼里的肥肉：主动找上门的"维权律师""专业追损""黑客追款"，都是冲着这家人刚破的财来的——警方追赃分文不取，凡是"先付费再追款"的，直接拉黑（完整判断见第 19 章"已经中招怎么办"第五条）。另防三样：冒充"反诈回访""专案组"，让转"安全账户"或交"保证金解冻"的；打给家里其他人套话"核实案情"的；在家族群、朋友圈晒被骗金额和案情的——那等于告诉骗子"这家刚被骗、还有余钱"。给过骗子的证件号、银行卡号，该挂失挂失、该修改修改。</li>
+    </ul>
+    <p>孩子被骗时要注意语气。公安部网安局给家长的原话：向孩子承诺"不要害怕责骂"，因为"<b>骗子才是坏人，你不是</b>"——第一次被骗就被责骂的孩子，会把下一次藏得更深。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>第一步操作：10 分钟做完的家庭反诈设置清单</h3>
+      <div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">耗时：10 分钟</span><span class="badge">作用：把入口堵在门外</span></div>
+    </div>
+    <p>不用等出事，今晚 10 分钟就能把家里两部手机配置到位。</p>
+    <ul>
+      <li>☐ 给老人手机安装"国家反诈中心"App，<b>打开"来电预警"</b>并保持定期登录——福建警方提醒，长时间不登录会失去保护；它还能查询对方账户是否涉诈。</li>
+      <li>☐ 告诉全家：<b>96110 来电务必接听</b>，这是反诈专线，不是推销电话。</li>
+      <li>☐ 打开老人手机上的银行 App：关闭小额免密支付，设置单笔和单日转账限额，开通动账通知。</li>
+      <li>☐ 大额存单、理财不要一次性全部到期取出；常用卡里只放近期要用的钱。</li>
+      <li>☐ 孩子设备：开启青少年模式，支付密码不告诉孩子，关闭免密支付，消费提醒绑定家长手机号。</li>
+      <li>☐ 全家定一条家规：凡是"安全账户""屏幕共享""上门收款"的要求，先挂断，打给家里另一个人核实——西安那 3 起被拦下的案子，赢的就是这一步。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📢</span><h3>助人姿势：怎么提醒、怎么转发，才不把人推远</h3>
+      <div class="badges"><span class="badge r1">风险 ★</span><span class="badge">门槛：零成本</span><span class="badge">作用：让预警听得进去</span></div>
+    </div>
+    <p>提醒家人朋友是好事，方式错了会起反作用。羞辱式预警（"贪小便宜活该"）除了制造对立毫无用处——骗局靠的是专业分工的话术剧本和心理操控，不是受害人"贪"或"蠢"：于先生有多年炒股经验，一样 4 天被骗 492 万。有效的预警只讲机制和信号。</p>
+    <ul>
+      <li>☐ <b>对事不对人。</b>说"这个套路是这样的"，不说"你差点就上当了"；拿公开通报说事，别自己吓唬人。</li>
+      <li>☐ <b>只转官方信源。</b>转发公安部、国家反诈中心、新华社、央视等官方通报原文，不转二手截图和小道故事。</li>
+      <li>☐ <b>不点名、不扩散。</b>不转发未经官方认定的在运营项目名单，不泄露当事人身份信息——预警的目的是防御，不是网络审判。</li>
+      <li>☐ <b>精准转发。</b>把这本书或某一章转给具体的人时，附一句"这章讲的正是你上次遇到的那种情况"，比甩链接有效。</li>
+      <li>☐ <b>定期"防诈十分钟"。</b>吃饭时聊一个最近的真实案例，比一年一次正襟危坐的"教育"管用。</li>
+      <li>☐ <b>给台阶。</b>提醒之后补一句"下次拿不准先问我"——这才是家人和骗子的根本区别。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="http://www.xinhuanet.com/law/20260109/e5ac1ba872f244d9b01f53f9935c9f45/c.html" target="_blank">新华网《公安部：2025年全国共侦破电信网络诈骗案件25.8万起》（2026-01-09）</a><a href="http://www.xinhuanet.com/legal/20260824/20b84f8f206440069f87a9f1b7d7204f/c.html" target="_blank">新华社《甘肃公安斩断一条跨境"荐股"诈骗犯罪链条》（2026-08-24）</a><a href="https://baijiahao.baidu.com/s?id=1874143697670140625&wfr=spider&for=pc" target="_blank">央视新闻《刷直播遇炒股"导师"，492万元没了！》（红网转载，2026-08-21）</a><a href="https://police.xa.gov.cn/jwzq/xcfj/jwdt/2000763840071012353.html" target="_blank">西安市公安局新城分局《4天拦截3起涉老诈骗 守住80余万元"养老钱"》（2025-12-16）</a><a href="https://gat.fujian.gov.cn/ztzl/fjjffpzxrx/yjxx/202309/t20230913_6255881.htm" target="_blank">福建警方防骗咨询热线《藏在国家反诈中心APP里的秘密》（2023-09-13）</a><a href="https://www.jsjc.gov.cn/yaowen/202602/t20260225_1310161.shtml" target="_blank">公安部网安局《孩子的"网络安全急救包"》（江苏检察网发布，2026-02-25）</a><a href="https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf" target="_blank">FBI IC3《2024 Internet Crime Report》（含 Elder Fraud 章节）</a><a href="https://www.ic3.gov/AnnualReport/Reports/2023_IC3ElderFraudReport.pdf" target="_blank">FBI IC3《2023 Elder Fraud Report》</a><a href="http://cyberpolice.mps.gov.cn/wfjb/" target="_blank">公安部·网络违法犯罪举报网站</a></div>
+</section>
+
+<footer class="wrap">
+  <div><b>全书使用建议</b></div>
+  <div style="margin-top:12px;color:var(--muted);max-width:860px;">
+    <p>· 先读第 01-04 章心法，再翻图鉴——识别信号比记住骗局名字更重要，骗局会换皮，信号不会；</p>
+    <p>· 每章末尾的来源链接是本章结论的依据，涉及报案与维权的内容请以公安机关与官方渠道当日口径为准（数据截至 2026-10-26）；</p>
+    <p>· 这本书最好的用法是转给家人：第 20 章《家庭防骗与助人清单》就是为转发写的。</p>
+  </div>
+  <div class="disclaimer">⚠️ <b>免责声明：</b>本手册由 20 个并行 AI 研究员于 2026-10-26 实时检索公开资料写成，仅用于防骗教育与风险识别，不构成任何法律意见。书中所有案例均来自已公开定性的事件与报道；涉及具体平台与项目名称仅作识别示例。如遇诈骗请立即拨打 110 或 96110 报案，并通过国家反诈中心 App 举报。</div>
+  <div style="margin-top:20px;text-align:center;">🧊 《互联网赚钱避坑手册》· 20 章并行调研汇编 · 2026-10-26 · 配套 <a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="web3赚钱手册.html">《Web3 赚钱手册》</a> · <a href="个人隐私与数据安全手册.html">《隐私安全手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a></div>
+</footer>
+
+<a class="backtop" href="#toc" title="回到目录">↑</a>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.toc a, .tocbox a');
+  var byId = {};
+  Array.prototype.forEach.call(links, function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  secs.sort(function (a, b) { return a.offsetTop - b.offsetTop; });
+  function update() {
+    var y = window.scrollY + 170, cur = null;
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = !!cur && a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('active', on);
+    });
+  }
+  var fold = document.querySelector('details.tocfold');
+  if (fold && window.matchMedia('(max-width: 700px)').matches) {
+    fold.removeAttribute('open');
+    Array.prototype.forEach.call(fold.querySelectorAll('.toc-list a'), function (a) {
+      a.addEventListener('click', function () { fold.removeAttribute('open'); });
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

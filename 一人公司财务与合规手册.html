@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《一人公司财务与合规手册》· 20 章深度版 · 2026-10</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --bg2:#fbfaf5; --card:#ffffff;
+    --line:#e7e3d8; --line2:#efecdf;
+    --ink:#2f3345; --text:#3d4256; --muted:#6b7280; --dim:#9aa1ae;
+    --accent:#5a67c2; --accent-soft:#eef0fb;
+    --cyan:#2e7fa3; --green:#2e8b6e; --amber:#b07a1e; --red:#c25468; --pink:#b8618f;
+    --purple:#6a5fc9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1100px 460px at 85% -120px, rgba(90,103,194,.07), transparent 60%),
+      radial-gradient(900px 420px at 5% -90px, rgba(46,127,163,.06), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  a{color:#3b63c4;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px;}
+  header.hero{padding:58px 0 28px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid #d6d9f0;padding:5px 14px;border-radius:999px;background:var(--accent-soft);font-weight:600;}
+  h1.title{font-size:38px;line-height:1.3;margin:20px 0 10px;font-weight:800;
+    background:linear-gradient(92deg,#2f3345 20%,#5a67c2 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .subtitle{color:var(--muted);font-size:16px;max-width:780px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:13px;color:var(--muted);}
+  .hero-meta span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 12px;}
+  .method-note{margin-top:20px;border-left:3px solid #d9a441;background:#faf3e0;
+    padding:12px 16px;border-radius:0 10px 10px 0;color:#7a5c1c;font-size:13.5px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:26px 0 4px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(31,35,53,.04),0 6px 18px rgba(31,35,53,.05);}
+  .stat .num{font-size:21px;font-weight:800;letter-spacing:.5px;}
+  .stat .lbl{color:var(--muted);font-size:12px;line-height:1.5;margin-top:1px;}
+  .stat.p .num{color:var(--purple);} .stat.g .num{color:var(--green);} .stat.r .num{color:var(--red);} .stat.c .num{color:var(--cyan);}
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-top:24px;}
+  nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;}
+  nav.toc a{font-size:13px;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid transparent;}
+  nav.toc a:hover{color:var(--text);text-decoration:none;background:var(--card);border-color:var(--line);}
+  nav.toc a.part-label{color:var(--accent);font-weight:700;border-color:#d6d9f0;background:var(--accent-soft);}
+  nav.toc a.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  @media(max-width:700px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    nav.toc .wrap::-webkit-scrollbar{display:none;}
+    nav.toc a{white-space:nowrap;flex:0 0 auto;padding:5px 10px;}
+  }
+  section{padding:50px 0 8px;}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:700;}
+  h2{font-size:26px;font-weight:800;color:var(--ink);}
+  h2 .accent{color:var(--accent);}
+  .sec-desc{color:var(--muted);margin:8px 0 24px;max-width:820px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px 20px;margin-bottom:24px;box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px;}
+  .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:var(--accent-soft);border:1px solid #d6d9f0;flex:none;}
+  .card h3{font-size:19px;font-weight:700;color:var(--ink);flex:1;min-width:200px;}
+  .badges{display:flex;flex-wrap:wrap;gap:7px;}
+  .badge{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg2);}
+  .badge.r1{color:#1f6e52;border-color:#bfe0d2;background:#e3f3ec;}
+  .badge.r2{color:#4a6e1f;border-color:#d3e3b4;background:#eff5df;}
+  .badge.r3{color:#8a5f12;border-color:#ecd9a8;background:#faf0d8;}
+  .badge.r4{color:#9a4f1f;border-color:#f0d2b8;background:#fbeee2;}
+  .badge.r5{color:#a03a4e;border-color:#f0c3cd;background:#f9e3e8;}
+  .card p{margin:10px 0;color:var(--text);}
+  .card p b,.card li b{color:var(--ink);font-weight:700;}
+  .card ul{margin:8px 0 8px 22px;color:var(--text);}
+  .card li{margin:6px 0;}
+  blockquote.xq{border-left:3px solid #8d97d8;background:#f0f2fc;
+    padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;color:#454c78;font-size:14.5px;}
+  blockquote.xq .who{color:var(--accent);font-weight:700;}
+  .src{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;}
+  .src .tag{color:var(--amber);font-weight:700;flex:none;}
+  .src a{color:#3b63c4;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:800px){.cols{grid-template-columns:1fr;}}
+  .chart{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;}
+  .chart .cap{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center;}
+  .chart h4{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .legend{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;}
+  .chart text{fill:var(--ink);}
+  .chart text[fill="#dfe5f1"]{fill:var(--ink);}
+  .chart text[fill="#8b94ab"]{fill:var(--muted);}
+  .chart text[fill="#ff5d73"]{fill:var(--red);}
+  .chart text[fill="#2fd6a5"]{fill:var(--green);}
+  .chart [stroke="#242d42"]{stroke:#dcd7c9;}
+  .chart rect[fill="#0d1119"]{fill:#efede4;}
+  .chart stop[stop-color="#8b7cff"]{stop-color:#7d76cf;}
+  .chart stop[stop-color="#4dd6ff"]{stop-color:#6fa8c9;}
+  .chart stop[stop-color="#f5b83d"]{stop-color:#dfa63e;}
+  .chart stop[stop-color="#ff5d73"]{stop-color:#d3707f;}
+  .chart stop[stop-color="#2fd6a5"]{stop-color:#4aa583;}
+  .hbar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;margin:9px 0;font-size:13.5px;}
+  .hbar-track{height:16px;background:#efede4;border-radius:8px;overflow:hidden;border:1px solid var(--line2);}
+  .hbar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#7d76cf,#6fa8c9);}
+  .hbar-val{color:var(--muted);font-size:12.5px;text-align:right;}
+  @media(max-width:640px){.hbar-row{grid-template-columns:110px 1fr 74px;}}
+  .bignum{display:flex;align-items:baseline;gap:8px;justify-content:center;}
+  .bignum .v{font-size:42px;font-weight:800;color:var(--red);}
+  .bignum .u{color:var(--muted);font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  th{color:var(--muted);font-weight:600;text-align:left;font-size:12.5px;letter-spacing:.5px;}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:hover td{background:#f6f7fd;}
+  td b{color:var(--ink);}
+  .tocbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;}
+  @media(max-width:800px){.tocbox{grid-template-columns:1fr;gap:10px;}}
+  .toc-part{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 14px 10px;}
+  .toc-part-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .toc-part-no{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px;letter-spacing:1px;}
+  .toc-part-head b{font-size:15px;color:var(--ink);}
+  .toc-part-en{margin-left:auto;font-size:11.5px;color:var(--dim);}
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin:0;}
+  .toc-list a{display:flex;align-items:baseline;gap:10px;padding:4px 8px;border-radius:8px;color:var(--text);font-size:14px;transition:background .15s;}
+  .toc-list a:hover{background:#f1f2fa;text-decoration:none;}
+  .toc-list a.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 0 0 1px #d6d9f0;font-weight:600;}
+  .toc-no{font-weight:800;color:var(--accent);font-size:12px;min-width:22px;letter-spacing:.5px;}
+  .toc-sub{color:var(--dim);font-size:12px;margin-left:auto;text-align:right;}
+  @media(max-width:700px){.toc-sub{display:none;}}
+  details.tocfold{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  details.tocfold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:13px 18px;font-weight:700;color:var(--ink);font-size:15px;}
+  details.tocfold>summary::-webkit-details-marker{display:none;}
+  details.tocfold>summary::after{content:"▾";margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s;}
+  details.tocfold[open]>summary{border-bottom:1px dashed var(--line);}
+  details.tocfold[open]>summary::after{transform:rotate(180deg);}
+  .fold-hint{font-weight:400;color:var(--dim);font-size:12px;}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:34px 0 50px;color:var(--muted);font-size:13px;}
+  footer .disclaimer{background:#faecee;border:1px solid #eccdd3;border-radius:12px;padding:14px 18px;color:#9c4a5c;margin-top:18px;}
+  .backtop{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;
+    text-decoration:none;box-shadow:0 6px 20px rgba(31,35,53,.12);z-index:60;}
+  .backtop:hover{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="kicker">🧾 SOLO FINANCE & COMPLIANCE · 20 CHAPTERS</span>
+  <h1 class="title">《一人公司财务与合规手册》</h1>
+  <p class="subtitle">20 章深度拆解：一个人收钱，怎么记账、怎么报税、怎么签合同、怎么把跨境的钱合规拿回来。每章由独立研究员实时检索写成——税务总局公告、电子税务局口径、人社部政策、银行与支付机构规则。四大板块：认知篇、记账篇、报税篇、合同与风险篇。</p>
+  <div class="hero-meta">
+    <span>📅 生成日期：2026-10-29</span>
+    <span>🤖 6 个子代理并行调研（每代理 3–4 章）</span>
+    <span>📎 每章附来源链接</span>
+    <span>🔗 配套：<a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a></span>
+  </div>
+  <div class="method-note">📖 <b>使用说明：</b>四章一部。第一部分认知篇先解决"以什么身份收钱"——个体户、个人独资、有限公司、灵活就业怎么选，税种和发票是怎么回事；第二部分记账篇给你一套一个人也跑得动的账（收支两条线、公私分离、成本费用、收入确认、工具选型）；第三部分报税篇把月报、季报、年报的时间表和增值税、个人所得税、社保公积金一次讲清；第四部分合同与风险篇覆盖服务合同、公户私户、跨境收款与结汇申报、知识产权归属，以及一份出事时照着做的风险清单。所有政策与费率以成稿当日（2026-10-29）检索为准，申报前请以主管税务机关当期口径为准。</div>
+  <div class="stats">
+    <div class="stat p"><div class="num">20</div><div class="lbl">深度章节 · 每章 1500–2500 字</div></div>
+    <div class="stat c"><div class="num">4</div><div class="lbl">大板块 · 认知 → 记账 → 报税</div></div>
+    <div class="stat g"><div class="num">4 类</div><div class="lbl">经营主体对比 · 含税负测算</div></div>
+    <div class="stat r"><div class="num">1 份</div><div class="lbl">报税日历 + 风险清单</div></div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a class="part-label" href="#c01">PART 1 认知篇</a>
+  <a href="#c01">01 为什么也要懂财务</a><a href="#c02">02 主体选择</a><a href="#c03">03 税种速览</a><a href="#c04">04 发票入门</a>
+  <a class="part-label" href="#c05">PART 2 记账篇</a>
+  <a href="#c05">05 记账入门</a><a href="#c06">06 公私分离</a><a href="#c07">07 成本费用</a><a href="#c08">08 收入确认</a><a href="#c09">09 记账工具</a>
+  <a class="part-label" href="#c10">PART 3 报税篇</a>
+  <a href="#c10">10 报税日历</a><a href="#c11">11 增值税申报</a><a href="#c12">12 个人所得税</a><a href="#c13">13 社保公积金</a><a href="#c14">14 年报与异常名录</a>
+  <a class="part-label" href="#c15">PART 4 合同与风险篇</a>
+  <a href="#c15">15 合同要点</a><a href="#c16">16 收款与对账</a><a href="#c17">17 跨境收款</a><a href="#c18">18 外汇结汇与申报</a><a href="#c19">19 知识产权归属</a><a href="#c20">20 风险清单</a>
+</div></nav>
+
+<section id="toc" class="wrap">
+  <div class="sec-head"><span class="sec-no">CONTENTS</span><h2>目录</h2></div>
+  <p class="sec-desc">四个部分按"先定身份、再记对账、然后报对税、最后不出事"排列：认知四章决定你以什么主体收钱；记账五章给出一套一个人也跑得动的账；报税五章把时间表和三大税社保讲清；合同与风险六章覆盖收款、跨境、知识产权与出事时的动作。点击任意条目直达对应章节。</p>
+  <details class="tocfold" open>
+    <summary>📖 完整目录 · 4 部分 · 20 章<span class="fold-hint">点击展开 / 收起</span></summary>
+    <div class="tocbox">
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第一部分</span><b>认知篇</b><span class="toc-part-en">CH 01–04</span></div>
+        <ul class="toc-list">
+          <li><a href="#c01"><span class="toc-no">01</span>一个人赚钱也要懂财务<span class="toc-sub">不学会付出什么代价</span></a></li>
+          <li><a href="#c02"><span class="toc-no">02</span>经营主体选择<span class="toc-sub">个体户/个独/有限公司</span></a></li>
+          <li><a href="#c03"><span class="toc-no">03</span>税种速览<span class="toc-sub">增值税与个人所得税</span></a></li>
+          <li><a href="#c04"><span class="toc-no">04</span>发票入门<span class="toc-sub">开票、收票与报销</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第二部分</span><b>记账篇</b><span class="toc-part-en">CH 05–09</span></div>
+        <ul class="toc-list">
+          <li><a href="#c05"><span class="toc-no">05</span>记账入门<span class="toc-sub">收支两条线 + 三个台账</span></a></li>
+          <li><a href="#c06"><span class="toc-no">06</span>公私分离<span class="toc-sub">一张卡管所有</span></a></li>
+          <li><a href="#c07"><span class="toc-no">07</span>成本与费用<span class="toc-sub">哪些能抵、哪些不能</span></a></li>
+          <li><a href="#c08"><span class="toc-no">08</span>收入确认<span class="toc-sub">预收、分期与退款</span></a></li>
+          <li><a href="#c09"><span class="toc-no">09</span>记账工具选型<span class="toc-sub">Excel 到云帐房</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第三部分</span><b>报税篇</b><span class="toc-part-en">CH 10–14</span></div>
+        <ul class="toc-list">
+          <li><a href="#c10"><span class="toc-no">10</span>报税日历<span class="toc-sub">月报、季报与年报</span></a></li>
+          <li><a href="#c11"><span class="toc-no">11</span>增值税申报<span class="toc-sub">小规模与一般纳税人</span></a></li>
+          <li><a href="#c12"><span class="toc-no">12</span>个人所得税<span class="toc-sub">经营所得与综合所得</span></a></li>
+          <li><a href="#c13"><span class="toc-no">13</span>社保与公积金<span class="toc-sub">灵活就业怎么交</span></a></li>
+          <li><a href="#c14"><span class="toc-no">14</span>年报与异常名录<span class="toc-sub">别进经营异常</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第四部分</span><b>合同与风险篇</b><span class="toc-part-en">CH 15–20</span></div>
+        <ul class="toc-list">
+          <li><a href="#c15"><span class="toc-no">15</span>服务合同要点<span class="toc-sub">一份合同必须有的八条</span></a></li>
+          <li><a href="#c16"><span class="toc-no">16</span>收款与对账<span class="toc-sub">公户、私户与第三方</span></a></li>
+          <li><a href="#c17"><span class="toc-no">17</span>跨境收款<span class="toc-sub">Stripe/PayPal/万里汇</span></a></li>
+          <li><a href="#c18"><span class="toc-no">18</span>外汇结汇与申报<span class="toc-sub">钱怎么合规回来</span></a></li>
+          <li><a href="#c19"><span class="toc-no">19</span>知识产权归属<span class="toc-sub">代码、设计与内容归谁</span></a></li>
+          <li><a href="#c20"><span class="toc-no">20</span>风险清单<span class="toc-sub">稽查、纠纷与注销</span></a></li>
+        </ul>
+      </div>
+    </div>
+</details>
+</section>
+<section id="c01" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 01 · PART 1 · 认知篇</span><h2>一个人赚钱也要懂财务<span class="accent">：不学会付出什么代价</span></h2></div>
+  <p class="sec-desc">这一章不教怎么做账，只回答一个问题：一个人或两三个人做事，最常踩的四类财务合规问题是什么、各自要付什么代价、哪些情况真的会被查，以及最小合规动作是哪几件。后面十九章都是这一章的展开。全章条文与案例均于 2026-10-29 检索自官方发布。</p>
+    <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>四类问题：一个人收钱最容易踩的坑</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：所有人先读</span></div></div>
+    <p>独立开发者和自由职业者的钱有个特点：来得快、走得散、单笔不大、笔数很多。出问题几乎都集中在下面四件事上，而且它们有个共同点——<b>当时都看不出代价，代价都在一年后甚至三年后一次性结算</b>。</p>
+    <table>
+      <tr><th>问题</th><th>典型样子</th><th>后果性质</th></tr>
+      <tr><td><b>公私不分</b></td><td>客户款打进个人微信、支付宝或本人银行卡；家里买菜、孩子学费也从这张卡出</td><td>收入算不清 → 一旦被认定隐匿收入即构成偷税；公司主体还叠加法人人格否认风险</td></tr>
+      <tr><td><b>不申报</b></td><td>"客户没要票""还没赚到钱"就不报；或者只在个税 APP 报过工资，从没报过经营所得</td><td>追缴税款 + 滞纳金 + 0.5–5 倍罚款；注销也逃不掉</td></tr>
+      <tr><td><b>无合同</b></td><td>微信里聊两句就开工，报价、交付标准、验收、付款节点都没落在纸面</td><td>纠纷时举证不能；支出缺票时无法证明真实性，不得税前扣除</td></tr>
+      <tr><td><b>无凭证</b></td><td>支出只有付款记录，没有发票也没有收据；或者从别人手里"买"发票入账</td><td>不得作为税前扣除凭证；接受虚开发票按偷税处理</td></tr>
+    </table>
+    <ul>
+      <li><b>公私不分为什么最致命。</b>《税收征收管理法》第六十三条把"在帐簿上多列支出或者不列、少列收入"直接定义为偷税。国家税务总局 2026-07-10 公布的主播许静婉案中，当事人 2021—2023 年"通过私人账户收款隐匿收入、转换收入性质"，少缴个人所得税、增值税等税费 313.45 万元，最终被追缴税费款、加收滞纳金并处罚款合计 631.96 万元。</li>
+      <li><b>"没要票"不等于"没收入"。</b>第六十四条："纳税人不进行纳税申报，不缴或者少缴应纳税款的，由税务机关追缴其不缴或者少缴的税款、滞纳金，并处不缴或者少缴的税款百分之五十以上五倍以下的罚款。"同批公布的聊城开发区奶泡商贸经营部案更典型：当事人"通过私人账户收款、未依法办理税务信息确认及纳税申报等方式隐匿收入"，少缴税费 544.72 万元，处理处罚合计 971.29 万元；该店铺 2024 年申请注销，税务机关仍依法对实际控制人作出处理处罚。</li>
+      <li><b>没有合同，连"这笔支出是真的"都证明不了。</b>《企业所得税税前扣除凭证管理办法》（国家税务总局公告 2018 年第 28 号）第十四条规定，因对方注销、吊销等原因无法补开发票时，要凭六类资料证实支出真实性，"第一项至第三项为必备资料"——其中第二项就是"合同或协议"。没有合同，第一步就迈不出去。</li>
+      <li><b>无凭证的另一面是拿到不该拿的票。</b>国家税务总局 2025-05-19 公布的力软信息技术（苏州）有限公司案：当事人"在没有真实业务交易的情况下，接受虚开的 13 份增值税普通发票并在企业所得税税前列支"，少缴企业所得税 78.27 万元，处理处罚合计 177.57 万元，依据正是《税收征收管理法》第六十三条第一款。</li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">提醒：</span>上面两起案件的共同点不是"金额大"，而是<b>手段普通</b>——私人账户收款、没做税务登记、没申报、收了来路不明的发票。这些事一个人做事时随手就能做出来，所以这一章值得读两遍。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>代价具体有多大：四项叠加</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">依据：税收征管法</span></div></div>
+    <p>被查之后不是"补上就行"，而是四项一起结算：<b>滞纳金按天滚，罚款按倍数算，信用按年背，严重的还要负刑责。</b></p>
+    <ul>
+      <li><b>① 补税。</b>少缴多少补多少，一分不能少。</li>
+      <li><b>② 滞纳金。</b>第三十二条："纳税人未按照规定期限缴纳税款的……从滞纳税款之日起，按日加收滞纳税款万分之五的滞纳金。"日万分之五折年化约 18.25%，拖三年本金就接近翻倍。</li>
+      <li><b>③ 罚款。</b>偷税处少缴税款 50% 以上 5 倍以下罚款；编造虚假计税依据处 5 万元以下罚款（第六十四条）；应扣未扣的扣缴义务人最高处 3 倍罚款（第六十九条）。<b>下限 50%，意味着只要定性偷税，至少再掏一半。</b></li>
+      <li><b>④ 信用与资格。</b>《纳税缴费信用管理办法》（国家税务总局公告 2025 年第 12 号，2025-07-01 施行）将级别设为 A、B、M、C、D 五级，"D 级为年度评价指标得分不满 40 分或者有严重失信行为的"，且"对直接责任人员在经营主体被评价为 D 级之后注册登记、负责经营的其他经营主体直接判为 D 级"；D 级"评价保留至第 2 年，第 3 年不得评为 A 级"。发票额度、招投标资格都会受影响。</li>
+      </ul>
+    <p>此外，构成犯罪的，依法追究刑事责任——这不是套话，而是第六十三条的明文后缀。本章只作定性提示：<b>任何"帮你多开点票抵税"的提议，都不是节税，是把你往刑事责任里推。</b></p>
+    </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>哪些情况真的会被查</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">机制：以数治税</span></div></div>
+    <p>不是"随机抽人"。国家税务总局公布的案件里，绝大多数线索来自下面几条路径，看懂路径就知道该防什么。</p>
+    <ul>
+      <li><b>税收大数据比对。</b>2026-07-10 公布的多起主播偷税案，开头都是"根据税收大数据分析发现的线索"或"根据相关部门推送的线索"。平台流水、银行流水、发票数据、申报数据四边一对，差额就是案源。</li>
+      <li><b>平台涉税信息报送。</b>国务院 2025 年 6 月发布实施《互联网平台企业涉税信息报送规定》，税务总局同步制发配套公告。国家税务总局 2025-09-05 介绍称，配套措施使"税务部门能够及时掌握平台内经营者和从业人员的涉税信息"，并通过数据比对、风险分析"及时发现并查处平台内经营者和从业人员分拆收入、虚假申报、骗享优惠等违法行为"。<b>靠平台接活的开发者，收入已经在监管视野里了。</b></li>
+      <li><b>上下游爆雷、举报与协查。</b>你买过票的那家公司被查，你就是线索；客户内部审计、合作方纠纷、离职员工举报，都会触发检查。</li>
+      <li><b>注销不保险。</b>聊城案的当事人 2024 年办了注销，2025 年 7 月税务机关仍对实际控制人作出处理处罚。逃逸式注销不是免责，而是加重情节。</li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">程序权利：</span>《税务稽查案件办理程序规定》（国家税务总局令第 52 号，2021-08-11 施行）第十五条要求"检查应当由两名以上具有执法资格的检查人员共同实施"，第四十条要求"应当充分听取当事人的陈述、申辩意见"，第四十一条规定符合条件的"应当依法组织听证"，第四十七条规定"稽查局应当自立案之日起 90 日内作出行政处理、处罚决定或者无税收违法行为结论"。被约谈不等于定罪，<b>如实、限时、有据地回应</b>是最优策略（完整应对顺序见第 20 章）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>最小合规动作：今天就能做完的六件</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">投入：一个周末</span></div></div>
+    <p>不需要先成为会计。六件事做完，四类风险就都压住了，每一件都对应后面某一章。</p>
+    <ul>
+      <li><b>1. 开一张经营用卡 / 一个商户号，经营的钱只走这里。</b>已经混掉的，从今天起新收支分流，旧账逐月标注（见第 06 章）。</li>
+      <li><b>2. 建一张收入表，开没开票都登记。</b>字段就九个：日期、客户、金额、是否含税、开票状态、到账日期、收款账户、凭证编号、备注（见第 05 章）。</li>
+      <li><b>3. 每月或每季按时申报，没有税款也申报。</b>小规模纳税人可以按季（《增值税法实施条例》第四十三条），但"可以按季"不等于"可以不报"（期限表见第 10 章）。</li>
+      <li><b>4. 支出有票留票，无票留三件套。</b>合同或协议 + 付款记录 + 情况说明，按凭证编号归档（见第 04 章）。</li>
+      <li><b>5. 每年 3 月 31 日前做一次经营所得汇算。</b>《个人所得税法》第十二条：取得经营所得"按年计算个人所得税"，预缴之后"在取得所得的次年三月三十一日前办理汇算清缴"。</li>
+      <li><b>6. 想做大之前，先把主体选对。</b>个体户、个独、一人有限公司的责任边界和税负完全不同（见第 02 章）；跨境收款、外汇结汇另有规则（见第 17、18 章）。</li>
+      </ul>
+    <p><b>最后一句话：</b>财税合规不是"做大以后才需要"，而是"收第一笔钱时就需要"——第一笔钱就已经产生了纳税义务和留痕义务。重大事项（股权、并购、大额跨境、税务约谈）请咨询持牌税务师、注册会计师或律师；各地执行口径有差异，涉及具体金额与期限时以主管税务机关当期答复为准。</p>
+    </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html" target="_blank">《中华人民共和国税收征收管理法》（2015-04-24 修正，国家市场监督管理总局转载）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250919/content.html" target="_blank">国家税务总局·"六百万粉丝"带货主播许静婉偷税案件（2026-07-10）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250911/content.html" target="_blank">国家税务总局·聊城开发区奶泡商贸经营部隐匿收入偷税案件（2026-07-10）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240513/content.html" target="_blank">国家税务总局·力软信息技术（苏州）有限公司接受虚开发票案（2025-05-19）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5194804/content.html" target="_blank">国家税务总局公告 2018 年第 28 号·《企业所得税税前扣除凭证管理办法》</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5240851/content.html" target="_blank">国家税务总局公告 2025 年第 12 号·《纳税缴费信用管理办法》（2025-07-01 施行）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5192943/content.html" target="_blank">国家税务总局令第 52 号·《税务稽查案件办理程序规定》</a><a href="http://www.chinatax.gov.cn/chinatax/n810219/n810724/c5242899/content.html" target="_blank">国家税务总局·《互联网平台企业涉税信息报送规定》实施情况（2025-09-05）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">《中华人民共和国个人所得税法》（国家税务总局）</a></div>
+</section>
+
+<section id="c02" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 02 · PART 1 · 认知篇</span><h2>经营主体选择<span class="accent">：个体户 / 个独 / 有限公司</span></h2></div>
+  <p class="sec-desc">同样一年赚 60 万，用灵活就业、个体工商户、个人独资企业还是一人有限公司，注册成本、税负和"赔的时候赔多少"完全不同。这一章把四种身份摊开对比，给出升级判断标准和注册流程与耗时。条文与额度均于 2026-10-29 检索自官方发布。</p>
+    <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>四种常见身份：一张表先看全局</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：准备登记或已登记想换身份</span></div></div>
+    <p>先看结论：<b>身份决定的不是"能不能赚钱"，而是"怎么交税"和"赔钱赔到什么程度"。</b></p>
+    <table>
+      <tr><th>维度</th><th>灵活就业<br>（不登记）</th><th>个体工商户</th><th>个人独资企业</th><th>一人有限公司</th></tr>
+      <tr><td><b>法律依据</b></td><td>不登记，以个人身份从事劳务</td><td>《市场主体登记管理条例》（国令第 746 号）、《个体工商户登记管理规定》</td><td>《个人独资企业法》（2000-01-01 施行）</td><td>《公司法》（2023 年修订）</td></tr>
+      <tr><td><b>交什么所得税</b></td><td>通常按"劳务报酬所得"，付款方代扣代缴，并入综合所得</td><td>经营所得，5%–35% 超额累进</td><td>经营所得，5%–35% 超额累进</td><td>企业缴企业所得税；利润分给个人再缴 20%</td></tr>      <tr><td><b>增值税</b></td><td>自然人属小规模纳税人</td><td>小规模纳税人为主</td><td>小规模纳税人为主</td><td>小规模或一般纳税人</td></tr>
+      <tr><td><b>债务责任</b></td><td>个人全部财产</td><td>个人经营以个人财产承担；家庭经营以家庭财产承担</td><td>投资人以个人财产承担无限责任</td><td>以公司财产为限；股东不能证明公司财产独立于自己财产的，承担连带责任</td></tr>
+    </table>
+    <ul>
+      <li><b>"灵活就业"不是免税身份，只是没登记。</b>没登记的个人持续取得经营收入，税务机关仍可根据实际经营性质认定税种；《增值税法实施条例》第七条明确"自然人属于小规模纳税人"。反过来，把已属劳务报酬的收入"包装"成个体户经营所得也违法——国家税务总局 2025-11-28 公布的江西旺桐科技案中，涉税中介帮助灵活用工人员"将个人劳务报酬所得，违规转换为个体工商户经营所得"，23 人少缴个税共计 220.80 万元。</li>
+      <li><b>个体户可"转型为企业"。</b>《促进个体工商户发展条例》第十三条："个体工商户可以自愿变更经营者或者转型为企业"，做大后不必注销重开（注销的坑见第 20 章）。</li>
+      <li><b>社保跟着身份走。</b>《社会保险法》第十条规定职工由用人单位和职工共同缴纳基本养老保险费，个体工商户、非全日制从业人员等灵活就业人员可以个人缴费方式参保。<b>有雇工的个体户要为本雇工缴社保，这是雇人前必须先算进成本的一笔钱。</b>基数与费率以参保地当期公布为准。</li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">常见误区：</span>"个体户不用交税"是错的。个体户要交增值税及附加、经营所得个人所得税，有雇工的还要缴社保；只是<b>小规模纳税人 + 起征点 + 减半政策</b>让小个体户实际税负很低（见第 03 章）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>责任边界：无限责任和有限责任的真实差别</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：有负债或做高风险项目</span></div></div>
+    <p>这是选主体时最容易被忽略、出事时最贵的一条：<b>税负差几个点可以忍，责任差一套房不能忍。</b></p>
+    <ul>
+      <li><b>个体户：个人经营以个人财产承担。</b>《民法典》第五十六条："个体工商户的债务，个人经营的，以个人财产承担；家庭经营的，以家庭财产承担；无法区分的，以家庭财产承担。"登记时"组成形式"填什么有法律后果（《个体工商户登记管理规定》第七条、第八条把它和家庭成员姓名列为登记、备案事项）。</li>
+      <li><b>个人独资企业：明文无限责任。</b>《个人独资企业法》第二条："由一个自然人投资，财产为投资人个人所有，<b>投资人以其个人财产对企业债务承担无限责任</b>"；第十八条：以家庭共有财产出资的，"应当依法以家庭共有财产对企业债务承担无限责任"。</li>
+      <li><b>一人有限公司：有限责任，但有一条例外。</b>《公司法》第二十三条："只有一个股东的公司，股东不能证明公司财产独立于股东自己的财产的，应当对公司债务承担连带责任。"同条还规定，股东滥用公司法人独立地位和股东有限责任、逃避债务并严重损害债权人利益的，应承担连带责任。<b>翻译成人话：一人公司想过"公司欠债不牵连我个人"这关，必须能拿出公司财产独立于个人财产的证明——这正是第 06 章公私分离的法律理由。</b></li>
+      </ul>
+    <p><b>实操建议：</b>软件外包、设计、咨询这类低物理风险的，个体户通常够用；涉及人身、产品安全、大额预付、垫资采购的业务，优先考虑有限公司，并从第一笔账起把公司财产和个人财产分开。</p>
+    </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>税负对比：同样 60 万，四种身份各交多少</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">以 2026 年现行政策测算</span></div></div>
+    <p>下面用"年收入 60 万元、可扣除成本费用 12 万元"举例。<b>这是测算逻辑，不是承诺数字</b>。</p>
+    <table>
+      <tr><th>项目</th><th>个体户 / 个人独资企业</th><th>一人有限公司</th></tr>
+      <tr><td><b>增值税</b></td><td>小规模纳税人：月销售额 10 万元以下免征；适用 3% 征收率的减按 1% 征收（财政部 税务总局公告 2026 年第 10 号，至 2027-12-31）</td><td>同样适用小规模纳税人优惠</td></tr>
+      <tr><td><b>所得税</b></td><td>经营所得 60 − 12 = 48 万元，适用 5%–35% 超额累进；年应纳税所得额不超过 200 万元的部分<b>减半征收</b>（国家税务总局 2026-02-25 口径）。<b>没有企业所得税，也没有"分红再缴 20%"这一层</b></td><td>企业所得税：符合小型微利企业条件的"减按 25% 计算应纳税所得额并按 20% 的税率缴纳"，实际负担约 5%；不符合则按 25%。利润分到个人手上，再按"利息、股息、红利所得"缴 20%——<b>两层税负</b>；留在公司里继续经营可暂不缴</td></tr>
+    </table>
+    <p><b>怎么读：</b>钱拿出来自己花 → 个体户/个独通常更省；钱要留在生意里继续投、或要引入合伙人 → 有限公司更合适。<b>收入过了 200 万这条线后，个体户减半政策不再覆盖，差异会迅速放大。</b></p>
+    </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>什么时候该升级 + 注册流程与耗时</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：正在考虑换身份</span></div></div>
+    <p><b>四条升级信号，命中一条就该认真考虑换主体：</b></p>
+    <ul>
+      <li><b>客户开始要增值税专用发票抵扣。</b>小规模纳税人可以选择"全部或者部分应税交易放弃免税并开具增值税专用发票"（国家税务总局公告 2026 年第 4 号）；需求长期量大就直接登记一般纳税人。</li>
+      <li><b>年应征增值税销售额要超过 500 万元。</b>《增值税法实施条例》第三十六条：超过小规模纳税人标准的"应当向主管税务机关办理一般纳税人登记"，且"登记为一般纳税人后，不得转为小规模纳税人"。生效之日统一为超过标准的当期 1 日，需在次月申报纳税期限内办理——<b>不及时办，按日加收万分之五滞纳金</b>。</li>
+      <li><b>开始雇人、签大额长期合同、拿融资。</b>雇人触发社保义务；融资和合伙基本要求有限公司；大额合同常要求"独立法人"。</li>
+      <li><b>个人财产和生意已经绑死，或业务出事概率不低。</b>无限责任主体该换成有限公司。</li>
+      </ul>
+    <p><b>注册流程与耗时（个体户为例，公司大同小异）：</b></p>
+    <ul>
+      <li><b>① 定内容、备材料：</b>确定名称（《个体工商户登记管理规定》第七条：组成形式、经营范围、经营场所、经营者姓名住所，使用名称的也要登记）、经营场所、组成形式；备经营者身份证件和经营场所合法使用证明（第十一条）。</li>
+      <li><b>② 去登记：</b>向经营场所所在地的登记机关申请设立登记（第九条）。《市场主体登记管理条例》第十九条："对申请材料齐全、符合法定形式的予以确认并当场登记。不能当场登记的，应当在 3 个工作日内予以登记；情形复杂的，经登记机关负责人批准，可以再延长 3 个工作日。"多数地区支持全程网办。</li>
+      <li><b>③ 领照后办税务：</b>按《税收征收管理法实施细则》第二十二条，应当自领取营业执照或者发生纳税义务之日起 15 日内设置账簿，同时办税种认定、发票申领。<b>开数电发票不收费</b>（国家税务总局公告 2024 年第 11 号）。</li>
+      <li><b>④ 银行开户 + 社保。</b>公司建议开对公账户；个体户至少固定一张经营用卡。雇工的同步办社保登记。</li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">注册资本别乱填：</span>《公司法》第四十七条：有限责任公司"全体股东认缴的出资额由股东按照公司章程的规定自公司成立之日起五年内缴足"。按《国务院关于实施〈中华人民共和国公司法〉注册资本登记管理制度的规定》（国务院令第 784 号），2024 年 6 月 30 日前登记设立的公司，剩余认缴出资期限自 2027 年 7 月 1 日起超过 5 年的，应当在 2027 年 6 月 30 日前调整至 5 年内。<b>认缴不是不缴，写天数字数等于给自己写一张五年期的欠条。</b></blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/zhengce/zhengceku/2021-08/24/content_5632964.htm" target="_blank">《中华人民共和国市场主体登记管理条例》（国令第 746 号，2022-03-01 施行）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100013/c5252685/content.html" target="_blank">国家市场监督管理总局·《个体工商户登记管理规定》（2025-07-15 施行）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100009/c5211824/content.html" target="_blank">《中华人民共和国个人独资企业法》</a><a href="https://www.court.gov.cn/zixun/xiangqing/233181.html" target="_blank">《中华人民共和国民法典》（最高人民法院公布全文）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100009/c5233383/content.html" target="_blank">《中华人民共和国公司法》（2023 年修订）</a><a href="http://www.news.cn/politics/20240701/9bcce1e758fb43e4ad3820b5b25c34ee/c.html" target="_blank">新华社·国务院令第 784 号《关于实施〈公司法〉注册资本登记管理制度的规定》（2024-07-02）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100009/c5192937/content.html" target="_blank">《中华人民共和国社会保险法》</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">《中华人民共和国个人所得税法》（国家税务总局）</a><a href="https://www.gov.cn/zhengce/zhengceku/202512/content_7053153.htm" target="_blank">《中华人民共和国增值税法实施条例》（国令第 826 号，2026-01-01 施行）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c102416/c5247434/content.html" target="_blank">财政部 税务总局公告 2026 年第 10 号·增值税法施行后优惠政策衔接</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5247426/content.html" target="_blank">国家税务总局公告 2026 年第 4 号·起征点标准等增值税征管事项</a><a href="https://www.chinatax.gov.cn/chinatax/c103110/c5251456/content.html" target="_blank">中国税务报·小规模纳税人登记一般纳税人生效时点（2026-07-29）</a><a href="https://www.chinatax.gov.cn/chinatax/c102414/c5247848/content.html" target="_blank">国家税务总局政策法规司·小微企业税收优惠政策即问即答（2026-02-25）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100024/c5236998/content.html" target="_blank">国家税务总局·个体工商户变更经营者税费扣减优惠问答（引《促进个体工商户发展条例》第十三条）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5236067/content.html" target="_blank">国家税务总局公告 2024 年第 11 号·推广应用全面数字化电子发票</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245377/content.html" target="_blank">国家税务总局·江西旺桐科技违规转换收入性质案（2025-11-28）</a></div>
+</section>
+
+<section id="c03" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 03 · PART 1 · 认知篇</span><h2>税种速览<span class="accent">：增值税与个人所得税</span></h2></div>
+  <p class="sec-desc">一个人经营最常碰到的税种就那么几个。这一章讲清它们各是什么、向谁交、多久交一次，增值税和所得税的关系，小规模与一般纳税人的区别，以及 2026 年现行优惠政策和适用条件。申报期限的完整日历见第 10 章。</p>
+    <div class="card">
+    <div class="card-head"><span class="icon">🗺️</span><h3>全景图：一个人经营会碰到的税费</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：先建立地图</span></div></div>
+    <p><b>下面这些不是全部税种，而是一个人做事时几乎一定会碰到的几项。</b></p>
+    <table>
+      <tr><th>税费</th><th>向谁交 / 在哪交</th><th>多久交一次</th><th>计税逻辑（一句话）</th></tr>
+      <tr><td><b>增值税</b></td><td>主管税务机关，通过电子税务局申报</td><td>按月或按季；按次纳税的在义务发生之日起至次年 6 月 30 日前申报</td><td>对"增值额"征，价外税，不影响利润，但客户抵扣要用它</td></tr>
+      <tr><td><b>个人所得税（经营所得）</b></td><td>主管税务机关，自然人电子税务局</td><td>月度或季度终了后 15 日内预缴；次年 3 月 31 日前汇算清缴</td><td>收入总额 − 成本 − 费用 − 税金 − 损失，适用 5%–35%</td></tr>
+      <tr><td><b>个人所得税（劳务报酬）</b></td><td>由付款方代扣代缴，次年并入综合所得汇算</td><td>支付时预扣；次年 3 月 1 日至 6 月 30 日汇算</td><td>没登记主体、以个人身份接活的常见形式</td></tr>
+      <tr><td><b>附加税费</b></td><td>随增值税一并申报</td><td>同增值税申报期</td><td>随增值税附征；小规模纳税人等可减半</td></tr>
+      <tr><td><b>印花税</b></td><td>随增值税一并申报</td><td>同增值税申报期</td><td>签合同就可能涉及；可减半</td></tr>
+      <tr><td><b>企业所得税</b></td><td>仅公司类主体缴纳</td><td>按季预缴，年度汇算清缴</td><td>个体户、个独不缴</td></tr>
+      <tr><td><b>社会保险费</b></td><td>向社保经办机构申报（多数地区由税务征收）</td><td>按月</td><td>有雇工的必须为雇工缴；本人可按灵活就业身份参保</td></tr>
+    </table>
+    <p><b>增值税和所得税是什么关系？</b><b>增值税是"过手税"</b>——针对你的销售收入计算，付出成本时拿到的进项发票又可以抵，最终交的是链条上的增值部分；它不计入你的利润。<b>所得税是"赚到手的税"</b>——针对你最终赚到的那部分（利润）计算。所以：一个项目报价 10 万元，你要同时考虑增值税怎么交（能不能免、能不能开专票）和这 10 万元扣除成本后剩多少要缴所得税。<b>两笔钱，两套算法，不能互相替代。</b></p>
+    </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>增值税：起征点、税率与优惠</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">政策期：2026-01-01 至 2027-12-31</span></div></div>
+    <p><b>先说一个重要的时间节点：</b>《中华人民共和国增值税法》及其实施条例自 <b>2026 年 1 月 1 日</b>起施行（实施条例为国务院令第 826 号，2025-12-30 公布）。这是增值税从"暂行条例"时代进入"法律"时代的分界，部分口径已由配套公告重新明确。</p>
+    <ul>
+      <li><b>税率三档不变：</b>增值税法明确三档税率，即 <b>6%、9%、13%</b>；适用简易计税方法的征收率为 <b>3%</b>（国家税务总局 2026-03-20 转人民日报口径）。软件开发、技术服务、咨询等现代服务一般适用 6%。</li>
+      <li><b>起征点（免税额）是 2026 年最实用的一条：</b>自 2026 年 1 月 1 日至 2027 年 12 月 31 日，小规模纳税人发生应税交易——按月计税期间起征点为<b>月销售额 10 万元</b>，按季计税期间起征点为<b>季度销售额 30 万元</b>，按次纳税起征点为<b>每次（日）销售额 1000 元</b>（财政部 税务总局公告 2026 年第 10 号）。<b>注意这是"起征点"不是"免征额"：达不到，全额免；达到了，全额计税。</b></li>
+      <li><b>超了起征点也有优惠：</b>小规模纳税人适用 3% 征收率的应税销售收入<b>减按 1% 征收</b>增值税（国家税务总局 2026-02-25 现行有效口径）。</li>
+      <li><b>申报期限：</b>小规模纳税人可以以一个季度为一个计税期间（《增值税法实施条例》第四十三条）；按次纳税且销售额达到起征点的，"应当自纳税义务发生之日起至次年 6 月 30 日前申报纳税"（第四十四条）。</li>
+      <li><b>自然人也是小规模纳税人：</b>《增值税法实施条例》第七条明确"自然人属于小规模纳税人"——没办登记的独立开发者接单，同样适用小规模纳税人的起征点口径。</li>
+      <li><b>想开专票可以放弃优惠：</b>销售额未达到起征点的，可以选择全部或者部分应税交易放弃免税并开具增值税专用发票；适用减按 1% 征收率政策的，也可以选择全部或者部分放弃减税并开具专用发票（国家税务总局公告 2026 年第 4 号）。<b>但放弃优惠的，36 个月内不得再享受该项优惠。</b></li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">千万别做的事：</span>为了"一直享受小规模纳税人优惠"而人为拆分收入，是被明确点名的违法行为。国家税务总局 2026-02-25 答复指出，税务机关应对经营行为是否具有合理目的进行综合判断，对明显不具有合理商业目的的拆分收入行为予以税收调整，判断标准包括"看动机是否合理""看业务是否真实""看交易是否公允"三方面。同批公布的安顺百年婚宴案中，当事人通过设立两个空壳个体工商户拆分收入、设置内外两套账，少缴税费 249.77 万元，处理处罚合计 392.79 万元。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>小规模纳税人和一般纳税人，差在哪</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">临界线：年 500 万元</span></div></div>
+    <p>核心差异只有一个：<b>能不能抵扣进项、能不能开专用发票</b>。申报方式、发票额度、核算要求都是这个差异的延伸。</p>
+    <table>
+      <tr><th>对比项</th><th>小规模纳税人</th><th>一般纳税人</th></tr>
+      <tr><td><b>划分标准</b></td><td>年应征增值税销售额未超过 500 万元</td><td>年应征增值税销售额超过 500 万元</td></tr>
+      <tr><td><b>计税方法</b></td><td>简易计税，征收率 3%（可减按 1%）</td><td>一般计税，销项税率减进项税额</td></tr>
+      <tr><td><b>进项抵扣</b></td><td>取得的进项税额不能抵扣（成本直接入账）</td><td>取得合规专用发票的进项税额可以抵扣</td></tr>
+      <tr><td><b>专用发票</b></td><td>可放弃优惠后开具专票</td><td>可正常开具专票</td></tr>
+      <tr><td><b>能否转回</b></td><td>—</td><td>登记为一般纳税人后不得转为小规模纳税人</td></tr>
+    </table>
+    <ul>
+      <li><b>登记是强制的，不是可选的。</b>《增值税法实施条例》第三十六条："单位和个体工商户年应征增值税销售额超过小规模纳税人标准的，应当向主管税务机关办理一般纳税人登记"；且"登记为一般纳税人后，不得转为小规模纳税人"。</li>
+      <li><b>新规则下生效时点是法定的。</b>按现行配套公告，"生效之日为年应征增值税销售额超过规定标准的当期 1 日"，应当在超过标准的次月申报纳税期限内办理登记；逾期未办，"将从申报期截止日的次日起，按日加收万分之五滞纳金"，并需逐期更正申报（中国税务报 2026-07-29）。</li>
+      <li><b>什么时候会撞上 500 万？</b>通常是业务突然放量、或把几年收入并到一年确认的时候。<b>收入接近 300 万时就开始盯这条线</b>，留出登记和建账时间——一般纳税人需要取得进项专票，供应商要提前沟通。</li>
+      </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>个人所得税：经营所得怎么算 + 优惠汇总</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适用：个体户 / 个独</span></div></div>
+    <p><b>个体户、个人独资企业缴的是"经营所得"个人所得税。</b>《个人所得税法》第六条："经营所得，以每一纳税年度的收入总额减除成本、费用以及损失后的余额，为应纳税所得额。"税率是<b>5%–35% 的五级超额累进</b>——所以"每一笔支出都有据可查"直接等于省钱。</p>
+    <ul>
+      <li><b>什么时候交：</b>《个人所得税法》第十二条："纳税人取得经营所得，按年计算个人所得税，由纳税人在月度或者季度终了后十五日内向税务机关报送纳税申报表，并预缴税款；在取得所得的次年三月三十一日前办理汇算清缴。"</li>
+      <li><b>如果没登记主体、以个人身份接活：</b>通常按"劳务报酬所得"由付款方代扣代缴，次年并入综合所得，汇算期为<b>次年 3 月 1 日至 6 月 30 日</b>（《个人所得税综合所得汇算清缴管理办法》国家税务总局令第 57 号第五条）。</li>
+      <li><b>2026 年现行有效的小微优惠政策（见国家税务总局 2026-02-25 现行有效口径）：</b>① 小规模纳税人月销售额 10 万元以下免征增值税；② 小规模纳税人适用 3% 征收率的应税销售收入减按 1% 征收增值税；③ 小规模纳税人、小型微利企业和个体工商户减半征收"六税两费"（资源税、城市维护建设税、房产税、城镇土地使用税、印花税、耕地占用税和教育费附加、地方教育附加，执行期 2023-01-01 至 2027-12-31，依据财政部 税务总局公告 2023 年第 12 号）；④ 小型微利企业减按 25% 计算应纳税所得额并按 20% 的税率缴纳企业所得税；⑤ <b>个体工商户年应纳税所得额不超过 200 万元的部分，减半征收个人所得税</b>。</li>
+      </ul>
+    <p><b>三个提醒：</b>优惠都有<b>执行期限</b>，上面几项目前查到的最晚到 2027-12-31，是否延续以届时公告为准；优惠要<b>申报才能享受</b>，不申报等于放弃；优惠都要求<b>业务真实</b>。<b>地域性提示：</b>部分地区另有地方性补贴或核定口径，需向主管税务机关确认，不要按网上的"攻略"操作。</p>
+    </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/zhengce/zhengceku/202512/content_7053153.htm" target="_blank">《中华人民共和国增值税法实施条例》（国务院令第 826 号，2026-01-01 施行）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810780/c5248293/content.html" target="_blank">人民日报·增值税法正式实施近 3 个月（2026-03-20，税务总局网站转载）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c102416/c5247434/content.html" target="_blank">财政部 税务总局公告 2026 年第 10 号·增值税法施行后增值税优惠政策衔接事项</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5247426/content.html" target="_blank">国家税务总局公告 2026 年第 4 号·起征点标准等增值税征管事项</a><a href="https://www.chinatax.gov.cn/chinatax/c102414/c5247848/content.html" target="_blank">国家税务总局政策法规司·小微企业税收优惠政策即问即答（2026-02-25）</a><a href="http://www.chinatax.gov.cn/chinatax/n810356/n3010387/c5237837/content.html" target="_blank">国家税务总局·"六税两费"减征幅度与适用主体 8 个问答</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">《中华人民共和国个人所得税法》（国家税务总局）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5238560/content.html" target="_blank">国家税务总局令第 57 号·《个人所得税综合所得汇算清缴管理办法》</a><a href="https://www.chinatax.gov.cn/chinatax/c103110/c5251456/content.html" target="_blank">中国税务报·小规模纳税人登记一般纳税人生效时点（2026-07-29）</a><a href="http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html" target="_blank">国家税务总局·安顺百年婚宴公司拆分收入骗享税费优惠案（2025-11-17）</a></div>
+</section>
+
+<section id="c04" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 04 · PART 1 · 认知篇</span><h2>发票入门<span class="accent">：开票、收票与报销</span></h2></div>
+  <p class="sec-desc">发票是一人公司里唯一"国家替你记账"的凭证。这一章讲四件事：什么情况下必须开发票、怎么开（重点是全国推广的数电发票）、收到发票怎么验真、拿不到发票的支出怎么留证据。条文均于 2026-10-29 检索自官方发布。</p>
+    <div class="card">
+    <div class="card-head"><span class="icon">📤</span><h3>什么情况下必须开发票</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">依据：发票管理办法</span></div></div>
+    <p>先记住两句话，分别对应"你是收钱方"和"你是付钱方"。</p>
+    <ul>
+      <li><b>收款方：</b>《中华人民共和国发票管理办法》（2023-07-20 公布施行）第十八条——"对外发生经营业务收取款项，收款方应当向付款方开具发票；特殊情况下，由付款方向收款方开具发票。"<b>这里说的是"收取款项"，不是"对方要求开票"。</b>客户没要票，不等于你不用开、不用申报。</li>
+      <li><b>付款方：</b>同办法第十九条——"所有单位和从事生产、经营活动的个人在购买商品、接受服务以及从事其他经营活动支付款项，应当向收款方取得发票。取得发票时，<b>不得要求变更品名和金额</b>。"</li>
+      <li><b>不开的代价：</b>第三十三条——"应当开具而未开具发票，或者未按照规定的时限、顺序、栏目，全部联次一次性开具发票，或者未加盖发票专用章的"，由税务机关责令改正，"可以处 1 万元以下的罚款；有违法所得的予以没收"。金额不大，但是<b>最容易被触发的一条</b>。</li>
+      <li><b>能不能"不开发票"？</b>只有销售额未达到增值税起征点时，才可以不缴增值税、不开票（收入仍要申报）；只要对方要票，可选择放弃免税开具专票（国家税务总局公告 2026 年第 4 号）。<b>"不缴税"和"不开票"是两件事。</b></li>
+      <li><b>什么时候开：</b>2026-04-24 官方口径是"在发生经营业务确认营业收入时开具发票"，不得"提前或滞后开票调节收入与税款"。</li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">一条红线：</span>《发票管理办法》第二十一条规定，任何单位和个人不得"为他人、为自己开具与实际经营业务情况不符的发票"，不得"让他人为自己开具""介绍他人开具"与实际经营业务情况不符的发票。官方把它概括为四个判断维度："看开票、受票主体是否合规""看生产经营业务是否合规""看票面信息要素是否合规""看发票开具时限是否合规"。<b>代开、买票、帮忙给朋友公司开点票，全部落在这条里。</b></blockquote>  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🖥️</span><h3>怎么开：数电发票已经全国推广</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">2024-12-01 起全国施行</span></div></div>
+    <p>现在开发票，主流方式已不是买税控设备、领纸质票，而是<b>数电发票</b>。《国家税务总局关于推广应用全面数字化电子发票的公告》（2024 年第 11 号）自 <b>2024 年 12 月 1 日</b>起施行，"在全国正式推广应用数电发票"。</p>
+    <ul>
+      <li><b>数电发票是什么：</b>"数电发票是《中华人民共和国发票管理办法》中'电子发票'的一种，是将发票的票面要素全面数字化、号码全国统一赋予、开票额度智能授予、信息通过税务数字账户等方式在征纳主体之间自动流转的新型发票。"</li>
+      <li><b>法律效力：</b>"数电发票与纸质发票具有同等法律效力。"《发票管理办法》第三条同样明确："发票包括纸质发票和电子发票。电子发票与纸质发票具有同等法律效力。"</li>
+      <li><b>要不要花钱：</b>不要。2024 年第 11 号公告第五条："税务机关建设全国统一的电子发票服务平台，提供免费的数电发票开票、用票服务。"</li>
+      <li><b>有哪些类别：</b>单一联次、以数字化形态存在，包括电子发票（增值税专用发票）、电子发票（普通发票）、电子发票（铁路电子客票）等。</li>
+      <li><b>在哪开：</b>登录本省电子税务局或自然人电子税务局，进入开票业务模块，按提示填写购买方信息、项目名称、金额、税率即可。开票信息要填完整准确——"商品名称、数量、金额、税率、税额、备注栏等均与实际业务及税收编码规范一致"。</li>
+      <li><b>开错了怎么办：</b>《发票管理办法实施细则》第二十六条：作废需"收回原发票全部联次并注明'作废'字样"；开红字发票需"收回原发票全部联次并注明'红冲'字样"；"无法收回原发票全部联次的，应当取得对方有效证明后开具红字发票"。</li>
+      </ul>
+    <p><b>实操建议：</b>把常用客户的开票信息（名称、统一社会信用代码、地址电话、开户行账号、发票类型）做成固定表存好；项目名称按税收分类编码选，不要自己造词；每次开完票在登记表里记一行发票号码。</p>
+    </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔎</span><h3>收到发票怎么验真</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">工具：官方查验平台</span></div></div>
+    <p>收到问题发票入账，税务风险会转移到你身上。<b>官方渠道只有一个，别用第三方"查询神器"。</b></p>
+    <ul>
+      <li><b>全国增值税发票查验平台：</b>国家税务总局建设的"全国增值税发票查验平台"（inv-veri.chinatax.gov.cn），输入发票号码、开票日期、金额等要素即可查验。数电发票还可通过税务数字账户"查询、查验、下载、打印和用途确认"。</li>
+      <li><b>三步验真法：</b>① 查渠道——只信官方平台和电子税务局，陌生链接、二维码一律不点；② 查要素——发票号码、开票日期、金额、税率、购销双方名称与统一社会信用代码，逐项和合同、付款记录对；③ 查重复——同一张发票号码只能入账一次，建"已收发票台账"防重复报销。</li>
+      <li><b>这些票要直接退回去：</b>品名是"办公用品""技术服务费"但没有明细清单的；金额、税率与合同明显不符的；开票方与实际付款对象不一致的；没有发票专用章或电子签章的。<b>《企业所得税税前扣除凭证管理办法》第十二条明确：伪造、变造、作废、虚开、填写不规范等不符合规定的发票，"不得作为税前扣除凭证"。</b></li>
+      </ul>
+    <blockquote class="xq">💬 <span class="who">反面案例：</span>国家税务总局 2025-05-19 公布的力软信息技术（苏州）有限公司案，当事人"在没有真实业务交易的情况下，接受虚开的 13 份增值税普通发票并在企业所得税税前列支"，通过支付"开票费"取得，最终少缴企业所得税 78.27 万元，被追缴税款、滞纳金并处罚款合计 177.57 万元。<b>买票抵税，省的是小钱，赔的是本金加罚款。</b></blockquote>  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧰</span><h3>拿不到发票的支出，怎么留证据</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">依据：2018 年第 28 号公告</span></div></div>
+    <p>一个人做事，总有拿不到发票的支出：几百块的个人开发者工具、朋友帮忙的临时设计、境外 SaaS 订阅、对方注销了没法补票。<b>拿不到票不等于不能扣除，但要留下能证明"这笔钱真实发生了"的证据链。</b>规则见《企业所得税税前扣除凭证管理办法》（国家税务总局公告 2018 年第 28 号）。</p>
+    <p><b>适用范围：</b>该办法直接适用对象是企业所得税税前扣除；个体工商户计算经营所得同样需要合法有效凭证，实务中一般参照执行，<b>具体口径以主管税务机关当期答复为准</b>。</p>
+    <table>
+      <tr><th>情形</th><th>可以凭什么入账</th><th>条文</th></tr>
+      <tr><td><b>向个人买小额服务</b></td><td>税务机关代开的发票，<b>或</b>载明"收款单位名称、个人姓名及身份证号、支出项目、收款金额"的收款凭证 + 内部凭证</td><td>第九条</td></tr>
+      <tr><td><b>从境外购进货物或劳务</b></td><td>对方开具的发票，或"具有发票性质的收款凭证、相关税费缴纳凭证"</td><td>第十一条</td></tr>
+      <tr><td><b>对方注销、吊销、非正常户，补不到票</b></td><td>六类资料：无法补开换开原因的证明资料、合同或协议、非现金付款凭证、运输证明、出入库凭证、核算记录等（<b>前三项为必备</b>）</td><td>第十四条</td></tr>
+      <tr><td><b>以前年度没拿到票、当年没扣</b></td><td>以后年度取得合规凭证或按第十四条提供资料，可追补至支出发生年度扣除，"但追补年限不得超过五年"</td><td>第十七条</td></tr>
+    </table>
+    <ul>
+      <li><b>平时就要做的三件套：</b>合同或协议（哪怕是微信记录整理成的确认单）+ 非现金付款凭证 + 情况说明。国家税务总局 2026-01-04 答复：供应商注销后"手里只有付款记录和采购协议"的，证实业务及支出真实性后"可以进行企业所得税税前扣除"。</li>
+      <li><b>收到税务告知后只有 60 天：</b>第十五条规定，应当自被告知之日起 60 日内补开、换开发票或其他外部凭证；特殊原因无法补开换开的，应当在 60 日内按第十四条提供证实支出真实性的资料；两者都没做的，"相应支出不得在发生年度税前扣除"。</li>
+      <li><b>能补票的尽快补：</b>第十三条——"若支出真实且已实际发生，应当在当年度汇算清缴期结束前，要求对方补开、换开发票"。</li>
+      </ul>
+    <p><b>最后一句话：</b>目标不是"票越多越好"，而是<b>每笔支出都能说清"钱给了谁、买了什么、为什么值这个钱"</b>。做到这点，缺票只是麻烦；做不到，有票也可能是麻烦。</p>
+    </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="http://fgk.chinatax.gov.cn/zcfgk/c100010/c5195084/content.html" target="_blank">《中华人民共和国发票管理办法》（2023-07-20 公布施行，国务院）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5236067/content.html" target="_blank">国家税务总局公告 2024 年第 11 号·推广应用全面数字化电子发票（2024-12-01 施行）</a><a href="http://www.chinatax.gov.cn/chinatax/n810219/n810780/c5236089/content.html" target="_blank">新华社·数电发票自 2024 年 12 月 1 日起全国推广（2024-11-25）</a><a href="http://www.chinatax.gov.cn/chinatax/c102449/c5244915/content.html" target="_blank">国家税务总局·作废与红字发票口径（引实施细则第二十六条）</a><a href="https://www.chinatax.gov.cn/chinatax/c102414/c5249173/content.html" target="_blank">国家税务总局征管和科技发展司·纳税人合规开具发票问题即问即答（2026-04-24）</a><a href="https://inv-veri.chinatax.gov.cn/" target="_blank">国家税务总局·全国增值税发票查验平台</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100012/c5194804/content.html" target="_blank">国家税务总局公告 2018 年第 28 号·《企业所得税税前扣除凭证管理办法》</a><a href="http://www.chinatax.gov.cn/chinatax/n810356/n3255681/c5246568/content.html" target="_blank">国家税务总局·供应商注销后仅有付款记录与采购协议可否扣除（2026-01-04）</a><a href="http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240513/content.html" target="_blank">国家税务总局·力软信息技术（苏州）有限公司接受虚开发票案（2025-05-19）</a><a href="http://www.chinatax.gov.cn/chinatax/n810356/n3010387/c5240322/content.html" target="_blank">国家税务总局·未取得发票支出追补扣除口径（2025-05-09）</a></div>
+</section>
+
+<section id="c05" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 05 · PART 2 · 记账篇</span><h2>记账入门<span class="accent">：收支两条线 + 三个台账</span></h2></div>
+  <p class="sec-desc">一个人也跑得动的记账法：一张收入表、一张支出表、一个合同与开票登记表。先做到"每笔钱进出都能对上、每笔都有据"，借贷分录可以晚一点再学。本章条文与额度均于 2026-10-29 检索自官方发布。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>先想明白：记账的第一读者是你自己</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：刚有收入、账还没建</span></div></div>
+    <p>独立开发者和自由职业者最常见的困境，不是"不会做分录"，而是年底面对一堆银行流水、微信收款记录和支付宝账单，想不起哪笔是哪笔、有没有开票、有没有真的到账。<b>账记得清，报税只是把数字抄一遍；账记不清，报税就是猜。</b>猜出来的数字一旦被比对出来，性质就变了。</p>
+    <ul>
+      <li><b>记账有法律依据。</b>《中华人民共和国会计法》第三条："各单位必须依法设置会计账簿，并保证其真实、完整。"（财政部会计司网站公布，最近一次修正为 2024 年 6 月 28 日，检索日 2026-10-29）</li>
+      <li><b>建账有明确期限。</b>《税收征收管理法实施细则》（国务院令第 362 号）第二十二条：从事生产、经营的纳税人应当自<b>领取营业执照或者发生纳税义务之日起 15 日内</b>，按照国家有关规定设置账簿；账簿包括总账、明细账、日记账及其他辅助性账簿，其中总账、日记账应采用订本式。</li>
+      <li><b>优惠要用账去算。</b>自 2023 年 1 月 1 日至 2027 年 12 月 31 日，个体工商户年应纳税所得额不超过 <b>200 万元</b>的部分，减半征收个人所得税（财政部 税务总局公告 2023 年第 12 号）。应纳税所得额 = 收入总额 − 允许扣除的成本费用税金损失，这个减法没有账是做不出来的。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>《税收征收管理法》第六十三条把"伪造、变造、隐匿、擅自销毁账簿、记账凭证""多列支出或者不列、少列收入"直接规定为偷税。税务机关追缴税款、滞纳金，并处不缴或者少缴税款 <b>50% 以上 5 倍以下</b>罚款；构成犯罪的，依法追究刑事责任。</blockquote>
+    <p><b>给一人公司的最低标准：</b>不要求你做全套财务报表，但要求你做到三件事——钱进出有记录、每笔记录有凭证、月底能对得上余额。这三件事就是本章的"收支两条线 + 三个台账"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>三个台账：字段就这么设计</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">工具：Excel / 飞书表格 / 记账 App</span></div></div>
+    <p>不要一开始就搭十张表。一人公司真正跑得动的只有三张：<b>收入表</b>（每笔钱从哪来）、<b>支出表</b>（每笔钱花到哪去）、<b>合同与开票登记表</b>（承诺、交付与票据的对应关系）。三张表用同一个"凭证编号"串起来，就能互相勾稽。</p>
+    <table>
+      <tr><th>台账</th><th>核心字段（建议照抄）</th><th>解决什么问题</th></tr>
+      <tr><td><b>收入表</b></td><td>日期｜客户/平台｜合同编号｜金额｜是否含税｜开票状态｜到账日期｜收款账户｜凭证编号</td><td>防止"收到钱但忘了申报"；区分已开票与未开票收入</td></tr>
+      <tr><td><b>支出表</b></td><td>日期｜供应商｜类别（设备/软件/云/外包/办公/差旅）｜金额｜有无发票｜付款账户｜凭证编号</td><td>年底凑成本费用；一眼看出哪些支出缺票</td></tr>
+      <tr><td><b>合同与开票登记表</b></td><td>合同编号｜签约方｜合同金额｜服务期｜开票日期｜发票号码｜税率｜收款节点｜回款状态</td><td>合同、发票、收款三者对齐；漏开票、重复开票可发现</td></tr>
+    </table>
+    <ul>
+      <li><b>一张收入表对应"收支两条线"的收入线。</b>无论客户打到哪里，最终都要归集到同一个口径；凡是从个人账户收到的经营款，也要在表里登记一行（怎么处理见第 06 章）。</li>
+      <li><b>类别字段提前定死。</b>成本费用能抵多少、哪些不能抵，全靠归类（见第 07 章）。类别一旦随手写，年底就得重新翻一遍。</li>
+      <li><b>凭证编号统一编。</b>推荐格式 <b>YYYYMM-序号</b>，例如 202610-007。发票、合同、银行回单的扫描件按这个编号命名，放进同一个文件夹，年底直接打包给代账会计。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>借贷记账为什么可以先不管</h3><div class="badges"><span class="badge r1">风险 ★</span><span class="badge">适合：年流水 50 万以下</span></div></div>
+    <p>借贷记账法解决的是"防错"和"出报表"两个问题：一笔业务同时记两边，期末两边必须相等，错了能查出来。但它对一人公司来说属于<b>超出必要的复杂度</b>。</p>
+    <ul>
+      <li><b>个体工商户、个人独资企业申报的是"经营所得"。</b>计税逻辑是"收入总额 − 成本 − 费用 − 税金 − 损失 − 其他支出 − 允许弥补的以前年度亏损"（《个体工商户个人所得税计税办法》国家税务总局令第 35 号第七条）。这是收入费用式的口径，不是资产负债表式，不需要你先把资产负债表配平。</li>
+      <li><b>先按收付实现制记流水。</b>钱到了记一笔收入，钱出了记一笔支出，简单、可核对、月底五分钟就能和银行余额对平。</li>
+      <li><b>但有两件事期末必须补。</b>一是<b>跨期收支</b>：12 月已交付但 1 月才收到的款，要按权责发生制还原；二是<b>预收与预付</b>：客户预付的开发费、你预付的服务器年费，要按期分摊。这两项不调，收入和成本会错配到错误的年度。</li>
+      <li><b>什么时候必须转复式记账。</b>成立有限公司并需要出资产负债表、登记为增值税一般纳税人、引入投资人需要尽调、或收入规模让代账会计要求建账套。这四种情形下，让代账会计帮你起一套账套，把你的流水表导入即可，不必自己从零学分录。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">提醒：</span>"可以不学借贷分录"不等于"可以不记账"。《会计法》第四条明确<b>单位负责人对本单位的会计工作和会计资料的真实性、完整性负责</b>——个体户的负责人就是经营者本人，这个责任绕不到代账会计身上。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>每月 30 分钟：照着做的记账流程</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">频率：每月 1–5 日做上月</span></div></div>
+    <p>把记账拆成固定四步，每步限时，加起来不超过半小时。关键是<b>固定时间做</b>，不要等年底。</p>
+    <ul>
+      <li><b>第 1 步（5 分钟）导出流水。</b>从经营用银行账户、微信商户/支付宝商家助手导出上月全部流水，按「年份月份-流水」命名存档。个人微信、支付宝里的经营性收款也一并导出（见第 06 章怎么收敛）。</li>
+      <li><b>第 2 步（10 分钟）补收入表。</b>逐笔登记：日期、客户、金额、是否含税、到账日期。凡是没有匹配到合同的，标红；凡是未开票的，标"待开票"。</li>
+      <li><b>第 3 步（10 分钟）补支出表。</b>逐笔登记并归类，同时给每笔打"有票 / 缺票"。缺票的三天内去补，补不来的在备注里写清原因和凭证形式（收据、付款记录、合同）。</li>
+      <li><b>第 4 步（5 分钟）对账。</b>算一个恒等式：<b>本月收入 − 本月支出 ≈ 经营账户余额变动</b>。差额不为零，说明有漏记、混入个人收支，或者手续费、退款没处理——差额必须查清，不留"以后再说"。</li>
+      <li><b>季度末加一步（20 分钟）。</b>汇总三个月数据，算出累计收入和累计可扣除成本费用，对照增值税、个人所得税的申报期（见第 10 章报税日历）预判税负，同时更新合同与开票登记表的回款状态。</li>
+    </ul>
+    <p><b>执行要点：</b>三个台账放在同一个文件夹，按年份分目录；每季度末把该季度所有凭证扫描件打包一次；每年 1 月做一次年度结转，把上年的"待开票""缺票"清零。坚持三个月，你就会得到一份年底能直接交给代账会计的完整材料——代账费通常也因此下降。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://kjs.mof.gov.cn/zhengcefabu/202408/t20240812_3941615.htm" target="_blank">财政部会计司·《中华人民共和国会计法》（2024 年修正）</a><a href="https://www.gov.cn/gongbao/content/2002/content_61774.htm" target="_blank">国务院令第 362 号·《税收征收管理法实施细则》</a><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html" target="_blank">《中华人民共和国税收征收管理法》（2015 年修正）</a><a href="https://www.gov.cn/gongbao/content/2015/content_2821638.htm" target="_blank">国家税务总局令第 35 号·《个体工商户个人所得税计税办法》</a><a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6896379.htm" target="_blank">财政部 税务总局公告 2023 年第 12 号</a></div>
+</section>
+
+<section id="c06" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 06 · PART 2 · 记账篇</span><h2>公私分离<span class="accent">：一张卡管所有</span></h2></div>
+  <p class="sec-desc">为什么要公私分开、不分开的具体风险是什么；个体户和公司分别怎么设卡、怎么定规矩；家人代收和已经混掉的账怎么收拾。条文与案例均于 2026-10-29 检索自官方发布。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>不分开的三个具体后果，不是"不规范"这么轻</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：还在用个人卡收经营款</span></div></div>
+    <p>很多一人公司把经营收入直接收进个人微信、个人支付宝或工资卡，理由很实际：方便、免手续费、提现快。但一旦被认定"通过私人账户转移经营资金并隐匿收入"，后果分三条线同时来。</p>
+    <ul>
+      <li><b>税务线：可能直接被定性为偷税。</b>《税收征收管理法》第六十三条把"不列、少列收入""进行虚假的纳税申报，不缴或者少缴应纳税款"规定为偷税，追缴税款、滞纳金，并处不缴或少缴税款 <b>50% 以上 5 倍以下</b>罚款；构成犯罪的依法追究刑事责任。2026 年 5 月以来，多地税务部门集中曝光了一批利用私人账户收款隐匿收入、偷逃税款的典型案件，涉及医疗门诊、家庭装修、公用服务、加油站等行业（新华网 2026-05-22 报道）。</li>
+      <li><b>民事线：有限责任可能被一剑穿破。</b>新《公司法》第二十三条第一款：公司股东滥用公司法人独立地位和股东有限责任，逃避债务，严重损害公司债权人利益的，<b>应当对公司债务承担连带责任</b>。第三款更直接：<b>只有一个股东的公司，股东不能证明公司财产独立于股东自己的财产的，应当对公司债务承担连带责任</b>——注意这是举证责任倒置，公司财产独立这件事要你自己证明，证不出就连带赔。账户混同是最常见的"财产不独立"证据。（该法 2023 年 12 月 29 日修订通过，2024 年 7 月 1 日施行）</li>
+      <li><b>举证线：纠纷时你说不清。</b>客户起诉你违约、你起诉外包方不交付、离职人员分钱——所有需要证明"这笔钱是经营款不是借款""这笔支出是公司成本不是个人消费"的场合，混同的账户都让你处于举证劣势。公私不分不只是税的问题，是<b>证据问题</b>。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>山西大学法学院教授董玉明指出，未按规定报送账号的经营主体将面临行政处罚并影响纳税缴费信用级别；"随着'以数治税'监管体系的持续深化，账户信息、资金流水、交易数据实现全链条信息互通，任何试图通过私户收款规避监管的侥幸行为，均将难逃数据识别与依法追责。"（新华网《新闻分析：企业用私人账户收款为何会偷逃税》，2026-05-22）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💳</span><h3>怎么设卡、怎么定规矩</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">动作：本周就能做完</span></div></div>
+    <p><b>个体户和个人独资企业：</b>不需要"对公账户"这个概念。《人民币银行结算账户管理办法》（中国人民银行令〔2003〕第 5 号，2003 年 4 月 10 日公布，2003 年 9 月 1 日施行）第三条规定，<b>个体工商户凭营业执照以字号或经营者姓名开立的银行结算账户，纳入单位银行结算账户管理</b>。也就是说，个体户拿着营业执照去银行开一个"单位"性质的结算账户，户名可以就是你自己或你的字号——这就是个体户的"对公卡"，而且它是被银行当作单位账户监管的。</p>
+    <p><b>有限公司：</b>开一个基本存款账户作为唯一经营账户。基本存款账户是主办账户，一个公司只能开一个，工资、奖金、现金支取都通过它办理。</p>
+    <ul>
+      <li><b>账户要报告。</b>《税收征收管理法实施细则》第十七条：从事生产、经营的纳税人应当自开立基本存款账户或者其他存款账户之日起 <b>15 日内</b>，向主管税务机关书面报告其全部账号；账号发生变化的，同样自变化之日起 15 日内书面报告。《税收征收管理法》第十七条也要求纳税人持税务登记证件开立账户并<b>将其全部账号向税务机关报告</b>。现在多数地区在电子税务局做存款账户账号报告，一两分钟能办完。</li>
+      <li><b>定三条死规矩。</b>① 经营收入只进这个账户，任何客户、平台、支付渠道的结算都绑到它；② 经营支出只从这个账户出，采购、外包、云服务、软件订阅都走它；③ 从账户往你个人卡转钱，只能是<b>分红、报销、清偿借款</b>三种性质之一，且每笔都要在台账登记性质和凭证。</li>
+      <li><b>收款码也要换绑。</b>微信、支付宝的商家收款码务必绑定到经营账户，而不是个人钱包。把第三方收款码绑到私人账户、让交易资金流入个人账户，正是被通报的典型模式之一（报道中称"收款码隐匿"）。</li>
+      <li><b>给自己发一份"工资"或做规范分红。</b>有限公司股东不从公司拿钱，公司利润一直挂着，反而容易在清算时说不清。个体户业主从经营账户提取用于个人和家庭的支出要单独标记，因为它不能税前扣除（见第 07 章）。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">👨‍👩‍👧</span><h3>家人代收、混合支付与已经混掉的账</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：账已经混了一段时间</span></div></div>
+    <p><b>家人代收。</b>用配偶、父母的账户收经营款，属于报道中被点名的"私户直收"模式：法定代表人、实控人、股东、员工及亲属充当收款代理人，销售款直接进入私人账户，对应收入不开票、不申报。如果确实需要家人代收（例如收款渠道暂时无法变更），至少要做到三点：书面约定代收关系和资金归属；代收款项<b>在三天内全额转出到经营账户并留存转账记录</b>；在收入表里按"代收人 + 转出日期"逐笔登记。做不到这三点，就不要用家人账户收经营款。</p>
+    <ul>
+      <li><b>混用费用的处理有明确规则。</b>《个体工商户个人所得税计税办法》（国家税务总局令第 35 号）第十六条：对于生产经营与个人、家庭生活<b>混用难以分清的费用，其 40% 视为与生产经营有关的费用，准予扣除</b>。这是兜底规则，不是优惠——它意味着剩下的 60% 要调增补税。前提仍然是"难以分清"，能分清的一分都不能混。</li>
+      <li><b>平台转存要特别小心。</b>如果经营收入先由第三方平台归集、再统一划到个人账户，并以"借款""预收账款"等名目挂账，资金流向与经营属性的关联被割裂，这正是通报的第三种模式（报道中称"平台转存"）。正确做法是让平台结算到经营账户，或划转后<b>当日</b>入经营账户并逐笔登记。</li>
+      <li><b>已经混了一段时间，按这个顺序收拾。</b>第一步，先开好经营账户并把所有收款渠道改绑过去，从今天起不再新增混同；第二步，把历史混同流水逐笔过一遍，能判定为经营收入的部分主动补申报、补缴税款和滞纳金——主动补与被查出来，处罚幅度差别很大；第三步，把混用支出按"能分清的分清、分不清的按 40%"整理成一张表，作为和代账会计沟通的基础；第四步，向税务机关做一次存款账户账号报告，把现存所有经营用账户报全。</li>
+    </ul>
+    <p><b>一句话总结：</b>公私分离的目的不是应付检查，是让你在任何时候都能用三分钟说清"公司有多少钱、你个人有多少钱、这两笔之间是什么关系"。说不清的时候，有限责任保护不了你，税前扣除也保不住。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="http://www.csrc.gov.cn/ningxia/c104435/c7513731/content.shtml" target="_blank">中国证监会宁夏监管局·新《公司法》第二十三条（法人人格否认）</a><a href="https://www.gov.cn/zhengce/2003-04/10/content_5712738.htm" target="_blank">中国人民银行令〔2003〕第 5 号·《人民币银行结算账户管理办法》</a><a href="https://www.gov.cn/gongbao/content/2002/content_61774.htm" target="_blank">国务院令第 362 号·《税收征收管理法实施细则》</a><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html" target="_blank">《中华人民共和国税收征收管理法》</a><a href="https://www.xinhuanet.com/20260522/2249cc35073448afa11c2d0413956d0f/c.html" target="_blank">新华网·新闻分析：企业用私人账户收款为何会偷逃税（2026-05-22）</a><a href="https://www.gov.cn/gongbao/content/2015/content_2821638.htm" target="_blank">国家税务总局令第 35 号·《个体工商户个人所得税计税办法》</a></div>
+</section>
+
+<section id="c07" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 07 · PART 2 · 记账篇</span><h2>成本与费用<span class="accent">：哪些能抵、哪些不能</span></h2></div>
+  <p class="sec-desc">常见可扣除成本费用清单、典型的不能扣除项目，以及发票、合同、付款记录三者的关系。核心规则来自《个体工商户个人所得税计税办法》和《企业所得税税前扣除凭证管理办法》，检索日 2026-10-29。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>能抵的：一张照着归类的清单</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：年支出 10 万以上的个体户</span></div></div>
+    <p>《个体工商户个人所得税计税办法》（国家税务总局令第 35 号）把应纳税所得额定义为：每一纳税年度的收入总额，<b>减除成本、费用、税金、损失、其他支出以及允许弥补的以前年度亏损后的余额</b>（第七条）。这五个扣除项的具体含义，办法第九至十三条写得很清楚，直接对应一人公司的日常开销。</p>
+    <table>
+      <tr><th>办法口径</th><th>一人公司对应的常见项目</th><th>记账要点</th></tr>
+      <tr><td><b>成本</b>（第九条）<br/>销售成本、销货成本、业务支出及其他耗费</td><td>外包开发费、设计费、翻译费、服务器算力直接构成交付的部分、代运营服务费</td><td>与具体项目/订单挂钩，能追溯到合同编号</td></tr>
+      <tr><td><b>费用</b>（第十条）<br/>销售费用、管理费用、财务费用</td><td>软件订阅、云服务、域名、广告投放、渠道分成、办公租金、水电物业、差旅、快递、银行手续费、代账费</td><td>不直接构成交付，但为经营发生；按期分摊</td></tr>
+      <tr><td><b>税金</b>（第十一条）<br/>除个人所得税和允许抵扣的增值税以外的各项税金及附加</td><td>城建税、教育费附加、地方教育附加、印花税、房产税、车船税等</td><td>增值税本身可抵扣的不算；个税不能抵</td></tr>
+      <tr><td><b>损失</b>（第十二条）<br/>生产经营中的各项损失</td><td>坏账、存货盘亏、毁损、报废</td><td>需有证据链：对账单、催收记录、报废照片</td></tr>
+      <tr><td><b>其他支出</b>（第十三条）<br/>与生产经营有关的、合理的支出</td><td>行业协会会费、培训费、版权登记费、专利申请费</td><td>关联性和合理性要能说清</td></tr>
+    </table>
+    <ul>
+      <li><b>从业人员工资可以扣。</b>第二十一条：个体工商户实际支付给从业人员的、合理的工资薪金支出，准予扣除。但<b>业主本人的工资薪金支出不得税前扣除</b>——个体户的利润本身就归经营者，不能重复扣一次。</li>
+      <li><b>为什么抵得越多越划算。</b>自 2023 年 1 月 1 日至 2027 年 12 月 31 日，个体工商户年应纳税所得额不超过 <b>200 万元</b>的部分减半征收个人所得税（财政部 税务总局公告 2023 年第 12 号）。每一笔合规扣除都在压低应纳税所得额，等于按你的实际税负打折。</li>
+      <li><b>有限公司同样适用"三性"标准。</b>《企业所得税税前扣除凭证管理办法》第四条规定，税前扣除凭证管理遵循<b>真实性、合法性、关联性</b>原则。你是个体户还是公司，标准是同一套，差别只在适用哪个税种。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>不能抵的：八类项目 + 三个最容易踩的坑</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：所有经营主体</span></div></div>
+    <p>《个体工商户个人所得税计税办法》第十五条把不得扣除的项目列了八类，原文为：<b>个人所得税税款；税收滞纳金；罚金、罚款和被没收财物的损失；不符合扣除规定的捐赠支出；赞助支出；用于个人和家庭的支出；与取得生产经营收入无关的其他支出；国家税务总局规定不准扣除的支出。</b>这八类一条都不要往成本费用里塞。</p>
+    <ul>
+      <li><b>坑一：把个人消费混进经营支出。</b>家用电脑、家用宽带、家庭旅游、孩子的学费、个人医保社保，这些是"用于个人和家庭的支出"，不能抵。只有确实用于经营的部分才能扣，而<b>能分清的一分都不能混</b>。混用又实在分不清的，按第十六条处理（见下一张卡片）。</li>
+      <li><b>坑二：没有凭证的支出。</b>付了外包款但对方没给票、个人代工只给了微信聊天记录——这类支出拿不到合规凭证，就不能税前扣除。《企业所得税税前扣除凭证管理办法》第五条：<b>企业发生支出，应当取得税前扣除凭证</b>，作为计算应纳税所得额时扣除相关支出的依据。</li>
+      <li><b>坑三：大额设备想一次性全额扣除。</b>电脑、相机、显示器这类单价较高的购置属于资本性支出，通常应按税务规定分期折旧，或按当期有效的一次性税前扣除政策处理。<b>具体折旧年限、一次性扣除的资产范围和标准，各地执行口径有差异</b>，本章未检索到适用于你所在情形的当期统一标准，请以主管税务机关当期口径为准，不要直接按费用一次性全额抵扣。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">提醒：</span>把不能扣除的项目记进成本费用，性质上属于"多列支出"。《税收征收管理法》第六十三条将"多列支出或者不列、少列收入"规定为偷税，追缴税款、滞纳金，并处不缴或少缴税款 <b>50% 以上 5 倍以下</b>罚款。不是"调出来就行"的事。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔗</span><h3>发票、合同、付款记录：三者缺一不可</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：正在补历史凭证的人</span></div></div>
+    <p>凭证不是"有发票就行"。《企业所得税税前扣除凭证管理办法》（国家税务总局公告 2018 年第 28 号）第二条把税前扣除凭证定义为：企业在计算企业所得税应纳税所得额时，<b>证明与取得收入有关的、合理的支出实际发生，并据以税前扣除的各类凭证</b>。注意关键词是"证明实际发生"——发票只证明"开了票"，不证明"事发生了、钱付了"。</p>
+    <table>
+      <tr><th>材料</th><th>证明什么</th><th>缺了会怎样</th></tr>
+      <tr><td><b>合同 / 订单</b></td><td>交易真实存在、标的和金额与经营相关</td><td>关联性说不清，支出可能被认定与经营无关</td></tr>
+      <tr><td><b>发票</b></td><td>对方确认收款并完税</td><td>多数情形下不能税前扣除（办法第九条）</td></tr>
+      <tr><td><b>付款记录</b></td><td>钱确实付出去、从哪个账户付的</td><td>无法证明实际发生，公私混同风险叠加</td></tr>
+    </table>
+    <ul>
+      <li><b>三类凭证的分类。</b>办法第八条：税前扣除凭证按来源分为<b>内部凭证</b>（企业自制的会计原始凭证）和<b>外部凭证</b>（包括发票、财政票据、完税凭证、收款凭证、分割单等）。你自己的付款审批单、入库单、工时记录属于内部凭证，不能替代外部凭证，但可以证明业务真实性。</li>
+      <li><b>资料要留存备查。</b>办法第七条：企业应将<b>合同协议、支出依据、付款凭证</b>等与税前扣除凭证相关的资料留存备查，以证实凭证真实性。这就是第 05 章要求三张表 + 凭证文件夹的原因。</li>
+      <li><b>取得凭证有时间红线。</b>办法第六条：企业应在当年度企业所得税法规定的<b>汇算清缴期结束前</b>取得税前扣除凭证。跨年才去补票，很可能已经赶不上。</li>
+      <li><b>小额零星可以走收款凭证。</b>办法第九条：对方为已办理税务登记的增值税纳税人的，其支出以发票作为税前扣除凭证；对方为依法无需办理税务登记的单位，或从事<b>小额零星经营业务的个人</b>的，以税务机关代开的发票或者<b>收款凭证及内部凭证</b>作为税前扣除凭证，收款凭证应载明收款单位名称、个人姓名及身份证号、支出项目、收款金额等信息。小额零星经营业务的判断标准是个人从事应税项目经营业务的销售额不超过增值税相关政策规定的起征点。<b>起征点的当期具体数额由国务院规定，各地执行有差异，请以主管税务机关当期口径为准</b>——本章未检索到适用于个人零星劳务的统一当期数值，因此不给出具体金额。</li>
+      <li><b>混用费用的兜底规则。</b>《个体工商户个人所得税计税办法》第十六条：对于生产经营与个人、家庭生活<b>混用难以分清的费用，其 40% 视为与生产经营有关的费用，准予扣除</b>。例如一台既写代码又家用的电脑、一条既办公又家用的宽带。注意这 40% 是上限而非额度：能分清用度的，按实际经营用度扣；分不清的，最多扣四成，剩下六成要调增。</li>
+      <li><b>顺带记住一件事。</b>《中华人民共和国增值税法实施条例》（国务院令第 826 号，2025 年 12 月 25 日公布，自 2026 年 1 月 1 日起施行）第七条明确<b>自然人属于小规模纳税人</b>。也就是说，独立开发者以个人身份取得的经营收入，在增值税上按小规模纳税人规则处理，不必先注册公司。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/gongbao/content/2015/content_2821638.htm" target="_blank">国家税务总局令第 35 号·《个体工商户个人所得税计税办法》</a><a href="https://hainan.chinatax.gov.cn/xxgk_6_1/06105578.html" target="_blank">国家税务总局公告 2018 年第 28 号·《企业所得税税前扣除凭证管理办法》</a><a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6896379.htm" target="_blank">财政部 税务总局公告 2023 年第 12 号</a><a href="https://www.gov.cn/gongbao/2026/issue_12486/202601/content_7054232.html" target="_blank">国务院令第 826 号·《中华人民共和国增值税法实施条例》</a><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html" target="_blank">《中华人民共和国税收征收管理法》</a></div>
+</section>
+
+<section id="c08" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 08 · PART 2 · 记账篇</span><h2>收入确认：预收、分期与退款<span class="accent">：钱什么时候算你的</span></h2></div>
+  <p class="sec-desc">收到钱不等于有了收入，干完活没收全款也不等于没有收入。本章把「什么时候算收入」拆成三套互不相同的时间——记账一套、增值税一套、算利润一套——再告诉你预收款、分期项目、退款和坏账各自怎么落账。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📅</span><h3>先认清：同一笔钱，有三个「算收入」的时间</h3><div class="badges"><span class="badge r3">必懂概念 ★★★</span><span class="badge">适合：所有独立开发者</span></div></div>
+    <p>第一次接触财税的人最常踩的坑，是以为「到账了就是收入」。其实同一笔钱至少有三个时间点，分别归三套规则管：</p>
+    <ul>
+      <li><b>做账的时间（会计收入）——权责发生制。</b>《个体工商户个人所得税计税办法》（国家税务总局令第35号）第五条写得很直白：应纳税所得额的计算<b>以权责发生制为原则，属于当期的收入和费用，不论款项是否收付，均作为当期的收入和费用；不属于当期的收入和费用，即使款项已经在当期收付，均不作为当期收入和费用</b>。有限公司同理，《企业所得税法实施条例》（国务院令第512号）第九条是同一句话。</li>
+      <li><b>缴增值税的时间（纳税义务发生时间）。</b>《增值税法》第二十八条：发生应税交易，纳税义务发生时间为<b>收讫销售款项或者取得销售款项索取凭据的当日；先开具发票的，为开具发票的当日</b>。这部法自 2026 年 1 月 1 日起施行，取代了原来的暂行条例和 36 号文。</li>
+      <li><b>算利润的时间（所得税收入确认）。</b>有限公司按《企业所得税法实施条例》第二十三条，持续时间超过 12 个月的劳务，按纳税年度内完工进度或完成的工作量确认收入；个体户按权责发生制，把跨年度项目拆到各年度。</li>
+    </ul>
+    <p>结论：账按权责发生制记，税按税法口径报。两者对不上是正常的（会计上叫「税会差异」），在备查表里记一笔差异就够了，<b>不要为了让税好看而把账做乱</b>。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>《个体工商户个人所得税计税办法》第五条：「属于当期的收入和费用，不论款项是否收付，均作为当期的收入和费用；不属于当期的收入和费用，即使款项已经在当期收付，均不作为当期收入和费用。」（国家税务总局，2014-12-27 发布，2015-01-01 施行）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💰</span><h3>预收款：钱到账 ≠ 该缴税，但合同日期算数</h3><div class="badges"><span class="badge r4">高风险 ★★★★</span><span class="badge">适合：收定金/年费的开发者</span></div></div>
+    <p>2026 年 1 月 1 日新《增值税法》施行后，老规定里「建筑服务、租赁服务收到预收款当天就要缴税」的专门条款已经不在新法里。现在的判断依据是《增值税法实施条例》（国务院令第826号）第三十九条：<b>取得销售款项索取凭据的当日，是指书面合同确定的付款日期</b>；没签书面合同或没约定付款日期的，才是应税交易完成当日。</p>
+    <ul>
+      <li><b>合同写了付款日期，那个日期就是纳税义务发生时间。</b>比如合同约定「3 月 1 日支付 50% 预付款」，哪怕你的活儿排在 6 月，3 月 1 日这笔钱就产生了增值税纳税义务。</li>
+      <li><b>先开票的，开票当天就算。</b>客户经常要求「先开票后付款」，票一开，税就赖不掉——所以别提前开票去凑客户的财务月度。</li>
+      <li><b>做账动作：</b>收到预收款时记「预收账款」（这是负债，不是收入）；同时建一个备查台账「已报税未确认收入」，等服务完成、确认收入时对冲掉。</li>
+      <li><b>预收款会占你的免税额度。</b>月销售额 10 万元以下免征增值税的政策执行到 2027 年 12 月 31 日（财政部 税务总局公告 2023 年第 19 号）；按季申报的小规模纳税人对应的是季 30 万。注意《增值税法》第二十三条：<b>达到起征点的，全额计算缴纳</b>——不是只对超出部分缴。12 月收的一笔大额预付年费，很可能把当季销售额推过线。</li>
+    </ul>
+    <p>实务建议：合同里把付款节点写清楚、和交付节点对齐；如果客户坚持「签约即付全款」，就在账上把大部分放「预收账款」，并按税法口径申报，同时把已缴税额在备查表里挂住，等服务完成时再确认收入。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>分期项目与跨年度拆分：按进度，不按到账</h3><div class="badges"><span class="badge r3">常见场景 ★★★</span><span class="badge">适合：定制开发/年度顾问</span></div></div>
+    <p>一个月内能结清的小单，跨不跨月都无所谓，按完成或开票确认即可。<b>超过 12 个月的长期项目</b>（定制开发、年度顾问、长期运维）才需要认真拆分：</p>
+    <ul>
+      <li><b>依据：</b>《企业所得税法实施条例》第二十三条——受托加工制造大型机械设备、船舶、飞机，以及从事建筑、安装、装配工程业务或者提供其他劳务等，<b>持续时间超过 12 个月的，按照纳税年度内完工进度或者完成的工作量确认收入的实现</b>。个体户做经营所得预缴和汇算时，同样按权责发生制拆分。</li>
+      <li><b>怎么拆：</b>按工作量或里程碑定比例（例如需求与设计完成 30%、开发完成 60%、验收 100%），写进合同附件，每期按比例确认收入。别按「今年收到多少现金」拆——那是收付实现制，和税法打架，汇算清缴时全要调回来。</li>
+      <li><b>年度衔接：</b>12 月 31 日做个「在建项目清单」：合同总额、累计已确认、本期确认、剩余未确认，一式两份，一份给代账会计，一份自己留。</li>
+      <li><b>项目烂尾或中止：</b>按实际完成情况调整已确认收入；未收回的款项转入坏账处理（见下张卡片）。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">↩️</span><h3>退款与坏账：冲减要留痕，损失要留证</h3><div class="badges"><span class="badge r4">易出错 ★★★★</span><span class="badge">适合：所有有退款经历的人</span></div></div>
+    <ul>
+      <li><b>退款：</b>当期销售退回，冲减当期收入，增值税开具红字发票冲减销售额。跨期退款（去年的收入今年退）在会计上通过以前年度损益调整或直接冲减当期处理，关键是留好<b>退款协议、红字发票和银行流水</b>三样东西。</li>
+      <li><b>坏账：</b>对方破产、注销、失联，钱确实收不回来。账上把它从「应收账款」转到「坏账损失」，并归档：合同、对账单、催收记录（微信、邮件、律师函）、对方注销或破产公告。这些资料是日后税务上论证「这笔钱确实收不回」的唯一依据。</li>
+      <li><b>最容易混淆的一点：</b>坏账不等于「钱没到就不算收入」。权责发生制下，服务已经完成、对方没付款，<b>收入照算</b>；收不回来是另一笔损失，两件事不要混为一谈。</li>
+      <li><b>需要提醒的限制：</b>企业所得税上资产损失税前扣除的具体条件与资料清单（涉及企业资产损失税前扣除的相关规定），本次检索未能找到可直接引用的官方原文页面（已检索国家税务总局政策法规库与中国政府网），申报前请以主管税务机关当期口径为准，重大案例咨询持牌专业人士。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="http://fujian.chinatax.gov.cn/fjnsrxt/zszx/zswz/759333794971717.shtml" target="_blank">《中华人民共和国增值税法》全文（国家税务总局福建省税务局纳税人学堂，2026-01-01 施行）</a><a href="https://fgk.chinatax.gov.cn/zcfgk/c100010/c5246349/content.html" target="_blank">《中华人民共和国增值税法实施条例》（国务院令第826号，国家税务总局政策法规库）</a><a href="https://www.gov.cn/gongbao/2026/issue_12486/202601/content_7054232.html" target="_blank">国务院令第826号（增值税法实施条例，中国政府网）</a><a href="https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/c102062/c495873/content.html" target="_blank">《个体工商户个人所得税计税办法》（国家税务总局令第35号）</a><a href="https://www.gov.cn/zhengce/2007-12/11/content_2602496.htm" target="_blank">《中华人民共和国企业所得税法实施条例》（国务院令第512号，中国政府网）</a><a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6896287.htm" target="_blank">《关于增值税小规模纳税人减免增值税政策的公告》（财政部 税务总局公告2023年第19号，执行至2027-12-31）</a></div>
+</section>
+
+<section id="c09" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 09 · PART 2 · 记账篇</span><h2>记账工具选型：Excel 到云帐房<span class="accent">：三条路线与代账交接</span></h2></div>
+  <p class="sec-desc">一个人或两三个人做事，记账只有三条路：自己用表格、用轻量记账 App、交给代账公司。本章给出三条路线的成本与适用规模、什么节点该请代账、代账大概多少钱，以及交给代账时要准备什么、怎么挑一家靠谱的。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧰</span><h3>三条路线：成本、适用规模与短板</h3><div class="badges"><span class="badge r1">入门先看 ★</span><span class="badge">适合：年收入 50 万以下</span></div></div>
+    <p>《会计法》（2024 年修订）第三十四条给了组织会计工作的三条正路：设置会计机构；在有关机构中设置会计岗位并指定会计主管人员；<b>委托经批准设立的代理记账中介机构代理记账</b>。一人公司基本是在后两条里选。三条路线的对比：</p>
+    <table>
+      <tr><th>路线</th><th>一年成本（市场行情）</th><th>适合什么规模</th><th>短板</th></tr>
+      <tr><td><b>Excel / 表格模板</b></td><td>0 元</td><td>月均票据 30 张以内、单一收入来源、年收入 50 万以下、暂按季申报</td><td>全靠手工，容易漏记；报表要自己做；票量一多就崩</td></tr>
+      <tr><td><b>轻量记账 App</b></td><td>约 100–1000 元/年（各产品定价不同）</td><td>常开发票、有多个收款渠道、想把流水和报表自动对上</td><td>只管记账不管申报；税会差异要自己判断</td></tr>
+      <tr><td><b>代账公司</b></td><td>约 2400–12000 元/年（见下卡）</td><td>有专票、有员工、票据类型杂、要贷款或投标</td><td>沟通成本高；遇到不靠谱的会漏报错报</td></tr>
+    </table>
+    <p>建议的演进路径：<b>先用表格跑三个月</b>，确认自己真的能坚持每天记；收入稳定在月 3 万以上、或开始开专票，再上记账 App；等到出现「专票 + 工资 + 社保」三件事同时要处理，就认真考虑代账。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏢</span><h3>什么规模该请代账，大概多少钱</h3><div class="badges"><span class="badge r3">关键决策 ★★★</span><span class="badge">市场行情非官方定价</span></div></div>
+    <p>出现下面任意一条，就值得请代账：开始开增值税专用发票或被认定为一般纳税人；雇了人要按月报个人所得税和社保；票据类型变杂（平台结算、海外收款、采购）；需要向银行或投标方出示规范报表；自己已经连续两个月没把账做完。</p>
+    <div class="chart">
+      <h4>2026 年代账市场月费行情（检索到的公开报价，非官方定价）</h4>
+      <div class="hbar-row"><span>小规模纳税人</span><div class="hbar-track"><div class="hbar-fill" style="width:35%"></div></div><div class="hbar-val">200–500 元/月</div></div>
+      <div class="hbar-row"><span>一般纳税人</span><div class="hbar-track"><div class="hbar-fill" style="width:70%"></div></div><div class="hbar-val">500–1000 元/月</div></div>
+      <div class="hbar-row"><span>电商/餐饮/建筑等特殊行业</span><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><div class="hbar-val">基础上浮 20%–50%</div></div>
+      <div class="cap">口径：2026 年 10 月检索到的市场报价，年付常见小规模 2400–6000 元、一般纳税人 6000–12000 元；全国无统一定价，属市场调节价，各地差异很大。</div>
+    </div>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>行业报道总结的挑选要点——先查资质（财政部门核发的代理记账资格、专职从业人员不少于 3 名且有一名够格的主管负责人）；警惕明显低于市场价的引流价，后续在年报、异常处理环节逐项加价；签约前问清年报与汇算清缴是否包干、多银行账户与工资表是否加价、税务异常谁处理；慎对长期无依据零申报。（市场行情报道，2026-10-27）</blockquote>
+    <p>验真办法：2024 年 7 月 15 日起，代理记账行业管理相关业务统一在<b>全国代理记账行业监管服务平台</b>办理，机构备案、年度报备都在上面。合作前让对方提供平台备案信息，比听销售话术可靠。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤝</span><h3>交给代账：准备什么、合同写什么</h3><div class="badges"><span class="badge r4">交接不清最易出事 ★★★★</span><span class="badge">适合：即将签约的人</span></div></div>
+    <p><b>首次交接清单（一次备齐，能省一半沟通成本）：</b></p>
+    <ul>
+      <li>主体资料：营业执照副本、公章与发票章、税控设备（如有）</li>
+      <li>登录权限：电子税务局账号、社保费申报客户端、开票系统账号（建议用企业主体手机号注册，交接时只改密码）</li>
+      <li>银行流水：<b>全量</b>导出，含对公户和个人卡中用于经营的账户，标注每笔的性质</li>
+      <li>发票：销项发票汇总表、进项发票（含电子发票原件）</li>
+      <li>合同与凭证：本期合同、上期报表与科目余额表、工资表、社保公积金缴费明细</li>
+      <li>特殊事项：预收未确认收入台账、在建项目清单、坏账与退款记录</li>
+    </ul>
+    <p><b>合同必须写清五件事。</b>《代理记账管理办法》第十二条要求委托合同在协商一致基础上明确：双方对会计资料真实性、完整性各自应当承担的责任；会计资料传递程序和签收手续；编制和提供财务会计报告的要求；会计档案的保管要求及相应的责任；终止委托合同应当办理的会计业务交接事宜。第五条还要求机构负责人具有会计师以上专业技术职务资格或从事会计工作不少于三年且为专职从业人员。</p>
+    <p>每月固定一天（比如 5 号）交资料、25 号取回报表，节奏固定了就不容易乱。终止合作时按合同办理交接，把账套、凭证、申报记录全部拿走。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗄️</span><h3>凭证与档案：最少存 30 年</h3><div class="badges"><span class="badge r5">乱扔凭证风险最高 ★★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>《会计档案管理办法》（财政部 国家档案局令第 79 号，2015 年 12 月 11 日发布，2016 年 1 月 1 日施行）规定：<b>原始凭证、记账凭证、总账、明细账、日记账保管期限为 30 年，年度财务会计报告永久保存</b>。也就是说，今年的发票和流水，2056 年之前都不能丢。</p>
+    <p>同时要知道代价：《会计法》（2024 年修订）第四十一条规定，伪造、变造会计凭证、会计账簿，编制虚假财务会计报告的，没有违法所得或者违法所得不足二十万元的，<b>对单位可以并处二十万元以上二百万元以下的罚款</b>；直接负责的主管人员和其他直接责任人员处十万元以上五十万元以下罚款，情节严重的处五十万元以上二百万元以下，且五年内不得从事会计工作。找人「做两套账」「买发票平账」都属于这一类。</p>
+    <p>落地做法：电子发票下载 PDF/OFD 原件归档（截图和照片不作为原件）；纸质发票按月装订；银行流水每月导一份存云端；三处备份（本地、云盘、移动硬盘）。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://fgk.chinatax.gov.cn/zcfgk/c100009/c5211790/content.html" target="_blank">《中华人民共和国会计法》（2024 年修订，国家税务总局政策法规库）</a><a href="https://www.kstq.gov.cn/kashi/gsgg/202202/ac93e6d94f484af7a0c3ec62ef63410c.shtml" target="_blank">《代理记账管理办法》（财政部令第80号公布、第98号令修改，喀什经济开发区转载）</a><a href="https://www.yw.gov.cn/art/2024/7/4/art_1229129509_4164867.html" target="_blank">全国代理记账行业监管服务平台切换通知（义乌市人民政府，2024-07-04）</a><a href="https://dag.nepu.edu.cn/info/1110/2037.htm" target="_blank">《会计档案管理办法》（财政部 国家档案局令第79号，2016-01-01 施行，东北石油大学档案馆转载）</a><a href="https://m.sohu.com/a/1092791677_122831073/" target="_blank">代理记账市场行情与挑选要点（媒体报道，2026-10-27）</a></div>
+</section>
+
+<section id="c10" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 10 · PART 3 · 报税篇</span><h2>报税日历：月报、季报与年报<span class="accent">：一张全年时间表</span></h2></div>
+  <p class="sec-desc">税漏报一次，罚款和滞纳金比你想的贵。本章把增值税、个人所得税、企业所得税、工商年报的申报期限合成一张表，给出 2026 年逐月截止日、错过申报的后果与补救办法，以及一套不会漏报的提醒机制。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗓️</span><h3>全年时间表：五件事，五个期限</h3><div class="badges"><span class="badge r1">建议打印贴墙 ★</span><span class="badge">适合：所有小规模/个体户</span></div></div>
+    <table>
+      <tr><th>事项</th><th>申报期限</th><th>依据</th></tr>
+      <tr><td><b>增值税</b>（小规模纳税人，多数个体户和小公司，按季）</td><td>每个季度终了之日起 <b>15 日内</b>（1 月、4 月、7 月、10 月的 15 日前后）</td><td>《增值税法》第三十条；《增值税法实施条例》第四十三条明确小规模纳税人可按一个季度为计税期间</td></tr>
+      <tr><td><b>增值税</b>（一般纳税人，按月）</td><td>每个月度终了之日起 <b>15 日内</b></td><td>《增值税法》第三十条</td></tr>
+      <tr><td><b>个人所得税（经营所得）</b>（个体户、个人独资、合伙）</td><td>月度或季度终了后 <b>15 日内</b>预缴；<b>次年 3 月 31 日前</b>汇算清缴</td><td>《个人所得税法》第十二条</td></tr>
+      <tr><td><b>企业所得税</b>（有限公司）</td><td>月度或季度终了之日起 <b>15 日内</b>预缴；年度终了之日起 <b>5 个月内</b>（次年 5 月 31 日前）汇算清缴</td><td>《企业所得税法》第五十四条</td></tr>
+      <tr><td><b>个人所得税（综合所得）汇算清缴</b>（有工资薪金、稿酬等所得的个人）</td><td>次年 <b>3 月 1 日至 6 月 30 日</b></td><td>《个人所得税法》第十一条</td></tr>
+      <tr><td><b>工商年报</b>（企业、个体工商户、农民专业合作社）</td><td>每年 <b>1 月 1 日至 6 月 30 日</b>，报送上一年度年报</td><td>《企业信息公示暂行条例》第八条；《个体工商户年度报告办法》第三条</td></tr>
+      <tr><td><b>社保费</b></td><td>各地不同，多为按月申报</td><td>暂无全国统一公开文件，以当地人社部门与主管税务机关当期口径为准</td></tr>
+    </table>
+    <p>最容易搞混的是<b>经营所得预缴</b>：个体户是按月还是按季预缴，取决于主管税务机关给你核定的方式，不是自己挑的。拿不准就打 12366 问一句「我的经营所得是按月还是按季预缴」。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📌</span><h3>2026 年逐月截止日（含顺延推算）</h3><div class="badges"><span class="badge r3">顺延规则要懂 ★★★</span><span class="badge">推算值以正式通知为准</span></div></div>
+    <p>基础规则是「期满后 15 日内申报」；<b>15 日恰逢周六、周日或与法定放假日重叠的，顺延到节假日后的第一个工作日</b>。国家税务总局办公厅每年发布当年《申报纳税期限》通知逐月明确（2025 年度版本为税总办征科函〔2024〕71 号）。按下表和 2026 年节假日安排推算的 2026 年截止日：</p>
+    <table>
+      <tr><th>申报月份</th><th>截止日</th><th>申报月份</th><th>截止日</th></tr>
+      <tr><td>1 月</td><td>1 月 15 日（周四）</td><td>7 月</td><td>7 月 15 日（周三）</td></tr>
+      <tr><td>2 月</td><td>2 月 24 日（周二，春节 2/15–2/23 顺延）</td><td>8 月</td><td>8 月 17 日（周一，8/15 为周六顺延）</td></tr>
+      <tr><td>3 月</td><td>3 月 16 日（周一，3/15 为周日顺延）</td><td>9 月</td><td>9 月 15 日（周二）</td></tr>
+      <tr><td>4 月</td><td>4 月 15 日（周三）</td><td>10 月</td><td>10 月 15 日（周四）</td></tr>
+      <tr><td>5 月</td><td>5 月 15 日（周五）</td><td>11 月</td><td>11 月 16 日（周一，11/15 为周日顺延）</td></tr>
+      <tr><td>6 月</td><td>6 月 15 日（周一）</td><td>12 月</td><td>12 月 15 日（周二）</td></tr>
+    </table>
+    <div class="cap">注：以上依据《国务院办公厅关于 2026 年部分节假日安排的通知》与「15 日内 + 节假日顺延」规则推算，正式日期以国家税务总局办公厅当年发布的申报纳税期限通知为准。</div>
+    <p>三个不在月度节奏里的年度节点：<b>次年 3 月 31 日前</b>完成经营所得汇算清缴（个体户/个独/合伙）、<b>次年 3 月 1 日至 6 月 30 日</b>办理综合所得汇算清缴、<b>次年 5 月 31 日前</b>完成企业所得税汇算清缴、<b>每年 1 月 1 日至 6 月 30 日</b>报送工商年报。写稿当天是 2026 年 10 月 29 日：按季申报的刚在 10 月 15 日前后报完三季度，按月申报的下一个截止日是 <b>11 月 16 日</b>。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>错过申报：后果与补救</h3><div class="badges"><span class="badge r5>别拖 ★★★★★</span><span class="badge">适合：已经逾期的人</span></div></div>
+    <ul>
+      <li><b>逾期申报（税算对了但没报）：</b>《税收征收管理法》第六十二条——由税务机关责令限期改正，<b>可以处二千元以下的罚款；情节严重的，可以处二千元以上一万元以下的罚款</b>。</li>
+      <li><b>干脆不报、少缴税款：</b>第六十四条第二款——税务机关追缴不缴或少缴的税款、滞纳金，<b>并处不缴或者少缴的税款百分之五十以上五倍以下的罚款</b>。</li>
+      <li><b>滞纳金：</b>第三十二条——未按规定期限缴纳税款的，从滞纳税款之日起<b>按日加收万分之五</b>（折年化约 18%），拖一年很疼。</li>
+      <li><b>工商年报漏报：</b>《企业经营异常名录管理办法》第六条规定，未报送并公示年报的，监管部门在当年年报公示结束之日起 <b>10 个工作日内</b>作出列入经营异常名录的决定并公示；个体户同样处理，且公示至下一年度 6 月 30 日。进了名录，贷款、投标、入驻平台、注销都会受影响。补报后可依第十一条申请移出。</li>
+      <li><b>补救动作：</b>登录电子税务局补申报、补缴税款和滞纳金；已被认定为非正常户的，先联系主管税务机关解除非正常户再补报；确实来不及的，<b>事前</b>按《税收征收管理法》第二十七条申请延期申报（核准后按上期实际缴纳或核定的税额预缴，再在延期内结算），不要先拖后补。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>《税收征收管理法》第五十二条——因税务机关的责任少缴税款的，三年内可要求补缴但不得加收滞纳金；因纳税人计算错误等失误少缴的，三年内可追征税款、滞纳金，特殊情况延长到五年；<b>偷税、抗税、骗税的，不受期限限制</b>。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔔</span><h3>设一套不会漏报的提醒机制</h3><div class="badges"><span class="badge r2>照做即可 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>一年录入一次：</b>每年 1 月，把当年 12 个申报截止日和 4 个年度节点（3 月 31 日、3 月 1 日、5 月 31 日、6 月 30 日）一次性录进手机日历，每个设「提前 7 天」和「提前 2 天」两次提醒。</li>
+      <li><b>每月固定动作：</b>1–3 号导出上月银行流水和全部发票；5 号把资料交给代账会计（如果有）；20 号前后在电子税务局查一下本期申报状态。</li>
+      <li><b>用电子税务局的提醒：</b>登录本省电子税务局（例如<a href="https://etax.beijing.chinatax.gov.cn/" target="_blank">北京市电子税务局</a>，各省入口类似），保证登记手机号在用，订阅申报提醒短信。</li>
+      <li><b>双保险：</b>请代账公司每期申报完成后回传申报成功截图，自己也在电子税务局「申报查询」里能查到记录——两边对不上时当场发现，比年底才发现便宜得多。</li>
+      <li><b>一条纪律：</b>宁可先零申报，也不要拖着不报。零申报最多被税务机关询问，逾期不报是明确可罚的。</li>
+    </ul>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">《中华人民共和国个人所得税法》（国家税务总局）</a><a href="https://fgk.chinatax.gov.cn/zcfgk/c100010/c5246349/content.html" target="_blank">《中华人民共和国增值税法实施条例》（国务院令第826号，国家税务总局政策法规库）</a><a href="https://guangxi.chinatax.gov.cn/laibin/gzdt_15601/gzdt_15602/202409/t20240923_406706.html" target="_blank">企业所得税汇算清缴与第五十四条口径（国家税务总局来宾市税务局）</a><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html" target="_blank">《中华人民共和国税收征收管理法》（国家市场监督管理总局转载）</a><a href="https://www.samr.gov.cn:8080/zw/zfxxgk/fdzdgknr/fgs/art/2025/art_c3d4a523a6fe4f9eba30d2e75903e28d.html" target="_blank">《企业经营异常名录管理办法》（国家市场监督管理总局）</a><a href="https://www.samr.gov.cn:8085/zw/zfxxgk/fdzdgknr/fgs/art/2025/art_0c753e108142465db664db16bc0e8b95.html" target="_blank">《个体工商户年度报告办法》（国家市场监督管理总局，2025 年第二次修正）</a><a href="https://shenzhen.chinatax.gov.cn/sztax/zcwj/zcfgk/qtzcfgk/202412/a91acb5d00524040a00a07d00ef698fc.shtml" target="_blank">《国家税务总局办公厅关于明确2025年度申报纳税期限的通知》（税总办征科函〔2024〕71号，深圳市税务局转载）</a><a href="https://www.gov.cn/zhengce/content/202511/content_7047090.htm" target="_blank">《国务院办公厅关于2026年部分节假日安排的通知》（2025-11-04）</a><a href="https://etax.beijing.chinatax.gov.cn/" target="_blank">北京市电子税务局（各省电子税务局入口示例）</a></div>
+</section>
+
+<section id="c11" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 11 · PART 3 · 报税篇</span><h2>增值税申报：小规模与一般纳税人<span class="accent">：征收率、免税额度与申报表怎么填</span></h2></div>
+  <p class="sec-desc">客户要发票得交，平台结算、代销分成也可能算成应税交易。这一章讲四件事——小规模纳税人按多少征收率交、销售额到多少会被要求升级一般纳税人、进项发票为什么重要、一张申报表怎么填。口径以 2026 年 1 月 1 日起施行的《增值税法》及配套文件为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>小规模纳税人：征收率、免税额度与计税期间</h3><div class="badges"><span class="badge r1">先确认自己是不是小规模 ★</span><span class="badge">适合：年销售额 500 万以下</span></div></div>
+    <p><b>谁算小规模纳税人？</b>《增值税法》第九条：年应征增值税销售额<b>未超过 500 万元</b>的纳税人；会计核算健全、能提供准确税务资料的，可主动登记为一般纳税人。《实施条例》第七条补充：<b>自然人属于小规模纳税人</b>——以个人名义接活也逃不掉增值税，只是按小规模那套规则走。</p>
+    <p><b>征收率：</b>《增值税法》第十一条规定适用简易计税的征收率为 <b>3%</b>。但据《财政部 税务总局关于增值税法施行后增值税优惠政策衔接事项的公告》（财政部 税务总局公告 2026 年第 10 号），2026 年 1 月 1 日至 2027 年 12 月 31 日期间，小规模纳税人发生除销售、出租不动产或转让土地使用权之外的应税交易，<b>依照 3% 征收率减按 1% 征收</b>；个人出租住房按 3% 减按 1.5%。</p>
+    <p><b>免税额度（官方名称叫"起征点"）：</b>同一份公告明确——按月计税的，起征点为<b>月销售额 10 万元</b>；按季计税的，起征点为<b>季度销售额 30 万元</b>；按次纳税的，起征点为每次（日）销售额 1000 元；差额计税的按扣除相关价款后的不含税余额适用。《增值税法》第二十三条另有一条关键规则：<b>销售额达到起征点的，全额计算缴纳增值税</b>——季度不含税销售额 31 万和 30 万的税负不是平滑过渡，而是"跳档"。</p>
+    <p><b>计税期间与申报期限：</b>《实施条例》第四十三条明确小规模纳税人可以<b>以一个季度为一个计税期间</b>；《增值税法》第三十条规定，以一个月或一个季度为计税期间的，自期满之日起 <b>15 日内</b>申报纳税。按季的就是 1、4、7、10 月 15 日前报。</p>
+    <blockquote class="xq">💬 <span class="who">实务提醒：</span>起征点免的是"税"，不免"申报"——季度收入 8 万也要申报，填零或免税都行，不报就是逾期申报。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⬆️</span><h3>什么情况会被要求升级一般纳税人</h3><div class="badges"><span class="badge r4">500 万是硬线 ★★★★</span><span class="badge">适合：收入正在涨的人</span></div></div>
+    <p>规则在《增值税法实施条例》第三十六条：单位和个体工商户<b>年应征增值税销售额超过小规模纳税人标准（500 万元）的，应当向主管税务机关办理一般纳税人登记</b>，并<b>自超过标准的当期起按照一般计税方法计算缴纳增值税</b>。起算点是"当期"，不是"办完手续的那个月"——拖着不办，从超标的那个月起就得按 13%、9%、6% 全额算税，而且没有进项可抵。</p>
+    <p>另外三条要记牢：</p>
+    <ul>
+      <li><b>登记后不能转回。</b>条例第三十六条明确"纳税人登记为一般纳税人后，不得转为小规模纳税人"。这是单行道，签之前想清楚。</li>
+      <li><b>可以主动申请。</b>《增值税法》第九条第二款：会计核算健全、能够提供准确税务资料的，可以办理一般纳税人登记。客户只要专票、进项票又多又齐时，主动登记往往更划算。</li>
+      <li><b>旧规章已废止。</b>原《增值税一般纳税人登记管理办法》（国家税务总局令第 43 号）已自 2026 年 1 月 1 日起全文废止，现按《增值税法》第九条与《实施条例》第三十六条执行。</li>
+    </ul>
+    <p><b>一般计税长什么样：</b>《增值税法》第十条定三档税率——销售货物、加工修理修配、有形动产租赁及进口货物等 <b>13%</b>；交通运输、邮政、建筑、不动产租赁、销售不动产、转让土地使用权等 <b>9%</b>；销售服务、无形资产 <b>6%</b>。应纳税额 = 销项税额 − 进项税额。软件开发、设计、咨询属"销售服务、无形资产"，一般纳税人按 6%。</p>  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>进项发票为什么重要：一张票就是一笔钱</h3><div class="badges"><span class="badge r3">没票 = 多缴税 ★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p><b>一般纳税人：</b>《增值税法》第十四条、第十六条：应纳税额为当期销项税额抵扣当期进项税额后的余额，凭规定的扣税凭证抵扣。翻译成大白话——<b>你买云服务器、外包设计、办公设备拿到的增值税专用发票，上面的税额可以直接抵你要交的税</b>。没有专票，这部分税就自己扛。</p>
+    <p><b>以下进项不能抵</b>（第二十二条）：简易计税项目的进项；免税项目对应的进项；非正常损失对应的进项；用于集体福利或个人消费的购进；直接用于消费的餐饮、居民日常服务和娱乐服务；以及国务院规定的其他情形。</p>
+    <p><b>小规模纳税人：</b>不能抵扣进项，但<b>进项发票仍然值钱</b>——它是计算经营所得（或企业所得税）时证明成本费用真实发生的凭证。花 3 万买设备不要票，账上就没这 3 万成本，等于按 3 万利润多缴一份所得税。<b>规矩只有一句：经营性支出，先要票后付款。</b></p>
+    <p><b>别碰虚开。</b>2026 年 10 月 12 日国家税务总局集中曝光 5 起涉税中介违规帮助他人偷逃税案件，其中柳州一案中，税务专业服务人员通过虚构合同、出库单为他人虚开专票提供便利，造成少缴税款 102.74 万元。虚开不是"省税技巧"，轻则补税罚款，重则涉刑。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>一个完整申报例子：季度含税 40 万怎么算、怎么填</h3><div class="badges"><span class="badge r2">照抄这个流程 ★★</span><span class="badge">适合：首次自己申报的人</span></div></div>
+    <p><b>场景：</b>小李是个体工商户（小规模纳税人，按季申报），2026 年第三季度为一公司提供软件开发服务，含税总收入 40 万元——其中 28 万元已开增值税普通发票，12 万元客户说"暂时不要票"；本季度购入云服务器与设备共 3 万元，取得普票；注册地在市区。</p>
+    <table>
+      <tr><th>步骤</th><th>计算</th><th>结果</th></tr>
+      <tr><td>① 不含税销售额</td><td>400,000 ÷（1 + 1%）</td><td>396,039.60 元</td></tr>
+      <tr><td>② 是否超起征点</td><td>396,039.60 &gt; 300,000（季度）</td><td>超过，全额计税</td></tr>
+      <tr><td>③ 应纳增值税</td><td>396,039.60 × 1%</td><td>3,960.40 元</td></tr>
+      <tr><td>④ 附加税费（市区）</td><td>3,960.40 ×（7% + 3% + 2%）</td><td>475.25 元</td></tr>
+      <tr><td>⑤ 六税两费减半后</td><td>475.25 × 50%</td><td>237.63 元</td></tr>
+      <tr><td>⑥ 本季度实缴</td><td>3,960.40 + 237.63</td><td><b>4,198.03 元</b></td></tr>
+    </table>
+    <div class="cap">附加税费构成：城市维护建设税（在市区的 7%、在县城或镇的 5%、在其他地区的 1%，《城市维护建设税法》2021 年 9 月 1 日施行）+ 教育费附加 3% + 地方教育附加 2%；适用哪一档以主管税务机关认定为准。第⑤步依据财政部 税务总局公告 2023 年第 12 号：2023 年 1 月 1 日至 2027 年 12 月 31 日，对小规模纳税人、小型微利企业和个体工商户减半征收城市维护建设税、教育费附加、地方教育附加等。第③步的 1% 为临时优惠，2027 年 12 月 31 日后是否延续以届时文件为准。</div>
+    <p><b>申报表怎么填：</b>登录本省电子税务局，走<b>我要办税 → 税费申报及缴纳 → 增值税及附加税费申报（小规模纳税人）</b>，系统会按你的身份特征自动匹配"确认式申报"或"填表式申报"（中山市税务局指引）。确认式下系统预填发票数据，你核对税款所属期、预填数据和税（费）结果即可；数据不符就点"我要填表"切换。填表式下在"服务、不动产和无形资产"相应栏次填报不含税销售额 396,039.60 元——<b>那 12 万元未开票收入同样要填</b>，系统里有"未开票收入"补录入口，不填就是隐瞒收入。减免信息在"增值税减免税申报明细表"里选减免性质代码并填减免税额，附加税费由系统自动带出、同步申报。</p>
+    <blockquote class="xq">💬 <span class="who">一线提醒：</span>2026 年 2 月 13 日，税务总局新媒体与广西税务发布《图解｜小规模纳税人注意！增值税申报表填报要求有调整》。表单行次会随政策微调，第一次申报前先看当期表单更新说明，别照一年前的截图填。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>两个最常见的坑</h3><div class="badges"><span class="badge r5">都够上"偷税" ★★★★★</span><span class="badge">适合：正在动脑筋的人</span></div></div>
+    <p><b>一是拆分成几个主体吃起征点。</b>2025 年 11 月 17 日国家税务总局曝光，安顺市百年婚宴有限公司设立两个空壳个体工商户拆分营业收入、设内外两套账隐匿收入，少缴增值税、城建税、企业所得税等税费 249.77 万元；同批还曝光了关联企业拆分收入的广西咕咕狗商务秘书有限公司案。<b>二是用个人卡收经营款。</b>2026 年 7 月 10 日曝光的网络主播许静婉案：私人账户收款隐匿收入、转换收入性质，少缴税费 313.45 万元，最终被追缴税费款、滞纳金并处罚款合计 631.96 万元。银行流水与申报数据对不上，是税务大数据最先发现的。</p>
+    <blockquote class="xq">💬 <span class="who">合规路径：</span>拆主体、换卡收款、买发票，三条路都通向《税收征收管理法》第六十三条的"偷税"。拖着不申报的后果（滞纳金按日万分之五、逾期申报可罚二千至一万元）见第 10 章；收入涨到该登记一般纳税人时主动登记，靠进项发票抵扣降税负，才是唯一越走越宽的路。</blockquote>  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/yaowen/liebiao/202412/content_6994557.htm" target="_blank">《中华人民共和国增值税法》全文（2024年12月25日通过，2026年1月1日施行，中国政府网）</a><a href="https://fgk.chinatax.gov.cn/zcfgk/c100010/c5246349/content.html" target="_blank">《中华人民共和国增值税法实施条例》（国务院令第826号，国家税务总局政策法规库）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c102416/c5247434/content.html" target="_blank">《财政部 税务总局关于增值税法施行后增值税优惠政策衔接事项的公告》（财政部 税务总局公告2026年第10号，2026-01-30）</a><a href="https://tianjin.chinatax.gov.cn/11298000000/0100/010003/p20230823135936149.shtml" target="_blank">《财政部 税务总局关于进一步支持小微企业和个体工商户发展有关税费政策的公告》（2023年第12号，天津市税务局转载）</a><a href="http://shanghai.chinatax.gov.cn/zcfw/zcfgk/zzs/201804/t438528.html" target="_blank">《增值税一般纳税人登记管理办法》（国家税务总局令第43号，2026年1月1日废止，上海市税务局转载）</a><a href="https://guangdong.chinatax.gov.cn/gdsw/zssw_nsrwkt_tjss/2024-03/27/content_781ed93d739a42fb9460600763ba7853.shtml" target="_blank">新电子税局业务办理指引——增值税及附加税费申报（小规模纳税人）（国家税务总局中山市税务局，2024-03-27）</a><a href="https://fgk.chinatax.gov.cn/zcfgk/c100016/c5247738/content.html" target="_blank">图解｜小规模纳税人注意！增值税申报表填报要求有调整（税务总局新媒体、广西税务，2026-02-13）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html" target="_blank">"空壳个体户"拆走千万营收——安顺百年婚宴公司拆分收入骗享税费优惠偷税真相（国家税务总局，2025-11-17）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250919/content.html" target="_blank">"六百万粉丝"带货主播的"隐身账"——揭秘网络主播许静婉偷税案件（国家税务总局，2026-07-10）</a></div>
+</section>
+
+<section id="c12" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 12 · PART 3 · 报税篇</span><h2>个人所得税：经营所得与综合所得<span class="accent">：税率表、汇算清缴与专项附加扣除</span></h2></div>
+  <p class="sec-desc">增值税管"交易"，个人所得税管"你挣到手多少"。同样是挣钱，走个体工商户是一套算法，在单位领工资是另一套算法，两边同时有收入还要合并。这一章把两套税制的边界、税率表、汇算清缴的算法、多处收入怎么合并、专项附加扣除怎么用上，一次讲清楚。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>先搞清：你的收入走哪条路</h3><div class="badges"><span class="badge r1">分错类别全盘错 ★</span><span class="badge">适合：所有人</span></div></div>
+    <p>《个人所得税法》把个人所得分成九类，一人公司最常踩到的是两类：</p>
+    <table>
+      <tr><th></th><th>综合所得</th><th>经营所得</th></tr>
+      <tr><td><b>包含什么</b></td><td>工资薪金、劳务报酬、稿酬、特许权使用费</td><td>个体工商户从事生产、经营活动取得的所得；个人独资企业投资人、合伙企业的个人合伙人来源于境内注册的个独/合伙企业的生产经营所得；个人依法从事办学、医疗、咨询等有偿服务取得的所得；承包、承租经营以及转包、转租取得的所得等</td></tr>
+      <tr><td><b>税率</b></td><td>3%—45%，七级超额累进</td><td>5%—35%，五级超额累进</td></tr>
+      <tr><td><b>怎么算</b></td><td>按纳税年度<b>合并</b>计算，次年 3 月 1 日—6 月 30 日汇算清缴</td><td>按月或按季预缴，<b>次年 3 月 31 日前</b>汇算清缴</td></tr>
+      <tr><td><b>常见身份</b></td><td>在公司上班领工资、以个人名义接咨询/设计活</td><td>个体工商户、个人独资企业、合伙企业的投资人</td></tr>
+    </table>
+    <div class="cap">经营所得的范围见《个人所得税法实施条例》（国务院令第 707 号，2019 年 1 月 1 日施行）第十五条；两类所得的划分见《个人所得税法》第二条、第三条。综合所得的汇算清缴期与经营所得的汇算清缴期，分别见该法第十一条、第十二条。</div>
+    <p>三个容易混淆的场景：<b>① 办了营业执照（个体户）再干活</b>，收入通常算经营所得；<b>② 没办执照、以个人身份接活</b>，平台或付款方按"劳务报酬"扣缴，属于综合所得；<b>③ 既是公司员工又开了个体户</b>，两边的收入分别适用不同规则，年底还要合到一起看（见下文）。居民个人还是非居民个人，看在中国境内有无住所，或一个纳税年度内居住是否累计满 183 天（《个人所得税法》第一条）。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>税率表与速算扣除数</h3><div class="badges"><span class="badge r2">背下来能自己验算 ★★</span><span class="badge">年度口径</span></div></div>
+    <p>两张表都是"超额累进"：收入落在哪一档，那一档以下按对应税率算，超过部分才适用更高档。公式只有一个：<b>应纳税额 = 应纳税所得额 × 适用税率 − 速算扣除数</b>。</p>
+    <table>
+      <tr><th>级数</th><th>经营所得：全年应纳税所得额</th><th>税率</th><th>速算扣除数</th><th>综合所得：全年应纳税所得额</th><th>税率</th><th>速算扣除数</th></tr>
+      <tr><td>1</td><td>不超过 30,000 元</td><td>5%</td><td>0</td><td>不超过 36,000 元</td><td>3%</td><td>0</td></tr>
+      <tr><td>2</td><td>超过 30,000 至 90,000 元</td><td>10%</td><td>1,500</td><td>超过 36,000 至 144,000 元</td><td>10%</td><td>2,520</td></tr>
+      <tr><td>3</td><td>超过 90,000 至 300,000 元</td><td>20%</td><td>10,500</td><td>超过 144,000 至 300,000 元</td><td>20%</td><td>16,920</td></tr>
+      <tr><td>4</td><td>超过 300,000 至 500,000 元</td><td>30%</td><td>40,500</td><td>超过 300,000 至 420,000 元</td><td>25%</td><td>31,920</td></tr>
+      <tr><td>5</td><td>超过 500,000 元</td><td>35%</td><td>65,500</td><td>超过 420,000 至 660,000 元</td><td>30%</td><td>52,920</td></tr>
+      <tr><td>6</td><td>—</td><td>—</td><td>—</td><td>超过 660,000 至 960,000 元</td><td>35%</td><td>85,920</td></tr>
+      <tr><td>7</td><td>—</td><td>—</td><td>—</td><td>超过 960,000 元</td><td>45%</td><td>181,920</td></tr>
+    </table>
+    <div class="cap">经营所得表见国家税务总局福建省税务局"个税税率表"（2018-11-17 发布，税率表二）；综合所得各级距与速算扣除数见国家税务总局对《个人所得税扣缴申报管理办法（试行）》（国家税务总局公告 2018 年第 61 号）的解读所附《个人所得税预扣率表一》（2018-12-22），综合所得年度汇算清缴适用同一套级距与速算扣除数。本次检索到的 2018 年发布口径即为当前执行口径（检索日 2026-10-29）；如遇调整以最新文件为准。</div>
+    <p>举个能照着验的算：个体户全年应纳税所得额 8 万元 → 落在第二档 → 80,000 × 10% − 1,500 = <b>6,500 元</b>。如果是 60 万元的年份，600,000 × 35% − 65,500 = <b>144,500 元</b>。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>经营所得年度汇算清缴怎么算</h3><div class="badges"><span class="badge r3">3 月 31 日，比企业所得税还早 ★★★</span><span class="badge">适合：个体户/个独/合伙</span></div></div>
+    <p><b>应纳税所得额怎么来：</b>《个人所得税法》第六条——经营所得以每一纳税年度的<b>收入总额减除成本、费用以及损失后的余额</b>为应纳税所得额。国家税务总局令第 35 号《个体工商户个人所得税计税办法》补了几条实操规则：实际支付给从业人员的、合理的工资薪金支出准予扣除；生产经营与个人、家庭生活混用难以分清的费用，<b>40% 视为与生产经营有关</b>，准予扣除；纳税年度发生的亏损，准予向以后年度结转弥补，<b>最长不超过五年</b>；而<b>个体工商户业主本人的工资薪金支出不得税前扣除</b>——这就是"个体户给自己发工资抵不了税"的出处。</p>
+    <p><b>没有综合所得的，还能再减：</b>《实施条例》第十五条第二款——取得经营所得的个人，没有综合所得的，计算其每一纳税年度的应纳税所得额时，应当<b>减除费用 6 万元、专项扣除、专项附加扣除以及依法确定的其他扣除</b>。专项扣除指按国家规定范围和标准缴纳的基本养老保险、基本医疗保险、失业保险费和住房公积金等（《个人所得税法》第六条）。</p>
+    <p><b>减半征收：</b>财政部 税务总局公告 2023 年第 12 号第一条——2023 年 1 月 1 日至 2027 年 12 月 31 日，对<b>个体工商户年应纳税所得额不超过 200 万元的部分，个人所得税减半征收</b>，且可与其他优惠叠加。税务总局新媒体公布的官方算例：李某经营个体户 C，年应纳税所得额 8 万元（适用税率 10%，速算扣除数 1,500 元），同时可享受残疾人政策减免税额 2,000 元，减半征收的减免税额 =〔（80,000×10% − 1,500）− 2,000〕× 50% = <b>2,250 元</b>。</p>
+    <p><b>流程：</b>按月还是按季预缴，由主管税务机关核定（不是自己挑的）；次年 3 月 31 日前，在自然人电子税务局填报经营所得年度汇总申报（表样以系统当期为准），把预缴税额和全年汇算结果对上，多退少补。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔀</span><h3>多处收入怎么合并，专项附加扣除能不能用上</h3><div class="badges"><span class="badge r4">重复扣除是最常见错误 ★★★★</span><span class="badge">适合：有双重身份的人</span></div></div>
+    <p><b>两处以上经营所得：</b>要合并。税务总局新媒体给出的官方示例：纳税人张某同时经营个体工商户 A 和 B，年应纳税所得额分别为 80 万元和 150 万元，办理年度汇总纳税申报时<b>应合并计算年应纳税所得额</b>（合计 230 万元），可享受减半征收的应纳税所得额为 200 万元，并重新计算减免税额，多退少补。</p>
+    <p><b>两处以上综合所得：</b>平时由两处扣缴义务人分别预扣预缴，次年 3 月 1 日—6 月 30 日办理综合所得汇算清缴时合并计算，预缴多了一般退、少了一般补。国家税务总局令第 57 号《个人所得税综合所得汇算清缴管理办法》（2025 年 2 月 26 日公布施行）规定，汇算期结束后仍未申报或未足额补税的，将被依法追缴税款、加收滞纳金，并在纳税记录中标注。</p>
+    <p><b>专项附加扣除标准</b>（国发〔2018〕41 号，2023 年起三项标准提高，见国发〔2023〕13 号）：</p>
+    <table>
+      <tr><th>项目</th><th>现行标准</th></tr>
+      <tr><td>子女教育</td><td>每个子女每月 2,000 元（2023 年起由 1,000 元提高）</td></tr>
+      <tr><td>3 岁以下婴幼儿照护</td><td>每个婴幼儿每月 2,000 元（2023 年起由 1,000 元提高）</td></tr>
+      <tr><td>赡养老人</td><td>每月 3,000 元；独生子女全额扣除，非独生子女分摊且每人不超过每月 1,500 元</td></tr>
+      <tr><td>住房贷款利息</td><td>每月 1,000 元，扣除期限最长不超过 240 个月</td></tr>
+      <tr><td>住房租金</td><td>按城市分档：每月 1,500 元 / 1,100 元 / 800 元</td></tr>
+      <tr><td>继续教育</td><td>学历（学位）继续教育每月 400 元、最长 48 个月；职业资格取证当年 3,600 元</td></tr>
+      <tr><td>大病医疗</td><td>医保报销后个人负担累计超过 15,000 元的部分，汇算时在 80,000 元限额内据实扣除</td></tr>
+    </table>
+    <p><b>个体户老板能用上吗？能。</b>前提是当年没有综合所得（没在别处领工资），汇算清缴时按《实施条例》第十五条第二款一并减除 6 万元费用、专项扣除和专项附加扣除，在个人所得税 APP 里填报扣除信息。另有<b>个人养老金</b>：按每年 12,000 元限额，在综合所得或经营所得中据实扣除（国家税务总局办公厅政策解读）。<b>记住一条纪律：基本减除费用和专项附加扣除一个纳税年度只能扣一次，两处收入、两套身份都不能重复扣。</b></p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>2026 年 7 月 10 日国家税务总局曝光的网络主播许静婉案，手段正是"通过私人账户收款隐匿收入、转换收入性质"，少缴个人所得税、增值税等税费 313.45 万元，最终被追缴税费款、加收滞纳金并处罚款合计 631.96 万元。把劳务报酬"包装"成经营所得、把收入拆到几处，都属于被点名的典型手法。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.chinatax.gov.cn/chinatax/n810219/n810744/n3752930/n3752974/c3970366/content.html" target="_blank">《中华人民共和国个人所得税法》（国家税务总局，2018-08-31 发布）</a><a href="https://www.gov.cn/zhengce/content/2018-12/22/content_5351177.htm" target="_blank">《中华人民共和国个人所得税法实施条例》（国务院令第707号，2019年1月1日施行，中国政府网）</a><a href="http://fujian.chinatax.gov.cn/ssxc/sszt/grsdsgg/gsggzjjd/201811/t20181117_284839.htm" target="_blank">个税税率表（个人所得税税率表一、税率表二）（国家税务总局福建省税务局，2018-11-17）</a><a href="https://www.chinatax.gov.cn/chinatax/n810341/n810760/c3959585/content.html" target="_blank">关于《个人所得税扣缴申报管理办法（试行）》的解读（含个人所得税预扣率表一）（国家税务总局，2018-12-22）</a><a href="https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/c102062/c495873/content.html" target="_blank">《个体工商户个人所得税计税办法》（国家税务总局令第35号，2015年1月1日施行）</a><a href="https://www.gov.cn/zhengce/zhengceku/2018-12/22/content_5351181.htm" target="_blank">《国务院关于印发个人所得税专项附加扣除暂行办法的通知》（国发〔2018〕41号）</a><a href="https://www.gov.cn/gongbao/2023/issue_10706/202309/content_6904866.html" target="_blank">《国务院关于提高个人所得税有关专项附加扣除标准的通知》（国发〔2023〕13号，2023年1月1日起实施）</a><a href="https://tianjin.chinatax.gov.cn/11298000000/0100/010003/p20230823135936149.shtml" target="_blank">《财政部 税务总局关于进一步支持小微企业和个体工商户发展有关税费政策的公告》（2023年第12号，个体工商户经营所得减半征收）</a><a href="https://www.chinatax.gov.cn/chinatax/n810356/n3010387/c5210587/content.html" target="_blank">举例说明：个体工商户减半征收个人所得税政策的减免税额如何计算（含多处经营所得合并汇总示例）（税务总局新媒体，2023-08-07）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5238560/content.html" target="_blank">《个人所得税综合所得汇算清缴管理办法》（国家税务总局令第57号，2025年2月26日公布施行）</a><a href="https://www.chinatax.gov.cn/chinatax/n810341/n810760/c5183237/content.html" target="_blank">享受个人养老金税收优惠政策"三步走"（国家税务总局办公厅，2022-12-15）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250919/content.html" target="_blank">"六百万粉丝"带货主播的"隐身账"——揭秘网络主播许静婉偷税案件（国家税务总局，2026-07-10）</a></div>
+</section>
+
+<section id="c13" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 13 · PART 3 · 报税篇</span><h2>社保与公积金：灵活就业怎么交<span class="accent">：参保、费率、断缴影响与补救</span></h2></div>
+  <p class="sec-desc">没有单位帮你交社保不等于不能交——个体工商户和灵活就业人员可以个人身份参加职工养老和职工医保，费用全部自己出。这一章讲：怎么参保、交多少、在哪交；个体户与公司给员工缴社保的区别；公积金个人能不能交；断缴的真实后果与补救。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🪪</span><h3>灵活就业人员：怎么参保、交多少、在哪交</h3><div class="badges"><span class="badge r1">国家给的政策通道 ★</span><span class="badge">适合：无雇工个体户/自由职业者</span></div></div>
+    <p><b>法律依据很直接。</b>《社会保险法》第十条、第二十三条：无雇工的个体工商户、未在用人单位参加基本养老保险（职工基本医疗保险）的非全日制从业人员以及其他灵活就业人员，<b>可以</b>参加基本养老保险（职工基本医疗保险），<b>由个人缴纳</b>基本养老保险费（基本医疗保险费）。注意用词是"可以"——这是权利，不是强制，但它是你唯一能把自己纳入职工社保体系的入口。</p>
+    <p><b>养老保险交多少：</b>《国务院关于完善企业职工基本养老保险制度的决定》（国发〔2005〕38 号）：城镇个体工商户和灵活就业人员参加基本养老保险，缴费基数为当地上年度在岗职工平均工资，<b>缴费比例为 20%，其中 8% 记入个人账户</b>。基数怎么定？按国办发〔2019〕13 号，自 2019 年 5 月 1 日起各省以全口径城镇单位就业人员平均工资核定上下限；<b>以个人身份参保的个体工商户、灵活就业人员可以在本省全口径平均工资的 60% 至 300% 之间选择缴费基数</b>（安徽省、湖南省人社厅政策解读均引此口径）。基数自选，交得多将来领得多。</p>
+    <p><b>职工医保交多少：</b>费率与基数由各统筹地区规定，一般按月或按年缴，金额从每月几百到上千不等。<b>本节检索未找到全国统一的灵活就业人员职工医保缴费标准文件，各地差异很大，只能以参保地医保部门当期通知为准</b>——每年年底和年初，当地医保局、人社局官网都会发当年度的缴费通知，照着上面的基数和比例缴即可。</p>
+    <p><b>在哪办：</b>参保登记一般去<b>就业地或户籍地的社保经办机构</b>（部分地区支持网办；超大城市按国办发〔2024〕38 号已取消灵活就业人员在就业地参加基本医保的户籍限制）。缴费走<b>税务渠道</b>：本省电子税务局社保费模块、税务 APP、办税服务厅。以自然人身份登录电子税务局，在"我要办税 → 社保费"可查到个人基本信息与核定信息（国家税务总局珠海市税务局指引）。</p>
+    <blockquote class="xq">💬 <span class="who">实务建议：</span>先打电话 12333 问清三件事——我这儿灵活就业养老保险的基数上下限今年是多少、医保是按月还是按年缴、什么渠道可以线上办。三分钟问完，胜过查半天网页。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏢</span><h3>个体户与公司：给员工（含自己）缴社保的区别</h3><div class="badges"><span class="badge r4">有雇工你就是用人单位 ★★★★</span><span class="badge">适合：雇了人的老板</span></div></div>
+    <p><b>一旦你雇了人，"用人单位"的义务就落到你头上。</b>《社会保险法》第五十八条：用人单位应当<b>自用工之日起三十日内</b>为其职工向社会保险经办机构申请办理社会保险登记；第六十条：用人单位应当自行申报、按时足额缴纳社会保险费，非因不可抗力等法定事由不得缓缴、减免，职工个人应缴部分由用人单位代扣代缴。个体户有雇工的，同样适用这套规则——雇员入职一个月内必须登记，这是法定义务，不是"他想交才交"。</p>
+    <p><b>在职职工的缴费结构：</b>基本养老保险<b>个人缴 8%</b>，单位另缴一部分；医疗、失业、工伤保险的单位与个人费率由各统筹地区规定，各地不同。<b>和灵活就业身份最大的差别是：有单位的人，大头由单位出；个人身份参保，20% 全部自己扛。</b>单位那部分的具体比例以参保地当期规定为准。</p>
+    <p><b>老板本人怎么交：</b>没有雇工的个体户，业主本人按灵活就业人员身份参保，自己缴全部。有雇工的个体户，业主本人能否按"职工"身份参保、单位部分如何承担，<b>各地经办口径不一</b>，需要问当地社保经办机构，别照搬外地做法。</p>
+    <p><b>公司主体的差别：</b>公司可以给你自己发工资、缴社保，工资和单位缴的社保都作为成本费用在企业所得税前扣除，你拿的工资按"综合所得"缴个税（可享 6 万元减除费用和专项附加扣除）。个体户则不行——国家税务总局令第 35 号《个体工商户个人所得税计税办法》第二十一条明确<b>"个体工商户业主的工资薪金支出不得税前扣除"</b>。这也是第 6 章"个体户还是公司"那个选择题在社保上的具体体现。</p>
+    <p><b>欠缴的代价：</b>《社会保险法》第八十六条——社会保险费征收机构责令限期缴纳或补足，并<b>自欠缴之日起按日加收万分之五的滞纳金</b>；逾期仍不缴纳的，处欠缴数额<b>一倍以上三倍以下</b>的罚款。员工一投诉一个准，别赌。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏠</span><h3>公积金：个人能不能交、有什么用</h3><div class="badges"><span class="badge r2">能交的城市越来越多 ★★</span><span class="badge">适合：打算买房/租房的人</span></div></div>
+    <p><b>在职职工这一侧是强制的：</b>单位及其在职职工应当缴存住房公积金，缴存比例在 <b>5% 至 12%</b> 之间由单位自主确定。以北京 2026 住房公积金年度（2026 年 7 月 1 日至 2027 年 6 月 30 日）为例，北京住房公积金管理委员会办公室 2026 年 8 月 24 日发布的通知明确"缴存比例继续实行 5% 至 12%"，月缴存基数上限 36,348 元、下限 2,540 元。个体户有雇工的，同样要替在职职工缴存。</p>
+    <p><b>个人能不能交？看城市。</b>全国层面，灵活就业人员自愿缴存公积金仍在试点推广，并非所有城市都开放。白银市住房公积金管理中心 2022 年 8 月汇总的各地政策显示，2021 年确定的试点城市包括<b>重庆、成都、广州、深圳、苏州、常州</b>等 6 城，当时共 7.29 万名灵活就业人员缴存 2.92 亿元。<b>你所在城市开不开放、怎么开户、缴存额范围多少，直接问当地公积金管理中心</b>。</p>
+    <p><b>用处核心是两条：</b>一是<b>买房贷款利率远低于商业贷款</b>。中国人民银行 2025 年 5 月 7 日成文的通知：自 2025 年 5 月 8 日起下调公积金贷款利率 0.25 个百分点——首套 5 年以下（含）2.1%、5 年以上 <b>2.6%</b>；二套 5 年以下不低于 2.525%、5 年以上不低于 3.075%。二是<b>提取</b>：购买、建造、翻建、大修自住住房，离休退休，房租超家庭工资收入规定比例等情形都可提取。北京 2026 年 8 月 7 日《关于进一步优化调整本市房地产政策的通知》（京建发〔2026〕400 号）还规定，凭装修增值税发票可提取用于自住住房装修，额度不超过发票金额 50% 且最高 25 万元。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⛓️‍💥</span><h3>断缴的真实影响与补救</h3><div class="badges"><span class="badge r5">医保断缴现在有等待期 ★★★★★</span><span class="badge">适合：断过缴的人</span></div></div>
+    <p><b>养老保险：断缴不清零。</b>人力资源社会保障部的答复口径是：计算养老金待遇时，<b>职工基本养老保险缴费年限和个人账户金额都是累计计算的</b>；停缴几年后以灵活就业人员身份继续参保，前后年限合并计算。但原则是"多缴多得、长缴多得"——中断太久，累计年限短，待遇也会相对低一些。养老保险看累计年数，一般不必为"补连续性"专门补缴。</p>
+    <p><b>医保：2025 年起有明确等待期。</b>《国务院办公厅关于健全基本医疗保险参保长效机制的指导意见》（国办发〔2024〕38 号，成文 2024 年 7 月 26 日）：<b>自 2025 年起</b>，除新生儿等特殊群体外，未在集中参保期参保或未连续参保的人员，设<b>固定待遇等待期 3 个月</b>；未连续参保的，<b>每多断保 1 年增加变动等待期 1 个月</b>；连续断缴 4 年及以上的，修复后两项之和原则上不少于 6 个月。<b>可修复：</b>每多缴 1 年减少 1 个月变动等待期，补缴标准参照当年参保地个人缴费标准。断过医保又想用医保，越早接续越划算。</p>
+    <p><b>其他连带影响：</b>购房、购车摇号、积分落户、子女入学等资格，很多城市与社保连续缴纳月数挂钩，属地方政策；单位应缴未缴的，按《社会保险法》第八十六条产生滞纳金和罚款。</p>
+    <p><b>补救动作：</b>① 登录本省电子税务局或人社 APP 查参保状态，确认哪几个月断了；② 养老尽快以灵活就业身份接续，年限累计、不清零；③ 医保尽快接续并了解本地等待期与补缴政策；④ 单位欠缴的，先向单位追缴，再向社保征收机构或劳动监察反映；⑤ 每年至少查一次缴费记录，别等看病刷不出卡才发现。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="http://www.cjs.gov.cn/gk/zhfgtl/885597.htm" target="_blank">《中华人民共和国社会保险法》（昌吉市人民政府公开信息转载，含第十条、第二十三条、第五十八条、第六十条、第八十六条）</a><a href="https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2006n/qk/2006n_dyq/gwywj/F9C20DED39594CE3940C9EF40457D4E8/index.shtml" target="_blank">《国务院关于完善企业职工基本养老保险制度的决定》（国发〔2005〕38号，辽宁省人民政府公报转载）</a><a href="https://hrss.ah.gov.cn/zxzx/gsgg/8780312.html" target="_blank">2023年社会保险缴费基数上下限政策问答（引述国办发〔2019〕13号，灵活就业人员基数可在60%至300%之间选择）（安徽省人力资源和社会保障厅，2023-08-01）</a><a href="https://rst.hunan.gov.cn/rst/xxgk/zcfg/zcjd/202308/t20230828_29470192.html" target="_blank">关于公布2023年社会保险缴费基准值的通知的解读（湖南省人力资源和社会保障厅，2023-08-28）</a><a href="https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969189.html" target="_blank">《国务院办公厅关于健全基本医疗保险参保长效机制的指导意见》（国办发〔2024〕38号，含固定与变动待遇等待期规则）</a><a href="https://www.huangpi.gov.cn/fbjd_33/xxgkml/qtzdgknr/hygq/202308/t20230831_2256667.html" target="_blank">【养老】养老保险缴费年限累计计算吗？（人力资源社会保障部答复口径，武汉市黄陂区人民政府转载，2023-08-31）</a><a href="https://guangdong.chinatax.gov.cn/gdsw/zhsw_dzswj_sbl/2022-12/01/content_882bae1ac23f48bb949f11be449a796a.shtml" target="_blank">电子税务局-社保类-灵活就业参保功能-个人基本信息（国家税务总局珠海市税务局，2022-12-01）</a><a href="https://gjj.beijing.gov.cn/web/zwgk61/2024zcwj/436433461/744103382/index.html" target="_blank">《关于2026住房公积金年度缴存有关问题的通知》（京房公积金管委会办〔2026〕6号，缴存比例5%至12%）</a><a href="https://gjj.beijing.gov.cn/web/zwgk61/2024zcwj/436433464/436433467/744089355/index.html" target="_blank">《关于进一步优化调整本市房地产政策的通知》（京建发〔2026〕400号，装修发票可提取公积金，北京住房公积金管理中心，2026-08-07）</a><a href="https://www.gov.cn/zhengce/zhengceku/202505/content_7022708.htm" target="_blank">《中国人民银行关于下调个人住房公积金贷款利率的通知》（2025年5月7日成文，2025年5月8日起执行）</a><a href="https://www.baiyin.gov.cn/zwgk/zcwdpt/SZFGJJGLZX/art/2022/art_79c7316ddcb447b3a7b2992e65641dde.html" target="_blank">灵活就业人员——各地住房公积金缴存使用政策汇总（白银市住房公积金管理中心，2022-08-26）</a><a href="https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/c102062/c495873/content.html" target="_blank">《个体工商户个人所得税计税办法》（国家税务总局令第35号，第二十一条：业主工资不得税前扣除）</a></div>
+</section>
+
+<section id="c14" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 14 · PART 3 · 报税篇</span><h2>年报与异常名录<span class="accent">：别进经营异常</span></h2></div>
+  <p class="sec-desc">很多一人公司不是死于没生意，而是死于"忘了报一次年报"。这一章讲四件事：工商年报报什么、怎么报、何时截止；没报会被列进经营异常名录，后果是什么、怎么移出；税务上的"非正常户"是怎么回事；以及注销前必须先清掉哪些事。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>工商年报：一年一次，6月30日截止</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：所有市场主体</span><span class="badge">年报免费</span></div></div>
+    <p>《企业信息公示暂行条例》（国务院令第654号，2014年10月1日施行）第八条规定：<b>"企业应当于每年1月1日至6月30日，通过企业信用信息公示系统向工商行政管理部门报送上一年度年度报告，并向社会公示。"</b>当年设立的企业从下一年起报送。<b>截止日是6月30日，报的是上一自然年度，一年只有一次。</b></p>
+    <p>报什么？条例第九条列了七项：联系地址、电话、邮箱；开业歇业清算等存续状态；对外投资与股权信息；股东认缴和实缴的出资额、时间、方式；股权变更信息；企业网站与网店名称网址；以及从业人数、资产总额、负债总额、对外担保、所有者权益、营业总收入、主营业务收入、利润总额、净利润、纳税总额。</p>
+    <p>关键细节：<b>前六项必须向社会公示，第七项（财务数据）由企业选择是否公示</b>。很多人看到要填营业额就慌——填是可以填的，公示与否你自己定。</p>
+    <p>怎么报？登录<b>国家企业信用信息公示系统</b>（gsxt.gov.cn）"企业信息填报"，用联络员或电子营业执照登录后逐项填写提交。<b>年报和补报全程免费</b>，凡是以"代报年报"为名收钱的都值得警惕。个体工商户、农民专业合作社同样要报送年报（《市场主体登记管理条例》第三十五条），具体表格与时间以当地市场监管部门当期通知为准。</p>
+    <p>最常见的三个错：<b>以为"没开张就不用报"</b>——没收入也要报，填零即可；<b>联系电话填错</b>，被列入异常名录都收不到消息；<b>资产收入随手填</b>，和报税数据差太远反而引来关注。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>条例第九条第二款："企业年度报告公示信息的更正应当在每年6月30日之前完成。"填错了，6月30日前还能改。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>经营异常名录：怎么进的，怎么出来</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">影响招投标、贷款、注销</span></div></div>
+    <p>条例第十七条规定，企业出现两种情形会被<b>列入经营异常名录</b>：一是<b>未按本条例规定的期限公示年度报告</b>，或未按工商行政管理部门责令的期限公示有关企业信息；二是<b>公示信息隐瞒真实情况、弄虚作假</b>。逾期不报年报是最常见的"进门"方式，"表格随便填"是第二种。</p>
+    <p>进去以后有什么后果？条例第十八条明确，政府部门在政府采购、工程招投标、国有土地出让、授予荣誉称号等工作中，"对被列入经营异常名录或者严重违法企业名单的企业依法予以限制或者禁入"。对一人公司最直接的痛点是<b>客户查企业信息时看到"经营异常"四个字</b>，订单可能就黄了；贷款、平台入驻、投标也会被卡。</p>
+    <p>更严重的是时间：第十七条第二款规定，<b>满3年未履行公示义务的，由国务院或省级工商行政管理部门列入严重违法失信名单</b>，且<b>3年内不得担任其他企业的法定代表人、负责人</b>；满5年未再发生的才可移出。一份忘报的年报拖三年，会变成"老板不能当"的问题。</p>
+    <p><b>移出路径：</b>先补报年报（或更正公示信息），再向登记机关申请移出。国办发〔2025〕22号《关于进一步完善信用修复制度的实施方案》（2025年6月26日发布）给出统一规则：<b>最短公示期满后方可申请信用修复</b>；材料为<b>履行完毕法定责任义务的证明材料和信用承诺书</b>；<b>市场监管领域信用修复依托国家企业信用信息公示系统，按"谁认定、谁修复"原则办理</b>。时限上：网站收到申请后一般10个工作日内反馈，主管部门3个工作日内决定是否受理，受理后7个工作日内提供修复结果。</p>
+    <p>另外，被列入经营异常名录的企业<b>不适用简易注销程序</b>（《市场主体登记管理条例》第三十三条），连"体面退场"的快捷通道都被关掉了。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>国办发〔2026〕8号《关于建立企业信用状况综合评价体系的实施方案》（2026年4月2日发布）明确，信用修复范围包括行政处罚、严重失信主体名单、<b>异常名录</b>等失信信息，修复后相关部门应及时更新信息并重新开展公共信用评价——修复不是"从系统里抹掉"，而是"改回正常分"。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧯</span><h3>税务"非正常户"：三个月不申报就会中</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">自动认定，无需通知</span></div></div>
+    <p>工商异常名录管"公示义务"，税务这边对应的是<b>非正常户</b>。国家税务总局《关于税收征管若干事项的公告》（税务总局公告2019年第48号）写得很直接：<b>"纳税人负有纳税申报义务，但连续三个月所有税种均未进行纳税申报的，税收征管系统自动将其认定为非正常户，并停止其发票领用簿和发票的使用。"</b></p>
+    <p>注意两个关键词：<b>自动</b>——系统判定，不会有人打电话提醒你；<b>停止发票</b>——一旦成为非正常户，领不了发票、开不出发票，客户要票你就傻眼了。</p>
+    <p><b>怎么解除？</b>同一份公告规定："已认定为非正常户的纳税人，就其逾期未申报行为接受处罚、缴纳罚款，并补办纳税申报的，税收征管系统自动解除非正常状态，无需纳税人专门申请解除。"翻译成动作：<b>接受处罚→缴罚款→补申报</b>。如果还欠税，税务机关将"依照税收征管法及其实施细则的规定追征税款及滞纳金"，滞纳金按日累计，拖越久越贵。</p>
+    <p>实操建议：<b>哪怕这个月零收入，也要做零申报</b>。小规模纳税人按季申报的，季度内也要把增值税、附加税费、个人所得税经营所得（如适用）都报掉。设一个手机日历提醒，每季度末前3天响一次，比任何事后补救都便宜。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>税务总局公告2019年第48号还规定："纳税人未按照规定期限申报纳税，在税务机关责令限期改正期限内改正的，不作为非正常户认定。"——被责令后及时补上，还有机会不进这个名单。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗂️</span><h3>注销前必须清掉的清单</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">六部门指引</span><span class="badge">适合：准备收摊的人</span></div></div>
+    <p>不做了、要注销公司，最怕的是"以为注销就是去工商局签个字"。市场监管总局、公安部、人力资源社会保障部、中国人民银行、海关总署、税务总局六部门《企业注销指引（2025年修订）》（2025年第52号公告，2025年12月30日发布）把功课列得很清楚。</p>
+    <p><b>先清税务：</b>申请注销税务登记并接受税务注销预检，未办结的涉税事项先办完；结清欠税、滞纳金、罚款；办理企业所得税清算；<b>结清出口退（免）税款、缴销发票和税控设备</b>；合伙企业、个人独资企业的清算所得由投资者依法缴纳个人所得税；<b>处于税务非正常状态的，先解除非正常状态并补办申报</b>。</p>
+    <p><b>再清社保和其他：</b>结清欠缴的社会保险费、滞纳金、罚款后办理注销社会保险登记（应在办理企业注销登记之日起30日内申请）；涉及海关业务的办结海关手续、注销报关单位备案；最后<b>向开户银行申请办理银行结算账户销户</b>。</p>
+    <p><b>一般注销的流程与天数</b>（新《公司法》口径）：出现解散事由10日内公示；15日内成立清算组；清算组成立10日内公告其信息；成立60日内发布债权人公告，公告期45日；清算结束后确认清算报告，依次注销税务、企业、社保登记，办理银行销户。</p>
+    <p><b>简易注销</b>适用于上市股份有限公司以外的企业，条件是存续期间未发生债权债务或已清偿完结，未结清清偿费用、职工工资、社保费用、法定补偿金、应缴税款（滞纳金、罚款），并由全体投资人书面承诺真实性。<b>公示期20日</b>，无异议的可在公示期满之日起20日内申请注销登记。排除情形包括被吊销、责令关闭、撤销，<b>被列入经营异常名录或严重违法失信名单</b>，股权被冻结出质，未办所得税清算，未缴清海关税款，正在被立案调查或诉讼仲裁等。</p>
+    <p>一句话总结：<b>年报6月30日前报掉，税务每季度零申报也要报，注销前把税、社保、银行、发票清零。</b></p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2014-08/23/content_9038.htm" target="_blank">《企业信息公示暂行条例》（国务院令第654号，2014-08-23）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2021-08/24/content_5632964.htm" target="_blank">《市场主体登记管理条例》（国务院令第746号，2021-08-24）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202506/content_7029484.htm" target="_blank">国办发〔2025〕22号《关于进一步完善信用修复制度的实施方案》（2025-06-26）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202604/content_7064505.htm" target="_blank">国办发〔2026〕8号《关于建立企业信用状况综合评价体系的实施方案》（2026-04-02）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202512/content_7053238.htm" target="_blank">市场监管总局等六部门《企业注销指引（2025年修订）》（2025年第52号）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2020-01/03/content_5466185.htm" target="_blank">国家税务总局公告2019年第48号《关于税收征管若干事项的公告》</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2023-03/31/content_5749443.htm" target="_blank">税总征科发〔2022〕87号《关于优化若干税收征管服务事项的通知》</a>
+    <a href="https://www.gsxt.gov.cn/index.html" target="_blank">国家企业信用信息公示系统（年报报送入口）</a>
+  </div>
+  <p class="sec-desc">📌 以上内容依据 2026-10-29 检索到的公开文件写成；各地办理口径存在差异，请以当地主管部门当期规定为准。</p>
+</section>
+
+<section id="c15" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 15 · PART 4 · 合同与风险篇</span><h2>服务合同要点<span class="accent">：必须有的八条</span></h2></div>
+  <p class="sec-desc">一个人接单，最容易吃的是"没写清楚"的亏：做到一半加需求不给钱、交付了对方说没验收、尾款拖半年、代码写完版权归谁扯不清。这一章把服务合同必须写清的八条逐条落到"独立开发者/自由职业者"的场景，并讲清口头约定与微信记录的效力、模板该怎么用。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>八条要素：把《民法典》的清单翻译成你的合同</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">《民法典》第470条</span><span class="badge">适合：所有接单场景</span></div></div>
+    <p>《中华人民共和国民法典》（2020年5月28日第十三届全国人民代表大会第三次会议通过，2021年1月1日起施行）第四百七十条规定，合同内容由当事人约定，"一般包括"以下条款：<b>当事人的姓名或者名称和住所；标的；数量；质量；价款或者报酬；履行期限、履行地点和履行方式；违约责任；争议解决的方法</b>。同条第二款还说了一句对一人公司特别有用的话——<b>"当事人可以参照各类合同的示范文本订立合同。"</b>这句话给了你用模板的法律依据，但"参照"不等于"照抄"，下面这张表把这八条逐条落到你的场景里。</p>
+    <table>
+      <tr><th style="width:16%">八条要素</th><th style="width:42%">落到你的合同上要写什么</th><th>一人公司最常见的坑</th></tr>
+      <tr><td><b>1 主体</b></td><td>甲乙双方全称、统一社会信用代码/身份证号、住所、联系人、指定收款账户（户名+账号+开户行）。</td><td>只写"张总""李经理"，对方换人不认账；没写指定收款账户，对方说"付给了你合伙人"。</td></tr>
+      <tr><td><b>2 标的</b></td><td>一句话说清"我到底交付什么"：是做一个网站、出十张图，还是每月维护；附《交付物清单》作为附件。</td><td>写"提供技术开发服务"，范围含糊，最后变成无限改。</td></tr>
+      <tr><td><b>3 数量与质量</b></td><td>交付物的量化标准：页面数、接口数、分辨率、交付格式；以及<b>明确的验收标准</b>。</td><td>没有验收标准，"验收"就永远不通过，尾款永远不到账。</td></tr>
+      <tr><td><b>4 价款</b></td><td>总价或单价、是否含税、开票类型（专票/普票）、付款节点与比例、逾期付款的处理。</td><td>没写"含税"，结算时对方要求你承担税费；没写付款节点，全靠催。</td></tr>
+      <tr><td><b>5 履行期限地点方式</b></td><td>各阶段时间表、交付方式（邮件/仓库/部署环境）、沟通渠道与响应时限。</td><td>"尽快交付"四个字，等于没有期限，扯皮时无法定责。</td></tr>
+      <tr><td><b>6 知识产权</b></td><td>工作成果的归属：代码著作权、设计源文件、字体与素材授权；客户提供的素材归客户；你复用的自有组件/框架归你。</td><td>不写=默认扯皮。客户以为"付了钱全归我"，你以为"我的通用模块还能复用"。</td></tr>
+      <tr><td><b>7 保密</b></td><td>保密范围、期限（一般2—5年）、例外情形（公开信息、法定披露）。</td><td>口头答应"放心我不说"，出了事没有任何依据。</td></tr>
+      <tr><td><b>8 违约与争议</b></td><td>逾期付款/逾期交付的违约金比例、解约条件、争议解决方式（被告住所地/合同履行地法院，或仲裁）。</td><td>违约金写"按日千分之五"被认定过高；争议条款空着，出事才知道要去对方城市起诉。</td></tr>
+    </table>
+    <p>违约责任的底线规则在民法典第五百七十七条："当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。"第五百八十四条进一步明确，赔偿额"应当相当于因违约所造成的损失，包括合同履行后可以获得的利益；但是不得超过违约一方订立合同时预见到或者应当预见到的因违约可能造成的损失"——<b>所以违约金不是越高越好</b>，写一个对方能接受、你也举得出证的比例更实在。</p>
+    <blockquote class="xq">💬 <span class="who">实务建议：</span>把"交付物清单""报价明细""验收标准"做成合同附件，正文只留一条"详见附件一"。改需求时只改附件并双方确认，比每次重签一版合同省事得多，也更能证明"当初约定了什么"。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗣️</span><h3>口头约定与微信记录的效力</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">举证是关键</span><span class="badge">适合：微信谈单的人</span></div></div>
+    <p>先说结论：<b>口头合同不是无效合同</b>。民法典第四百六十九条明确，"当事人订立合同，可以采用书面形式、口头形式或者其他形式"，并且"书面形式是合同书、信件、电报、电传、传真等可以有形地表现所载内容的形式"，<b>能够有形地表现所载内容并可以随时调取查用的数据电文，视为书面形式</b>。微信聊天记录属于数据电文，落在"视为书面形式"这个筐里——这也是为什么微信谈的单，法院认，但认的是"你能不能拿出来"。</p>
+    <p>电子数据的边界，可以参考市场监管总局《市场监督管理行政执法电子数据取证暂行规定》（国市监稽规〔2024〕4号，2024年4月18日发布、印发之日起施行）的定义：电子数据是"与案件相关，以数字化形式存储、处理、传输，能够证明案件事实的信息"，范围包括"文档、图片、音视频等电子文件及其属性信息""网页、博客、论坛等网络平台发布的信息""用户注册信息、身份认证信息、数字签名等用户身份信息""交易记录、浏览记录、操作记录等用户行为信息"等。虽是行政执法口径，但这份"什么算电子数据"的清单，对你整理自己的证据同样适用。</p>
+    <p><b>提高微信记录证据力的六个动作：</b></p>
+    <ul>
+      <li><b>证明"对面是谁"</b>：让对方在微信里确认公司全称，或用转账实名信息、企业微信认证补强身份；</li>
+      <li><b>保存原始载体</b>：不要只截图就删记录，手机别换、别清缓存，开庭可能要验原机；</li>
+      <li><b>保留完整上下文</b>：只截对自己有利的一段容易被质疑断章取义，整段导出更稳；</li>
+      <li><b>把口头承诺落成文字</b>：聊完需求、价格、时间，发一条汇总消息请对方回复"确认"；</li>
+      <li><b>留下履行痕迹</b>：交付记录、修改记录、催款记录、对方的验收回复，都别删；</li>
+      <li><b>重要项目补一封邮件</b>：把微信里谈定的内容整理成确认邮件，邮件往来举证更规整。</li>
+    </ul>
+    <p>反过来，如果你连微信记录都不完整——对方不承认、金额说不清、交付物描述模糊——那基本只能吃闷亏。这就是为什么"能签书面就签书面"不是套话：<b>合同不是为了打官司，是为了让对方觉得打官司会输。</b></p>
+    <blockquote class="xq">💬 <span class="who">实务建议：</span>几百块的小单也值得写一份"一页纸合同"：甲乙双方、做什么、多少钱、什么时候付、改几次、版权归谁、违约怎么算。七行字，能挡掉九成的纠纷。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧰</span><h3>模板怎么用：当清单用，别当成品用</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：第一次签合同的人</span></div></div>
+    <p>民法典第四百七十条第二款说"可以参照各类合同的示范文本订立合同"，这是模板合法性的来源。但模板的正确用法是<b>清单</b>——提醒你别漏条，而不是替你思考。</p>
+    <p><b>用模板的四步：</b>一、<b>对类型</b>：你接的是设计单就别用"软件开发合同"模板，交付物、验收方式、知识产权条款都不一样；二、<b>逐条改</b>：甲乙方、金额、期限、交付物、验收标准、付款节点全部换成你的项目，模板里方括号的地方必须填或删；三、<b>删不适用的</b>：服务器托管、源代码交付、质保三年这类条款，项目不涉及就删掉，留着比删掉危险；四、<b>看争议条款</b>：很多模板默认写仲裁，仲裁一裁终局、费用通常比诉讼高且不能上诉，想走法院要主动改成"向被告住所地人民法院提起诉讼"。</p>
+    <p><b>两个高频翻车点：</b>一是模板里的"修改不限次"，写上去你就是免费劳动力，务必写成"包含X次修改，超出部分按每小时X元计费"；二是模板里的知识产权条款经常一刀切写"全部成果归甲方"，你要把"乙方通用组件、工具库、既有框架"明确排除在外。</p>
+    <p>最后提醒时效性：<b>合同条款的效力以现行法律为准</b>，本章引用的《民法典》条文为2021年1月1日施行的版本；涉外合同或涉及数据、个人信息处理的条款，建议找律师过一遍。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>《民法典》第五百六十三条列举了可以解除合同的法定情形，包括不可抗力致使合同目的不能实现、履行期限届满前一方明确表示或以自己的行为表明不履行主要债务、迟延履行主要债务经催告后仍未履行、迟延履行或其他违约行为致使合同目的不能实现等。对方摆烂时，先催告、留证据，再谈解约。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://tjca.miit.gov.cn/zwgk/zcwj/flfg/art/2020/art_20cf1a2e1b854924b5caa744c8045d1f.html" target="_blank">《中华人民共和国民法典》全文（工业和信息化部网站转载，2020-06-01）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202404/content_6946031.htm" target="_blank">《市场监督管理行政执法电子数据取证暂行规定》（国市监稽规〔2024〕4号，2024-04-18）</a>
+    <a href="https://flk.npc.gov.cn/detail?title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E6%B0%91%E6%B3%95%E5%85%B8&id=ff808081729d1efe01729d50b5c500bf" target="_blank">国家法律法规数据库《中华人民共和国民法典》</a>
+    <a href="https://www.court.gov.cn/zixun/xiangqing/233181.html" target="_blank">最高人民法院官网《中华人民共和国民法典》全文</a>
+  </div>
+  <p class="sec-desc">📌 本章条文依据 2026-10-29 从工业和信息化部、国家法律法规数据库、最高人民法院官网与中国政府网检索到的公开文本核对。《民法典》自2021年1月1日起施行；合同纠纷的管辖与证据认定各地实践有差异，重大合同建议由执业律师审核。</p>
+</section>
+
+<section id="c16" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 16 · PART 4 · 合同与风险篇</span><h2>收款与对账<span class="accent">：公户、私户与第三方</span></h2></div>
+  <p class="sec-desc">钱从哪条路进来，决定了这笔收入在账上、在税上、在证据上算不算数。这一章把对公账户、个人卡、微信支付宝商户号、第三方代收四种通道摊开对比，说清为什么"长期用私户收款"是把自己往坑里推，并给出每月对账该核对的几项。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💳</span><h3>四种收款通道：合规性与凭证效力对比</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：月收款 20 万以下</span><span class="badge">含个体户/个独</span></div></div>
+    <p>先看一张对比表。<b>结论前置：对公账户是默认选项，微信/支付宝商户号是必要补充，个人卡只能是过渡，第三方代收要看平台是否给你开票。</b></p>
+    <table>
+      <tr><th style="width:15%">收款通道</th><th style="width:20%">合规性</th><th style="width:24%">凭证效力</th><th>主要风险与注意点</th></tr>
+      <tr><td><b>对公账户</b><br>（单位银行结算账户）</td><td>最规范。经营收入走对公户，收入、成本、税一目了然；注销时也要办理银行结算账户销户。</td><td>最强。银行流水+回单是最硬的入账凭证，也是应对检查时最容易被认可的材料。</td><td>开户与维护有时间成本；注意别和对私转账混着用，否则等于白分。</td></tr>
+      <tr><td><b>个人卡</b>（本人银行卡/微信支付宝个人码）</td><td>短期、小额、偶发可以；<b>长期把经营款收进个人卡不合规</b>，收入性质说不清。</td><td>弱。个人流水无法自动区分"经营收入"和"生活费"，举证时要靠你自己整理的台账。</td><td>见下一张卡片：隐匿收入=偷税，且追征不受期限限制。</td></tr>
+      <tr><td><b>微信/支付宝商户号</b>（特约商户收款码）</td><td>合规路径。《非银行支付机构监督管理条例》（国务院令第768号，2024年5月1日起施行）规定，特约商户是与非银行支付机构签约、由机构按约完成资金结算的经营主体；机构应<b>自行完成</b>商户尽职调查、协议签订、持续风险监测，<b>不得为未依法设立或非法经营的商户提供服务</b>。</td><td>中等偏强。商户号后台有交易明细，可导出结算单；建议每月导出存档，与银行到账金额核对。</td><td>必须用<b>营业执照</b>（或个体工商户登记）申请商户号，不能用个人码收经营款；支付账户应实名开立，<b>不得非法买卖、出租、出借支付账户</b>。</td></tr>
+      <tr><td><b>第三方代收</b><br>（平台/中介代收后结算给你）</td><td>取决于平台资质与结算方式。款项最终要结算到你名下，你要能说清每笔钱的性质。</td><td>中等。凭平台结算单、提现记录入账；平台是否开票、开什么票，要在合作前问清。</td><td>手续费要单独记账；平台跑路或冻结结算款的风险要有预案；别用来历不明的"代收"服务。</td></tr>
+    </table>
+    <p>条例还有一条常被忽略：<b>支付账户应当以用户真实意愿开立、以实名开立</b>，支付机构要防止匿名、假名账户，开展异常账户监测，防范账户被用于违法犯罪。用别人的商户码"借道"收款，既违反这一条，也让你自己的账对不上。</p>
+    <p>实操排序：<b>有执照的，先开对公户，再申请微信/支付宝商户号绑对公结算；偶尔客户转你微信零钱，当天手动记一笔并定期归集</b>。分户不是为了好看，是为了月底你能在半小时内说清"这个月到底收了多少钱"。</p>
+    <blockquote class="xq">💬 <span class="who">政策口径：</span>《非银行支付机构监督管理条例》第四十一条规定，为非法从事非银行支付业务的单位或者个人提供支付业务渠道的，没收违法所得，无违法所得或不足50万元的处50万元以上200万元以下罚款——借码收款的对方也跑不掉。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>为什么长期用私户收款有风险</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">偷税认定与无限期追征</span><span class="badge">必读</span></div></div>
+    <p>《中华人民共和国税收征收管理法》（1992年9月4日通过，2013年、2015年两次修正，现行文本见国家税务总局法规库）第六十三条把话说得很死：<b>"纳税人伪造、变造、隐匿、擅自销毁帐簿、记帐凭证，或者在帐簿上多列支出或者不列、少列收入，或者经税务机关通知申报而拒不申报或者进行虚假的纳税申报，不缴或者少缴应纳税款的，是偷税。"</b>对偷税的处罚是："由税务机关追缴其不缴或者少缴的税款、滞纳金，并处不缴或者少缴的税款<b>百分之五十以上五倍以下</b>的罚款；构成犯罪的，依法追究刑事责任。"</p>
+    <p>把经营款收进个人卡、不入账、不开票、不申报，正好落在"不列、少列收入"这一项上。<b>很多人以为"金额小就没事"，但法条里没有金额门槛</b>；税务系统比对的是银行流水、平台结算、社保个税、开票数据之间的逻辑关系，收入长期只走个人卡而申报为零，本身就是最容易被识别的异常形态。</p>
+    <p>更狠的是追征期。税收征管法第五十二条：因税务机关责任少缴的，3年内可要求补缴但不加收滞纳金；因纳税人计算错误等失误少缴的，3年内追征税款滞纳金，特殊情况可延长到5年；而<b>"对偷税、抗税、骗税的，税务机关追征其未缴或者少缴的税款、滞纳金或者所骗取的税款，不受前款规定期限的限制。"</b>翻译一下：<b>偷税没有保质期，十年前少交的税，今天照样追，滞纳金按日加收。</b></p>
+    <p>还有两个连带后果：一是公司收入进了股东个人卡，可能被认定为股东从公司取得了分红，需要按规定缴纳个人所得税（以主管税务机关认定为准）；二是<b>个人卡流水混乱会直接搞砸你的账</b>——查账时你说不清哪笔是收入、哪笔是代付。</p>
+    <p>合规的做法一点都不玄：<b>经营款尽量走对公户或绑对公的商户号；确实进了个人卡的，当月主动入账、申报；该开票的开票</b>。收入本来就要交税，早交比晚交便宜，主动比被动便宜。</p>
+    <blockquote class="xq">💬 <span class="who">实务建议：</span>不要用"拆分收入""多户收款分散金额"这类方式规避申报——这类操作一旦被认定，性质就从"漏报"变成"偷税"，处罚幅度和追征期限完全不同。收入小有收入小的优惠政策（小规模纳税人月销售额10万元以下免征增值税等），用足政策比绕开政策安全得多。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>每月对账：该核对的六项</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">半小时/月</span><span class="badge">适合：所有一人公司</span></div></div>
+    <p>对账的目的不是"做账"，是<b>在问题还小的时候发现它</b>。每月固定半小时，按六项过一遍：</p>
+    <ul>
+      <li><b>1 银行流水对记账收入</b>：导出对公户上月全部流水，逐笔和账上收入比对，确认"每一笔到账都有名有姓"。商户号结算的，把<b>平台结算单</b>也拉出来对。</li>
+      <li><b>2 未开票收入</b>：客户没要票的钱，也是收入，也要申报。只记"开过票的收入"是最常见的漏报来源。</li>
+      <li><b>3 到账金额与应收金额</b>：核对合同约定的付款节点，哪些已收、哪些逾期、逾期多久，形成一张简单的应收台账——这也是催款时唯一的依据。</li>
+      <li><b>4 手续费与平台扣费</b>：支付机构结算时扣的手续费、平台服务费，要单独记成成本费用，别让"到账金额"和"合同金额"对不上却不知道为什么。</li>
+      <li><b>5 成本费用票据</b>：上月发生的服务器、域名、SaaS订阅、外包、差旅，发票或电子凭证是否齐全；缺票的趁供应商还记得你，赶紧补。</li>
+      <li><b>6 余额与备用金</b>：账上现金/微信零钱/支付宝余额和账面余额核对；公私卡之间有过转账的，标记清楚性质。</li>
+    </ul>
+    <p>票据这块有个好消息：财政部、税务总局、中国人民银行等九部门《关于推广应用电子凭证会计数据标准的通知》（财会〔2025〕9号，2025年5月19日发布）已把<b>数电发票（含增值税专用发票、普通发票、航空运输电子客票行程单、铁路电子客票等）、财政电子票据、电子非税收入一般缴款书、国库集中支付电子凭证，以及银行电子回单和银行电子对账单</b>纳入电子凭证会计数据标准，目标是让合规凭证"无需转换即可直接进行接收（含验签或验真、解析）、报销、入账、归档等全流程各环节处理"。</p>
+    <p>对一人公司的实际意义：<b>电子发票、银行电子回单、电子对账单可直接作为会计凭证，不必都打印出来贴账本</b>——前提是按规范归档、可随时调取查用。各地税务与档案口径有差异，长期只存电子凭证前，建议先向主管税务机关或代账会计确认本地要求。</p>
+    <blockquote class="xq">💬 <span class="who">实务建议：</span>每月对账的产出只有一张表：日期、对方、金额、通道（公户/商户号/个人卡）、是否开票、对应合同号。这张表坚持记一年，年底汇算、注销清算、甚至应对检查时，你就是那个"账最清楚的人"。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202312/content_6920725.htm" target="_blank">《非银行支付机构监督管理条例》（国务院令第768号，2023-12-17公布）</a>
+    <a href="https://fgk.chinatax.gov.cn/zcfgk/c100009/c5195081/content.html" target="_blank">《中华人民共和国税收征收管理法》（国家税务总局法规库，2015年修正文本）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202505/content_7024318.htm" target="_blank">财政部等九部门《关于推广应用电子凭证会计数据标准的通知》（财会〔2025〕9号）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/202512/content_7053238.htm" target="_blank">市场监管总局等六部门《企业注销指引（2025年修订）》（2025年第52号）</a>
+    <a href="https://www.gov.cn/zhengce/zhengceku/2020-01/03/content_5466185.htm" target="_blank">国家税务总局公告2019年第48号《关于税收征管若干事项的公告》</a>
+  </div>
+  <p class="sec-desc">📌 以上内容依据 2026-10-29 从中国政府网、国家税务总局法规库检索到的公开文件写成；各地执行口径存在差异，跨境收款另见第17、18章，重大事项请咨询持牌专业人士。</p>
+</section>
+
+<section id="c17" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 17 · PART 4 · 合同与风险篇</span><h2>跨境收款<span class="accent">：Stripe / PayPal / 万里汇 / PingPong 四条通道怎么选</span></h2></div>
+  <p class="sec-desc">一个人接海外单，绕不开"客户怎么付钱、钱怎么回到国内"。这一章把四条主要通道的准入、费率、结算周期和所需材料摊开对比，并说清国家外汇管理局对这类通道的硬性规定——尤其是单笔 5 万美元这条线。所有费率与准入条件以 2026 年 10 月 29 日检索到的官网页面为准，各家会随时调整，开户前请以当期公示复核。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🌐</span><h3>先看一张对比表：四条通道各自的脾气</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：有境外客户或境外平台收入</span></div></div>
+    <p>四条通道不是一回事：<b>Stripe</b> 是"境外主体 + 境外银行卡"的收单网关；<b>PayPal</b> 是境外钱包 + 收单，买家覆盖最广但争议最多；<b>万里汇</b> 和 <b>PingPong</b> 是国内持牌支付机构的跨境账户，收的是平台货款和 B2B 款，走的是外汇局备案通道。选哪条，取决于你的收入形态（平台货款 / 客户直付 / 订阅制）和你能提供的主体材料。</p>
+    <table>
+      <tr><th>通道</th><th>准入主体（2026-10-29 官网口径）</th><th>主要费率</th><th>结算周期</th><th>特点与注意</th></tr>
+      <tr><td><b>Stripe</b></td><td>境外主体（香港、美国、新加坡、日本、英国、欧盟等 40+ 国家/地区）。<b>中国大陆不在其服务地区列表中</b>，官网页脚明示"产品和服务仅供信息参考，并不在中国大陆提供"。</td><td>香港区：国内银行卡 3.4% + HK$2.35/笔；美元结算 3.4% + US$0.30/笔，国际卡加收 0.5%，需货币兑换加收 2%；数字钱包（支付宝/微信）2.2% + HK$2.00；无设置费与月费。</td><td>滚动方式每周或每月提现；标准提现免费，即时提现收 1%（最低 HK$5）</td><td>最适合订阅制、SaaS、独立站；对大陆个人而言门槛是要有一个境外主体和境外银行账户</td></tr>
+      <tr><td><b>PayPal</b></td><td>境外商业账户；中国大陆站点（paypal.cn）仅提供消费者钱包入口。运营主体为 PayPal Pte. Ltd.（新加坡金管局《2019 年支付服务法案》大型支付机构）。</td><td>美国商家区：卡处理 2.89% 起 + $0.29/笔；PayPal/Venmo 按钮 3.49% + $0.49/笔；Pay Later 4.99% + $0.49/笔。<b>跨境交易附加费、货币兑换费、提现费、争议处理费，官网该页未列明——暂无公开数据。</b></td><td>视买家所在地与提现方式而定，官网该页未列明</td><td>买家覆盖面最广，但争议（chargeback）与账户限制风险最高；小额个人开发者常用它收海外客户直付款</td></tr>
+      <tr><td><b>万里汇</b><br>（WorldFirst）</td><td>跨境电商卖家、外贸 B2B、AI/数娱出海、广告营销、国际物流、海外主体；官网展示过"郑州跨境电商个人卖家"案例，表明接受个人身份。</td><td><b>官网未公示具体费率——暂无公开数据</b>。检索到的费率页为错误页，仅留官方联系方式（400-976-6666、mscn@service.worldfirst.com）。</td><td>官网称"秒级清算到账""汇损少、到账快"，未给具体时效</td><td>直连 130+ 电商平台；支持 40+ 币种收款、100+ 币种付款；适合有平台店铺的人</td></tr>
+      <tr><td><b>PingPong</b></td><td>跨境电商平台商家、独立站/DTC、支付网关与开发者平台、外贸工厂、数娱出海，以及个人卖家。</td><td><b>官网未公示具体费率——暂无公开数据。</b></td><td>官网提"行业 T+0 提现标准"，未列当前具体时效</td><td>称直连 240+ 主流平台、覆盖 200+ 国家和地区；称 2017 年获欧洲支付牌照；适合多平台店铺与开发者收款</td></tr>
+    </table>
+    <p><b>一句话选型：</b>收海外客户直付款（尤其是个人开发者接的定制单）→ PayPal 最通用，Stripe 适合能搭境外主体的人；收亚马逊、Shopee 等平台货款 → 万里汇或 PingPong。费率是变量，稳定性与提现成功率才是常量。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>各通道怎么开户：材料清单与外汇红线</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：准备第一次开户</span></div></div>
+    <p>四条通道里，Stripe 和 PayPal 在境外体系内开户，万里汇和 PingPong 在国内体系内开户。<b>后者才是受《支付机构外汇业务管理办法》直接约束的通道</b>，先把它讲清楚。</p>
+    <p><b>外汇局的硬规定（汇发〔2019〕13 号《支付机构外汇业务管理办法》，2019 年 4 月 29 日发布）：</b></p>
+    <ul>
+      <li><b>单笔 5 万美元上限。</b>支付机构外汇业务的单笔交易金额原则上不得超过等值 5 万美元；有真实、合法超限额需求的，由支付机构向外汇分局申请登记变更（第二十四条）。</li>
+      <li><b>T+1 结售汇。</b>支付机构应在收到资金之日（T）后的第 1 个工作日（T+1）内完成结售汇；除退款外不得办理轧差结算（第二十五条）。</li>
+      <li><b>汇率要透明。</b>支付机构应事前与你就汇率标价、手续费、清算时间、汇兑损益达成协议，明示合作银行提供的汇率标价，不得擅自调整汇率标价、不得利用汇率价差非法牟利（第二十七条）。</li>
+      <li><b>大额会被报送。</b>支付机构每月 10 日前向注册地外汇分局报送数据，并对每月累计外汇收支总额超过等值 20 万美元、单笔超过等值 5 万美元的客户交易报送大额收支交易报告（第四十条）。</li>
+      <li><b>不得虚构交易、分拆。</b>市场交易主体、支付机构及合作银行不得以虚构交易、分拆等方式逃避监管（第六条）。</li>
+    </ul>
+    <p><b>开户要准备什么（按通道归类）：</b></p>
+    <ul>
+      <li><b>Stripe：</b>境外公司注册文件、境外银行账户、公司税号/登记号、法人身份证件、业务网站与产品说明。注册阶段页面称"无需签订合同或提供银行信息"，但提现前必须绑定银行账户。</li>
+      <li><b>PayPal：</b>常用邮箱、手机号、实名信息；商业用途需绑定提现账户与营业执照类材料。建议从注册第一天起就用商业账户而非个人账户，避免后期"个人转商业"触发审核。</li>
+      <li><b>万里汇 / PingPong：</b>身份证或护照、营业执照（个体户/公司）、可用的店铺链接或平台账号、对公/个人结算账户、经营地址与联系方式。<b>检索日官网未公示完整材料清单</b>，以注册流程中实际要求为准。</li>
+    </ul>
+    <p><b>个体户和个人也能走通：</b>汇发〔2020〕14 号《经常项目外汇业务指引（2020 年版）》第六十六条第（二）项规定，境内个人从事跨境电子商务，可通过本人外汇账户办理跨境电子商务外汇结算；办理结售汇时提供有交易额的材料或交易电子信息的，<b>不占用个人年度便利化额度</b>。这条是第 18 章"超额怎么办"的关键依据。</p>
+    <blockquote class="xq">💬 <span class="who">外汇局口径：</span>支付机构开展外汇业务，应当遵循"了解客户""了解业务"及"尽职审查"原则，在登记的业务范围内开展经营活动；为市场交易主体办理的外汇业务应当具有真实、合法的交易基础，不得以任何形式为非法交易提供服务。——《支付机构外汇业务管理办法》第三、四条（汇发〔2019〕13 号）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧊</span><h3>为什么会冻户、为什么会遇到拒付</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：已经有账号在跑</span></div></div>
+    <p><b>先说拒付（chargeback），它是买家侧发起的。</b>买家对一笔卡交易向发卡行申诉"未收到货"或"未经授权"，钱会被临时划走，平台向你收取争议处理费，你要在规定期限内提交凭证抗辩。PayPal 的 Seller Protection 仅适用于符合条件的"未经授权交易"和"未收到物品"类投诉，且仅限 PayPal Checkout 商家（以官网条款为准）。Stripe 香港区争议受理费 HK$85.00/笔，抗辩费 HK$85.00/笔（胜诉退还）。<b>拒付防线的本质是交付凭证</b>：合同、验收记录、交付时间戳、沟通记录。</p>
+    <p><b>再说冻户/账户限制，它是平台侧发起的风控。</b>常见触发原因：</p>
+    <ul>
+      <li><b>交易真实性说不清。</b>卖的是虚拟服务、软件授权，但拿不出合同、发票、交付记录。外汇局要求支付机构对交易真实性、合法性及与外汇业务的一致性进行审查，不能确认的应拒绝办理并留存材料 5 年备查。</li>
+      <li><b>收入形态突变。</b>长期月流水几千，某月突然几十万且无经营解释。外汇局对支付机构有"大额收支交易报告"要求，你的账户自然会进入额外审核。</li>
+      <li><b>投诉率与拒付率过高。</b>平台对拒付率、投诉率有阈值，超了直接限制提现。</li>
+      <li><b>登录环境与主体信息异常。</b>频繁换 IP、换设备、共用账号、收付双方国别与业务明显不符。</li>
+      <li><b>产品类目问题。</b>仿牌、侵权、灰色营销、违反平台禁售规则的类目，被投诉即封。</li>
+      <li><b>分拆与虚构。</b>把一笔大额拆成多笔走不同通道，或虚构交易背景——这在外汇局第四十六条下属"依法责令整改、暂停相关业务进行整顿"并依《外汇管理条例》处罚的情形。</li>
+    </ul>
+    <p><b>降低被冻概率的日常动作：</b>每一笔境外收入都留合同/订单、交付凭证、发票；提现路径稳定，不要一个月换一个通道；大额入账前主动与平台沟通；账户信息（地址、联系人、结算账户）变更后及时更新，别等平台来找你。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>多位独立开发者的共同经验是——"被冻"几乎都不是因为金额大，而是因为<b>钱来了但东西说不清</b>。能拿出合同、交付记录、发票的账户，提现很少出问题；反过来，只在一个页面挂个收款按钮、没有任何交易文件的账户，一次投诉就够冻结半年。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.safe.gov.cn/safe/2019/0429/13114.html" target="_blank">国家外汇管理局《支付机构外汇业务管理办法》（汇发〔2019〕13 号，2019-04-29）</a><a href="https://www.safe.gov.cn/safe/2020/0831/17002.html" target="_blank">国家外汇管理局《经常项目外汇业务指引（2020年版）》（汇发〔2020〕14 号）</a><a href="https://www.safe.gov.cn/safe/2026/0805/27766.html" target="_blank">国家外汇管理局《现行有效外汇管理主要法规目录（截至2026年6月30日）》（2026-08-05）</a><a href="https://stripe.com/pricing" target="_blank">Stripe Pricing（香港区费率，2026-10-29 检索）</a><a href="https://stripe.com/global" target="_blank">Stripe 全球服务地区列表（2026-10-29 检索）</a><a href="https://www.paypal.com/us/business/fees" target="_blank">PayPal Business Fees（美国区，2026-10-29 检索）</a><a href="https://www.paypal.com/cn/webapps/mpp/home" target="_blank">PayPal 中国大陆站点（2026-10-29 检索）</a><a href="https://www.worldfirst.com.cn/cn/" target="_blank">万里汇 WorldFirst 中国站</a><a href="https://www.pingpongx.com/" target="_blank">PingPong 官网</a></div>
+</section>
+
+<section id="c18" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 18 · PART 4 · 合同与风险篇</span><h2>外汇结汇与申报<span class="accent">：钱怎么合规回来</span></h2></div>
+  <p class="sec-desc">跨境收款只是上半场，把外币变成人民币、并且让监管知道你这是什么钱，才是下半场。这一章讲个人年度便利化额度怎么用、超过额度怎么办、货款和服务贸易项下要申报什么，以及哪些"图省事"的做法会直接把个人送进关注名单。所有规则引自国家外汇管理局现行有效文件，检索日期 2026 年 10 月 29 日。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏦</span><h3>年度便利化额度：每人每年 5 万美元，怎么用</h3><div class="badges"><span class="badge r1">风险 ★</span><span class="badge">适合：年跨境收入 5 万美元以内</span></div></div>
+    <p>先把两个词分清：<b>结汇</b>是把外币换成人民币，<b>购汇</b>是用人民币买外币。个人的结汇额度是<b>每人每年等值 5 万美元</b>。</p>
+    <p>依据是国家外汇管理局《经常项目外汇业务指引（2020 年版）》（汇发〔2020〕14 号，2020 年 8 月 31 日印发）：第五十四条规定"个人结汇和境内个人购汇实行年度便利化额度管理，便利化额度分别为每人每年等值 5 万美元"；第五十五条规定，个人凭本人有效身份证件即可在银行办理年度便利化额度内的结汇和购汇，可通过银行柜台或电子银行渠道办理。标有身份证件号码的户口簿、临时身份证可作为境内个人有效身份证件。</p>
+    <p><b>怎么用（第一次接触的人照着做）：</b></p>
+    <ul>
+      <li>在银行 App 搜索"结汇"或"外币兑换"，选择"占用年度额度"的结汇类型；如果银行 App 里看不到，直接去柜台。</li>
+      <li>额度是<b>按自然年滚动</b>的，1 月 1 日重新计算；每人每年 5 万美元，不是每笔 5 万。</li>
+      <li>如果你是<b>个体工商户</b>，用个体户对公账户或本人外汇账户收汇再结汇，和这个个人额度是两条线，别混着理解——见下一张卡。</li>
+      <li>额度没花完不会累积到明年；<b>也不要把自己的额度借给别人用</b>，这是明确被禁的（见最后一张卡）。</li>
+    </ul>
+    <p><b>上限不高，这是常态。</b>对月收入几千美元的开发者来说，5 万美元/年往往一两年就会碰到。所以真正要学的不是"怎么花额度"，而是下一张卡的"不占额度的路径"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛤️</span><h3>超过额度怎么办：四条不占额度的合规路径</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：跨境收入超过 5 万美元/年</span></div></div>
+    <p>超出便利化额度不是"不能结汇"，而是<b>不能再凭身份证直接结</b>，要提供材料证明钱的真实来源。核心条款是《经常项目外汇业务指引（2020 年版）》第五十六条：<b>境内个人凭本人有效身份证件和有交易额的结汇资金来源材料，在银行办理不占用年度便利化额度的经常项目结汇。</b></p>
+    <p>四条可走的路：</p>
+    <ul>
+      <li><b>路一：凭交易材料走"不占额度"结汇。</b>适用最广。材料通常包括：与客户的服务合同或订单、发票（形式发票亦可）、交付/验收记录、物流或服务完成的凭证。银行按展业原则审核，确认交易真实合规后直接办。</li>
+      <li><b>路二：走跨境电子商务通道。</b>第六十六条第（二）项：境内个人从事跨境电子商务，可通过本人外汇账户办理跨境电子商务外汇结算；办理结售汇时提供有交易额的材料或交易电子信息的，<b>不占用个人年度便利化额度</b>。第六十六条第（三）项对"市场采购贸易"作了同样规定。</li>
+      <li><b>路三：走持牌支付机构通道。</b>第一百三十七条明确："支付机构外汇业务项下的个人结售汇不计入个人年度便利化额度。"也就是说，通过万里汇、PingPong 这类已完成外汇局名录登记的支付机构结汇，不占你的 5 万美元。<b>这是第 17 章和第 18 章的接口</b>——选对通道，额度问题就消失了一大半。</li>
+      <li><b>路四：把主体做"实"。</b>注册个体工商户或有进出口经营权的企业，以经营主体身份收汇结汇，走货物贸易/服务贸易渠道，按机构规则办理。收入稳定超过 5 万美元/年时，这条路的长期成本最低。</li>
+    </ul>
+    <p><b>境外个人要注意一条特殊规则：</b>第五十八条第（二）项规定，境外个人结汇单笔等值 5 万美元以上（不含）的，应将结汇所得人民币资金<b>直接划转至交易对方的境内人民币账户</b>，不能取现。这条对外籍客户向你付款的情形适用。</p>
+    <p><b>亲属代办有明确边界：</b>第六十一条规定，个人可委托近亲属代为办理年度便利化额度内的结汇和购汇，需提供双方有效身份证件、委托书及近亲属关系说明材料；近亲属指配偶、父母、子女、兄弟姐妹、祖父母、外祖父母、孙子女、外孙子女。委托他人办理不占用额度的业务，还需提供有交易额的相关材料。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>货款与服务贸易项下：要申报什么</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：收付款金额较大</span></div></div>
+    <p>独立开发者和自由职业者的境外收入，绝大多数属于<b>服务贸易</b>（提供服务、技术授权、咨询、广告分成），少数属于<b>货物贸易</b>（卖软件拷贝、硬件、实物）。两类下的银行审核口径不同。</p>
+    <p><b>服务贸易项下（第四十九条）：</b></p>
+    <ul>
+      <li>单笔等值 5 万美元以下（含）的服务贸易外汇收支，银行原则上可不审核交易单证；但资金性质不明确的，银行仍会要求你提交交易单证。</li>
+      <li>单笔等值 5 万美元以上（不含）的，银行按展业原则，确认交易单证所列的交易主体、金额、性质等要素与你申请办理的外汇收支相一致。</li>
+      <li>单证类型按第五十二条：包含交易标的、主体、金额等要素的合同（协议）；发票（支付通知）或列明交易标的、主体、金额等要素的结算清单；其他能证明交易真实合法的单证。</li>
+      <li>申报要素按第五十三条：填写交易单证号（合同号、发票号）；预付款/预收款要在付款类型栏对应选择；<b>凭税务备案表付汇的，要在交易附言标明"SWBA+备案表编号后六位"</b>。</li>
+    </ul>
+    <p><b>5 万美元以上的服务贸易对外支付要先做税务备案。</b>第四十九条第（四）项：办理单笔等值 5 万美元以上的服务贸易对外支付，境内机构和个人应先按照服务贸易对外支付税务备案有关规定办理备案手续，银行应核验纸质或电子税务备案表。操作层面见《国家税务总局 国家外汇管理局关于服务贸易等项目对外支付税务备案有关问题的补充公告》（2021 年第 19 号）：可通过<b>电子税务局等在线方式填报</b>，凭《备案表》编号和验证码到银行办理付汇；同一笔合同需要多次对外支付的，仅需在首次付汇前办理一次税务备案。</p>
+    <p><b>货物贸易项下（第六十六条）：</b>个体工商户委托有对外贸易经营权的企业办理出口的，可以通过本人外汇账户收汇、结汇，<b>结汇凭合同及物流公司出具的运输单据等商业单证办理</b>。个人从事边境贸易的，凭合同、运输单据等办理结汇或入账；外币现钞结汇或入账金额当日累计等值 1 万美元以上（不含）的，还应提供经海关签章的《海关申报单》正本。</p>
+    <p><b>还有一个容易被忽略的动作：</b>第六十四条，从本人外汇账户向境外汇出用于经常项目支出，当日累计等值 5 万美元以下（含）凭身份证办理，超过的凭身份证加有交易额的材料办理，并要配合银行做购汇用途与付汇用途一致性审核。第六十七条：个人外汇账户内资金境内划转，仅限于本人账户之间、个人与近亲属账户之间。</p>
+    <blockquote class="xq">💬 <span class="who">提醒：</span>服务贸易对外支付的税务备案门槛（单笔 5 万美元以上）与个人结汇便利化额度（每人每年 5 万美元）是两个不同的 5 万，一个管"往外汇钱"，一个管"把外币换成人民币"，别混。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⛔</span><h3>常见的错误做法与后果</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>下面这些做法，很多是从"前辈"那里听来的。它们有一个共同点：短期省事，代价是个人被列进监管名单，而且<b>关注期长达两年以上</b>。</p>
+    <ul>
+      <li><b>分拆结汇。</b>把 8 万美元拆成两笔 4 万、用家人身份证分头结、或今天结 3 万明天再结 3 万。第六十二条明确：个人不得以分拆等方式规避便利化额度管理及真实性管理。外汇局对规避管理的个人实行<b>"关注名单"管理</b>。</li>
+      <li><b>出借或借用额度。</b>把自己的额度借给别人用，首次会被银行以《个人外汇业务风险提示函》提示；再次出现即列入"关注名单"。借用他人额度或其他方式规避的，直接列入"关注名单"。</li>
+      <li><b>关注名单的代价。</b>关注期限为<b>列入当年及之后连续 2 年</b>；关注期限内办理个人结售汇，须凭本人有效身份证件和有交易额的相关材料到银行办理，银行按真实性审核原则严格审核。等于你每笔结汇都要走一遍举证流程。</li>
+      <li><b>虚构贸易背景。</b>第四十七条：服务贸易外汇收支应具有真实、合法的交易基础，境内机构和境内个人不得虚构贸易背景办理外汇收支业务，不得以分拆等方式规避外汇管理。</li>
+      <li><b>用"地下钱庄"或对敲换汇。</b>把钱打到境外指定账户、境内收人民币。这类行为涉嫌逃汇/非法买卖外汇，属《外汇管理条例》明令处罚的行为，严重的构成犯罪。</li>
+      <li><b>私户收款不申报。</b>境外收入直接进个人账户长期不动、不结汇、不记账。税务那头这是隐匿收入（见第 20 章已公开查处的案例），外汇那头资金来源说不清，两头都出事。</li>
+    </ul>
+    <p><b>被银行拒绝办理时怎么办？</b>第六十八条规定，银行有权对违反外汇管理规定、真实性存疑的交易予以拒绝，但<b>应向个人准确说明拒绝原因及申诉渠道</b>。收到拒绝不要换家银行硬试——分拆尝试本身就是违规信号。正确做法是补齐交易材料，或向所在地外汇局核实。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>代账会计最常提醒客户的一句话是——"你结汇被卡住，99% 不是因为额度用完，是因为你拿不出一张像样的合同和一张发票。"把第 15 章的合同和第 4 章的发票做好，外汇这一章就自动好办。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.safe.gov.cn/safe/2020/0831/17002.html" target="_blank">国家外汇管理局《经常项目外汇业务指引（2020年版）》（汇发〔2020〕14 号，2020-08-31 印发）</a><a href="https://www.safe.gov.cn/safe/2021/0702/19306.html" target="_blank">国家税务总局 国家外汇管理局公告2021年第19号《关于服务贸易等项目对外支付税务备案有关问题的补充公告》</a><a href="https://www.safe.gov.cn/safe/2019/0429/13114.html" target="_blank">国家外汇管理局《支付机构外汇业务管理办法》（汇发〔2019〕13 号）</a><a href="https://www.safe.gov.cn/safe/2021/0402/18672.html" target="_blank">国家外汇管理局《关于进一步推进个人经常项目外汇业务便利化的通知》（汇发〔2021〕13 号）</a><a href="https://www.safe.gov.cn/safe/2026/0805/27766.html" target="_blank">国家外汇管理局《现行有效外汇管理主要法规目录（截至2026年6月30日）》（2026-08-05）</a></div>
+</section>
+
+<section id="c19" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 19 · PART 4 · 合同与风险篇</span><h2>知识产权归属<span class="accent">：代码、设计与内容归谁</span></h2></div>
+  <p class="sec-desc">你写的代码、画的图、剪的片子，客户付了钱之后归谁？默认答案可能和你想的相反。这一章把委托开发的默认归属讲清，给一份可以直接抄进合同的条款骨架，再说开源许可证怎么选、客户素材和第三方组件怎么用，以及侵权和被侵权时先做什么。规则以《著作权法》（2020 年 11 月 11 日第三次修正）和《计算机软件保护条例》（国令第 632 号）为准，检索日期 2026 年 10 月 29 日。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>默认规则：不约定，就归干活的人</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：接定制开发、设计、内容单</span></div></div>
+    <p>这是本章最硬的一条，请先记住：<b>客户付钱，不等于客户拿到著作权。</b></p>
+    <p>《中华人民共和国著作权法》第十九条："<b>受委托创作的作品，著作权的归属由委托人和受托人通过合同约定。合同未作明确约定或者没有订立合同的，著作权属于受托人。</b>"也就是说，客户委托你写一套系统，合同里没写清楚，那著作权<b>默认在你手里</b>，客户拿到的是合同约定的使用范围，而不是版权本身。</p>
+    <p>《计算机软件保护条例》第十一条对软件说得更直白："<b>接受他人委托开发的软件，其著作权的归属由委托人与受托人签订书面合同约定；无书面合同或者合同未作明确约定的，其著作权由受托人享有。</b>"</p>
+    <p>还有两种容易混淆的情形：</p>
+    <ul>
+      <li><b>职务作品</b>（著作权法第十八条）：自然人为完成单位工作任务所创作的作品。一般情形下著作权由作者享有，单位在业务范围内有优先使用权，完成两年内未经单位同意作者不得许可第三人以相同方式使用；主要利用单位物质技术条件创作并由单位承担责任的、或合同约定由单位享有的，作者只保留署名权。</li>
+      <li><b>合作作品</b>（第十四条）：著作权由合作作者共同享有，应经协商一致行使；作品可分割使用的，作者对自己单独创作的部分可单独行使，但不得侵害合作作品的整体著作权。</li>
+    </ul>
+    <p><b>实务上的两种走向：</b>如果你希望留住成果（复用到下一个客户、做成产品、后续授权），合同里就别写"著作权归客户"；如果你希望客户拿到完整权利并愿意为此定价（很多 B 端客户会要求），就在合同里明确"转让/归属"，并把价格报够。<b>把归属写清楚，比事后争便宜得多。</b></p>
+    <blockquote class="xq">💬 <span class="who">常见误解：</span>"我收了全款，所以东西全是客户的"——错。付款买到的是<b>交付与使用</b>，版权归属看合同。反过来"钱是我挣的所以版权一定是我的"——也不对，合同可以约定归客户，而且一旦约定就有效。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>合同里怎么写：一段可抄的条款骨架</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：所有交付类合同</span></div></div>
+    <p>下面是一段条款骨架，按你的商业意图二选一，其余照抄。它不是法律意见，重大合同建议请律师过一遍。</p>
+    <p><b>（一）归属条款——想留成果，选"许可"版：</b></p>
+    <blockquote class="xq">📄 除双方另有书面约定外，乙方（受托方）在本合同项下交付成果的著作权归乙方所有。甲方（委托方）在付清全部合同价款后，获得该交付成果在【地域范围】内、用于【具体用途，如自用/运营指定产品】的非独占、不可转让（经乙方书面同意除外）、可转授权的使用许可；许可期限为【永久 / 自交付起 X 年】。</blockquote>
+    <p><b>（二）归属条款——客户要完整权利，选"转让"版：</b></p>
+    <blockquote class="xq">📄 甲方付清全部合同价款后，乙方将本合同项下交付成果的著作财产权（包括复制权、发行权、出租权、展览权、表演权、放映权、广播权、信息网络传播权、摄制权、改编权、翻译权、汇编权等全部著作财产权）转让给甲方。乙方保留署名权等人身性权利。乙方应在收到全部价款后【X】日内交付权利归属证明及源文件。</blockquote>
+    <p><b>（三）必须一起写的四条配套：</b></p>
+    <ul>
+      <li><b>交付成果清单。</b>用附件列明"哪些文件/设计/内容属于交付成果"，包括源文件格式（Figma 源文件、PSD、工程代码、工程文件）。没列进去的一律不属于交付范围。</li>
+      <li><b>自有组件与工具保留。</b>"乙方在本合同签订前已拥有的代码库、设计模板、通用组件、字体、图标库、开发工具及方法论，其知识产权仍归乙方所有；乙方仅授予甲方在本项目交付成果内使用前述组件的权利。"没有这一条，客户可能主张连你的工具库都归他。</li>
+      <li><b>第三方组件保证与责任边界。</b>"乙方保证交付成果中使用的第三方开源组件、字体、图库素材均已按其许可协议使用；因第三方许可协议或第三方权利主张导致甲方遭受损失的，乙方在已收取合同价款的范围内承担责任，且不承担甲方向第三方作出的超出原许可范围的承诺。"——把第三方组件的许可风险提前切分。</li>
+      <li><b>客户素材授权。</b>"甲方应保证其提供给乙方的品牌标识、图片、文案、数据等素材已获得合法授权；因甲方素材权属瑕疵导致的索赔，由甲方承担全部责任，乙方因此遭受损失的，甲方应予以赔偿。"</li>
+    </ul>
+    <p><b>别忘了一条小但重要的：</b>著作权法规定人身性权利（如署名权）不可转让，所以"转让版"里也要写明乙方保留署名权。另外，合同本身要能证明交付时间与内容——交付记录、验收邮件、版本提交记录，往往是日后唯一能证明"我什么时候做出来"的证据。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔓</span><h3>开源许可证怎么选：宽松派与传染派</h3><div class="badges"><span class="badge r3">风险 ★★★</span><span class="badge">适合：要开源自己的项目，或大量用开源组件</span></div></div>
+    <p>开源许可证由 OSI（Open Source Initiative，开放源代码促进会）审核发布，其官网维护着一份"OSI 批准的许可证"清单并按用途分类。选许可证，本质是回答一个问题：<b>别人能用你的代码做什么，以及他们改过之后要不要把改动也公开。</b></p>
+    <table>
+      <tr><th>类型</th><th>代表许可证</th><th>核心规则</th><th>适合谁</th></tr>
+      <tr><td><b>宽松派<br>（permissive）</b></td><td>MIT、Apache-2.0、BSD-2-Clause、BSD-3-Clause、ISC</td><td>保留版权声明与许可声明即可使用、修改、分发，可闭源商用；<b>不要求公开你的修改</b>。Apache-2.0 另含明确的专利授权条款。</td><td>希望项目被尽可能多的人用、用于商业闭源产品、库与工具类项目</td></tr>
+      <tr><td><b>强传染派<br>（copyleft）</b></td><td>GPL-3.0、GPL-2.0</td><td>分发与修改后须同样以 GPL 授权，须向接收者提供源代码；不得附加限制接收者权利的条件。</td><td>希望所有衍生作品保持开源、不接受被闭源整合的项目</td></tr>
+      <tr><td><b>网络版传染</b></td><td>AGPL-3.0</td><td>在 GPL 基础上补充：<b>通过网络提供服务</b>的用户也应能获得源代码。</td><td>SaaS、Web 服务类项目；注意：把 AGPL 组件并进闭源 SaaS 是高风险动作</td></tr>
+      <tr><td><b>弱传染</b></td><td>LGPL-3.0 / LGPL-2.1、MPL-2.0</td><td>LGPL 主要约束"库本身"的修改部分；MPL-2.0 为文件级 copyleft，修改的文件需开源，可与其他代码组合成大作品。</td><td>想让闭源软件链接你的库；或做 SDK、中型项目</td></tr>
+    </table>
+    <p><b>给独立开发者的三条实操建议：</b></p>
+    <ul>
+      <li><b>自己开源：</b>想要最多人用、最多星标、最容易被商业采用 → MIT 或 Apache-2.0。担心专利纠纷 → Apache-2.0（它有显式专利授权与终止条款）。</li>
+      <li><b>用别人的开源：</b>项目里引入组件时，看一眼 LICENSE 文件，把 GPL/AGPL 组件从"要闭源商用"的产品里剔出去。可以用 SPDX 许可证标识写进项目依赖清单，交付客户时一并披露。</li>
+      <li><b>给客户交付时：</b>在合同的第三方组件附件里列出所有用到的开源组件及其许可证，这是第 17、19 章风控链条的最后一环。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>侵权与被侵权：先做什么</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：所有人</span></div></div>
+    <p><b>如果你被指侵权：</b>第一步不是删东西，是固定证据并判断。著作权法第五十二条列举的侵权行为包括剽窃、未经许可以复制/发行/信息网络传播等方式使用作品、歪曲篡改作品等，行为人应根据情况承担停止侵害、消除影响、赔礼道歉、赔偿损失等民事责任。第五十三条进一步规定，同时损害公共利益的，主管著作部门可没收违法所得并处罚款：违法经营额五万元以上的，可并处违法经营额一倍以上五倍以下罚款。所以先分清是民事侵权还是行政违法，再决定回应策略。同时自查：字体、图库、音乐、图标、代码片段——这五类是独立开发者最高频的踩坑点，图库和字体的"个人免费/商用付费"授权边界尤其容易忽略。</p>
+    <p><b>如果你发现被侵权：</b>第五十四条规定赔偿数额按顺序确定——先按实际损失或侵权人的违法所得；难以计算的，可参照权利使用费；故意侵权且情节严重的，可在上述数额一倍以上五倍以下判赔；前述都难以计算的，由法院酌定<b>五百元以上五百万元以下</b>的赔偿，并包括制止侵权的合理开支。<b>法院可责令侵权人提供账簿资料，拒不提供或提供虚假的，可参考权利人主张和证据确定赔偿额。</b></p>
+    <p><b>两个诉前工具要记住（时间往往是关键）：</b></p>
+    <ul>
+      <li><b>诉前行为保全</b>（第五十六条）：有证据证明他人正在或即将实施侵权、若不及时制止将造成难以弥补损害的，可在起诉前向人民法院申请采取财产保全、责令作出一定行为或禁止作出一定行为等措施。</li>
+      <li><b>诉前证据保全</b>（第五十七条）：证据可能灭失或以后难以取得的，可在起诉前申请保全证据——网页快照、后台数据尤其需要。</li>
+    </ul>
+    <p><b>平时就该做的两件事：</b>一是留存创作过程证据（git 提交历史、设计稿版本、时间戳、邮件往来）；二是考虑登记。《计算机软件保护条例》第七条规定，软件著作权人可以向国务院著作权行政管理部门认定的软件登记机构办理登记，<b>登记机构发放的登记证明文件是登记事项的初步证明</b>——它不是权利来源，但在诉讼和交易谈判里是很实用的举证材料。软件登记入口见中国版权保护中心。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>自由职业者最容易在"客户说这个素材我网上随便下的，你直接用"上翻车。素材的授权责任如果合同里没切分，客户给了你侵权素材，被索赔时你也很难完全摘干净——所以"客户素材授权"这一条，务必写进合同。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/guoqing/2021-10/29/content_5647633.htm" target="_blank">《中华人民共和国著作权法》（2020 年 11 月 11 日第三次修正，全文）</a><a href="https://www.gov.cn/zhengce/zhengceku/2013-02/08/content_5425.htm" target="_blank">《计算机软件保护条例》（国令第 632 号，2013-02-08 发布，2013-03-01 施行）</a><a href="https://opensource.org/licenses" target="_blank">OSI 批准的开放源代码许可证清单（Open Source Initiative）</a><a href="https://www.ccopyright.com/" target="_blank">中国版权保护中心（软件著作权登记入口）</a></div>
+</section>
+
+<section id="c20" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 20 · PART 4 · 合同与风险篇</span><h2>风险清单<span class="accent">：稽查、纠纷与注销</span></h2></div>
+  <p class="sec-desc">前面十九章都在讲"怎么把事做对"，这一章讲"出事了怎么按顺序做"。一张按季度跑一遍的自查清单、被税务问询时的动作顺序、纠纷的三条解决路径，以及什么情况下该注销主体、怎么注销才不算"逃逸式注销"。规则与案例均取自官方公开文件，检索日期 2026 年 10 月 29 日。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗓️</span><h3>按季度自查清单：五个面，每季各花一小时</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：所有一人公司</span></div></div>
+    <p>不用做得漂亮，做得<b>能复现</b>就行。每季度最后一天，对着这张表过一遍，把结论和日期记在一个文件里。</p>
+    <table>
+      <tr><th>维度</th><th>这季度要确认的事</th><th>不合格的信号</th></tr>
+      <tr><td><b>申报</b></td><td>增值税/附加税费、个人所得税经营所得预缴、有雇工的还有工资薪金个税，是否都按期申报？季末收入与开票金额能否对上？年报是否按期报（个体户/公司都要）？</td><td>有收入但当期零申报；申报收入与银行流水差一截；逾期未报被提醒</td></tr>
+      <tr><td><b>凭证</b></td><td>本季度收入是否都有合同/订单+交付记录+发票？成本费用票据是否齐（云服务器、域名、外包、差旅）？银行流水是否导出归档？</td><td>只有转账记录没有合同；只有收据没有发票；凭证存在个人微信里</td></tr>
+      <tr><td><b>合同</b></td><td>新签合同是否含第 15 章的八条？知识产权归属是否写清（第 19 章）？第三方组件清单是否披露？收款方式与主体是否一致？</td><td>用微信文字约定代替合同；交付成果归属空白；客户替你"随便用素材"</td></tr>
+      <tr><td><b>主体</b></td><td>执照、许可证、备案是否在有效期？登记地址、联系人、经营范围是否与实际一致？是否被列入经营异常名录或税务非正常？</td><td>地址失联；联系不上；执照放任不管</td></tr>
+      <tr><td><b>账户</b></td><td>经营收入是否进对公/经营账户而非个人卡？公私是否分离（第 6 章）？跨境收款通道是否稳定、结汇是否合规（第 17、18 章）？提现路径是否频繁更换？</td><td>经营款长期躺在个人卡；用个人卡收客户对公款；结汇材料凑不齐</td></tr>
+    </table>
+    <p><b>为什么"私户收款"要单列：</b>2026 年 7 月 10 日国家税务总局集中曝光的网红网店涉税违法案件中，多位网络主播因"通过私人账户收款隐匿收入、转换收入性质"被查——其中一例 2021 至 2023 年少缴个人所得税、增值税等税费 313.45 万元，最终被追缴税费款、加收滞纳金并处罚款合计 631.96 万元。同批曝光的还有一例个体工商户，2023 至 2024 年通过私人账户收款、未依法办理税务信息确认及纳税申报，少缴税费 544.72 万元，<b>且该店铺已于 2024 年申请注销</b>。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📞</span><h3>被税务问询时的动作顺序</h3><div class="badges"><span class="badge r4">风险 ★★★★</span><span class="badge">适合：突然接到电话/收到通知</span></div></div>
+    <p>依据《税务稽查案件办理程序规定》（国家税务总局令第 52 号，2021 年 7 月 12 日公布，2021 年 8 月 11 日施行）。按这个顺序做，不要跳步。</p>
+    <ul>
+      <li><b>第一步：核实身份，别急着解释。</b>检查人员应出示证件并告知权利义务。你可以要求核对证件与所属税务机关。同时注意：你<b>有申请回避的权利</b>（与本案有利害关系等情形），也有要求其对商业秘密、个人隐私和个人信息保密的权利。</li>
+      <li><b>第二步：分清是"询问/检查"还是"已立案稽查"。</b>案源信息由稽查局统一收集管理，待查对象确定后须经稽查局局长批准立案；立案后一般应自立案之日起<b>90 日内</b>作出决定。两者的材料要求和时间压力不同。</li>
+      <li><b>第三步：按清单交材料，不要顺手多给。</b>法定检查措施包括实地检查、调取账簿资料、询问、查询存款账户或储蓄存款、异地协查。对你提交的每一份材料留副本并记录提交日期。</li>
+      <li><b>第四步：记住账簿被调走的期限。</b>调取以前会计年度的资料，应经县以上税务局局长批准，并在<b>3 个月内完整退还</b>；调取当年的资料，应经设区的市、自治州以上税务局局长批准，并在<b>30 日内退还</b>。调取与退还均应出具清单、核对并由你签章确认。<b>签章前先核对清单数量。</b></li>
+      <li><b>第五步：检查结束前，把异议说清楚。</b>检查结束前会告知违法事实和依据；你有异议的，应在限期内说明并提供证据。询问笔录要核对，可要求修改并捺指印。</li>
+      <li><b>第六步：拟处罚前，务必用足陈述申辩和听证权。</b>拟处罚前必须向你送达《税务行政处罚事项告知书》，告知陈述、申辩及要求听证的权利；你提出的成立意见应当采纳。这是法律给的窗口，放弃很可惜。</li>
+      <li><b>第七步：执行阶段仍可救济。</b>处理处罚决定送达后，可依法申请行政复议或提起行政诉讼；决定文书被法院判决或复议决定撤销的，税务机关应依法重新作出。</li>
+    </ul>
+    <p><b>三件不要做的事：</b>不要在现场口头承认未经核实的数字（可以说"我回去核对后书面回复"）；不要删除、修改、重命名任何资料（电子信息系统检查可要求提供与原始电子数据一致的复制件，拒不配合经批准可直接检查、提取、复制，但<b>不得破坏原始数据或影响系统正常运行</b>）；不要找人"疏通"——2026 年 10 月 12 日税务总局集中曝光的 5 起涉税中介违规帮助他人偷逃税案件，正是中介以"节税"为名兜售违法方案的典型，参与者两头受罚。</p>
+    <blockquote class="xq">💬 <span class="who">提醒：</span>如果确实欠税，尽早处理。《欠税公告办法》（国家税务总局令第 61 号，2025 年 11 月 26 日公布，2026 年 3 月 1 日施行）规范了税务机关的欠税公告行为——拖着不缴，欠税信息可能被公告，对后续贷款、投标、合作都是硬伤。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤝</span><h3>纠纷的解决路径：先便宜后昂贵</h3><div class="badges"><span class="badge r2">风险 ★★</span><span class="badge">适合：客户拖欠、尾款、质量争议</span></div></div>
+    <p>一人公司最常见的纠纷是三类：客户拖欠尾款、交付范围争议（"这不是我要的"）、以及被第三方主张侵权。按成本从低到高排：</p>
+    <ul>
+      <li><b>1. 协商（零成本，先做）。</b>把争议写成一页纸：合同条款、约定交付物、实际交付物、对方主张、你的方案。很多时候争议来自"当时没说清"，一页纸就能对齐。</li>
+      <li><b>2. 催告与证据固定（低成本，关键）。</b>发一份书面催告函，限定合理履行期；同时保存好合同、交付记录、验收沟通、发票、对方付款记录。<b>这一层的证据质量，直接决定上一层能否和解、下一层能否胜诉。</b></li>
+      <li><b>3. 行业调解 / 人民调解（低成本）。</b>各地市场监管部门、行业协会、平台争议处理机制都可以先试。很多平台型客户有自己的商家申诉流程，比诉讼快得多。</li>
+      <li><b>4. 仲裁或诉讼（高成本，最后一步）。</b>看合同里有没有约定管辖/仲裁条款。金额不大的纠纷，诉讼的时间成本往往高于收益——这也是第 15 章强调"合同里写清付款节点与违约金"的原因：让小额争议不需要走到诉讼。</li>
+      <li><b>5. 侵权纠纷的诉前动作。</b>如果对方正在或即将侵权、不及时制止将造成难以弥补的损害，可在起诉前向人民法院申请财产保全、责令作出或禁止作出一定行为；证据可能灭失的，可申请诉前证据保全（著作权法第五十六、五十七条，详见第 19 章）。</li>
+    </ul>
+    <p><b>给一人公司的两条铁律：</b>一是<b>尾款比例</b>——预付款不要低于 50%，交付验收后付到 80%–90%，留 10% 作质保金；二是<b>争议解决条款</b>——写清"因本合同引起的争议，双方应先友好协商；协商不成的，提交【甲方/乙方所在地】人民法院诉讼解决"，并留一个能收件的有效地址。少了这两条，赢了道理也可能收不回钱。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚪</span><h3>什么时候该注销，以及怎么注销</h3><div class="badges"><span class="badge r5">风险 ★★★★★</span><span class="badge">适合：主体不做了 / 想关掉旧壳</span></div></div>
+    <p><b>先说结论：注销不是免责，是结清。</b>《中华人民共和国市场主体登记管理条例》（国令第 746 号，2021 年 7 月 2 日公布，2022 年 3 月 1 日施行）第三十一条：市场主体应当依法向登记机关申请注销登记，<b>经登记机关注销登记，市场主体终止</b>。注销前该结的钱、该报的税、该退的票，一件都少不了。</p>
+    <p><b>该注销的信号：</b>连续多个季度没有收入且短期内不会恢复；主体长期零申报已被提醒；业务已转入新主体，旧壳只是空挂；或者你只是想把"当初随手注册的个体户"清掉。<b>反过来，如果还有收入、还有未结清的合同，别急着一销了之</b>——注销后想再恢复经营，重新注册与税务衔接的成本更高。</p>
+    <p><b>一般注销流程（依据《市场主体登记管理条例》第三十二条及六部门《企业注销指引（2025 年修订）》）：</b></p>
+    <ul>
+      <li>决议解散。公司应在解散事由出现之日起<b>15 日内成立清算组</b>。</li>
+      <li>清算组自成立之日起<b>10 日内</b>，通过国家企业信用信息公示系统公告清算组成员、清算组负责人名单；并在<b>60 日内</b>发布债权人公告，公告期一般为<b>45 日</b>（个人独资企业无法通知债权人的为 60 日）。</li>
+      <li>清算结束制作清算报告，经股东会或成员大会确认。</li>
+      <li>清算组自清算结束之日起<b>30 日内</b>向登记机关申请注销登记；申请前应依法办理分支机构注销登记。</li>
+    </ul>
+    <p><b>简易注销（第三十三条）：</b>适用于上市股份有限公司以外的企业，条件是存续期间未发生债权债务或已清偿完结，未发生或已结清清偿费用、职工工资、社保费用、法定补偿金、应缴税款（滞纳金、罚款）等，并由全体投资人书面承诺。流程是通过国家企业信用信息公示系统公告，<b>公示期 20 日</b>；无异议的，于公示期届满之日起 20 日内申请注销登记。<b>个体工商户</b>在"两证整合"后设立的，通过简易程序注销无需承诺书和公示，登记机关推送信息、税务等部门 10 日内无异议即可直接办理。</p>
+    <p><b>注销前必须办结的四件事（《企业注销指引（2025 年修订）》）：</b></p>
+    <ul>
+      <li><b>税务：</b>清缴所欠税款、滞纳金、罚款；办理企业所得税清算；结清出口退（免）税款；缴销发票和税控设备；个人独资企业、合伙企业需结清投资者个人所得税事宜；存在非正常状态的需先解除。</li>
+      <li><b>社保：</b>结清欠缴的社会保险费、滞纳金、罚款，办理注销社会保险登记。</li>
+      <li><b>海关：</b>清缴海关税款及滞纳金，办理报关单位备案注销。</li>
+      <li><b>银行：</b>办理银行结算账户销户。</li>
+    </ul>
+    <p><b>"逃逸式注销"为什么行不通：</b>2026 年 7 月国家税务总局公开的案件显示，有经营者通过提交虚假材料、隐瞒关键事实完成注销登记以逃避纳税义务——结果被<b>依法恢复登记并追征未缴或少缴的税款、滞纳金</b>。《企业注销指引（2025 年修订）》也明确：通过注销恶意转移财产、逃避债务或规避行政处罚的，登记机关可不予办理或撤销相关登记；以虚假材料骗取注销、未经清算即办理注销的，股东、清算义务人及直接责任人员可能承担赔偿、清偿或行政责任。<b>一句话：注销是关门，不是跑路。</b></p>
+    <blockquote class="xq">💬 <span class="who">给一人公司的建议：</span>如果旧主体还有没开完的发票、没报的税、没结的社保，<b>先补干净再注销</b>。补缴的代价是一次性的，被恢复登记后再追征的代价是滞纳金加罚款，还可能进重大税收违法失信名单。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gov.cn/zhengce/zhengceku/2021-08/24/content_5632964.htm" target="_blank">《中华人民共和国市场主体登记管理条例》（国令第 746 号，2022-03-01 施行）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100013/c5246416/content.html" target="_blank">市场监管总局等六部门《企业注销指引（2025 年修订）》（2025 年第 52 号公告）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5192943/content.html" target="_blank">国家税务总局《税务稽查案件办理程序规定》（国家税务总局令第 52 号）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5245544/content.html" target="_blank">国家税务总局《欠税公告办法》（国家税务总局令第 61 号）</a><a href="http://fgk.chinatax.gov.cn/zcfgk/c100011/c5238560/content.html" target="_blank">国家税务总局《个人所得税综合所得汇算清缴管理办法》（国家税务总局令第 57 号）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250922/content.html" target="_blank">国家税务总局："逃逸式"注销能否逃避税收责任（2026-07-10）</a><a href="https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5252882/content.html" target="_blank">国家税务总局：曝光 5 起涉税中介违规帮助他人偷逃税案件（2026-10-12）</a></div>
+</section>
+
+<footer class="wrap">
+  <div><b>全书使用建议</b></div>
+  <div style="margin-top:12px;color:var(--muted);max-width:860px;">
+    <p>· 刚开始一个人收钱，先读第 02 章定主体、第 06 章建卡、第 10 章抄日历——这三章做完，80% 的合规风险就没了；</p>
+    <p>· 每章末尾的来源链接是本章结论的依据，税收政策、社保基数、平台费率每年都调，申报前请点开原文核对当期口径（数据截至 2026-10-29）；</p>
+    <p>· 第 20 章《风险清单》建议每季度对着过一遍，出事时它就是你的动作清单。</p>
+  </div>
+  <div class="disclaimer">⚠️ <b>免责声明：</b>本手册由 6 个并行 AI 研究员于 2026-10-29 实时检索公开资料写成，仅作个人学习与经营参考，不构成任何税务、法律或投资意见。税收政策、社保基数、外汇与支付机构规则具有地域性与时效性，且各地执行口径存在差异；具体申报、签约、收款请以主管税务机关与当地主管部门当期规定为准，重大事项请咨询持牌专业人士。</div>
+  <div style="margin-top:20px;text-align:center;">🧾 《一人公司财务与合规手册》· 20 章并行调研汇编 · 2026-10-29 · 配套 <a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a> · <a href="AI编程从零到接单手册.html">《AI 编程接单手册》</a></div>
+</footer>
+
+<a class="backtop" href="#toc" title="回到目录">↑</a>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.toc a, .tocbox a');
+  var byId = {};
+  Array.prototype.forEach.call(links, function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  secs.sort(function (a, b) { return a.offsetTop - b.offsetTop; });
+  function update() {
+    var y = window.scrollY + 170, cur = null;
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = !!cur && a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('active', on);
+    });
+  }
+  var fold = document.querySelector('details.tocfold');
+  if (fold && window.matchMedia('(max-width: 700px)').matches) {
+    fold.removeAttribute('open');
+    Array.prototype.forEach.call(fold.querySelectorAll('.toc-list a'), function (a) {
+      a.addEventListener('click', function () { fold.removeAttribute('open'); });
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

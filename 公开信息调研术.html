@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《公开信息调研术》 · 24 章深度版 · 2026-10</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --bg2:#fbfaf5; --card:#ffffff;
+    --line:#e7e3d8; --line2:#efecdf;
+    --ink:#2f3345; --text:#3d4256; --muted:#6b7280; --dim:#9aa1ae;
+    --accent:#5a67c2; --accent-soft:#eef0fb;
+    --cyan:#2e7fa3; --green:#2e8b6e; --amber:#b07a1e; --red:#c25468; --pink:#b8618f;
+    --purple:#6a5fc9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1100px 460px at 85% -120px, rgba(90,103,194,.07), transparent 60%),
+      radial-gradient(900px 420px at 5% -90px, rgba(46,127,163,.06), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  a{color:#3b63c4;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px;}
+  header.hero{padding:58px 0 28px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid #d6d9f0;padding:5px 14px;border-radius:999px;background:var(--accent-soft);font-weight:600;}
+  h1.title{font-size:38px;line-height:1.3;margin:20px 0 10px;font-weight:800;
+    background:linear-gradient(92deg,#2f3345 20%,#5a67c2 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .subtitle{color:var(--muted);font-size:16px;max-width:780px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:13px;color:var(--muted);}
+  .hero-meta span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:4px 12px;}
+  .method-note{margin-top:20px;border-left:3px solid #d9a441;background:#faf3e0;
+    padding:12px 16px;border-radius:0 10px 10px 0;color:#7a5c1c;font-size:13.5px;}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:26px 0 4px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(31,35,53,.04),0 6px 18px rgba(31,35,53,.05);}
+  .stat .num{font-size:21px;font-weight:800;letter-spacing:.5px;}
+  .stat .lbl{color:var(--muted);font-size:12px;line-height:1.5;margin-top:1px;}
+  .stat.p .num{color:var(--purple);} .stat.g .num{color:var(--green);} .stat.r .num{color:var(--red);} .stat.c .num{color:var(--cyan);}
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-top:24px;}
+  nav.toc .wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;}
+  nav.toc a{font-size:13px;color:var(--muted);padding:5px 12px;border-radius:999px;border:1px solid transparent;}
+  nav.toc a:hover{color:var(--text);text-decoration:none;background:var(--card);border-color:var(--line);}
+  nav.toc a.part-label{color:var(--accent);font-weight:700;border-color:#d6d9f0;background:var(--accent-soft);}
+  nav.toc a.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  @media(max-width:700px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    nav.toc .wrap::-webkit-scrollbar{display:none;}
+    nav.toc a{white-space:nowrap;flex:0 0 auto;padding:5px 10px;}
+  }
+  section{padding:50px 0 8px;}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:700;}
+  h2{font-size:26px;font-weight:800;color:var(--ink);}
+  h2 .accent{color:var(--accent);}
+  .sec-desc{color:var(--muted);margin:8px 0 24px;max-width:820px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px 20px;margin-bottom:24px;box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  .card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px;}
+  .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:var(--accent-soft);border:1px solid #d6d9f0;flex:none;}
+  .card h3{font-size:19px;font-weight:700;color:var(--ink);flex:1;min-width:200px;}
+  .badges{display:flex;flex-wrap:wrap;gap:7px;}
+  .badge{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg2);}
+  .badge.r1{color:#1f6e52;border-color:#bfe0d2;background:#e3f3ec;}
+  .badge.r2{color:#4a6e1f;border-color:#d3e3b4;background:#eff5df;}
+  .badge.r3{color:#8a5f12;border-color:#ecd9a8;background:#faf0d8;}
+  .badge.r4{color:#9a4f1f;border-color:#f0d2b8;background:#fbeee2;}
+  .badge.r5{color:#a03a4e;border-color:#f0c3cd;background:#f9e3e8;}
+  .card p{margin:10px 0;color:var(--text);}
+  .card p b,.card li b{color:var(--ink);font-weight:700;}
+  .card ul{margin:8px 0 8px 22px;color:var(--text);}
+  .card li{margin:6px 0;}
+  blockquote.xq{border-left:3px solid #8d97d8;background:#f0f2fc;
+    padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;color:#454c78;font-size:14.5px;}
+  blockquote.xq .who{color:var(--accent);font-weight:700;}
+  .src{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;}
+  .src .tag{color:var(--amber);font-weight:700;flex:none;}
+  .src a{color:#3b63c4;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:800px){.cols{grid-template-columns:1fr;}}
+  .chart{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0;}
+  .chart .cap{font-size:12.5px;color:var(--dim);margin-top:8px;text-align:center;}
+  .chart h4{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .legend{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;}
+  .chart text{fill:var(--ink);}
+  .chart text[fill="#dfe5f1"]{fill:var(--ink);}
+  .chart text[fill="#8b94ab"]{fill:var(--muted);}
+  .chart text[fill="#ff5d73"]{fill:var(--red);}
+  .chart text[fill="#2fd6a5"]{fill:var(--green);}
+  .chart [stroke="#242d42"]{stroke:#dcd7c9;}
+  .chart rect[fill="#0d1119"]{fill:#efede4;}
+  .chart stop[stop-color="#8b7cff"]{stop-color:#7d76cf;}
+  .chart stop[stop-color="#4dd6ff"]{stop-color:#6fa8c9;}
+  .chart stop[stop-color="#f5b83d"]{stop-color:#dfa63e;}
+  .chart stop[stop-color="#ff5d73"]{stop-color:#d3707f;}
+  .chart stop[stop-color="#2fd6a5"]{stop-color:#4aa583;}
+  .hbar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;margin:9px 0;font-size:13.5px;}
+  .hbar-track{height:16px;background:#efede4;border-radius:8px;overflow:hidden;border:1px solid var(--line2);}
+  .hbar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#7d76cf,#6fa8c9);}
+  .hbar-val{color:var(--muted);font-size:12.5px;text-align:right;}
+  @media(max-width:640px){.hbar-row{grid-template-columns:110px 1fr 74px;}}
+  .bignum{display:flex;align-items:baseline;gap:8px;justify-content:center;}
+  .bignum .v{font-size:42px;font-weight:800;color:var(--red);}
+  .bignum .u{color:var(--muted);font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  th{color:var(--muted);font-weight:600;text-align:left;font-size:12.5px;letter-spacing:.5px;}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:hover td{background:#f6f7fd;}
+  td b{color:var(--ink);}
+  .tocbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;}
+  @media(max-width:800px){.tocbox{grid-template-columns:1fr;gap:10px;}}
+  .toc-part{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 14px 10px;}
+  .toc-part-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .toc-part-no{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px;letter-spacing:1px;}
+  .toc-part-head b{font-size:15px;color:var(--ink);}
+  .toc-part-en{margin-left:auto;font-size:11.5px;color:var(--dim);}
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin:0;}
+  .toc-list a{display:flex;align-items:baseline;gap:10px;padding:4px 8px;border-radius:8px;color:var(--text);font-size:14px;transition:background .15s;}
+  .toc-list a:hover{background:#f1f2fa;text-decoration:none;}
+  .toc-list a.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 0 0 0 1px #d6d9f0;font-weight:600;}
+  .toc-no{font-weight:800;color:var(--accent);font-size:12px;min-width:22px;letter-spacing:.5px;}
+  .toc-sub{color:var(--dim);font-size:12px;margin-left:auto;text-align:right;}
+  @media(max-width:700px){.toc-sub{display:none;}}
+  details.tocfold{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 2px rgba(31,35,53,.04),0 10px 28px rgba(31,35,53,.05);}
+  details.tocfold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:13px 18px;font-weight:700;color:var(--ink);font-size:15px;}
+  details.tocfold>summary::-webkit-details-marker{display:none;}
+  details.tocfold>summary::after{content:"▾";margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s;}
+  details.tocfold[open]>summary{border-bottom:1px dashed var(--line);}
+  details.tocfold[open]>summary::after{transform:rotate(180deg);}
+  .fold-hint{font-weight:400;color:var(--dim);font-size:12px;}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:34px 0 50px;color:var(--muted);font-size:13px;}
+  footer .disclaimer{background:#faecee;border:1px solid #eccdd3;border-radius:12px;padding:14px 18px;color:#9c4a5c;margin-top:18px;}
+  .backtop{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;
+    text-decoration:none;box-shadow:0 6px 20px rgba(31,35,53,.12);z-index:60;}
+  .backtop:hover{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="kicker">🔎 OSINT HANDBOOK · 24 CHAPTERS</span>
+  <h1 class="title">《公开信息调研术》</h1>
+  <p class="subtitle">24 章深度拆解：只用公开、合法的渠道，把一件事查清楚并卖出价钱。每章由独立研究员实时检索写成——政府与司法公开数据、平台官方文档、真实查询路径与案例复盘。四大板块：基础与边界、政府与公共数据、网络与数字足迹、AI 增强与产出。</p>
+  <div class="hero-meta">
+    <span>📅 生成日期：2026-10-31</span>
+    <span>🤖 6 个子代理并行调研（每代理 4 章）</span>
+    <span>📊 每章附图表与来源链接</span>
+    <span>🔗 配套：<a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a> · <a href="一人公司财务与合规手册.html">《一人公司手册》</a></span>
+  </div>
+  <div class="method-note">📖 <b>使用说明：</b>四章一部。第一部分基础与边界解决「会不会查、敢不敢查」——信息源地图、法律红线、信源可信度分级；第二部分政府与公共数据是中文世界最被低估的富矿：企业征信、裁判文书、知识产权、招投标、处罚名单、统计数据；第三部分网络与数字足迹覆盖域名、归档、社媒、学术、招聘与元数据；第四部分 AI 增强与产出把调研变成可交付的成品——AI 工作流、交叉验证、时间线、报告写法与变现路径。所有渠道均以官方公开来源为准，动手前请核对当期规则。</div>
+  <div class="stats">
+    <div class="stat p"><div class="num">24</div><div class="lbl">深度章节 · 每章 1500–2500 字</div></div>
+    <div class="stat c"><div class="num">4</div><div class="lbl">大板块 · 方法 → 数据 → 产出</div></div>
+    <div class="stat g"><div class="num">10+</div><div class="lbl">官方公开渠道逐个讲透</div></div>
+    <div class="stat r"><div class="num">30 天</div><div class="lbl">调研能力训练计划</div></div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a class="part-label" href="#c01">PART 1 基础与边界</a>
+  <a href="#c01">调研是什么</a><a href="#c02">信息源地图</a><a href="#c03">法律与伦理边界</a><a href="#c04">调研的基本动作</a><a href="#c05">信源可信度分级</a><a href="#c06">记录与溯源</a>
+  <a class="part-label" href="#c07">PART 2 政府与公共数据</a>
+  <a href="#c07">企业征信</a><a href="#c08">司法涉诉</a><a href="#c09">知识产权查询</a><a href="#c10">招投标与政府采购</a><a href="#c11">行政处罚与异常名录</a><a href="#c12">政府统计与公开数据</a>
+  <a class="part-label" href="#c13">PART 3 网络与数字足迹</a>
+  <a href="#c13">域名与 WHOIS</a><a href="#c14">网页归档与历史快照</a><a href="#c15">社交媒体公开信息</a><a href="#c16">学术论文与预印本</a><a href="#c17">招聘与融资信息</a><a href="#c18">图片与文件的元数据</a>
+  <a class="part-label" href="#c19">PART 4 AI 增强与产出</a>
+  <a href="#c19">AI 辅助调研工作流</a><a href="#c20">多源交叉验证</a><a href="#c21">时间线整理</a><a href="#c22">调研报告写法</a><a href="#c23">调研能力变现</a><a href="#c24">30 天训练计划</a>
+</div></nav>
+
+<section id="toc" class="wrap">
+  <div class="sec-head"><span class="sec-no">CONTENTS</span><h2>目录</h2></div>
+  <p class="sec-desc">四个部分按「先修内功、再挖富矿、然后扩展到网络足迹、最后变成产出」排列：基础六章建立方法与红线；公共数据六章把中文世界最可靠的免费信息源讲透；数字足迹六章扩展到网络侧；产出六章把查到的东西变成报告与收入。点击任意条目直达对应章节。</p>
+  <details class="tocfold" open>
+    <summary>📖 完整目录 · 4 部分 · 24 章<span class="fold-hint">点击展开 / 收起</span></summary>
+    <div class="tocbox">
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第一部分</span><b>基础与边界</b><span class="toc-part-en">CH 01–06</span></div>
+        <ul class="toc-list">
+          <li><a href="#c01"><span class="toc-no">01</span>调研是什么<span class="toc-sub">把公开信息拼成一张完整的图</span></a></li>
+          <li><a href="#c02"><span class="toc-no">02</span>信息源地图<span class="toc-sub">政府、司法、学术、媒体、社媒的分层结构</span></a></li>
+          <li><a href="#c03"><span class="toc-no">03</span>法律与伦理边界<span class="toc-sub">什么能查、什么不能碰</span></a></li>
+          <li><a href="#c04"><span class="toc-no">04</span>调研的基本动作<span class="toc-sub">提问、拆解、验证、归档</span></a></li>
+          <li><a href="#c05"><span class="toc-no">05</span>信源可信度分级<span class="toc-sub">怎么判断一条信息可不可信</span></a></li>
+          <li><a href="#c06"><span class="toc-no">06</span>记录与溯源<span class="toc-sub">做一份可复现的调研档案</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第二部分</span><b>政府与公共数据</b><span class="toc-part-en">CH 07–12</span></div>
+        <ul class="toc-list">
+          <li><a href="#c07"><span class="toc-no">07</span>企业征信<span class="toc-sub">国家企业信用信息公示系统怎么用</span></a></li>
+          <li><a href="#c08"><span class="toc-no">08</span>司法涉诉<span class="toc-sub">裁判文书网与执行信息公开网</span></a></li>
+          <li><a href="#c09"><span class="toc-no">09</span>知识产权查询<span class="toc-sub">专利、商标、软件著作权的查询</span></a></li>
+          <li><a href="#c10"><span class="toc-no">10</span>招投标与政府采购<span class="toc-sub">公告里藏着什么信息</span></a></li>
+          <li><a href="#c11"><span class="toc-no">11</span>行政处罚与异常名录<span class="toc-sub">怎么提前发现风险</span></a></li>
+          <li><a href="#c12"><span class="toc-no">12</span>政府统计与公开数据<span class="toc-sub">用官方数据说话</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第三部分</span><b>网络与数字足迹</b><span class="toc-part-en">CH 13–18</span></div>
+        <ul class="toc-list">
+          <li><a href="#c13"><span class="toc-no">13</span>域名与 WHOIS<span class="toc-sub">一个网站的身世怎么查</span></a></li>
+          <li><a href="#c14"><span class="toc-no">14</span>网页归档与历史快照<span class="toc-sub">看过期页面</span></a></li>
+          <li><a href="#c15"><span class="toc-no">15</span>社交媒体公开信息<span class="toc-sub">合法边界内能拿到什么</span></a></li>
+          <li><a href="#c16"><span class="toc-no">16</span>学术论文与预印本<span class="toc-sub">追一个领域的最新进展</span></a></li>
+          <li><a href="#c17"><span class="toc-no">17</span>招聘与融资信息<span class="toc-sub">从岗位描述读出公司真相</span></a></li>
+          <li><a href="#c18"><span class="toc-no">18</span>图片与文件的元数据<span class="toc-sub">以及怎么保护自己</span></a></li>
+        </ul>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-head"><span class="toc-part-no">第四部分</span><b>AI 增强与产出</b><span class="toc-part-en">CH 19–24</span></div>
+        <ul class="toc-list">
+          <li><a href="#c19"><span class="toc-no">19</span>AI 辅助调研工作流<span class="toc-sub">让机器做初筛</span></a></li>
+          <li><a href="#c20"><span class="toc-no">20</span>多源交叉验证<span class="toc-sub">从孤证到证据链</span></a></li>
+          <li><a href="#c21"><span class="toc-no">21</span>时间线整理<span class="toc-sub">让事实自己排队</span></a></li>
+          <li><a href="#c22"><span class="toc-no">22</span>调研报告写法<span class="toc-sub">结论先行与证据在后</span></a></li>
+          <li><a href="#c23"><span class="toc-no">23</span>调研能力变现<span class="toc-sub">研报、咨询、尽调、社群</span></a></li>
+          <li><a href="#c24"><span class="toc-no">24</span>30 天训练计划<span class="toc-sub">每周有练习题</span></a></li>
+        </ul>
+      </div>
+    </div>
+</details>
+</section>
+<section id="c01" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 01 · PART I · 基础与边界</span><h2>调研是什么<span class="accent">：把公开信息拼成一张完整的图</span></h2></div>
+  <p class="sec-desc">调研不是“多搜几条结果”，而是带着问题核对证据。本章先分清搜索与调研的差别，给出一份合格调研的产出物标准，再用三个真实场景把流程完整走一遍。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>搜索给你答案，调研给你判断</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>在搜索框输入“某公司 怎么样”，几秒钟就能得到一串标题。搜索解决的是“找到信息”；调研要回答三个更难的问题：<b>这条信息可靠吗？它能支撑什么结论、不能支撑什么？基于它，下一步该做什么决定？</b></p>
+    <p>两者的差别落在三点上：</p>
+    <ul>
+      <li><b>起点不同</b>：搜索从关键词出发，调研从问题出发——动手前先写清“我要为哪个决策，补上什么信息缺口”；</li>
+      <li><b>标准不同</b>：搜索接受单条结果，调研要求交叉验证——两个互不依赖的来源分别印证，一条信息才算立得住；</li>
+      <li><b>终点不同</b>：搜索到链接为止，调研到产出物为止——你最终要交出能支撑决策的东西，而不是一堆打开的标签页。</li>
+    </ul>
+    <p>一份合格调研的产出物，至少包含三块：</p>
+    <ul>
+      <li><b>结论页（一页纸）</b>：结论＋每条标注置信度（高／中／低），并注明“基于截至某年某月某日的公开信息”；</li>
+      <li><b>证据链表</b>：每条用到的信息都记录来源、链接、获取日期、来源层级（官方一手／媒体转述／社媒线索），记录模板见第04章；</li>
+      <li><b>盲区清单</b>：写明查了什么、没查到什么。例如对方未上市，就没有公开财务数据可查——让看报告的人知道结论的边界在哪里。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>中国裁判文书网于2013年7月开通，据最高人民法院2020年9月通报（人民法院报2020-09-05报道），截至当年8月30日文书总量已突破1亿份、访问总量近480亿次，被称为全球最大的裁判文书公开平台（检索日期2026-10-31；最新累计数以网站首页实时统计为准）。对普通调研者的含义是：绝大多数在国内发生过的诉讼，都可能有公开文书可以核对——这是普通人用得上、也最硬的公开证据库之一。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>三个场景，把流程走一遍</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>场景A · 选合作方（创业者）。</b>对方递来名片与宣传册，你的动作是：①先核身——在国家企业信用信息公示系统（gsxt.gov.cn，市场监管总局主办）输入企业名称或统一社会信用代码，看注册时间、注册资本是否实缴、股东结构、有无经营异常名录与行政处罚；②再查司法——在中国裁判文书网（wenshu.court.gov.cn）搜公司全称看涉诉类型，在中国执行信息公开网（zxgk.court.gov.cn）查是否为被执行人、失信被执行人；③口碑与媒体报道只作线索；④交叉验证——对方自称“某集团子公司”，就用公示系统的股权信息核对；⑤产出物是一页纸风险清单，并直接转成合同条款（分期付款、违约责任、担保）。</p>
+    <p><b>场景B · 看雇主（求职者）。</b>①公示系统查公司主体、分支机构与经营状态——一家自称“集团”的公司可能注册不满两年；②裁判文书网搜“公司名＋劳动争议”，看有无批量欠薪判例；③职场社区与社媒评价只当情绪温度计，不当下结论，记录时标注来源层级；④产出物是面试提问清单＋风险清单。若在核查中发现欠薪等违法线索，向全国12315平台等主管部门反映，而不是自行“曝光”（见第03章）。</p>
+    <p><b>场景C · 写深度稿（作者）。</b>①把观点改写成可证伪的问题（拆解方法见第04章）；②宏观数据回到国家统计局公报原文——例如《2025年国民经济和社会发展统计公报》（2026年2月28日发布）载明：全年GDP初步核算1,401,879亿元、比上年增长5.0%，全年新设经营主体2574万户；③政策与案件回到原文（法规数据库、判决书、公告），媒体报道只当索引；④每条引用留URL与获取日期，方便编辑复核与日后更新。</p>
+    <div class="chart"><h4>图1-1 调研六步流程（三个场景共用）</h4>
+      <svg viewBox="0 0 800 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="调研六步流程：选定主体、官方核身、司法核查、线索补齐、交叉验证、一页纸产出">
+        <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#9aa1ae"/></marker></defs>
+        <rect x="14" y="60" width="108" height="88" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="68" y="95" text-anchor="middle" font-size="14" fill="#2f3345">选定主体</text><text x="68" y="118" text-anchor="middle" font-size="12" fill="#6b7280">明确查谁、为何查</text>
+        <rect x="146" y="60" width="108" height="88" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="200" y="95" text-anchor="middle" font-size="14" fill="#2f3345">官方核身</text><text x="200" y="118" text-anchor="middle" font-size="12" fill="#6b7280">企业登记 第2层</text>
+        <rect x="278" y="60" width="108" height="88" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="332" y="95" text-anchor="middle" font-size="14" fill="#2f3345">司法核查</text><text x="332" y="118" text-anchor="middle" font-size="12" fill="#6b7280">涉诉·执行 第1层</text>
+        <rect x="410" y="60" width="108" height="88" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="464" y="95" text-anchor="middle" font-size="14" fill="#2f3345">线索补齐</text><text x="464" y="118" text-anchor="middle" font-size="12" fill="#6b7280">媒体·社媒 第5-6层</text>
+        <rect x="542" y="60" width="108" height="88" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="596" y="95" text-anchor="middle" font-size="14" fill="#2f3345">交叉验证</text><text x="596" y="118" text-anchor="middle" font-size="12" fill="#6b7280">双源独立印证</text>
+        <rect x="674" y="60" width="112" height="88" rx="10" fill="#fbfaf5" stroke="#4aa583"/><text x="730" y="95" text-anchor="middle" font-size="14" fill="#2f3345">一页纸产出</text><text x="730" y="118" text-anchor="middle" font-size="12" fill="#6b7280">结论·置信度·盲区</text>
+        <line x1="122" y1="104" x2="140" y2="104" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar1)"/><line x1="254" y1="104" x2="272" y2="104" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar1)"/><line x1="386" y1="104" x2="404" y2="104" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar1)"/><line x1="518" y1="104" x2="536" y2="104" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar1)"/><line x1="650" y1="104" x2="668" y2="104" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar1)"/>
+        <rect x="14" y="190" width="772" height="72" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="34" y="218" font-size="13" fill="#2f3345">场景A 选合作方：核股东与注册资本 → 查被执行记录 → 同行口碑 → 核“母公司”股权 → 风险清单转合同条款</text>
+        <text x="34" y="248" font-size="13" fill="#6b7280">场景B 看雇主：查主体与分支机构 → 查劳动争议判例 → 职场社区仅作线索 → 面试提问清单</text>
+        <text x="34" y="278" font-size="13" fill="#6b7280">场景C 写深度稿：把观点改成问题 → 公报与原文数据 → 多方印证 → 证据链表随稿交付</text>
+      </svg>
+      <div class="cap">图注：作者整理 · 各层级渠道详见第02章信息源地图 · 检索日期2026-10-31</div>
+    </div>
+    <p>三个场景共用同一条流程，差别只在“首查的层级”和“产出物的形态”：</p>
+    <table>
+      <tr><th>场景</th><th>要回答的决策问题</th><th>首查层级</th><th>核心产出物</th><th>最常见的坑</th></tr>
+      <tr><td>选合作方</td><td>值不值得签、怎么设条款</td><td>第2层 企业登记</td><td>风险清单＋合同条款</td><td>只看对方提供的材料，不回官方系统核对</td></tr>
+      <tr><td>看雇主</td><td>要不要入职</td><td>第2层＋第1层</td><td>提问清单＋风险清单</td><td>把职场社区的抱怨或吹捧当成事实</td></tr>
+      <tr><td>写深度稿</td><td>事实是否成立</td><td>第3-4层 统计与一手文件</td><td>证据链表＋置信度</td><td>引用转述来源，原文没有读过</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gsxt.gov.cn/index.html" target="_blank">国家企业信用信息公示系统（国家市场监督管理总局）</a>（检索日期2026-10-31）
+    <a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网（最高人民法院）</a>（检索日期2026-10-31）
+    <a href="http://zxgk.court.gov.cn/" target="_blank">中国执行信息公开网（最高人民法院）</a>（检索日期2026-10-31）
+    <a href="https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html" target="_blank">国家统计局：2025年国民经济和社会发展统计公报（2026-02-28）</a>（检索日期2026-10-31）
+    <a href="https://www.12315.cn" target="_blank">全国12315平台（国家市场监督管理总局）</a>（检索日期2026-10-31）
+  </div>
+</section>
+
+<section id="c02" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 02 · PART I · 基础与边界</span><h2>信息源地图<span class="accent">：七层结构，先查哪层后查哪层</span></h2></div>
+  <p class="sec-desc">中文世界的信息源不是平的，而是一座塔：越往下越快、越吵，越往上越慢、越硬。本章把常用信息源分成七层，标出每层的可靠性、更新频率与获取成本，并给出从上到下的查询顺序。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗺️</span><h3>七层地图：从政府公告到海外数据库</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>查任何一件事之前，先在脑子里挂上这张七层地图。判断一个信息值多少分，先问它来自哪一层：</p>
+    <ul>
+      <li><b>第一层 · 政府与司法（可靠性最高，免费）</b>：法律法规原文查国家法律法规数据库（flk.npc.gov.cn）；裁判文书查中国裁判文书网（wenshu.court.gov.cn）；被执行人与失信名单查中国执行信息公开网（zxgk.court.gov.cn）。这一层给的是“原件”。</li>
+      <li><b>第二层 · 企业登记与信用（官方公示，免费）</b>：国家企业信用信息公示系统（gsxt.gov.cn，市场监管总局主办）查登记、年报、经营异常与行政处罚；“信用中国”（creditchina.gov.cn，国家发改委主管）查跨部门公共信用记录；上市公司公告查证监会指定披露网站巨潮资讯网（cninfo.com.cn）。</li>
+      <li><b>第三层 · 行业与统计（权威但滞后）</b>：国家统计局年度统计公报每年2月底至3月初发布上一年数据（如2025年公报于2026-02-28发布）；海关总署统计数据在线查询平台（stats.customs.gov.cn）每月中旬左右可查上月进出口数据；行业协会报告作补充。</li>
+      <li><b>第四层 · 学术与专利（专业性强）</b>：国家知识产权局专利检索及分析系统（pss-system.cponline.cnipa.gov.cn）免费注册使用，收录105个国家、地区和组织的专利数据；Google Patents 收录全球120多个专利局超过1.2亿件专利出版物；商业学术数据库（知网等）一般按机构订阅。</li>
+      <li><b>第五层 · 传统媒体（二手，但有采编责任）</b>：权威媒体的调查报道与行业报道是重要的“指路人”，但引用其中的数字时要回到第1—3层核对原件。</li>
+      <li><b>第六层 · 社媒与自媒体（最快、最吵）</b>：微博、公众号、知乎、短视频平台。只当线索雷达与舆情温度计，不当证据。</li>
+      <li><b>第七层 · 海外源（查境外主体必走）</b>：美国证监会 EDGAR 收录超过2100万份上市公司申报文件，免费全文检索；WIPO 的 PATENTSCOPE 查国际专利申请。</li>
+    </ul>
+    <div class="chart"><h4>图2-1 七层信息源结构</h4>
+      <svg viewBox="0 0 800 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="七层信息源金字塔：第一层政府与司法到第七层海外源，右侧标注可靠性与噪声方向">
+        <rect x="70" y="14" width="660" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="70" y="14" width="6" height="34" fill="#7d76cf"/><text x="92" y="36" font-size="13" fill="#2f3345">第一层 政府与司法 · 法规原文 / 裁判文书 / 执行信息</text><text x="716" y="36" text-anchor="end" font-size="12" fill="#4aa583">可靠性最高</text>
+        <rect x="90" y="56" width="620" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="90" y="56" width="6" height="34" fill="#6fa8c9"/><text x="112" y="78" font-size="13" fill="#2f3345">第二层 企业登记与信用 · 公示系统 / 信用中国 / 巨潮资讯</text><text x="696" y="78" text-anchor="end" font-size="12" fill="#4aa583">最高</text>
+        <rect x="110" y="98" width="580" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="110" y="98" width="6" height="34" fill="#4aa583"/><text x="132" y="120" font-size="13" fill="#2f3345">第三层 行业与统计 · 统计局公报 / 海关数据平台</text><text x="676" y="120" text-anchor="end" font-size="12" fill="#dfa63e">高（滞后）</text>
+        <rect x="130" y="140" width="540" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="130" y="140" width="6" height="34" fill="#dfa63e"/><text x="152" y="162" font-size="13" fill="#2f3345">第四层 学术与专利 · CNIPA专利系统 / Google Patents</text><text x="656" y="162" text-anchor="end" font-size="12" fill="#4aa583">高</text>
+        <rect x="150" y="182" width="500" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="150" y="182" width="6" height="34" fill="#d3707f"/><text x="172" y="204" font-size="13" fill="#2f3345">第五层 传统媒体 · 权威媒体调查报道</text><text x="636" y="204" text-anchor="end" font-size="12" fill="#dfa63e">中</text>
+        <rect x="170" y="224" width="460" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="170" y="224" width="6" height="34" fill="#6b7280"/><text x="192" y="246" font-size="13" fill="#2f3345">第六层 社媒与自媒体 · 微博 / 公众号 / 知乎</text><text x="616" y="246" text-anchor="end" font-size="12" fill="#d3707f">低（仅线索）</text>
+        <rect x="190" y="266" width="420" height="34" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><rect x="190" y="266" width="6" height="34" fill="#9aa1ae"/><text x="212" y="288" font-size="13" fill="#2f3345">第七层 海外源 · SEC EDGAR / WIPO</text><text x="596" y="288" text-anchor="end" font-size="12" fill="#4aa583">高（境外）</text>
+        <line x1="746" y1="40" x2="746" y2="290" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar2)"/><text x="762" y="160" font-size="13" fill="#6b7280" transform="rotate(90 762 160)">噪声增大 · 更新更快</text>
+        <line x1="40" y1="290" x2="40" y2="40" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar2)"/><text x="24" y="160" font-size="13" fill="#6b7280" transform="rotate(-90 24 160)">可靠性升高</text>
+        <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#9aa1ae"/></marker></defs>
+      </svg>
+      <div class="cap">图注：作者整理 · 层内渠道均为官方公开入口或其收录范围说明 · 检索日期2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>七层横向对比与使用三原则</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <table>
+      <tr><th>层级</th><th>代表渠道</th><th>可靠性</th><th>更新频率</th><th>获取成本</th></tr>
+      <tr><td>1 政府与司法</td><td>flk.npc.gov.cn；wenshu.court.gov.cn；zxgk.court.gov.cn</td><td>高（原件）</td><td>法规即时公布；文书持续增量</td><td>免费</td></tr>
+      <tr><td>2 企业登记与信用</td><td>gsxt.gov.cn；creditchina.gov.cn；cninfo.com.cn</td><td>高（官方公示）</td><td>登记即时；年报按年度</td><td>免费</td></tr>
+      <tr><td>3 行业与统计</td><td>stats.gov.cn；stats.customs.gov.cn</td><td>高</td><td>公报年度；海关月度</td><td>免费</td></tr>
+      <tr><td>4 学术与专利</td><td>pss-system.cponline.cnipa.gov.cn；patents.google.com</td><td>高（文献原件）</td><td>专利定期公开</td><td>免费注册；商业库另计</td></tr>
+      <tr><td>5 传统媒体</td><td>新华社、财新、澎湃等</td><td>中（二手）</td><td>日常</td><td>部分付费</td></tr>
+      <tr><td>6 社媒与自媒体</td><td>微博、公众号、知乎等</td><td>低（噪声大）</td><td>实时</td><td>免费</td></tr>
+      <tr><td>7 海外源</td><td>sec.gov EDGAR；wipo.int</td><td>高</td><td>按披露周期</td><td>免费</td></tr>
+    </table>
+    <p><b>原则一：商业聚合平台当“索引”，不当“证据”。</b>主流企业信息查询平台的官网声明其基础数据正来自国家企业信用信息公示系统、裁判文书网、执行信息公开网等官方渠道；它们胜在聚合与变更提醒，但存在同步延迟。签约、诉讼等关键决策，回到官方系统核对原始记录。</p>
+    <p><b>原则二：先上后下，自下而上倒查。</b>正向查：先第1—2层确认主体与风险，再第3—4层确认行业与技术，最后用第5—6层补细节；反向查：社媒看到爆料，倒着回到上面几层找原件核实，核实不到就标注“未经证实”。举例：社媒传“某公司资金链断裂”，倒查动作是——执行信息公开网看是否新增收案，公示系统看是否新增股权出质或经营异常，巨潮资讯网看有无澄清公告；三处都干净，就在记录里写“社媒说法，官方渠道未见印证”，而不是跟着转发。</p>
+    <p><b>原则三：每层留痕。</b>记录获取日期与URL（模板见第04章）；各平台界面与数据覆盖会改版，本章所述以2026年10月31日检索当日为准，使用时以官方当期页面为准。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>据国家发改委2015年6月新闻稿，“信用中国”网站开通时已归集来自最高人民法院、税务总局、证监会等部门的110多万条信用记录（检索日期2026-10-31）。官方一直在主动把散落各部门的记录汇进统一窗口——调研者的第一站应该是这里，而不是自媒体。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://flk.npc.gov.cn/" target="_blank">国家法律法规数据库（全国人大常委会办公厅主办）</a>（检索日期2026-10-31）
+    <a href="https://www.gsxt.gov.cn/index.html" target="_blank">国家企业信用信息公示系统（国家市场监督管理总局）</a>（检索日期2026-10-31）
+    <a href="https://www.ndrc.gov.cn/xwdt/xwfb/201506/t20150601_955622.html" target="_blank">国家发改委：“信用中国”网站开通运行（2015-06）</a>（检索日期2026-10-31）
+    <a href="http://www.cninfo.com.cn" target="_blank">巨潮资讯网（证监会指定上市公司信息披露网站）</a>（检索日期2026-10-31）
+    <a href="https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html" target="_blank">国家统计局：2025年国民经济和社会发展统计公报（2026-02-28）</a>（检索日期2026-10-31）
+    <a href="http://stats.customs.gov.cn" target="_blank">海关总署统计数据在线查询平台</a>（检索日期2026-10-31）
+    <a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank">国家知识产权局专利检索及分析系统</a>（检索日期2026-10-31）
+    <a href="https://www.sec.gov/edgar/search/" target="_blank">美国证监会 EDGAR 全文检索</a>（检索日期2026-10-31）
+    <a href="https://patents.google.com" target="_blank">Google Patents</a>（检索日期2026-10-31）
+  </div>
+</section>
+
+<section id="c03" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 03 · PART I · 基础与边界</span><h2>法律与伦理边界<span class="accent">：什么能查、什么不能碰</span></h2></div>
+  <p class="sec-desc">公开信息调研的底气来自“公开”二字，但公开不等于无限可用。本章用法律条文、司法解释与已公开的典型案例划出三条不能碰的线，并给出发现违法线索后的正确动作。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>两部法律划出的边界</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：所有人必读</span></div></div>
+    <p><b>《个人信息保护法》</b>于2021年8月20日通过（主席令第九十一号）、2021年11月1日施行。第4条把“个人信息”定义为：以电子或者其他方式记录的、与已识别或者可识别的自然人有关的各种信息。第27条规定：个人信息处理者可以在<b>合理的范围内</b>处理个人自行公开或者已经合法公开的个人信息，<b>个人明确拒绝的除外</b>；处理已公开信息对个人权益有重大影响的，仍应依法取得同意。对调研者的含义：企业登记、司法文书这类“制度性公开”可以查；但涉及具体自然人的信息，要守住“合理范围”——最小必要、不拼凑画像、不二次传播、对方拒绝就停。</p>
+    <p><b>《刑法》第253条之一（侵犯公民个人信息罪）</b>：违反国家有关规定，向他人出售或者提供公民个人信息，情节严重的，处三年以下有期徒刑或者拘役；情节特别严重的，处三年以上七年以下有期徒刑；在履行职责或提供服务过程中获得的信息再出售、提供的，从重处罚。条文原文可在国家法律法规数据库（flk.npc.gov.cn）检索。</p>
+    <p>量刑门槛由<b>《关于办理侵犯公民个人信息刑事案件适用法律若干问题的解释》（法释〔2017〕10号，2017年6月1日施行）</b>确定，核心是三档数量标准：</p>
+    <div class="chart"><h4>图3-1 “情节严重”三档数量门槛（条）</h4>
+      <div class="hbar-row"><span>行踪轨迹·通信内容·征信·财产信息</span><div class="hbar-track"><div class="hbar-fill" style="width:1%"></div></div><span class="hbar-val">50条</span></div>
+      <div class="hbar-row"><span>住宿·通信记录·健康生理·交易信息</span><div class="hbar-track"><div class="hbar-fill" style="width:10%"></div></div><span class="hbar-val">500条</span></div>
+      <div class="hbar-row"><span>其他公民个人信息</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">5000条</span></div>
+      <div class="cap">图注：法释〔2017〕10号第五条规定的入罪数量档 · 违法所得5000元以上亦可入罪 · 来源：最高人民法院官网发布会实录（2017-05-09）· 检索日期2026-10-31</div>
+    </div>
+    <p>这些不是纸面数字。最高人民法院2026年5月8日发布五件惩治侵犯公民个人信息犯罪及关联犯罪典型案例：一名铁路客运员利用职务便利查询他人高铁乘车信息（车次、座位、证件号等）以每条10—60元出售，违法所得约19万元，被判三年八个月至缓刑不等，并承担公益诉讼赔偿；为医院开发挂号系统的外包公司非法收集挂号用户信息约287万条，负责人被判五年六个月至一年六个月不等；两人搭建“社工库”网站、非法获取个人信息分别达6亿余条、3亿余条，主犯数罪并罚获刑七年（检索日期2026-10-31）。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚧</span><h3>三个危险动作，与发现线索后的正确做法</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：所有人必读</span></div></div>
+    <table>
+      <tr><th>危险动作</th><th>为什么越界</th><th>公开判例/依据</th></tr>
+      <tr><td>爬取需登录、付费或突破技术措施才能看的内容</td><td>绕过访问控制获取数据，可能构成不正当竞争乃至刑事犯罪</td><td>新浪微博诉脉脉案二审（(2016)京73民终588号，2016年12月）：确立“用户授权＋平台授权＋用户再授权”三重授权原则，判停止抓取并赔偿200万元及合理费用20.9万余元；《刑法》第285条（非法获取计算机信息系统数据罪）</td></tr>
+      <tr><td>购买“内部数据”“名单”</td><td>非法获取公民个人信息，买与卖同样入罪</td><td>最高法2026年典型案例：黄某某等人租用手机号收验证码、伪造证件图片绕过“学信网”实名认证，下载学历备案表倒卖牟利约30万元，被判三年八个月至八个月不等</td></tr>
+      <tr><td>追踪特定个人的行踪、挖掘其关系网（含“开盒”）</td><td>行踪轨迹信息位列最敏感一档，50条即可入罪</td><td>法释〔2017〕10号第五条；最高法2026年典型案例：“社工库”案主犯获刑七年</td></tr>
+    </table>
+    <p><b>发现违法线索怎么办？</b>不自行追查、不以曝制曝。你的动作是：①保存线索（URL、截图、时间）；②向主管部门举报——网络违法与不良信息向中央网信办违法和不良信息举报中心（12377.cn，电话12377）；消费与市场类线索向全国12315平台；涉嫌犯罪的向公安机关反映或通过公安部网络违法犯罪举报网站提交；③保留证据原件，配合调查。你的义务是<b>移交线索</b>，不是当侦探。</p>
+    <p><b>保护自己</b>：如果你自己的信息被泄露或被“开盒”，同样走这三步——平台投诉、向12377举报、必要时报警，并保存证据。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>最高法在上述典型案例通报中强调“重拳出击，斩断个人信息泄露源头”，全链条惩治“内鬼”与“开盒”犯罪（检索日期2026-10-31）。对普通调研者的提醒是：信息的每一次转手都可能构成“提供”——你以为的顺手转发一份名单，在法律上可能是犯罪链条中的一环。</blockquote>
+    <div class="chart"><h4>图3-2 使用公开信息前的自检流程</h4>
+      <svg viewBox="0 0 800 380" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="自检流程：判断对象是企业还是自然人，企业走官方公示渠道，自然人须满足已合法公开且合理范围，任何情况不得绕过访问控制或购买内部数据">
+        <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#9aa1ae"/></marker></defs>
+        <rect x="10" y="165" width="120" height="50" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="70" y="195" text-anchor="middle" font-size="13" fill="#2f3345">我要用这条信息</text>
+        <line x1="130" y1="190" x2="158" y2="190" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar3)"/>
+        <polygon points="160,190 245,158 330,190 245,222" fill="#fbfaf5" stroke="#dcd7c9"/><text x="245" y="186" text-anchor="middle" font-size="13" fill="#2f3345">对象是企业</text><text x="245" y="204" text-anchor="middle" font-size="13" fill="#2f3345">还是自然人？</text>
+        <line x1="245" y1="158" x2="245" y2="98" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar3)"/><text x="258" y="130" font-size="12" fill="#6b7280">企业/机构</text>
+        <rect x="100" y="48" width="290" height="50" rx="10" fill="#fbfaf5" stroke="#4aa583"/><text x="245" y="70" text-anchor="middle" font-size="13" fill="#2f3345">走官方公示渠道（第1-2层）</text><text x="245" y="89" text-anchor="middle" font-size="12" fill="#6b7280">记录来源与获取日期</text>
+        <line x1="245" y1="222" x2="245" y2="268" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar3)"/><text x="258" y="248" font-size="12" fill="#6b7280">自然人</text>
+        <polygon points="160,300 245,268 330,300 245,332" fill="#fbfaf5" stroke="#dcd7c9"/><text x="245" y="296" text-anchor="middle" font-size="13" fill="#2f3345">已合法公开＋合理范围</text><text x="245" y="314" text-anchor="middle" font-size="13" fill="#2f3345">＋未被拒绝？</text>
+        <line x1="330" y1="300" x2="366" y2="300" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar3)"/><text x="336" y="290" font-size="12" fill="#4aa583">是</text>
+        <rect x="370" y="276" width="200" height="48" rx="10" fill="#fbfaf5" stroke="#4aa583"/><text x="470" y="297" text-anchor="middle" font-size="13" fill="#2f3345">可有限使用：不拼凑画像</text><text x="470" y="316" text-anchor="middle" font-size="12" fill="#6b7280">不二次传播 · 留来源</text>
+        <line x1="245" y1="332" x2="245" y2="356" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar3)"/><text x="258" y="348" font-size="12" fill="#d3707f">否</text>
+        <rect x="180" y="336" width="110" height="34" rx="10" fill="#fbeff1" stroke="#d3707f"/><text x="235" y="358" text-anchor="middle" font-size="13" fill="#d3707f">停下</text>
+        <rect x="600" y="48" width="190" height="64" rx="10" fill="#fbeff1" stroke="#d3707f"/><text x="695" y="74" text-anchor="middle" font-size="13" fill="#2f3345">需绕过登录/付费墙？</text><text x="695" y="98" text-anchor="middle" font-size="13" fill="#d3707f">停止（可能违法）</text>
+        <rect x="600" y="132" width="190" height="64" rx="10" fill="#fbeff1" stroke="#d3707f"/><text x="695" y="158" text-anchor="middle" font-size="13" fill="#2f3345">有人兜售内部数据？</text><text x="695" y="182" text-anchor="middle" font-size="13" fill="#d3707f">拒绝并举报 12377/110</text>
+        <text x="600" y="230" font-size="12" fill="#6b7280">右侧两条适用于任何时候，</text><text x="600" y="250" font-size="12" fill="#6b7280">与查企业还是查个人无关。</text>
+      </svg>
+      <div class="cap">图注：作者整理，依据《个人信息保护法》第27条与法释〔2017〕10号 · 检索日期2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=90464" target="_blank">《中华人民共和国个人信息保护法》全文（商务部政策库转载）</a>（检索日期2026-10-31）
+    <a href="https://www.court.gov.cn/zixun/xiangqing/43932.html" target="_blank">最高人民法院：“两高”发布侵犯公民个人信息刑事案件司法解释发布会实录（2017-05-09）</a>（检索日期2026-10-31）
+    <a href="https://www.court.gov.cn/zixun/xiangqing/499271.html" target="_blank">最高人民法院：依法惩治侵犯公民个人信息犯罪及关联犯罪典型案例（2026-05-08）</a>（检索日期2026-10-31）
+    <a href="https://www.ciplawyer.net/articles/120080.html" target="_blank">北京知识产权法院审结脉脉与新浪微博不正当竞争纠纷案报道（2017-01）</a>（检索日期2026-10-31）
+    <a href="https://www.12377.cn" target="_blank">中央网信办违法和不良信息举报中心（12377）</a>（检索日期2026-10-31）
+    <a href="https://flk.npc.gov.cn/" target="_blank">国家法律法规数据库（检索《刑法》第253条之一、第285条原文）</a>（检索日期2026-10-31）
+    <a href="https://www.12315.cn" target="_blank">全国12315平台</a>（检索日期2026-10-31）
+  </div>
+</section>
+
+<section id="c04" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 04 · PART I · 基础与边界</span><h2>调研的基本动作<span class="accent">：提问、拆解、验证、归档</span></h2></div>
+  <p class="sec-desc">调研质量的高低，不取决于工具多少，而取决于四个基本动作是否扎实：把大问题拆小、给每条信息记账、主动证伪、把证据归档。本章给出可以直接照抄的模板。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✂️</span><h3>把模糊问题拆成可查的子问题</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>“这家公司靠谱吗”不是调研问题，是情绪。可查的子问题长这样：<b>这家公司是否真实存在且在营？</b>（第2层：公示系统）<b>有没有欠钱不还的记录？</b>（第1层：执行信息公开网）<b>核心产品有没有专利或论文支撑？</b>（第4层）<b>员工和客户怎么说？</b>（第6层，仅作线索）。</p>
+    <p>拆解模板五要素：<b>对象</b>（谁）＋<b>事实</b>（什么）＋<b>时间</b>（何时）＋<b>证据位置</b>（在哪一层能查）＋<b>证伪条件</b>（如果我的判断错了，我会看到什么）。举个例子：“对方说年营业额三千万”可以拆成——对象是这家公司；事实是营业额规模；时间是最近一个年度；证据位置在上市公告、统计或行业报告，小微企业没有公开财务数据时就在“盲区清单”里如实记一笔；证伪条件是“查到被执行记录或持续经营异常，则能力存疑”。</p>
+    <p>五要素里最值钱的是最后一条：<b>动笔检索之前，先写下“什么证据会推翻我的判断”。</b>查到支持证据只会让你更兴奋，主动去找反面证据才见功力。</p>
+    <div class="chart"><h4>图4-1 调研循环：验证不过关，就换关键词或换层级再来</h4>
+      <svg viewBox="0 0 800 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="调研循环流程：模糊问题到提问、拆解、检索，经双源独立印证判断后归档并给出带置信度的结论，新信息出现则回到提问">
+        <defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#9aa1ae"/></marker></defs>
+        <rect x="10" y="140" width="105" height="50" rx="10" fill="#fbfaf5" stroke="#7d76cf"/><text x="62" y="170" text-anchor="middle" font-size="13" fill="#2f3345">模糊问题</text>
+        <line x1="115" y1="165" x2="144" y2="165" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="150" y="140" width="140" height="50" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="220" y="162" text-anchor="middle" font-size="13" fill="#2f3345">提问</text><text x="220" y="180" text-anchor="middle" font-size="12" fill="#6b7280">写成可证伪子问题</text>
+        <line x1="290" y1="165" x2="314" y2="165" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="320" y="140" width="120" height="50" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="380" y="162" text-anchor="middle" font-size="13" fill="#2f3345">拆解</text><text x="380" y="180" text-anchor="middle" font-size="12" fill="#6b7280">挂到七层地图</text>
+        <line x1="440" y1="165" x2="460" y2="165" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="466" y="140" width="95" height="50" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/><text x="513" y="162" text-anchor="middle" font-size="13" fill="#2f3345">检索</text><text x="513" y="180" text-anchor="middle" font-size="12" fill="#6b7280">自上而下</text>
+        <line x1="561" y1="165" x2="586" y2="165" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/>
+        <polygon points="625,130 700,165 625,200 550,165" fill="#fbfaf5" stroke="#dcd7c9"/><text x="625" y="161" text-anchor="middle" font-size="13" fill="#2f3345">双源独立</text><text x="625" y="179" text-anchor="middle" font-size="13" fill="#2f3345">印证？</text>
+        <line x1="700" y1="165" x2="706" y2="165" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/><text x="698" y="155" font-size="12" fill="#4aa583">是</text>
+        <rect x="710" y="140" width="80" height="50" rx="10" fill="#fbfaf5" stroke="#4aa583"/><text x="750" y="162" text-anchor="middle" font-size="13" fill="#2f3345">归档</text><text x="750" y="180" text-anchor="middle" font-size="12" fill="#6b7280">证据日志</text>
+        <line x1="750" y1="190" x2="750" y2="236" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="710" y="240" width="80" height="50" rx="10" fill="#fbfaf5" stroke="#4aa583"/><text x="750" y="262" text-anchor="middle" font-size="13" fill="#2f3345">结论</text><text x="750" y="280" text-anchor="middle" font-size="12" fill="#6b7280">标注置信度</text>
+        <polyline points="625,200 625,222 492,222 492,194" fill="none" stroke="#9aa1ae" stroke-width="2" marker-end="url(#ar4)"/><text x="632" y="217" font-size="12" fill="#d3707f">否：换关键词 / 换层级</text>
+        <polyline points="710,265 220,265 220,194" fill="none" stroke="#9aa1ae" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#ar4)"/><text x="330" y="258" font-size="12" fill="#6b7280">新信息出现 → 重新提问</text>
+      </svg>
+      <div class="cap">图注：作者整理 · 与第02章七层地图配套使用 · 检索日期2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📒</span><h3>记账、验证与证伪</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>记录习惯：每条信息记七个字段</b>（见表4-1）。网页会改版、公告会下线，获取日期与来源层级是日后复核的唯一线索；关键证据顺手做离线备份或快照。这份日志本身就是你调研报告的附录。</p>
+    <table>
+      <tr><th>字段</th><th>填写要点</th><th>示例（真实记录）</th></tr>
+      <tr><td>编号</td><td>顺序流水号</td><td>E-03</td></tr>
+      <tr><td>信息内容</td><td>只记事实，不加评论</td><td>2025年统计公报：全年GDP初步核算1,401,879亿元、比上年增长5.0%</td></tr>
+      <tr><td>来源与链接</td><td>指向原始出处而非转载</td><td>stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html</td></tr>
+      <tr><td>获取日期</td><td>年月日</td><td>2026-10-31</td></tr>
+      <tr><td>来源层级</td><td>对应第02章七层</td><td>第3层 官方统计</td></tr>
+      <tr><td>可信度</td><td>高／中／低＋理由</td><td>高——官方一手，公报注明发布日期2026-02-28</td></tr>
+      <tr><td>用途</td><td>支撑哪条结论</td><td>结论1：宏观增速判断</td></tr>
+    </table>
+    <p><b>验证三条规则</b>：①单一来源不下结论；②两个来源必须“独立”——两家媒体转载同一篇通稿，不算两个来源；③一手优先：法规看国家法律法规数据库原文、判决看裁判文书、数据看统计公报，媒体与平台转述只当索引。</p>
+    <p><b>先假设再证伪。</b>心理学家沃森1960年的“2-4-6”实验中，受试者要根据三个数字猜出背后的规则，29人中只有6人在第一次尝试就猜中（正确规则是“任意三个递增的数字”）——大多数人只提交能验证自己假设（如“偶数递增”）的例子，很少提交可能推翻它的例子（如3、4、5）。Nickerson在1998年的经典综述中把确认偏误定义为“以偏向既有信念、预期或假设的方式去寻找或解读证据”。落到操作上是三条对策：①给每个子问题配一个“反方检索词”（查合作方时同时搜“公司名＋投诉”“公司名＋被执行”）；②换层级检索（回到第02章七层地图），别在同一个信息层里打转；③结论只写置信度（高／中／低），不写“绝对”，并保留盲区清单。</p>
+    <blockquote class="xq">💬 <span class="who">可借鉴的标准：</span>国际事实核查网（IFCN）对核查机构提出的五项准则中，“来源透明”“方法透明”“公开更正”三项同样适用于个人调研：写清信息从哪来、怎么核对的、错了在哪里更正（转述自 IFCN Code of Principles，检索日期2026-10-31）。国内可参考的实践包括中央网信办主管的中国互联网联合辟谣平台（piyao.org.cn，2018年8月上线）与澎湃新闻“澎湃明查”核查项目（factpaper.cn，2021年9月上线）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏱️</span><h3>三十分钟快查：把模板用起来</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>收到一个主体（公司、项目、合作邀约），手上只有半小时：①10分钟走第1—2层——公示系统核主体与经营状态、执行信息公开网查被执行与失信；②10分钟走第1层司法——裁判文书网搜公司全称，再搜“公司名＋劳动争议”“公司名＋合同纠纷”；③5分钟走第5—6层扫新闻与口碑，只记线索；④5分钟填证据日志、写一页纸结论（含盲区清单）。查不完的如实写进盲区清单，不要硬下结论。</p>
+    <p>别小看“获取日期”这一个字段：公示系统里的处罚记录可能因信用修复被移出，媒体报道可能被撤稿——<b>日期加快照，是你日后唯一能自证的依据</b>。同样，给别人看的报告里保留来源链接，是让读者能沿着你的路径走到原始出处，这也是全书各章示例都附来源的原因。</p>
+    <p>本章的四个动作是全书的地基：渠道在第02章、边界在第03章、产出物标准在第01章；第二部分起将逐层展开每个渠道的具体查法。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://ifcncodeofprinciples.poynter.org" target="_blank">IFCN 国际事实核查准则（Poynter 研究所）</a>（检索日期2026-10-31）
+    <a href="https://www.piyao.org.cn" target="_blank">中国互联网联合辟谣平台（中央网信办举报中心主办）</a>（检索日期2026-10-31）
+    <a href="https://www.factpaper.cn" target="_blank">澎湃明查事实核查平台（澎湃新闻）</a>（检索日期2026-10-31）
+    <a href="https://flk.npc.gov.cn/" target="_blank">国家法律法规数据库</a>（检索日期2026-10-31）
+    <a href="https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html" target="_blank">国家统计局：2025年国民经济和社会发展统计公报（2026-02-28）</a>（检索日期2026-10-31）
+    <a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网（最高人民法院）</a>（检索日期2026-10-31）
+  </div>
+</section>
+
+<section id="c05" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 05 · PART 1 · 基础与边界</span><h2>信源可信度分级<span class="accent">：怎么判断一条信息可不可信</span></h2></div>
+  <p class="sec-desc">一条信息到达你手里时，往往已经隔了好几手。这一章给你一套不依赖直觉的分级方法：先看它离源头隔几手，再给信源贴上 A/B/C 标签，最后用「孤证不立」守住结论的底线。第 04 章讲的是调研的基本动作，这一章解决的是——面对具体某条信息时，信还是不信。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>先问一句：这条信息离源头隔了几手？</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>所有信源都可以分成三层，判断可信度的第一步不是「读内容」，而是「数距离」：<b>一手来源</b>是事实的直接产出者——政府公告原文、法院判决书、公司年报与审计报告、监管处罚决定书、当事人的原始声明、论文里的原始数据；<b>二手转载</b>是媒体或他人对一手来源的转述，转载过程中会丢上下文、改标题、断章取义；<b>自媒体演绎</b>则是在转述之上又加了情绪、猜测和立场，离原文最远。</p>
+    <ul>
+      <li><b>实操动作：</b>拿到任何一条信息，先往上找「源头文件」。看到「某部门表示」，就去搜该部门官网有没有公告原文；看到「判决认定」，就去裁判文书网找判决书原件（第 08 章讲怎么搜）。</li>
+      <li><b>横向核查（lateral reading）：</b>斯坦福教育研究团队对专业事实核查员的对比研究发现，核查员不是留在页面里细读，而是立刻开新标签页，去查「这是谁说的、别人怎么说」——这种离开当前页面的读法，效率远高于研究者和大学生的「纵向细读」。</li>
+      <li><b>SIFT 四步法</b>（Mike Caulfield 提出）：停一停（Stop）、查信源（Investigate）、找更可靠的报道（Find better coverage）、追溯到原始语境（Trace）。四步做完，一条信息的位置基本就定了。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「专业事实核查员做的第一件事，是离开当前页面。」——转述自斯坦福 Sam Wineburg 团队 2016–2019 年对事实核查员、历史学者与在校生的对比研究；该团队课程已移至 Digital Inquiry Group 的 Civic Online Reasoning 站点（见文末来源）。</blockquote>
+    <div class="chart">
+      <h4>信源三层结构：离源头越远，失真风险越高</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="一手来源、二手转载、自媒体演绎三层信源结构与对应的核查动作示意">
+        <text x="30" y="34" font-size="13" fill="#6b7280">← 离源头越近 · 可信度越高</text>
+        <text x="770" y="34" font-size="13" fill="#6b7280" text-anchor="end">离源头越远 · 失真风险越高 →</text>
+        <rect x="30" y="60" width="220" height="110" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="140" y="95" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f3345">一手来源</text>
+        <text x="140" y="122" text-anchor="middle" font-size="13" fill="#6b7280">公告原文 · 判决书 · 年报</text>
+        <text x="140" y="148" text-anchor="middle" font-size="13" fill="#4aa583">失真风险：低</text>
+        <rect x="290" y="60" width="220" height="110" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="95" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f3345">二手转载</text>
+        <text x="400" y="122" text-anchor="middle" font-size="13" fill="#6b7280">媒体报道 · 网站转载</text>
+        <text x="400" y="148" text-anchor="middle" font-size="13" fill="#dfa63e">失真风险：中</text>
+        <rect x="550" y="60" width="220" height="110" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="660" y="95" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f3345">自媒体演绎</text>
+        <text x="660" y="122" text-anchor="middle" font-size="13" fill="#6b7280">改标题 · 加猜测与情绪</text>
+        <text x="660" y="148" text-anchor="middle" font-size="13" fill="#d3707f">失真风险：高</text>
+        <line x1="256" y1="115" x2="280" y2="115" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="286,115 278,111 278,119" fill="#9aa1ae"/>
+        <line x1="516" y1="115" x2="540" y2="115" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="546,115 538,111 538,119" fill="#9aa1ae"/>
+        <line x1="140" y1="170" x2="140" y2="200" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="400" y1="170" x2="400" y2="200" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="660" y1="170" x2="660" y2="200" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <rect x="30" y="200" width="220" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="140" y="228" text-anchor="middle" font-size="13" fill="#2f3345">核查动作</text>
+        <text x="140" y="252" text-anchor="middle" font-size="13" fill="#6b7280">直接引用原文</text>
+        <text x="140" y="272" text-anchor="middle" font-size="13" fill="#6b7280">并标注文号与日期</text>
+        <rect x="290" y="200" width="220" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="228" text-anchor="middle" font-size="13" fill="#2f3345">核查动作</text>
+        <text x="400" y="252" text-anchor="middle" font-size="13" fill="#6b7280">找到至少一条独立报道</text>
+        <text x="400" y="272" text-anchor="middle" font-size="13" fill="#6b7280">再回溯源头文件</text>
+        <rect x="550" y="200" width="220" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="660" y="228" text-anchor="middle" font-size="13" fill="#2f3345">核查动作</text>
+        <text x="660" y="252" text-anchor="middle" font-size="13" fill="#6b7280">只当线索使用</text>
+        <text x="660" y="272" text-anchor="middle" font-size="13" fill="#6b7280">等官方或权威口径</text>
+        <text x="400" y="312" text-anchor="middle" font-size="13" fill="#6b7280">核查顺序：自右向左，把每条信息推回它所能到达的最靠近源头的层级</text>
+      </svg>
+      <div class="cap">图注：信源层级示意（定性结构，非统计数据）· 依据本章方法与 SIFT/横读研究整理 · 检索日期 2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏷️</span><h3>五级标签法：给每个信源发一张「身份证」</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>分级不能靠感觉，要靠标签。给你一个最简五级制，调研中每条信息先贴标签再使用——写报告时，结论的「硬度」必须与所引信源的级别匹配：</p>
+    <table>
+      <tr><th>级别</th><th>典型来源</th><th>能用来做什么</th><th>不能做什么</th></tr>
+      <tr><td><b>A1 官方一手</b></td><td>部委公告原文、判决书、企业年报、监管处罚决定书</td><td>直接作为事实依据，注明文号与日期</td><td>不能替你做推断，原文没写的不算</td></tr>
+      <tr><td><b>A2 权威转载</b></td><td>新华社、人民日报等稿源单位的署名报道，或官方平台转载</td><td>作为事实依据，同时标注出处</td><td>重要数字仍建议回溯 A1 原文核对</td></tr>
+      <tr><td><b>B1 专业原创</b></td><td>财经/行业专业媒体的署名调查报道</td><td>作为重要线索与背景</td><td>关键结论需一条 A 级或另一条独立 B 级佐证</td></tr>
+      <tr><td><b>B2 一般转载</b></td><td>普通网站的转载稿、自媒体整理</td><td>只作线索，帮你找到源头</td><td>不能直接作为结论依据</td></tr>
+      <tr><td><b>C 匿名演绎</b></td><td>匿名帖、聊天记录截图、来源不明的「内部消息」</td><td>提示风险方向</td><td>任何情况下不单独成结论</td></tr>
+    </table>
+    <ul>
+      <li><b>白名单技巧：</b>判断一个网站有没有新闻转载资质，可对照国家网信办发布的《互联网新闻信息稿源单位名单》——2021 版涵盖 1358 家稿源单位并实行「有进有出」动态管理，此后持续更新（2025 年 7 月又公布了截至 2025 年 6 月的新版名单），以中国网信网当期页面为准。</li>
+      <li>《互联网新闻信息服务管理规定》（国家互联网信息办公室令第 1 号，2017 年 6 月 1 日施行）要求转载新闻信息注明来源、不得歪曲篡改——反过来说，看到不注来源、篡改标题的转载稿，本身就是降级信号。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>官方口径冲突时，先查这三处再下结论</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>官方≠永远一致。同一件事，两个部门说法不同、新旧文件要求不同，都很常见。遇到冲突，按固定顺序排查：</p>
+    <ul>
+      <li><b>第一查版本与文号：</b>同一机关先后口径不同，多半是新文件废止或修改了旧文件。看发文日期、文号、有没有「自本公告发布之日起废止」字样，用最新的那份。</li>
+      <li><b>第二查层级与适用范围：</b>中央与地方、总纲与细则可能并行不悖——两个口径可能只是各管一段。核对适用地域、行业、时间范围后，冲突常常自动消失。</li>
+      <li><b>第三查发布主体身份：</b>仿冒官网与仿冒账号并不少见。先确认域名是不是主办单位的官方域名，再核对内容；涉及谣言查证，认准中国互联网联合辟谣平台（piyao.org.cn，中央网信办举报中心主办、新华网承办）。</li>
+    </ul>
+    <p>三处都查完仍然冲突，就把两个口径都记录下来、标注「存疑」，结论降级为「待证实」，等更高层级或更新的口径出现——冲突本身就是值得写进报告的发现。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「遇到相互矛盾的信源，先别急着选边，先看两边各自的出处和日期——很多『矛盾』其实是新旧版本没分清。」——转述自多家媒体事实核查栏目的通行做法（详见 SIFT 方法第四步「追溯到原始语境」）。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧱</span><h3>孤证不立：把「两条独立信源」变成肌肉记忆</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>孤证不立的操作定义只有一句话：<b>任何要写进结论的重要事实，至少需要两条互不相关的证据链。</b>难点全在「互不相关」四个字上：</p>
+    <ul>
+      <li><b>不同链条才算独立：</b>同一条通稿被 100 个网站转载，仍然是一条证据；一家媒体与其关联号互相引用，也算一条。看的是信息最初从哪个源头流出。</li>
+      <li><b>推荐组合：</b>官方文件 × 权威媒体报道；判决书 × 当事人自己的公告；统计数据 × 一线访谈。链条类型越不同，佐证力越强。</li>
+      <li><b>只有孤证时怎么办：</b>照写，但必须带限定词——「据某方称」「尚未获得独立证实」「截至检索日期仅见单一来源」。诚实的存疑比漂亮的断言值钱。</li>
+      <li><b>发现谣言或违法线索：</b>向中央网信办违法和不良信息举报中心（12377.cn，电话 12377）或中国互联网联合辟谣平台提交线索，由主管部门处理——你的任务是核实信息，不是自行追查任何人。</li>
+    </ul>
+    <p>下一章我们解决另一个问题：查到的东西怎么存下来，让半年后的你（或你的合作方）还能一步步复核。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.piyao.org.cn/" target="_blank">中国互联网联合辟谣平台（中央网信办举报中心主办，2026-10-31 检索）</a><a href="https://www.12377.cn/" target="_blank">中央网信办违法和不良信息举报中心 12377（2026-10-31 检索）</a><a href="http://www.cac.gov.cn/2021-10/18/c_1636153145780775.htm" target="_blank">国家网信办：新版《互联网新闻信息稿源单位名单》（2021-10，1358 家）</a><a href="https://cor.inquirygroup.org/" target="_blank">Digital Inquiry Group · Civic Online Reasoning（横读课程，2026-10-31 检索）</a><a href="https://catawba.libguides.com/SIFTGUIDE" target="_blank">SIFT (The Four Moves) by Mike Caulfield · Catawba College Library</a><a href="https://psycnet.apa.org/record/2022-53872-001" target="_blank">Wineburg et al., Lateral Reading on the Open Internet（J. Educational Psychology, 2022）</a><a href="https://zh.wikisource.org/zh-hans/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B0%E9%97%BB%E4%BF%A1%E6%81%AF%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E8%A7%84%E5%AE%9A" target="_blank">《互联网新闻信息服务管理规定》全文（国家互联网信息办公室令第 1 号，2017）</a></div>
+</section>
+
+<section id="c06" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 06 · PART 1 · 基础与边界</span><h2>记录与溯源<span class="accent">：做一份可复现的调研档案</span></h2></div>
+  <p class="sec-desc">调研不是一次性的浏览，而是一份能被别人复核的档案。这一章给出调研档案的最小结构、截图与存档的实操，以及用笔记工具和版本管理把过程管起来的做法——它是第 20 章交叉验证与第 22 章报告写法的地基。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📁</span><h3>调研档案的最小结构：一条记录五个字段</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>你不需要专业软件，一个文档就能起步。关键是每查到一条信息，就立刻记下五个字段，一个都不能省：</p>
+    <ul>
+      <li><b>① 问题：</b>这条信息回答什么疑问？——半年后重读档案时，你会忘了当初为什么查它。</li>
+      <li><b>② 内容摘要：</b>原文说了什么？直接摘抄关键句，不要凭记忆转写。</li>
+      <li><b>③ 来源：</b>完整 URL＋截图＋页面标题。重要页面另做存档（下一张卡片讲怎么做）。</li>
+      <li><b>④ 检索日期与路径：</b>哪天、用什么渠道、什么关键词查到的。「2026-10-31，国家企业信用信息公示系统，关键词：完整公司名称」这样的记录，才能让任何人重走一遍。</li>
+      <li><b>⑤ 可信度标签：</b>按第 05 章的五级制标注 A1–C，标签决定它能不能进结论。</li>
+    </ul>
+    <p>一条合格的记录长这样（通用模板）：<b>问题</b>：合作方是否正常年报公示？<b>摘要</b>：系统显示「已完成 2025 年度年报公示」。<b>来源</b>：公示系统详情页截图＋URL。<b>路径</b>：2026-10-31，国家企业信用信息公示系统，搜索完整公司名称。<b>标签</b>：A1 官方一手。</p>
+    <p>「著录格式」这件事学术界早就标准化了——参考文献著录规则国家标准从 1987 年的 GB 7714 一路改到 2015 版，再改到 2025 年 12 月 2 日发布、2026 年 7 月 1 日起实施的新版（旧版随之废止）。版本会过时，但「来源、日期、可追溯」这三个字段意识不会。</p>
+    <p>另外一条纪律：<b>档案里只记与调研问题有关的信息，坚持最小必要原则。</b>查企业时顺手看到的无关人员信息，不要写进档案；查到的内容如果与问题无关，宁可整条不记。档案是给人复核的，不是收集别人的个人信息——这条原则与第 03 章的法律边界一脉相承。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「档案不是写给今天的自己看的，是写给三个月后已经忘了全部上下文的你，以及要来挑刺的合作方看的。」——调研从业者的普遍共识，也是尽调报告的基本要求：每个事实都能指回出处。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📸</span><h3>为什么截图比链接更可靠：链接失效是常态</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>只留链接的档案，等于把结论押在对方的网页服务器上。哈佛法学院 Zittrain、Albert、Lessig 三位学者 2014 年发表的研究显示：美国最高法院裁判意见中引用的网址约一半已经「链接失效或内容变样」，法学期刊引用的网址失效比例更是超过七成——连最讲究出处的法律界都躲不过。</p>
+    <div class="chart">
+      <h4>法律文献中引用网址的失效比例（哈佛法学院研究，2014 年发表）</h4>
+      <div class="hbar-row"><span>美国最高法院裁判意见</span><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><span class="hbar-val">约 50%</span></div>
+      <div class="hbar-row"><span>法学期刊（含哈佛法律评论等）</span><div class="hbar-track"><div class="hbar-fill" style="width:70%"></div></div><span class="hbar-val">超过 70%</span></div>
+      <div class="cap">图注：口径为「链接失效或引用内容已变化」· 来源：Zittrain, Albert & Lessig, Harvard Law Review Forum Vol.127（2014）· 检索日期 2026-10-31</div>
+    </div>
+    <ul>
+      <li><b>截图要截三样：</b>浏览器地址栏（证明页面在哪）、页面正文关键内容（证明写了什么）、系统时间（证明何时看的）。整页截图优先于局部截图。</li>
+      <li><b>重要页面先存档再引用：</b>用互联网档案馆的 Wayback Machine（Save Page Now 功能）把网页存一份，把存档链接写进档案——原页面将来改版或删除，你仍有据可查。</li>
+      <li><b>需要长期固定的关键证据：</b>可以考虑可信时间戳等第三方存证服务（如联合信任时间戳服务中心 tsa.cn），对文件的存在时间和完整性做认证；若拟用于诉讼，先咨询律师按证据规则操作。</li>
+      <li><b>截图自己也要管好：</b>统一放进档案目录、按日期命名，别散落在聊天记录里——截图丢失，等于证据丢失。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗂️</span><h3>用笔记工具和版本管理，把过程管起来</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>档案散落在聊天记录、桌面和收藏夹里，等于没有档案。给你一套最低成本的整理方案：</p>
+    <ul>
+      <li><b>一调研一文件夹：</b>固定四个子目录——<b>sources/</b>（存档与摘录）、<b>screenshots/</b>（截图）、<b>notes.md</b>（记录与疑问）、<b>timeline.md</b>（时间线）。文件命名用「日期_来源_关键词」，例如「2026-10-31_公示系统_某公司年报」。</li>
+      <li><b>文献类资料交给 Zotero：</b>免费开源的文献管理工具，浏览器插件一键保存网页题录与附件，自动记录抓取时间，导出参考文献时自动套用著录格式（新版国标的样式社区通常很快跟进）。</li>
+      <li><b>版本管理留痕：</b>用 Git 管理文本档案，每次检索后提交一次，提交历史就是一份自动生成的调研日志——谁、什么时候、改了什么结论，一目了然。不熟悉 Git 的读者，用笔记工具自带的「历史版本」或网盘的版本回溯也能达到类似效果。</li>
+      <li><b>复现检验：</b>档案做完后做一次「冷启动测试」：假装自己是第一次接手的同事，只看档案能否重走你的每一步。走不通的地方，就是漏记的字段。</li>
+      <li><b>备份与权限：</b>档案至少留存两处（本地＋云盘），并控制访问范围——只给需要复核的人看。交给客户前，先删掉与交付内容无关的原始素材。</li>
+    </ul>
+    <div class="chart">
+      <h4>一条调研记录的生命周期</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="调研记录生命周期流程图：提出问题、检索、记录、分级标注、复现检验、写入报告六个环节">
+        <rect x="20" y="40" width="115" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="77" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">① 提出问题</text>
+        <text x="77" y="96" text-anchor="middle" font-size="13" fill="#6b7280">这条信息</text>
+        <text x="77" y="113" text-anchor="middle" font-size="13" fill="#6b7280">回答什么疑问</text>
+        <rect x="170" y="40" width="115" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="227" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">② 检索</text>
+        <text x="227" y="96" text-anchor="middle" font-size="13" fill="#6b7280">渠道＋关键词</text>
+        <text x="227" y="113" text-anchor="middle" font-size="13" fill="#6b7280">当场记下路径</text>
+        <rect x="320" y="40" width="115" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="377" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">③ 记录</text>
+        <text x="377" y="96" text-anchor="middle" font-size="13" fill="#6b7280">URL＋截图＋摘录</text>
+        <text x="377" y="113" text-anchor="middle" font-size="13" fill="#6b7280">重要页面先存档</text>
+        <rect x="470" y="40" width="115" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="527" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">④ 分级标注</text>
+        <text x="527" y="96" text-anchor="middle" font-size="13" fill="#6b7280">按第 05 章</text>
+        <text x="527" y="113" text-anchor="middle" font-size="13" fill="#6b7280">贴 A1–C 标签</text>
+        <rect x="620" y="40" width="115" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="677" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">⑤ 复现检验</text>
+        <text x="677" y="96" text-anchor="middle" font-size="13" fill="#6b7280">按档案重走一遍</text>
+        <text x="677" y="113" text-anchor="middle" font-size="13" fill="#6b7280">补齐漏记字段</text>
+        <line x1="135" y1="80" x2="164" y2="80" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="170,80 162,76 162,84" fill="#9aa1ae"/>
+        <line x1="285" y1="80" x2="314" y2="80" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="320,80 312,76 312,84" fill="#9aa1ae"/>
+        <line x1="435" y1="80" x2="464" y2="80" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="470,80 462,76 462,84" fill="#9aa1ae"/>
+        <line x1="585" y1="80" x2="614" y2="80" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="620,80 612,76 612,84" fill="#9aa1ae"/>
+        <line x1="677" y1="120" x2="677" y2="170" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <polygon points="677,176 673,168 681,168" fill="#9aa1ae"/>
+        <rect x="250" y="180" width="300" height="60" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">⑥ 写入报告：结论与证据一一对应</text>
+        <text x="400" y="227" text-anchor="middle" font-size="13" fill="#6b7280">每个事实都能指回档案里的某条记录</text>
+        <line x1="660" y1="210" x2="560" y2="210" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="668" y="215" font-size="13" fill="#6b7280">交付后收到质疑，凭档案逐条答复</text>
+        <text x="400" y="280" text-anchor="middle" font-size="13" fill="#6b7280">要点：②③④ 必须当场完成——事后补记的来源和日期，恰恰最容易出错</text>
+        <text x="400" y="305" text-anchor="middle" font-size="13" fill="#6b7280">时间线整理方法见第 21 章，报告写法见第 22 章</text>
+      </svg>
+      <div class="cap">图注：调研记录生命周期示意（流程结构，非统计数据）· 依据本章方法整理 · 检索日期 2026-10-31</div>
+    </div>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「链接会死，截图和存档不会。引用别人网页前先存一份，是成本最低的职业习惯。」——转述自哈佛法学院链接失效研究推动建立 Perma.cc 永久存档服务的初衷：给法律引用配上「不会坏的链接」。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://openstd.samr.gov.cn/bzgk/gb/std_list?p.p1=0&p.p90=circulation_date&p.p91=desc&p.p2=7714" target="_blank">国家标准全文公开系统：GB/T 7714 系列标准检索（2015 版废止，2025 版 2026-07-01 实施；2026-10-31 检索）</a><a href="https://harvardlawreview.org/forum/vol-127/perma-scoping-and-addressing-the-problem-of-link-and-reference-rot-in-legal-citations" target="_blank">Zittrain, Albert &amp; Lessig：Perma—Link and Reference Rot in Legal Citations（Harvard Law Review Forum, 2014）</a><a href="https://web.archive.org/" target="_blank">Wayback Machine（互联网档案馆，2026-10-31 检索）</a><a href="https://help.archive.org/help/save-pages-in-the-wayback-machine/" target="_blank">Internet Archive 官方帮助：在 Wayback Machine 保存网页</a><a href="https://www.tsa.cn/" target="_blank">联合信任时间戳服务中心（可信时间戳，2026-10-31 检索）</a><a href="https://www.zotero.org/" target="_blank">Zotero 官网（免费开源文献管理，2026-10-31 检索）</a></div>
+</section>
+
+<section id="c07" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 07 · PART 2 · 政府与公共数据</span><h2>企业征信<span class="accent">：国家企业信用信息公示系统怎么用</span></h2></div>
+  <p class="sec-desc">选合作方、入职、投资之前，第一步都是把这家公司的「官方底档」调出来。国家企业信用信息公示系统（gsxt.gov.cn）免费、权威、有法定效力，第三方商业平台再好用也不能替代它。本章给出标准查询路径、两个渠道的分工，以及从股权穿透看实际控制人的方法。前一章的档案五字段，从这里开始真正派上用场。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏛️</span><h3>标准查询路径：五步查完一家公司的官方底档</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span><span class="badge">免费</span></div></div>
+    <p>国家企业信用信息公示系统由市场监管总局主办，2014 年 2 月上线，覆盖全国 31 个省区市约 1.3 亿户企业、个体工商户和农民专业合作社的信用信息（央广网 2020 年报道口径）。查询免费，无需登录，具体操作以官方当期页面为准：</p>
+    <ul>
+      <li><b>第 1 步 · 精确检索：</b>打开 www.gsxt.gov.cn，输入完整公司名称或统一社会信用代码。模糊查询结果条数有限制，尽量用全称或代码；官网设有人机访问验证，浏览器直接访问即可，验证失败多为网络波动，稍后重试。</li>
+      <li><b>第 2 步 · 核对主体：</b>同名公司不少，先核对统一社会信用代码、住所、法定代表人，确认你要查的就是这家。</li>
+      <li><b>第 3 步 · 看登记与备案：</b>基本信息（注册资本、成立日期、经营范围）、投资人及出资信息、主要人员、分支机构、变更记录。变更记录值得逐条看：频繁换股东、换法定代表人，往往是需要追问的信号。</li>
+      <li><b>第 4 步 · 看年报：</b>年报含股东出资、资产状况、对外投资、网站信息等。依《企业信息公示暂行条例》第八条，企业应于每年 1 月 1 日至 6 月 30 日报送并公示上一年度年报；没报的会被列入经营异常名录——连续几年「查无年报」的公司，合作要谨慎。</li>
+      <li><b>第 5 步 · 看风险栏目：</b>行政许可、行政处罚、抽查检查结果、经营异常名录、严重违法失信名单，逐项过一遍并截图归档（第 06 章的字段规范在这里执行）。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>「企业应当于每年1月1日至6月30日，通过企业信用信息公示系统向工商行政管理部门报送上一年度年度报告，并向社会公示。」——《企业信息公示暂行条例》第八条（国务院令第 654 号，2014 年 10 月 1 日施行；2024 年 3 月修订，新增信用修复等制度）。</blockquote>
+    <div class="chart">
+      <h4>公示系统五步查询路径</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="国家企业信用信息公示系统五步查询流程图：检索、核对主体、看登记备案、看年报、看风险栏目">
+        <rect x="18" y="50" width="140" height="90" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="88" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">① 精确检索</text>
+        <text x="88" y="104" text-anchor="middle" font-size="13" fill="#6b7280">完整名称或</text>
+        <text x="88" y="122" text-anchor="middle" font-size="13" fill="#6b7280">统一社会信用代码</text>
+        <rect x="176" y="50" width="140" height="90" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="246" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">② 核对主体</text>
+        <text x="246" y="104" text-anchor="middle" font-size="13" fill="#6b7280">代码 · 住所 ·</text>
+        <text x="246" y="122" text-anchor="middle" font-size="13" fill="#6b7280">法定代表人</text>
+        <rect x="334" y="50" width="140" height="90" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="404" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">③ 登记与备案</text>
+        <text x="404" y="104" text-anchor="middle" font-size="13" fill="#6b7280">股东出资 · 变更</text>
+        <text x="404" y="122" text-anchor="middle" font-size="13" fill="#6b7280">主要人员 · 分支</text>
+        <rect x="492" y="50" width="140" height="90" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="562" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">④ 年报信息</text>
+        <text x="562" y="104" text-anchor="middle" font-size="13" fill="#6b7280">出资 · 资产 ·</text>
+        <text x="562" y="122" text-anchor="middle" font-size="13" fill="#6b7280">对外投资</text>
+        <rect x="650" y="50" width="132" height="90" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="716" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">⑤ 风险栏目</text>
+        <text x="716" y="104" text-anchor="middle" font-size="13" fill="#6b7280">行政处罚 · 异常</text>
+        <text x="716" y="122" text-anchor="middle" font-size="13" fill="#6b7280">名录 · 严重失信</text>
+        <line x1="158" y1="95" x2="170" y2="95" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="176,95 168,91 168,99" fill="#9aa1ae"/>
+        <line x1="316" y1="95" x2="328" y2="95" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="334,95 326,91 326,99" fill="#9aa1ae"/>
+        <line x1="474" y1="95" x2="486" y2="95" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="492,95 484,91 484,99" fill="#9aa1ae"/>
+        <line x1="632" y1="95" x2="644" y2="95" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="650,95 642,91 642,99" fill="#9aa1ae"/>
+        <rect x="60" y="190" width="680" height="52" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="212" text-anchor="middle" font-size="13" fill="#2f3345">年报时间线：每年 1 月 1 日—6 月 30 日报送上一年度年报并向社会公示</text>
+        <text x="400" y="232" text-anchor="middle" font-size="13" fill="#6b7280">逾期未年报 → 列入经营异常名录（《企业信息公示暂行条例》第八条）</text>
+        <line x1="88" y1="140" x2="88" y2="185" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="400" y="278" text-anchor="middle" font-size="13" fill="#6b7280">每一步都截图归档：URL＋截图＋检索日期，标注 A1 官方一手（方法见第 06 章）</text>
+        <text x="400" y="303" text-anchor="middle" font-size="13" fill="#6b7280">界面与查询限制以官方当期页面为准 · 检索日期 2026-10-31</text>
+      </svg>
+      <div class="cap">图注：查询路径与年报时间线示意 · 依据《企业信息公示暂行条例》及公示系统当期页面整理 · 检索日期 2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧩</span><h3>第三方平台怎么用才加分：互补，而非替代</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>天眼查、企查查、启信宝等是依法备案的企业征信机构，官网口径显示其数据主要整合自国家企业信用信息公示系统、中国裁判文书网等公开渠道。它们的价值在于把分散在各官方渠道的数据拼到一张页面上，并提供检索与提醒功能；但数据整合存在更新滞后与口径差异的可能，做正式判断时应回到官方系统核对。</p>
+    <table>
+      <tr><th>维度</th><th>官方公示系统</th><th>第三方商业平台</th></tr>
+      <tr><td><b>数据效力</b></td><td><b>法定公示渠道，作判断以此为准</b></td><td>整合加工，可能有滞后与差异</td></tr>
+      <tr><td>费用</td><td>免费</td><td>基础免费，深度功能多需会员</td></tr>
+      <tr><td>股权穿透与关联挖掘</td><td>提供股东、出资、对外投资等原始数据</td><td><b>强项</b>：自动绘制多层穿透图、关联图谱</td></tr>
+      <tr><td>跨渠道整合</td><td>登记/年报/处罚等登记管理信息</td><td>叠加司法、知识产权、招聘、舆情等</td></tr>
+      <tr><td>监控提醒</td><td>无</td><td>变更推送、风险提醒、批量监控</td></tr>
+      <tr><td>适用场景</td><td>签约、尽调等正式判断的最终依据</td><td>日常初筛、持续跟踪、线索发现</td></tr>
+    </table>
+    <ul>
+      <li><b>推荐工作流：</b>第三方平台做初筛和穿透（B2 线索级），官方公示系统做逐项确认（A1 证据级）——两条腿走路，顺序不能反。</li>
+      <li><b>顺手核资质：</b>使用第三方平台前，可查其是否具有企业征信业务经营备案，并把「以官方公示系统为准」写进你自己的调研习惯。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🕸️</span><h3>从股权穿透看实际控制人</h3><div class="badges"><span class="badge r4">难度 ★★★★</span><span class="badge">进阶</span></div></div>
+    <p>股权穿透的基本动作：在公示系统或第三方平台打开「股东及出资信息」→ 找出持股最多的股东 → 若股东是公司而非自然人，继续向上查这家股东公司的股东 → 逐层重复，直到出现自然人、国资机构或其他最终控制方。第三方平台的「股权穿透图」会自动完成这个过程，人工核查时建议抽两三条路径回到公示系统验证。</p>
+    <ul>
+      <li><b>现成的刻度尺——25%：</b>《受益所有人信息管理办法》（中国人民银行、市场监管总局令〔2024〕第 3 号，2024 年 11 月 1 日施行）把「直接或间接最终拥有 25% 以上股权、股份或合伙权益」「最终享有 25% 以上收益权、表决权」「单独或联合实际控制」的自然人定为受益所有人，间接持股需层层穿透计算。这把官方标尺，正好用作你判断「谁说了算」的第一把尺子。</li>
+      <li><b>备案 ≠ 公开查询：</b>受益所有人信息由中国人民银行建立的信息管理系统接收保存，是否对社会公众开放查询以官方规则为准；调研者可以直接借用它的「识别标准」做穿透分析。</li>
+      <li><b>穿透的边界：</b>公示系统显示的是出资关系，不等于实际控制——代持、一致行动、协议控制等安排不在公示范围。你的结论应写成「穿透显示的最终出资人为某自然人」并标注推断性质，而不是断言「实际控制人」。</li>
+      <li><b>交叉验证：</b>把穿透结果与年报中的对外投资、主要人员互相印证；发现代持等涉嫌违法违规线索，向市场监管部门或中国人民银行等主管机关反映，不要自行追查。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「穿透到自然人才算到底——中间那几层空壳公司，每一层都值得停下来多看一眼：出资实缴了没有、成立多久、注册在哪里。」——尽调从业者的通行做法，转述自公开的业务经验分享。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gsxt.gov.cn/" target="_blank">国家企业信用信息公示系统官网（2026-10-31 检索；当期设访问验证）</a><a href="https://www.mee.gov.cn/zcwj/gwywj/202001/t20200114_759317.shtml" target="_blank">《企业信息公示暂行条例》全文（生态环境部官网转载，国务院令第 654 号）</a><a href="https://app.www.gov.cn/govdata/gov/202405/01/514490/article.html" target="_blank">中国政府网：《受益所有人信息管理办法》发布（2024-05）</a><a href="https://www.ssf.gov.cn/portal/rootfiles/2024/06/07/1719442631906252-1719442631915740.pdf" target="_blank">《受益所有人信息管理办法》全文 PDF（全国社保基金理事会官网转载）</a><a href="http://ent.cnr.cn/zx/20200529/t20200529_525109797.shtml" target="_blank">央广网：国家企业信用信息公示系统权威免费（2020-05-29）</a><a href="https://zh.wikisource.org/zh-hant/%E4%BC%81%E6%A5%AD%E4%BF%A1%E6%81%AF%E5%85%AC%E7%A4%BA%E6%9A%AB%E8%A1%8C%E6%A2%9D%E4%BE%8B" target="_blank">《企业信息公示暂行条例》全文（维基文库）</a></div>
+</section>
+
+<section id="c08" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 08 · PART 2 · 政府与公共数据</span><h2>司法涉诉<span class="accent">：裁判文书网与执行信息公开网</span></h2></div>
+  <p class="sec-desc">查一家公司有没有官司、输了没有、赔了没有，最硬的证据是法院自己公布的文书。中国裁判文书网管「审了什么、判了什么」，中国执行信息公开网管「判了之后履行没有」。本章讲标准查询路径、判决书里最值得读的部分、失信名单与限消令怎么查，以及公开范围的边界——知道「查不到什么」和「查得到什么」同样重要。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>裁判文书网：查判决书的标准动作</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">免费</span></div></div>
+    <p>中国裁判文书网（wenshu.court.gov.cn）由最高人民法院设立，2013 年 7 月开通，是审判流程、裁判文书、执行信息三大司法公开平台之一。检索支持关键词、案号、当事人、法院、案件类型（刑事/民事/行政/赔偿/执行等）、审判程序、裁判日期等条件组合，部分功能需注册登录，以当期页面为准。</p>
+    <ul>
+      <li><b>检索组合拳：</b>查企业用「完整注册名称」作当事人关键词，再叠加案由或法院缩小范围；查到疑似文书后，用统一社会信用代码和住所二次确认是同一家（与第 07 章核对主体的动作一致）。</li>
+      <li><b>判决书五段最有信息量：</b>①诉讼请求（对方要什么）→ ②「本院查明」（法院认定的事实，全文最硬的部分）→ ③「本院认为」（裁判理由，看法院怎么分配责任）→ ④「判决如下」（主文，谁赔谁、赔多少）→ ⑤上诉与生效情况（有没有被推翻）。</li>
+      <li><b>涉诉 ≠ 败诉：</b>立案只是「有人起诉了」，结果可能是撤诉、调解、驳回。写报告时区分「被诉次数」与「败诉次数」，并记录案由——多起同类案由（如买卖合同纠纷）往往比单起大案更能说明经营模式的问题。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>裁判文书上网公布的原则是「依法、全面、及时、规范」——最高人民法院在互联网设立中国裁判文书网，统一公布各级人民法院的生效裁判文书。转述自《最高人民法院关于人民法院在互联网公布裁判文书的规定》（法释〔2016〕19 号）第一条。</blockquote>
+    <div class="chart">
+      <h4>裁判文书网公开文书规模：关键节点</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="裁判文书网公开文书数量时间线：2013年上线、2017年3247万篇、2020年破1亿篇、2023年约1.4亿份、2024年新增969万余篇">
+        <line x1="50" y1="165" x2="760" y2="165" stroke="#9aa1ae" stroke-width="2"/>
+        <circle cx="90" cy="165" r="7" fill="#7d76cf"/>
+        <text x="90" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">2013-07</text>
+        <text x="90" y="195" text-anchor="middle" font-size="13" fill="#6b7280">网站开通</text>
+        <circle cx="270" cy="165" r="7" fill="#6fa8c9"/>
+        <text x="270" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">2017-08</text>
+        <text x="270" y="195" text-anchor="middle" font-size="13" fill="#6b7280">累计 3247 万篇</text>
+        <circle cx="440" cy="165" r="7" fill="#4aa583"/>
+        <text x="440" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">2020-09</text>
+        <text x="440" y="195" text-anchor="middle" font-size="13" fill="#6b7280">累计突破 1 亿篇</text>
+        <circle cx="600" cy="165" r="7" fill="#dfa63e"/>
+        <text x="600" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">2023-12</text>
+        <text x="600" y="195" text-anchor="middle" font-size="13" fill="#6b7280">累计约 1.4 亿份</text>
+        <circle cx="715" cy="165" r="7" fill="#d3707f"/>
+        <text x="715" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f3345">2024 全年</text>
+        <text x="715" y="195" text-anchor="middle" font-size="13" fill="#6b7280">新增 969 万余篇</text>
+        <rect x="470" y="228" width="300" height="46" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="620" y="248" text-anchor="middle" font-size="13" fill="#2f3345">2024 年新增较 2023 年增长 92.73%</text>
+        <text x="620" y="266" text-anchor="middle" font-size="13" fill="#6b7280">最高人民法院工作报告口径</text>
+        <line x1="715" y1="172" x2="715" y2="228" stroke="#9aa1ae" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="400" y="295" text-anchor="middle" font-size="13" fill="#6b7280">注意：前四个节点为「累计公开量」，2024 节点为「当年新增量」，口径不同</text>
+        <text x="400" y="314" text-anchor="middle" font-size="13" fill="#6b7280">公开范围与节奏以官方当期规则为准 · 检索日期 2026-10-31</text>
+      </svg>
+      <div class="cap">图注：时间线口径见节点标注 · 来源：新华网 2017-08 报道、2020 年 9 月公开报道、2023 年 12 月媒体统计、最高法 2025 年工作报告（媒体解读转述）· 检索日期 2026-10-31</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚫</span><h3>执行信息公开网：失信名单与限消令怎么查</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span><span class="badge">免费</span></div></div>
+    <p>中国执行信息公开网（zxgk.court.gov.cn）首页设有「失信被执行人」「限制消费人员」「执行案件」「终本案件」等查询入口。查询设计自带防滥用门槛：<b>精确查询需输入姓名＋身份证号码</b>（企业填统一社会信用代码）；仅填姓名的模糊查询会返回多条同名记录供人工核对。这个门槛是隐私保护设计——查不到就设法绕过，既不合规也可能违法。</p>
+    <ul>
+      <li><b>失信被执行人：</b>依《最高人民法院关于公布失信被执行人名单信息的若干规定》（法释〔2017〕7 号，2017 年 5 月 1 日施行），有履行能力而拒不履行、隐匿转移财产规避执行、违反财产报告制度、违反限制消费令等情形的被执行人应纳入名单；纳入期限一般为二年，情节严重可延长一至三年；履行义务后法院应在三个工作日内删除失信信息。所以查到「曾是失信被执行人」要记录时间，看是否已删除。</li>
+      <li><b>限制消费令：</b>被限消者不得实施高消费及非生活工作必需的消费行为——乘坐飞机、高铁一等座，入住星级酒店，购买不动产，子女就读高收费私立学校等。法定代表人被限消，公司主要负责人出行的便利会直接受限，这常被合作方视为经营风险的强信号。</li>
+      <li><b>终本案件：</b>「终结本次执行程序」意味着法院暂未发现可供执行的财产——赢了官司也未必拿得到钱，对判断「和它做生意的回款风险」极有参考价值。</li>
+    </ul>
+    <table>
+      <tr><th>维度</th><th>失信被执行人名单</th><th>限制消费令</th></tr>
+      <tr><td>性质</td><td>信用惩戒（进名单库向社会公布）</td><td>消费行为限制（个别签发）</td></tr>
+      <tr><td>主要依据</td><td>法释〔2017〕7 号</td><td>民事诉讼法及最高法相关规定</td></tr>
+      <tr><td>典型触发</td><td>有能力而拒不履行、转移财产规避执行、违反财产报告制度等</td><td>未按执行通知书指定的期间履行给付义务</td></tr>
+      <tr><td>期限</td><td>一般二年，严重可延长一至三年</td><td>履行完毕方可解除</td></tr>
+      <tr><td>查询入口</td><td>执行信息公开网「失信被执行人」</td><td>执行信息公开网「限制消费人员」</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>公开范围与限制：知道「查不到什么」</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">进阶</span></div></div>
+    <p>网上查不到 ≠ 没有涉诉。依现行规定（法释〔2016〕19 号）第四条，下列文书不在互联网公布：涉及国家秘密的；未成年人犯罪的；以调解方式结案或确认人民调解协议效力的（为保护国家利益、社会公共利益、他人合法权益确有必要公开的除外）；离婚诉讼或涉及未成年子女抚养、监护的；法院认为不宜公布的其他情形。加上上传与时滞因素，「文书网查无记录」只能写成「未检索到公开文书」，不能写成「没有任何官司」。</p>
+    <ul>
+      <li><b>一个真实的版本陷阱：</b>本章检索当日，我们在两家地方法院官网检索「互联网公布裁判文书的规定」，找到的转载页竟是 2013 年旧版——其第四条只列了四类不公开情形，与 2016 年现行版不同。按第 05 章的方法，先查文号与施行日期（2016 版自 2016 年 10 月 1 日施行），再决定引用哪一版。</li>
+      <li><b>公开节奏会变：</b>2024 年全年上网文书 969 万余篇、同比增长 92.73%（最高法工作报告口径），公开规模在调整后明显回升；媒体报道过公开方式的讨论与系统升级，检索结论务必标注日期。</li>
+      <li><b>合规底线：</b>查涉诉信息是为了评估交易对手的违约与履约风险；不要批量收集自然人的诉讼记录、不要拼凑任何人的行踪或关系网络。发现涉嫌违法犯罪的线索，向受理法院、执行法院或有关主管部门反映，由公权力机关处理。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>「文书网是『未检索到』，不是『没有』——报告里这两个词差一个字，性质完全不同。真正确认没有未决风险，要靠对方书面披露加担保条款。」——转述自尽调从业者在公开业务分享中的通行表述。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网（最高人民法院，2026-10-31 检索）</a><a href="http://zxgk.court.gov.cn/" target="_blank">中国执行信息公开网（2026-10-31 检索）</a><a href="https://myqfy.hncourt.gov.cn/public/detail.php?id=1770" target="_blank">《最高人民法院关于公布失信被执行人名单信息的若干规定》全文（法释〔2017〕7 号，河南法院网）</a><a href="https://m.055110.com/law/1/2536.html" target="_blank">《最高人民法院关于人民法院在互联网公布裁判文书的规定》全文（法释〔2016〕19 号，转载版）</a><a href="https://sc.lsfy.gov.cn/cpws/wsgkgd/2024-05-14/26313.html" target="_blank">同规定 2013 年旧版全文（四川法院网，2026-10-31 实访比对）</a><a href="http://news.china.com.cn/txt/2017-08/24/content_41468740.htm" target="_blank">新华网：中国裁判文书网累计公开 3247 万篇（2017-08-24）</a></div>
+</section>
+
+<section id="c09" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 09 · PART 02 · 政府与公共数据</span><h2>知识产权查询<span class="accent">：读出一家公司的技术底账</span></h2></div>
+  <p class="sec-desc">合作、投资、求职之前，专利、商标、软件著作权是最容易核实的三类"技术证据"。本章只讲官方免费渠道：入口在哪、字段怎么读、哪些结论下不得。文中平台与数据均核对于 2026-10-31，以官方当期页面为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>专利检索：先入官库，再看状态</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>查中国专利，首选国家知识产权局的<b>专利检索及分析系统</b>：免费注册账号后即可检索和下载中国专利文献，库内收录 105 个国家、地区和组织的专利数据；2022 年 7 月 26 日起"智能化专利检索及分析系统"正式运行，支持简单检索、高级检索、分析与批量下载。也可以从国家知识产权局政务服务平台（ggfw.cnipa.gov.cn）的"专利检索"模块进入，两个入口背后是同一个官方数据库。</p>
+    <ul>
+      <li><b>第一步用"申请人"检索</b>：输入目标公司全名。注意专利申请人可能是母公司、子公司或创始人个人，先按公司名搜，再用发明人姓名补一轮；</li>
+      <li><b>第二步看结构</b>：把结果按申请年份排序，判断研发投入是否逐年持续；再看类型构成——发明专利占比高，通常比堆实用新型更有分量；</li>
+      <li><b>第三步看单件质量</b>：点开专利文献查法律状态（有效、失效、在审），有同族专利、有被引证的专利更"值钱"；</li>
+      <li><b>第四步换字段反查</b>：用 IPC 分类号或技术关键词搜一圈，看这个方向上还有谁在布局，判断对方的技术是独家还是挤在红海里。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏷️</span><h3>商标查询：看注册人，更要看状态</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>官方入口是中国商标网的"商标查询"页（sbj.cnipa.gov.cn/sbj/sbcx/），点击"我接受"后进入商标注册信息网上查询系统，提供商标近似查询、综合查询、状态查询和公告查询，免费使用。查询前先记住官方在页面上明示的一条边界：数据并非实时更新、有一定滞后性，仅供参考、不具法律效力。</p>
+    <ul>
+      <li><b>看注册人</b>：核心商标的注册人是目标公司本身，还是关联方、甚至无关第三方？注册人不是公司，意味着品牌资产可能不在公司手里，合作或投资前要把这一点写进条款；</li>
+      <li><b>看状态</b>：申请收文、等待受理、驳回复审、异议中、无效宣告——"申请中"的商标尚无专用权，被驳回或被无效的商标算不上护城河；</li>
+      <li><b>看期限</b>：注册商标专用权期十年，临期有没有续展，能看出公司对品牌的经营态度；</li>
+      <li><b>防仿冒</b>：只用 sbj.cnipa.gov.cn 官方域名查询，第三方收费查询网站不代表官方。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>商标查询系统页面明示——查询数据"并非实时更新，有一定滞后性，仅供参考，不具法律效力"（中国商标网商标查询页，核对于 2026-10-31）。用商标信息下任何结论前，先想清楚这条边界。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">💾</span><h3>软件著作权：登记节奏比数量更有信息量</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>计算机软件著作权由中国版权保护中心统一办理登记，官方查询入口在官网"登记公告→软件公告"（register.ccopyright.com.cn/publicInquiry.html?type=softList），可按登记号、著作权人名称或软件名称检索；登记完成后约 30 个工作日可在公告中查到。规模背景：2024 年全国共完成软件著作权登记 2,827,213 件，同比增长 13.31%，再创新高（国家版权局公告，2025 年 2 月发布）。</p>
+    <ul>
+      <li>软著是<b>形式审查</b>登记，不审查代码质量与归属细节，成本不高、可批量办理——"有 100 个软著"本身不说明技术强；</li>
+      <li>有信息量的是<b>节奏与对应关系</b>：登记时间是持续多年，还是在投标截止日前突击集中申请；软件名称与公司宣称的业务对不对得上；著作权人是不是目标公司本身；</li>
+      <li>需要正式证明时，在中国版权保护中心注册账号，走"我要查询"流程申请盖章的查询证明，用于尽调或诉讼材料。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>从布局判断技术成色：三个信号叠加</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：投资者</span></div></div>
+    <div class="chart">
+      <h4>截至 2024 年底中国三类专利有效量（万件）</h4>
+      <svg viewBox="0 0 800 240" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="截至2024年底三类专利有效量对比柱状图：实用新型1165.7万件、发明568.9万件、外观设计307.4万件">
+        <line x1="140" y1="10" x2="140" y2="215" stroke="#e7e3d8" stroke-width="2"/>
+        <line x1="140" y1="10" x2="780" y2="10" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="140" y1="78" x2="780" y2="78" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="140" y1="146" x2="780" y2="146" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="140" y1="215" x2="780" y2="215" stroke="#9aa1ae" stroke-width="2"/>
+        <text x="20" y="42" font-size="14" fill="#2f3345">实用新型</text>
+        <rect x="140" y="22" width="620" height="34" rx="6" fill="#6fa8c9"/>
+        <text x="640" y="44" font-size="14" font-weight="bold" fill="#ffffff">1165.7 万件</text>
+        <text x="20" y="110" font-size="14" fill="#2f3345">发明专利</text>
+        <rect x="140" y="90" width="303" height="34" rx="6" fill="#7d76cf"/>
+        <text x="455" y="112" font-size="14" font-weight="bold" fill="#7d76cf">568.9</text>
+        <text x="20" y="178" font-size="14" fill="#2f3345">外观设计</text>
+        <rect x="140" y="158" width="164" height="34" rx="6" fill="#4aa583"/>
+        <text x="316" y="180" font-size="14" font-weight="bold" fill="#4aa583">307.4</text>
+        <text x="140" y="232" font-size="13" fill="#6b7280">单位：万件 · 存量口径（有效量）</text>
+      </svg>
+      <div class="cap">图注：专利有效量为累计存量口径 · 来源：国家知识产权局《2024年1-12月知识产权主要统计数据》（2025年1月发布）；发明专利数据另见国家统计局2024年统计公报 · 检索日期 2026-10-31</div>
+    </div>
+    <p>截至 2024 年底，全国发明专利有效量 568.9 万件（同比增长 14.0%），其中企业拥有 350.6 万件、占国内总量的 73.7%；2024 年全年发明专利授权 104.5 万件。落到"看公司"上，建议三个信号叠加：一看<b>发明专利占比</b>（质量结构）；二看<b>维持年限</b>——要年年缴年费才维持得住的专利才是资产；三看<b>权利人归属</b>——以公司名义持有的专利组合，比一摞登记在个人名下的实用新型更能说明技术沉淀在公司。最后是边界：知产数据证明"有布局、在投入"，证明不了"能落地、卖得动"。把专利结构放到第 10 章的中标记录、第 12 章的行业统计里交叉验证，画像才完整。</p>
+    <table>
+      <tr><th>指标</th><th>数值</th><th>口径与来源</th></tr>
+      <tr><td>发明专利有效量</td><td>568.9 万件（+14.0%）</td><td>截至 2024 年底 · 国家知识产权局统计</td></tr>
+      <tr><td>2024 年发明专利授权量</td><td>104.5 万件（+13.5%）</td><td>2024 年全年 · 2024 年统计公报</td></tr>
+      <tr><td>企业拥有有效发明专利</td><td>350.6 万件（占国内 73.7%）</td><td>截至 2024 年底 · 国家知识产权局统计</td></tr>
+      <tr><td>软件著作权登记量</td><td>282.7 万件（+13.31%）</td><td>2024 年全年 · 国家版权局公告</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://pss-system.cponline.cnipa.gov.cn" target="_blank">国家知识产权局·专利检索及分析系统（免费注册检索）</a>
+    <a href="https://ggfw.cnipa.gov.cn" target="_blank">国家知识产权局政务服务平台（2026-10-31）</a>
+    <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/" target="_blank">中国商标网·商标查询（国家知识产权局商标局）</a>
+    <a href="https://register.ccopyright.com.cn/publicInquiry.html?type=softList" target="_blank">中国版权保护中心·软件著作权登记公告</a>
+    <a href="https://www.ncac.gov.cn/xxfb/bqshfw/bqdj/ndtj/202502/t20250228_885980.html" target="_blank">国家版权局：关于公布2024年全国著作权登记情况的通知（国版发函〔2025〕4号，2025-02）</a>
+    <a href="https://www.stats.gov.cn/sj/zxfb/202502/t20250228_1958817.html" target="_blank">国家统计局：2024年国民经济和社会发展统计公报（2025-02-28）</a>
+  </div>
+</section>
+
+<section id="c10" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 10 · PART 02 · 政府与公共数据</span><h2>招投标与政府采购<span class="accent">：公告里藏着真实客户名单</span></h2></div>
+  <p class="sec-desc">政府采购每年以"万亿"计，且每一笔都要公开公告。对调研者来说，这是少数能免费还原一家公司"真实客户 + 真实订单额"的公开金矿。文中平台栏目均核对于 2026-10-31，以官方当期页面为准。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗂️</span><h3>三个官方渠道，各管一类项目</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>中国政府采购网</b>（www.ccgp.gov.cn）是政府采购信息的主渠道：页面底部注明主办单位为财政部国库司，网站自述为"财政部唯一指定政府采购信息网络发布媒体"。首页"采购公告"分中央单位与地方单位两类，覆盖招标、中标、成交、更正、竞争性磋商、单一来源等公告类型；另有政府采购意向公开查询、合同公告查询和严重违法失信行为记录名单——后面这两个入口同样值得点开。</p>
+    <p><b>中国招标投标公共服务平台</b>（www.cebpubservice.com）管的是另一类项目：依据《招标公告和公示信息发布管理办法》（国家发改委 10 号令），依法必须招标项目的招标公告和公示信息，应当在这个经国务院批准、国家发改委指导建立的国家级平台，或项目所在地省级电子招标投标公共服务平台发布；站内可按项目名称、来源渠道、发布时间检索。</p>
+    <p><b>全国公共资源交易平台</b>（www.ggzy.gov.cn，原 deal.ggzy.gov.cn 域名已并入）把各省市交易信息汇聚成一张网，"中标候选人公示"栏目可按地区、行业检索，适合横向扫一个区域内谁在反复中标。工程类、国企采购类项目的公示在这里最全。</p>
+    <ul>
+      <li>一个项目经常同时在三个渠道出现，字段略有差异，交叉比对能发现更正与补充信息；</li>
+      <li>省级平台（如各省政府采购网、省公共资源交易网）发布更早、更细，顺藤摸瓜时别只盯全国站；</li>
+      <li><b>意向公开是先手棋</b>：采购人准备买什么、大概预算多少，会在正式招标前以"采购意向"形式先行公布（中国政府采购网设有意向公开查询入口）。提前盯意向，比事后读中标更能解释一家公司的订单从哪来。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📝</span><h3>公告值得逐字读：三类文件三种信息</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：创业者 / 投标者</span></div></div>
+    <p>一个采购项目通常经历<b>招标公告 → 中标候选人公示 → 中标结果公告</b>三个阶段，每个阶段都有可抄录的字段：</p>
+    <ul>
+      <li><b>招标公告</b>：项目编号、预算金额、资格门槛（资质、业绩、证书要求——这份门槛本身就是行业惯例清单）、投标截止时间；</li>
+      <li><b>中标候选人公示</b>：一般列前三名候选人及其报价、得分——看得出竞争激烈程度、落选的是谁；报价与得分的组合，还能看出这单是"低价中标"还是"综合评分"，直接影响你判断该公司收入的毛利质量；</li>
+      <li><b>中标结果公告</b>：中标人全名、中标金额、采购人单位、代理机构——这是"真实客户 + 真实订单额"的公开证据，比任何商业宣传都硬。</li>
+    </ul>
+    <p>这个盘子的规模有多大？财政部国库司《2023 年全国政府采购简要情况》显示：2023 年全国政府采购规模 33,929.6 亿元，其中工程 14,486.8 亿元（占 42.7%）、服务 11,704.8 亿元（占 34.5%）、货物 7,738.1 亿元（占 22.8%）；授予中小企业合同金额 25,239.8 亿元、占 74.4%。2024 年规模 33,750.43 亿元，连续第九年超过 3 万亿元。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>中国政府采购网首页自述为"财政部唯一指定政府采购信息网络发布媒体"（www.ccgp.gov.cn，核对于 2026-10-31）。查政府采购信息认准这个域名，其他转载站只作线索、不作依据。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📊</span><h3>把分散公告整理成公司画像：六步可照做</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：投资者</span></div></div>
+    <ul>
+      <li>用公司<b>全名</b>和<b>统一社会信用代码</b>各查一遍——公告里两种写法都常见，只搜一个会漏；</li>
+      <li>建一张流水表：日期 / 项目名 / 采购人 / 中标金额 / 项目编号 / 来源平台，保留链接方便回溯原文；</li>
+      <li>按<b>采购人</b>归组算集中度：若中标几乎全部来自一两个采购单位，说明业务高度依赖单一客户，预算一砍就断档；</li>
+      <li>按<b>年份</b>看趋势：中标次数与金额是爬坡、平台期还是断崖式下滑；</li>
+      <li>别漏"非中标"公告：更正公告透露需求变化，废标公告与投诉处理决定（财政部网站"监督处罚"栏目有公告）暴露项目风险；</li>
+      <li>认<b>统一社会信用代码</b>，不认名字相近：母公司、子公司、分公司是不同签约主体，"XX 科技有限公司"与"XX 科技（集团）有限公司"混在一起会把画像搅浑；</li>
+      <li>把中标金额加总与公司公开信息对照时记住口径：这只是政府采购部分，不等于公司总收入。</li>
+    </ul>
+    <div class="chart">
+      <h4>2023 年全国政府采购构成（亿元）</h4>
+      <svg viewBox="0 0 800 210" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2023年政府采购构成：工程14486.8亿元占42.7%，服务11704.8亿元占34.5%，货物7738.1亿元占22.8%">
+        <line x1="150" y1="10" x2="150" y2="180" stroke="#9aa1ae" stroke-width="2"/>
+        <line x1="150" y1="10" x2="780" y2="10" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="150" y1="67" x2="780" y2="67" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="150" y1="124" x2="780" y2="124" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="150" y1="180" x2="780" y2="180" stroke="#9aa1ae" stroke-width="2"/>
+        <text x="20" y="42" font-size="14" fill="#2f3345">工程</text>
+        <rect x="150" y="20" width="620" height="36" rx="6" fill="#7d76cf"/>
+        <text x="162" y="44" font-size="14" font-weight="bold" fill="#ffffff">14486.8 亿元 · 占 42.7%</text>
+        <text x="20" y="99" font-size="14" fill="#2f3345">服务</text>
+        <rect x="150" y="77" width="500" height="36" rx="6" fill="#4aa583"/>
+        <text x="162" y="101" font-size="14" font-weight="bold" fill="#ffffff">11704.8 亿元 · 占 34.5%</text>
+        <text x="20" y="156" font-size="14" fill="#2f3345">货物</text>
+        <rect x="150" y="134" width="331" height="36" rx="6" fill="#dfa63e"/>
+        <text x="494" y="158" font-size="14" font-weight="bold" fill="#dfa63e">7738.1 · 22.8%</text>
+      </svg>
+      <div class="cap">图注：金额为 2023 年全年口径，总计 33929.6 亿元 · 来源：财政部国库司《2023年全国政府采购简要情况》（2024年9月发布） · 检索日期 2026-10-31</div>
+    </div>
+    <table>
+      <tr><th>年份</th><th>全国政府采购规模（亿元）</th><th>备注</th></tr>
+      <tr><td>2022</td><td>34,993.1</td><td rowspan="3">三年规模均超 3 万亿元，逐年微降；2023 年授予中小企业 25,239.8 亿元、占 74.4%。来源：财政部国库司历年《全国政府采购简要情况》，检索日期 2026-10-31</td></tr>
+      <tr><td>2023</td><td>33,929.6</td></tr>
+      <tr><td>2024</td><td>33,750.43</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="http://www.ccgp.gov.cn/" target="_blank">中国政府采购网（财政部国库司主办，2026-10-31 核对）</a>
+    <a href="http://gks.mof.gov.cn/tongjishuju/" target="_blank">财政部国库司·统计数据栏目（历年《全国政府采购简要情况》）</a>
+    <a href="https://www.cebpubservice.com/" target="_blank">中国招标投标公共服务平台（依法必须招标项目公告发布）</a>
+    <a href="https://www.ggzy.gov.cn/" target="_blank">全国公共资源交易平台（中标候选人公示）</a>
+    <a href="https://www.ggzy.gov.cn/information/deal/html/b/440000/0104/20260116/0044110256d8fd1a45b7a893597c8c6e768a.html" target="_blank">全国公共资源交易平台·中标候选人公示（示例页，2026-01-16）</a>
+  </div>
+</section>
+
+<section id="c11" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 11 · PART 02 · 政府与公共数据</span><h2>行政处罚与异常名录<span class="accent">：把公开处罚当红旗读</span></h2></div>
+  <p class="sec-desc">处罚信息分散在几十个部门的网站上，但两张全国统一平台已能覆盖大半。本章讲清查询路径、名单层级，以及"红旗"到底该怎么举、边界在哪。文中平台状态均核对于 2026-10-31。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏦</span><h3>两张全国统一的信用底账</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>第一张是<b>国家企业信用信息公示系统</b>（www.gsxt.gov.cn，市场监管总局主办）：输入企业名称或统一社会信用代码，可查年报、行政许可、行政处罚、列入经营异常名录信息、列入严重违法失信名单信息等栏目。查询前需登录并完成人机验证；站点访问偶发不稳定——本次检索当日即遇到拦截，换浏览器或错峰再试即可。</p>
+    <p>第二张是<b>信用中国</b>（www.creditchina.gov.cn，国家公共信用信息中心主办）：首页搜主体名称或代码，在"行政管理"栏目看行政处罚、行政许可（业内称"双公示"）。官方规则要记三条：一般失信行为的处罚信息最短公示 3 个月、最长 1 年，严重失信行为公示期更长；公示信息有误可在站内提请异议申诉；信用修复走官方流程、不收任何费用（指引见 creditchina.gov.cn/xyxf/lczy/），谨防收费代办的中介话术。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🚩</span><h3>名单有层级，处罚要分家</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：投资者</span></div></div>
+    <p>在企业信用语境里"进名单"有轻重之分，查到之后先分清是哪一层，再决定它算不算红旗：</p>
+    <ul>
+      <li><b>经营异常名录</b>（市场监管部门）：依据《企业经营异常名录管理办法》（2025 年修订、2025 年 5 月 1 日施行），列入情形包括未按期公示年度报告、未在责令期限内公示企业信息、未按规定办理名称变更登记、通过登记的住所（经营场所）无法联系。多数是管理疏忽，补报、更正后可申请移出；但"住所失联"若与多年失联记录叠加，就值得警惕；</li>
+      <li><b>严重违法失信名单</b>（市场监管部门）：针对违反法律法规、性质恶劣、情节严重、社会危害较大且受到较重行政处罚的情形，经国家企业信用信息公示系统公示，列入满三年移出。现行《市场监督管理严重违法失信名单管理办法》为国家市场监督管理总局令第 128 号，2026 年 7 月 15 日起施行；</li>
+      <li><b>重大税收违法失信主体</b>（税务机关）：依据国家税务总局令第 54 号（2022 年 2 月 1 日施行），偷税、逃避追缴欠税（欠税 100 万元以上且转移隐匿财产）、虚开发票等会被公布，公示期一般为三年，偷税、逃避追缴欠税行为不得提前停止公布；</li>
+      <li><b>部门专项处罚</b>更分散：生态环境局官网"行政处罚信息公开"专栏按月列决定书；网信部门处罚以官网通报发布——例如 2022 年 7 月 21 日国家网信办对滴滴公司作出 80.26 亿元罚款、对董事长兼 CEO 程维和总裁柳青各罚 100 万元，依据网络安全法、数据安全法、个人信息保护法，通报至今公开可查。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方通报原文：</span>"违法违规行为事实清楚、证据确凿、情节严重、性质恶劣"——国家互联网信息办公室对滴滴全球股份有限公司依法作出网络安全审查相关行政处罚的决定（cac.gov.cn，2022-07-21）。大额处罚请以发文机关官网原文为准，这是本章最想让你养成的检索习惯。</blockquote>
+    <div class="chart">
+      <h4>处罚与名单查询路径（从统一平台到主管部门）</h4>
+      <svg viewBox="0 0 800 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="查询流程图：企业名称与统一社会信用代码，依次查询国家企业信用信息公示系统、信用中国，再到主管部门官网与地方信用网">
+        <rect x="190" y="12" width="420" height="48" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="34" font-size="14" text-anchor="middle" fill="#2f3345">起点：公司全名 + 统一社会信用代码</text>
+        <text x="400" y="52" font-size="13" text-anchor="middle" fill="#6b7280">两种写法各查一遍，防止漏检</text>
+        <line x1="400" y1="60" x2="400" y2="82" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="394,82 406,82 400,92" fill="#9aa1ae"/>
+        <rect x="120" y="92" width="560" height="52" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="114" font-size="14" text-anchor="middle" fill="#2f3345">国家企业信用信息公示系统 gsxt.gov.cn</text>
+        <text x="400" y="132" font-size="13" text-anchor="middle" fill="#6b7280">年报 · 行政处罚 · 经营异常名录 · 严重违法失信名单（需登录+验证码）</text>
+        <line x1="400" y1="144" x2="400" y2="166" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="394,166 406,166 400,176" fill="#9aa1ae"/>
+        <rect x="120" y="176" width="560" height="52" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="198" font-size="14" text-anchor="middle" fill="#2f3345">信用中国 creditchina.gov.cn</text>
+        <text x="400" y="216" font-size="13" text-anchor="middle" fill="#6b7280">行政处罚"双公示" · 失信主体名单 · 公示期与信用修复（3个月–3年不等）</text>
+        <line x1="400" y1="228" x2="400" y2="250" stroke="#9aa1ae" stroke-width="2"/>
+        <polygon points="394,250 406,250 400,260" fill="#9aa1ae"/>
+        <rect x="120" y="260" width="560" height="52" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+        <text x="400" y="282" font-size="14" text-anchor="middle" fill="#2f3345">主管部门官网与地方信用网（专项处罚主阵地）</text>
+        <text x="400" y="300" font-size="13" text-anchor="middle" fill="#6b7280">生态环境局处罚专栏 · 税务局公示栏 · 网信办通报 · 各省"信用XX"门户</text>
+      </svg>
+      <div class="cap">图注：查询路径结构图（未标注金额数据） · 来源：各平台官方页面，检索日期 2026-10-31 · 两张统一平台均需登录与验证，站点偶发不稳请错峰访问</div>
+    </div>
+    <table>
+      <tr><th>名单 / 信息</th><th>主管机关</th><th>典型触发情形</th><th>在哪查</th></tr>
+      <tr><td>经营异常名录</td><td>市场监管部门</td><td>未按期年报、住所无法联系等</td><td>gsxt.gov.cn</td></tr>
+      <tr><td>严重违法失信名单</td><td>市场监管部门</td><td>性质恶劣、情节严重且受较重行政处罚</td><td>gsxt.gov.cn</td></tr>
+      <tr><td>重大税收违法失信主体</td><td>税务机关</td><td>偷税、虚开发票、逃避追缴欠税等</td><td>税务局公示栏、信用中国</td></tr>
+      <tr><td>环境行政处罚</td><td>生态环境部门</td><td>依各地公开范围，按月列决定书</td><td>地方生态环境局官网、信用中国</td></tr>
+      <tr><td>网络与数据类处罚通报</td><td>网信部门</td><td>违反网络安全法、数据安全法、个人信息保护法</td><td>网信部门官网通报</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>红旗怎么举：三条解读边界</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <ul>
+      <li><b>看类型与量级，不搞一票否决</b>：未按期年报多数是疏忽，补报后可移出；虚开发票、逃避追缴欠税则是主观恶意信号。单笔小额处罚，和连续三年逐年加码的处罚记录，含义完全不同——把记录拉成时间线再看；</li>
+      <li><b>看修复状态，回原文核实</b>：公示期满或修复成功后，统一平台的结果页可能不再显示旧记录；反之"现在查不到"也不等于"一直干净"。引用时以处罚决定书原文与文号为依据；</li>
+      <li><b>空白记录不等于零风险</b>：双公示有滞后，环保、网信等专项处罚主要挂在部门官网，统一平台覆盖不全。写结论时用"经公开渠道未检索到"，不要写成"无任何违法记录"。</li>
+    </ul>
+    <p>发现涉嫌违法的线索，向有关主管部门举报（市场监管 12315、环境 12369、网络违法与不良信息 12377 等），交给有权机关处理，不要自行追查或扩散。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.gsxt.gov.cn/" target="_blank">国家企业信用信息公示系统（市场监管总局，需登录查询）</a>
+    <a href="https://www.creditchina.gov.cn/" target="_blank">信用中国（国家公共信用信息中心）</a>
+    <a href="https://www.creditchina.gov.cn/xyxf/lczy/" target="_blank">信用中国·行政处罚信息信用修复流程指引</a>
+    <a href="https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=103777" target="_blank">《企业经营异常名录管理办法》（2025年修订）全文（商务部全球法规网）</a>
+    <a href="https://www.cac.gov.cn/2022-07/21/c_1660021534306352.htm" target="_blank">国家网信办：对滴滴作出网络安全审查相关行政处罚的决定（2022-07-21）</a>
+    <a href="https://credit.gz.gov.cn/cxwhn/zcfg/gj/content/post_8014494.html" target="_blank">《重大税收违法失信主体信息公布管理办法》（国家税务总局令第54号）全文（广州市信用网）</a>
+    <a href="https://meeb.sz.gov.cn/" target="_blank">深圳市生态环境局（行政执法公示/处罚信息栏目示例）</a>
+  </div>
+</section>
+
+<section id="c12" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 12 · PART 02 · 政府与公共数据</span><h2>政府统计与公开数据<span class="accent">：让官方数据替你说话</span></h2></div>
+  <p class="sec-desc">写方案、做判断，最有分量的引用来自官方统计。本章给你入口、找数方法和三条"口径陷阱"，让每个数字都经得起追问。文中平台与数据均核对于 2026-10-31。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏛️</span><h3>入口：一个总库、一份公报、一排部委</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>国家数据平台</b>（data.stats.gov.cn，自国家统计局官网 www.stats.gov.cn"数据查询"栏目进入）是总库，分月度、季度、年度、普查、地区、国际数据等板块，年度数据里能查历年全国性指标，支持时间跨度选择与导出；各年度《中国统计年鉴》也在国家统计局官网在线免费查阅（检索当日确认覆盖至 2025 年卷）。注意：该平台需在浏览器中直接访问，脚本抓取只会得到空白页（2026-10-31 核实）。</p>
+    <p>每年 2 月底发布的<b>《国民经济和社会发展统计公报》</b>是最好的"年度数据地图"。以 2024 年公报为例：全年国内生产总值 1,349,084 亿元、比上年增长 5.0%；规模以上工业增加值增长 5.8%；研究与试验发展（R&amp;D）经费支出 36,130 亿元、占 GDP 的 2.68%；有效发明专利 568.9 万件。读一份公报，宏观框架就搭起来了。</p>
+    <p>行业数据要找<b>主管部门</b>：软件业看工业和信息化部（2024 年我国软件业务收入 137,276 亿元、同比增长 10.0%）；财政收支与政府采购看财政部国库司"统计数据"栏目（gks.mof.gov.cn/tongjishuju/，可查历年《全国政府采购简要情况》）。实操上建议先在公报里锁定指标名，再回总库取完整时间序列——公报负责"搭框架"，数据库负责"填细节"。</p>
+    <blockquote class="xq">💬 <span class="who">一线转述：</span>不少地方统计局官网设有"如何查找官方统计数据"类指南——例如南京市统计局的查找指南就专门介绍了国家统计局数据发布库的使用方法（经检索转述）。月度、季度发布只覆盖主要指标，更完整的细项要去数据发布库里取原始序列。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧮</span><h3>行业统计怎么找、怎么读</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：内容作者</span></div></div>
+    <ul>
+      <li><b>先定部门再找数</b>：问一句"这个行业的统计由谁发布"——工业与软件在工信部，金融在人民银行，交通运输在交通运输部，多数部委官网设"统计数据"栏目并按月、季更新；</li>
+      <li><b>三种形态配合用</b>：统计公报给综合结论，部门统计给细分节奏，统计年鉴给历史序列；引用时注明发布日期与指标名，方便读者复核；</li>
+      <li><b>读数先读脚注</b>：指标定义、统计范围、同比是否"按可比口径"——这三个信息通常藏在注释里，缺了它们，引用就不完整；</li>
+      <li><b>要"全量底数"看普查</b>：逢普查年份（如全国经济普查、人口普查）会有一次性全量摸底公报，适合校准平时只看"规模以上"样本的习惯。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚠️</span><h3>口径与可比性：三个最容易踩的陷阱</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：投资者</span></div></div>
+    <ul>
+      <li><b>陷阱一："规模以上"不是全行业</b>。现行划型标准中，工业与批发业按年主营业务收入 2,000 万元及以上划入，零售业为 500 万元及以上；服务业中交通运输仓储邮政、信息传输软件、水利环境公共设施三个门类和卫生为 2,000 万元及以上，其他行业多为 500 万元。小公司不在规上盘子里——"行业增长 10%"不等于"你的小生意也能增长 10%"；</li>
+      <li><b>陷阱二：初步数会被修订</b>。2024 年 GDP 初步核算为 1,349,084 亿元，2025 年 12 月最终核实为 1,348,066 亿元、核减 1,018 亿元（增速 5.0% 不变）。重要结论用最终核实数，并注明版本与发布日期；</li>
+      <li><b>陷阱三：同名指标可能不同口径</b>。例如软件业务收入的增速"按可比口径计算"，与上年数直接相除会得出错误结论。跨部门引用前，先确认两个数字的统计范围一致；</li>
+      <li><b>引用写全"五件套"</b>：发布机关、指标名称、统计范围（是否规上）、时间与数据版本（初步核算 / 最终核实）、检索日期。五项写全，读者才能复核，你的结论才站得住；</li>
+      <li><b>给首次查到的数据存档</b>：截图或导出表格留底。官方页面会改版、链接会过期，存档能证明你引用时点看到的原貌。</li>
+    </ul>
+    <div class="chart">
+      <h4>同一指标两个版本：2024 年 GDP 初步核算 vs 最终核实（亿元）</h4>
+      <svg viewBox="0 0 800 190" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2024年GDP初步核算1349084亿元与最终核实1348066亿元对比，两者相差1018亿元">
+        <line x1="240" y1="10" x2="240" y2="150" stroke="#9aa1ae" stroke-width="2"/>
+        <line x1="240" y1="10" x2="780" y2="10" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="240" y1="80" x2="780" y2="80" stroke="#e7e3d8" stroke-width="1"/>
+        <line x1="240" y1="150" x2="780" y2="150" stroke="#9aa1ae" stroke-width="2"/>
+        <text x="20" y="42" font-size="14" fill="#2f3345">初步核算（2025-02-28 发布）</text>
+        <rect x="240" y="20" width="530" height="36" rx="6" fill="#6fa8c9"/>
+        <text x="252" y="44" font-size="14" font-weight="bold" fill="#ffffff">1,349,084 亿元</text>
+        <text x="20" y="112" font-size="14" fill="#2f3345">最终核实（2025-12 发布）</text>
+        <rect x="240" y="90" width="529.6" height="36" rx="6" fill="#7d76cf"/>
+        <text x="252" y="114" font-size="14" font-weight="bold" fill="#ffffff">1,348,066 亿元</text>
+        <text x="240" y="172" font-size="13" fill="#6b7280">核减 1,018 亿元（约 0.08%），增速 5.0% 不变——图表刻意等比，差距小到几乎看不见</text>
+      </svg>
+      <div class="cap">图注：单位亿元，柱长等比绘制 · 来源：国家统计局《2024年国民经济和社会发展统计公报》（2025-02-28）与《2024年GDP最终核实公告》（2025-12） · 检索日期 2026-10-31</div>
+    </div>
+    <div class="chart">
+      <h4>"四上"现行划型门槛对比（年主营业务收入/营业收入，万元）</h4>
+      <div class="hbar-row"><span>工业</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">2000 万</span></div>
+      <div class="hbar-row"><span>批发业</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">2000 万</span></div>
+      <div class="hbar-row"><span>服务业三领域+卫生</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">2000 万</span></div>
+      <div class="hbar-row"><span>零售业</span><div class="hbar-track"><div class="hbar-fill" style="width:25%"></div></div><span class="hbar-val">500 万</span></div>
+      <div class="hbar-row"><span>其他多数服务业</span><div class="hbar-track"><div class="hbar-fill" style="width:25%"></div></div><span class="hbar-val">500 万</span></div>
+      <div class="cap">图注：达到门槛才计入"规模以上"统计 · 来源：国家统计局"四上"企业认定标准（经检索核实） · 检索日期 2026-10-31</div>
+    </div>
+    <table>
+      <tr><th>来源</th><th>能查到什么</th><th>入口 / 发布节奏</th></tr>
+      <tr><td>国家数据平台</td><td>月度 / 季度 / 年度 / 普查 / 地区 / 国际数据</td><td>data.stats.gov.cn（需浏览器访问）</td></tr>
+      <tr><td>国民经济和社会发展统计公报</td><td>年度国民经济综合框架数据</td><td>stats.gov.cn，每年 2 月底发布</td></tr>
+      <tr><td>中国统计年鉴</td><td>历史序列与细分表</td><td>stats.gov.cn 在线免费查阅（至 2025 年卷）</td></tr>
+      <tr><td>部委统计栏目</td><td>行业细分数据（如软件业收入）</td><td>各部委官网，按月 / 季更新</td></tr>
+      <tr><td>普查公报</td><td>全国性全量摸底数据</td><td>stats.gov.cn 普查专栏，逢普查年份</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span>
+    <a href="https://www.stats.gov.cn/sj/zxfb/202502/t20250228_1958817.html" target="_blank">国家统计局：2024年国民经济和社会发展统计公报（2025-02-28）</a>
+    <a href="https://www.stats.gov.cn/sj/zxfb/202512/t20251226_1962144.html" target="_blank">国家统计局：2024年GDP最终核实公告（2025-12）</a>
+    <a href="https://data.stats.gov.cn" target="_blank">国家统计局·国家数据平台（月度/季度/年度/普查/地区数据）</a>
+    <a href="https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202502/t20250206_6711597.htm" target="_blank">福建省工信厅：2024年我国软件业务收入137276亿元（2025-02-06）</a>
+    <a href="http://gks.mof.gov.cn/tongjishuju/" target="_blank">财政部国库司·统计数据栏目（2026-10-31 核对）</a>
+    <a href="https://www.stats.gov.cn" target="_blank">国家统计局官网（数据查询 / 统计年鉴入口）</a>
+  </div>
+</section>
+
+<section id="c13" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 13 · PART 3 · 网络与数字足迹</span><h2>域名与 WHOIS<span class="accent">：一个网站的身世怎么查</span></h2></div>
+  <p class="sec-desc">一个网站的「出生证明」分散在几套公开系统里：注册数据告诉你它何时出现、由谁维护，备案数据告诉你它背后是哪家单位。这一章把两条查询链路串起来，也说清哪些字段如今已经查不到——以及为什么「查不到」反而是常态。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>WHOIS 与 RDAP：域名的公开登记信息</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>WHOIS 是域名注册数据的公开查询协议。最省事的入口是 ICANN 官方工具 <b>lookup.icann.org</b>：输入域名，能看到注册商（域名在哪一家注册服务机构注册）、创建日期、更新与到期日期、域名状态（如 clientHold）和 DNS 服务器等字段。中国的 .cn 域名用 CNNIC 官方查询系统 whois.cnnic.cn（现跳转至 webwhois.cnnic.cn），支持域名、主机、联系人三类查询。ICANN 还在推动用 RDAP 替代 WHOIS：查的是同一套注册数据，但返回结构化 JSON，便于程序处理。如果只求快速判断，记住三件事就够：注册时间、域名状态、注册商是否与它宣称的身份相称。</p>
+    <ul>
+      <li><b>能查到什么：</b>注册商、注册/更新/到期时间、域名状态、DNS 服务器。这些字段通常不涉及个人信息，公开可见。</li>
+      <li><b>查不到什么：</b>注册人姓名、邮箱、电话。2018 年 GDPR 生效后，注册局与注册商在公开输出中普遍遮蔽个人信息，显示为「REDACTED FOR PRIVACY」；自 2026 年 4 月 10 日起，.cn/.中国 域名的隐私保护服务对所有用户免费。所以「看不到注册人」如今是常态，<b>不要把隐私保护本身当成可疑信号</b>。</li>
+      <li><b>剩余字段怎么用：</b>「注册时间极新＋无备案＋名称蹭知名品牌」组合起来才是值得警惕的信号；反过来，注册多年的老域名只说明它存在了很久，不等于内容可信。</li>
+      <li><b>状态字段值得一读：</b>正常在用多为 ok；出现 clientHold（注册商暂停解析）、redemptionPeriod（到期后赎回期）等状态，说明域名可能被停用、纠纷或弃管——一个「官网」域名处于停用状态，本身就是一个需要追问的异常。</li>
+      <li><b>页脚反查：</b>正规境内网站通常在页脚悬挂 ICP 备案号（常附公安备案号），备案号是超链接、指向工信部系统——从任意一个页面就能反查它登记的主体，再与「关于我们」里的公司名对照是否一致。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">研究者视角：</span>《ICANN, Whois and Global Data Governance》（2020）梳理：2000–2018 年间 ICANN 屡次被警告其公开的注册数据不符合数据保护法；2018 年 GDPR 生效后，注册局和注册商为规避合规风险，开始在 WHOIS 公开输出中遮蔽个人信息。（转述）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>备案信息：中国大陆网站背后的主体</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：需要核验网站归属的读者</span></div></div>
+    <p>境内网站须在工信部完成 ICP 备案，官方查询入口是 <b>beian.miit.gov.cn</b>（ICP/IP地址/域名信息备案管理系统）的「公共查询」：按网站域名、备案号或主办单位名称（证件号码）任一项查询。系统带验证码，同 IP 频繁查询会被限制，第三方站长工具的备案数据只能作参考、以官方系统为准。查询结果通常包含主办单位名称、单位性质、备案号、网站名称、审核时间等字段。</p>
+    <ul>
+      <li><b>同主体多域名的关联思路：</b>在公共查询里改用「主办单位名称」或「备案号」查询，结果列表的序号列出现多条，即说明该主体名下备案了多个网站——这是把同一家公司的多个站点串起来的官方路径（阿里云帮助文档即按此说明：多个序号表示该主体备案了多个网站）。</li>
+      <li><b>公安备案：</b>网站开通后 30 日内，应在「全国互联网安全管理服务平台」beian.mps.gov.cn 办理公安联网备案，并在首页底部悬挂备案号、链接回该平台；其公共查询支持按网站名称、域名或联网备案号查询。</li>
+      <li><b>边界提示：</b>备案查到的是公开登记的主体信息，用途是核验「这个网站是谁的」。若发现备案号造假、仿冒官方站点等线索，向工信部 12321 或中央网信办 12377 举报，交给主管部门处理，不要自行深挖。</li>
+      <li><b>查不到备案怎么办：</b>域名不在境内注册、服务器在境外、或页面自称「国际版」的站点，可能本来就不走境内备案——这时备案系统查无记录属于正常，判断依据应换成：注册数据＋归档历史＋权威媒体报道，而不是把「无备案」单独当成结论。</li>
+      <li><b>交叉核对要点：</b>备案主体名称应与页脚公司名、「关于我们」里的主体一致；对不上时以备案系统登记为准，再到企业信用信息渠道查两个名称之间有没有关联，别急着替对方解释。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>阿里云 2026 年 4 月发布《【域名注册】.CN/.中国域名隐私保护及保护锁服务调整通知》，明确「.CN/.中国域名隐私保护服务将于 2026 年 4 月 10 日起对所有用户免费提供」——注册人姓名、联系邮箱等此后不再出现在 WHOIS 查询结果中。（转述自该通知）</blockquote>
+  </div>
+
+  <div class="chart">
+    <h4>一个网站的身世：两条查询链路</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="从目标域名出发，分别经 WHOIS/RDAP、工信部备案、公安备案查询，再用主办单位名称反查同主体其他域名的流程图">
+      <rect x="20" y="70" width="160" height="76" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="100" y="102" text-anchor="middle" font-size="15" fill="#2f3345">目标域名</text>
+      <text x="100" y="126" text-anchor="middle" font-size="13" fill="#6b7280">example.com</text>
+      <line x1="180" y1="108" x2="212" y2="108" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="212,104 220,108 212,112" fill="#9aa1ae"/>
+      <rect x="220" y="70" width="165" height="76" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="302" y="95" text-anchor="middle" font-size="14" fill="#7d76cf">① WHOIS / RDAP</text>
+      <text x="302" y="115" text-anchor="middle" font-size="13" fill="#2f3345">注册时间 · 注册商</text>
+      <text x="302" y="133" text-anchor="middle" font-size="13" fill="#2f3345">域名状态 · DNS</text>
+      <line x1="385" y1="108" x2="417" y2="108" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="417,104 425,108 417,112" fill="#9aa1ae"/>
+      <rect x="425" y="70" width="165" height="76" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="507" y="95" text-anchor="middle" font-size="14" fill="#7d76cf">② 工信部备案</text>
+      <text x="507" y="115" text-anchor="middle" font-size="13" fill="#2f3345">主办单位 · 性质</text>
+      <text x="507" y="133" text-anchor="middle" font-size="13" fill="#2f3345">备案号 · 审核时间</text>
+      <line x1="590" y1="108" x2="622" y2="108" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="622,104 630,108 622,112" fill="#9aa1ae"/>
+      <rect x="630" y="70" width="150" height="76" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="705" y="95" text-anchor="middle" font-size="14" fill="#7d76cf">③ 公安备案</text>
+      <text x="705" y="118" text-anchor="middle" font-size="13" fill="#2f3345">联网备案号</text>
+      <line x1="507" y1="146" x2="507" y2="186" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="503,186 507,194 511,186" fill="#9aa1ae"/>
+      <rect x="220" y="194" width="370" height="64" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="405" y="220" text-anchor="middle" font-size="14" fill="#7d76cf">④ 主体关联</text>
+      <text x="405" y="242" text-anchor="middle" font-size="13" fill="#2f3345">用「主办单位名称 / 备案号」反查该主体名下其他域名</text>
+      <text x="400" y="296" text-anchor="middle" font-size="13" fill="#6b7280">注册人个人信息普遍被遮蔽（REDACTED FOR PRIVACY）——「查不到」是常态，不是异常</text>
+    </svg>
+    <div class="cap">图注：查询链路示意 · 依据 ICANN / CNNIC / 工信部 / 公安部公开系统整理 · 检索日期 2026-10-31</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗂️</span><h3>渠道速查：查什么、去哪查、卡在哪</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <table>
+      <tr><th>渠道</th><th>典型可查字段</th><th>主要限制</th></tr>
+      <tr><td>lookup.icann.org（ICANN 官方）</td><td>注册商、创建/到期日期、域名状态、DNS</td><td>注册人个人信息多显示 REDACTED FOR PRIVACY</td></tr>
+      <tr><td>webwhois.cnnic.cn（CNNIC 官方）</td><td>.cn 域名、主机、联系人信息</td><td>2026 年 4 月起隐私保护免费，注册人信息默认隐藏</td></tr>
+      <tr><td>beian.miit.gov.cn（工信部备案）</td><td>主办单位名称、性质、备案号、审核时间</td><td>需验证码、频率受限，一次一查</td></tr>
+      <tr><td>beian.mps.gov.cn（公安备案）</td><td>网站名称、域名、联网备案号</td><td>并非所有网站都办理了公安备案</td></tr>
+    </table>
+    <p>各平台界面与数据覆盖范围以检索当日（2026-10-31）为准，请以官方当期页面为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://lookup.icann.org/" target="_blank">ICANN Lookup 官方查询工具（检索于 2026-10-31）</a><a href="https://webwhois.cnnic.cn/" target="_blank">CNNIC WHOIS 查询系统（检索于 2026-10-31）</a><a href="https://beian.miit.gov.cn/" target="_blank">工信部 ICP/IP地址/域名信息备案管理系统（检索于 2026-10-31）</a><a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">全国互联网安全管理服务平台·公安备案公共查询（检索于 2026-10-31）</a><a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/support/how-to-query-the-registration-information" target="_blank">阿里云帮助文档：如何查询备案信息（检索于 2026-10-31）</a><a href="https://www.west.cn/docs/189270.html" target="_blank">西部数码：如何查询域名信息（检索于 2026-10-31）</a></div>
+</section>
+
+<section id="c14" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 14 · PART 3 · 网络与数字足迹</span><h2>网页归档与历史快照<span class="accent">：看过期页面</span></h2></div>
+  <p class="sec-desc">网页会改版、会删除，「它现在这么说」不等于「它曾经怎么说」。归档服务把历史快照留下来：查证一家公司改过几版承诺、一条政策何时生效、一篇报道删没删过，靠的就是这些过期页面——它还能帮你核对，一项承诺是后来才出现的，还是一直就有。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⏳</span><h3>Wayback Machine：把网页翻回过去</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>Wayback Machine（web.archive.org）是 Internet Archive——一家 1996 年起就存档网页的非营利机构——提供的免费服务。在输入框里粘贴网址，就能看到这个 URL 历年快照的时间轴，按日期挑一版打开即可。2024 年 2 月 Google 搜索的「网页快照」功能正式下线，同年 9 月起 Google 改在搜索结果的「关于此结果」面板里接入 Wayback Machine 链接——搜索引擎自带的快照时代结束了，独立归档服务成了主要选项。</p>
+    <ul>
+      <li><b>找已删除的页面：</b>直接把旧 URL 粘进 Wayback Machine；没有整页快照时，也可以顺着存档里旧页面的链接继续挖。注意：被 robots.txt 阻止抓取的站点不会有快照，存档覆盖不是全覆盖。</li>
+      <li><b>手动存档：</b>访问 web.archive.org/save（Save Page Now），粘贴 URL 即可即时保存，生成带时间戳的永久链接；登录 Internet Archive 账号后，「My Web Archive」会记录你存过的所有页面。</li>
+      <li><b>验证「它曾经怎么说」：</b>四步操作——①粘贴 URL；②在时间轴上挑选关键时间点（产品发布前、争议发生后）；③对照当前线上版本逐段比对承诺、价格、条款、团队名单；④把两版差异记录下来。这是核实「对方是否改口」最直接的公开证据。</li>
+      <li><b>快照怎么读：</b>存档页顶部的时间戳是「抓取时间」，不等于页面内容本身的发布时间，引用时要分开表述；老快照可能缺图缺样式，以文字内容为准。</li>
+      <li><b>没有快照怎么办：</b>小站冷页可能从未被抓取。替代路径：用搜索引擎限定 site: 看残留索引与摘要、找权威媒体的转载或引用、查同主体其他域名的存档——线索迁回，不必死磕一个 URL。注意残留摘要可能来自旧抓取，先看日期再用。</li>
+      <li><b>版本对比小技巧：</b>先看页脚版权年份、备案与「更新日期」类信息的变化，再逐段比对正文承诺句——改版常伴随这些「边角信息」一起变。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>2024 年 2 月，谷歌搜索联络负责人 Danny Sullivan 确认快照（Cache）链接功能正式下线；据 IT 之家报道，2024 年 9 月谷歌与 Internet Archive 合作，在「关于此结果」面板中加入 Wayback Machine 链接作为替代。（转述自公开报道）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📸</span><h3>archive.today 与自己存档的习惯</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：需要留证据的作者与核查者</span></div></div>
+    <p>archive.today（镜像域名有 archive.ph、archive.is、archive.li 等，2012 年上线）是另一类归档服务：手动提交 URL，保存一版静态快照，原页面此后改了删了，快照仍在。它对大量使用 JavaScript 的页面（如部分社交平台页面）还原效果通常更好，并记录同一页面的多次快照历史。两个工具互补：Wayback 适合查历史时间轴，archive.today 适合「此刻留证」。两个服务都向公众免费开放，提交与查看均无需付费。</p>
+    <ul>
+      <li><b>存档先于阅读：</b>看到关键页面——对方的承诺、价格表、条款、招聘信息——先存档再引用；即将签约、汇款或入职之前，尤其要先存档。链接失效是常态，等需要时再存往往来不及。</li>
+      <li><b>引用要带快照链接：</b>写深度稿时，把原文链接和归档链接一起记录；归档链接带时间戳，能说明「你在哪一天看到了什么」。</li>
+      <li><b>优先存档哪些页面：</b>与你决策直接相关的——资质与许可声明、收益或效果承诺、价格与退款条款、公司简介与团队页、招聘信息。这类页面最常在争议出现后被修改。</li>
+      <li><b>注意存档的边界：</b>存档快照能证明「某时某页如此」，不能单凭它认定对方违规；拿它做比对证据即可，定性交给主管部门或司法程序。</li>
+      <li><b>工具顺手就好：</b>Wayback Machine 有官方浏览器扩展和手机应用，遇死链可自动展示存档版本；多人协作核一个话题时，先互传归档链接再讨论，省掉「链接已失效」的扯皮。</li>
+      <li><b>别把存档当唯一副本：</b>任何归档服务都可能宕机、限流或在你的网络环境下无法访问（本次检索中 web.archive.org 在部分网络下就出现过访问超时）。重要证据建议双工具各存一份，必要时另存本地文件。</li>
+      <li><b>国内也有国家级保存实践：</b>中国国家图书馆 2003 年启动 WICP（网络信息资源采集与保存项目），2019 年启动互联网信息战略保存项目，与国内互联网企业合作保存中文网络资源——主要面向采集与保存，普通读者日常检索仍以 Wayback 等公开服务为主。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">从业者经验：</span>事实核查与开源调查社区的通用做法是「存档要先于删除」：常见使用场景包括事实核查、保存可能被删除的文章、防止链接失效。（转述自维基百科 Archive.today 条目及事实核查机构介绍）</blockquote>
+  </div>
+
+  <div class="chart">
+    <h4>网页快照服务的关键节点</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1996 年 Internet Archive 开始存档、2012 年 archive.today 上线、2024 年 2 月谷歌快照下线、2024 年 9 月谷歌接入 Wayback 的时间线">
+      <line x1="60" y1="160" x2="740" y2="160" stroke="#e7e3d8" stroke-width="4"/>
+      <circle cx="130" cy="160" r="9" fill="#7d76cf"/>
+      <text x="130" y="120" text-anchor="middle" font-size="15" fill="#2f3345">1996</text>
+      <text x="130" y="200" text-anchor="middle" font-size="13" fill="#6b7280">Internet Archive</text>
+      <text x="130" y="220" text-anchor="middle" font-size="13" fill="#6b7280">开始存档网页</text>
+      <circle cx="330" cy="160" r="9" fill="#6fa8c9"/>
+      <text x="330" y="120" text-anchor="middle" font-size="15" fill="#2f3345">2012</text>
+      <text x="330" y="200" text-anchor="middle" font-size="13" fill="#6b7280">archive.today</text>
+      <text x="330" y="220" text-anchor="middle" font-size="13" fill="#6b7280">上线</text>
+      <circle cx="530" cy="160" r="9" fill="#d3707f"/>
+      <text x="530" y="120" text-anchor="middle" font-size="15" fill="#2f3345">2024 年 2 月</text>
+      <text x="530" y="200" text-anchor="middle" font-size="13" fill="#6b7280">Google 搜索快照</text>
+      <text x="530" y="220" text-anchor="middle" font-size="13" fill="#6b7280">功能下线</text>
+      <circle cx="690" cy="160" r="9" fill="#4aa583"/>
+      <text x="690" y="120" text-anchor="middle" font-size="15" fill="#2f3345">2024 年 9 月</text>
+      <text x="690" y="200" text-anchor="middle" font-size="13" fill="#6b7280">Google 搜索面板</text>
+      <text x="690" y="220" text-anchor="middle" font-size="13" fill="#6b7280">接入 Wayback 链接</text>
+      <text x="400" y="286" text-anchor="middle" font-size="13" fill="#6b7280">搜索引擎自带的「网页快照」时代结束，独立归档服务成为主要选项</text>
+    </svg>
+    <div class="cap">图注：时间线按公开报道整理 · 来源：维基百科 Archive.today 条目、IT 之家（2024-09）、搜狐科技（2024-03） · 检索日期 2026-10-31</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>两个归档工具速查</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <table>
+      <tr><th>维度</th><th>Wayback Machine</th><th>archive.today</th></tr>
+      <tr><td>运营方</td><td>Internet Archive（非营利，1996 年起存档）</td><td>私人运营（2012 年上线）</td></tr>
+      <tr><td>保存方式</td><td>自动抓取＋手动 Save Page Now</td><td>手动提交，保存静态快照</td></tr>
+      <tr><td>查旧版本</td><td>时间轴浏览历年多次快照</td><td>同一页面多次快照记录</td></tr>
+      <tr><td>JS 页面还原</td><td>部分复杂页面还原有限</td><td>对重 JS 页面支持更好</td></tr>
+      <tr><td>入口</td><td>web.archive.org</td><td>archive.ph 等多个镜像域名</td></tr>
+    </table>
+    <p>两个服务的可用性与覆盖范围随时间变化，以检索当日（2026-10-31）实际访问为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://web.archive.org/" target="_blank">Internet Archive · Wayback Machine（检索于 2026-10-31）</a><a href="https://blog.archive.org/tag/save-page-now" target="_blank">Internet Archive 官方博客：Save Page Now（检索于 2026-10-31）</a><a href="https://zh.wikipedia.org/wiki/Archive.today" target="_blank">中文维基百科：Archive.today（检索于 2026-10-31）</a><a href="https://www.ithome.com/0/792/382.htm" target="_blank">IT之家：谷歌「关于此结果」面板新增互联网档案馆链接（2024-09）</a><a href="https://www.sohu.com/a/766314961_121124372" target="_blank">搜狐科技：Google 决定停止备份网页（2024-03）</a><a href="https://www.nlc.cn/" target="_blank">中国国家图书馆官网（WICP 与互联网信息战略保存项目，检索于 2026-10-31）</a></div>
+</section>
+
+<section id="c15" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 15 · PART 3 · 网络与数字足迹</span><h2>社交媒体公开信息<span class="accent">：合法边界内能拿到什么</span></h2></div>
+  <p class="sec-desc">企业账号和创始人公开动态，是决策前最便宜的一手信息源：产品节奏、官方回应、说话风格都在明面上。这一章讲怎么把公开内容用足，也讲清楚四条红线——只看公开内容、不冒充、不诱导、不追踪个人。同样的验证路径，适用于求职、合作与投资前的背景了解。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🪪</span><h3>企业账号：认证标识与平台公示信息</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>看一个企业账号，先看<b>认证标识</b>——这是平台替你做过的一道主体核验。微博官方客服把认证分成企业、机构、媒体、政府、校园、公益等类别，蓝 V 各有所指；抖音企业号要求提交营业执照并通过「对公打款验证或真人审核」；小红书专业号面向有商业活动需求的个体工商户与企业，需通过主体资质审核。认证不等于背书，但认证信息里登记的<b>主体名称</b>，是你拿去官方系统交叉核验的锚点——认证标识一般显示在账号主页的显著位置，点开即可看到认证类型与说明。</p>
+    <ul>
+      <li><b>平台依法公示的信息可以直接用：</b>按《互联网用户账号信息管理规定》（2022 年 8 月 1 日施行）第十二条，平台应在账号信息页面展示 IP 属地——境内账号标注到省（区、市），境外账号标注到国家（地区）；第十三条规定公众账号页面应展示运营主体、注册运营地址、内容类别、统一社会信用代码等信息。</li>
+      <li><b>创始人公开动态的信息价值：</b>公开的产品发布、融资表态、争议回应，能帮你看清一家公司的节奏和应对方式。注意只使用公开发布的内容，并按发布时间还原语境。</li>
+      <li><b>时间线比置顶更诚实：</b>翻看账号的历史动态而不只看置顶和最新几条：赛道切换、主体变更、口径调整往往留在时间线里，把几个关键节点排成一条线，判断力立刻不同。</li>
+      <li><b>跨平台互相印证：</b>把同一企业在不同平台的账号放在一起看：名称是否统一、认证主体是否一致、简介是否互相引用——对不上的地方，就是需要追问的地方。</li>
+      <li><b>无认证 ≠ 假账号：</b>很多中小商家未认证，此时更要用「账号公示主体 → 官方系统核验」的路子，而不是只看粉丝量和内容包装。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">监管口径：</span>《互联网用户账号信息管理规定》第八条明确，账号信息不得假冒、仿冒党政机关、新闻媒体等的名称标识，不得擅自使用「新闻」「报道」等新闻属性名称——看到自称官方却无认证、无公示的账号，先存疑。（转述自安徽网信网转载全文）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔎</span><h3>平台搜索、话题页与四条红线</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：内容作者与求职者</span></div></div>
+    <p>每个平台都有站内搜索：搜<b>账号名</b>找官方账号，搜<b>公司名＋关键词</b>（如「招聘」「退款」「事故」）找相关讨论，话题页/标签页会把同一话题下的公开内容聚在一起，适合看时间线上的舆论走向；各平台搜索入口一般在首页顶部搜索框，结果页内可切换「综合/用户/话题」等标签。搜到账号后，先核对认证信息与账号名是否对应，再决定往下走。这些内容用于研究趋势没问题，引用具体个人发言时要克制：注明是公开平台内容、避免断章取义，更要避免拼凑出某个普通人的身份。</p>
+    <ul>
+      <li><b>只看公开内容：</b>不尝试查看受保护账号、私密群组或需要登录授权以外的内容。</li>
+      <li><b>不冒充：</b>不假扮供应商、记者、求职者去套取信息。冒充机构名称本身就被规定第八条禁止，伪造身份套取商业信息可能触犯法律。</li>
+      <li><b>不诱导：</b>不以「装成普通消费者」的方式诱导对方说出不该说的信息；想验证产品，走正规咨询与试用渠道。</li>
+      <li><b>不做人际追踪：</b>不拼凑特定自然人的行踪、住址、人际关系网；企业核验看「机构」，不落到「个人生活」。发现仿冒账号、造假线索，向平台举报或通过中央网信办 12377 反映。</li>
+      <li><b>引用要留全要素：</b>截图或摘录时注明平台、账号名、发布时间与原文链接；对已被删除的内容，可用归档快照并标注「原帖已删」，引用其文字用于核实即可，不用于传播扩散。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>中央网信办 2023 年 3 月启动「清朗·从严整治『自媒体』乱象」专项行动，明确「针对『自媒体』造谣传谣、假冒仿冒、违规营利等突出问题坚决打击、从严处置」——仿冒账号是被主管部门重点打击的对象。（转述自网信办通知）</blockquote>
+  </div>
+
+  <div class="chart">
+    <h4>社媒线索的验证闭环</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="社媒线索经查认证与公示信息、回官方渠道验证、记录与决策的闭环流程，并标注四条红线">
+      <rect x="20" y="60" width="165" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="102" y="90" text-anchor="middle" font-size="14" fill="#2f3345">社媒线索</text>
+      <text x="102" y="112" text-anchor="middle" font-size="13" fill="#6b7280">账号主页 · 官方动态</text>
+      <text x="102" y="132" text-anchor="middle" font-size="13" fill="#6b7280">站内搜索 · 话题页</text>
+      <line x1="185" y1="103" x2="217" y2="103" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="217,99 225,103 217,107" fill="#9aa1ae"/>
+      <rect x="225" y="60" width="175" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="312" y="88" text-anchor="middle" font-size="14" fill="#7d76cf">① 查认证与公示</text>
+      <text x="312" y="110" text-anchor="middle" font-size="13" fill="#2f3345">蓝V / 专业号标识</text>
+      <text x="312" y="130" text-anchor="middle" font-size="13" fill="#2f3345">IP属地 · 主体展示</text>
+      <line x1="400" y1="103" x2="432" y2="103" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="432,99 440,103 432,107" fill="#9aa1ae"/>
+      <rect x="440" y="60" width="170" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="525" y="88" text-anchor="middle" font-size="14" fill="#7d76cf">② 回官方渠道验证</text>
+      <text x="525" y="110" text-anchor="middle" font-size="13" fill="#2f3345">工信部备案 · 企业</text>
+      <text x="525" y="130" text-anchor="middle" font-size="13" fill="#2f3345">信用信息 · 官方网站</text>
+      <line x1="610" y1="103" x2="642" y2="103" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="642,99 650,103 642,107" fill="#9aa1ae"/>
+      <rect x="650" y="60" width="130" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="715" y="88" text-anchor="middle" font-size="14" fill="#7d76cf">③ 记录与决策</text>
+      <text x="715" y="110" text-anchor="middle" font-size="13" fill="#2f3345">存档快照</text>
+      <text x="715" y="130" text-anchor="middle" font-size="13" fill="#2f3345">多源交叉印证</text>
+      <rect x="120" y="196" width="560" height="54" rx="10" fill="#fbfaf5" stroke="#d3707f"/>
+      <text x="400" y="218" text-anchor="middle" font-size="14" fill="#d3707f">红线：只看公开内容 · 不冒充 · 不诱导 · 不追踪特定个人</text>
+      <text x="400" y="238" text-anchor="middle" font-size="13" fill="#6b7280">发现仿冒、造假线索 → 平台举报 或 中央网信办 12377</text>
+      <text x="400" y="290" text-anchor="middle" font-size="13" fill="#6b7280">社媒只提供线索，结论要落在官方渠道核验上</text>
+    </svg>
+    <div class="cap">图注：验证闭环示意图 · 依据《互联网用户账号信息管理规定》及各平台公开认证规则整理 · 检索日期 2026-10-31</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>主要平台的官方认证形态</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <table>
+      <tr><th>平台</th><th>官方认证形态</th><th>可核验的公示信息</th></tr>
+      <tr><td>微博</td><td>蓝 V：企业/机构/媒体/政府/校园/公益等分类</td><td>认证主体；账号 IP 属地</td></tr>
+      <tr><td>抖音</td><td>企业号：营业执照＋对公打款验证或真人审核</td><td>企业号主体与标识；账号 IP 属地</td></tr>
+      <tr><td>小红书</td><td>专业号：主体资质审核（个体工商户/企业）</td><td>专业号标识；账号 IP 属地</td></tr>
+      <tr><td>公众账号（各平台通用）</td><td>——</td><td>依规展示运营主体、注册运营地址、内容类别、统一社会信用代码</td></tr>
+    </table>
+    <p>认证规则与界面随时间调整，以检索当日（2026-10-31）各平台官方页面为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.ahwx.gov.cn/zcfg/bmgz/202206/t20220628_6106188.html" target="_blank">安徽网信网：《互联网用户账号信息管理规定》全文（2022-06-28）</a><a href="https://www.cac.gov.cn/2023-03/12/c_1680256771482498.htm" target="_blank">国家网信办：「清朗·从严整治『自媒体』乱象」专项行动通知（2023-03-12）</a><a href="https://kefu.weibo.com/faqclassifylist?id=2860" target="_blank">微博官方客服：认证 FAQ（检索于 2026-10-31）</a><a href="https://renzheng.douyin.com/" target="_blank">抖音企业号认证平台（检索于 2026-10-31）</a><a href="https://cloud.tencent.com/developer/article/2293835" target="_blank">腾讯云开发者：抖音企业号认证流程（检索于 2026-10-31）</a><a href="https://finance.sina.com.cn/tech/2022-06-27/doc-imizirav0789691.shtml" target="_blank">新浪财经：《互联网用户账号信息管理规定》发布报道（2022-06-27）</a></div>
+</section>
+
+<section id="c16" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 16 · PART 3 · 网络与数字足迹</span><h2>学术论文与预印本<span class="accent">：追一个领域的最新进展</span></h2></div>
+  <p class="sec-desc">判断一项技术、一款产品或一个行业说法靠不靠谱，学术论文常是被忽略的锚点。这一章给你一条从零起步的路线：用综述搭框架，用数据库找文献，用引用关系顺藤摸瓜，最后用预印本看前沿——并分清哪些结论已经过同行评审、哪些还没有。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📚</span><h3>中英文检索入口与综述起步</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p>中文社科文献首选<b>国家哲学社会科学文献中心</b>（ncpssd.org，中国社会科学院承建）：实名注册后即可免费在线阅读和下载全文，提供中文期刊、外文期刊、古籍、集刊、外文图书、优先发布论文六类资源，支持题名/作者/关键词等字段检索与「与/或/非」组合检索。中文期刊、学位论文的全领域检索则依托知网（cnki.net）、万方（wanfangdata.com.cn）、维普（cqvip.com）三大库——三者收录互有重合，一个库没有全文可以换另一个；多数高校图书馆购买了机构权限，从校园网或图书馆数据库导航进入即可。英文跨库检索用 Google Scholar：支持精确匹配（英文引号）、author: 限定作者、按被引次数排序。</p>
+    <ul>
+      <li><b>从综述入手：</b>在检索词后加「综述」或「review」，先读一到两篇综述文章，快速建立术语、分支与代表学者的框架，再顺着其参考文献扩展——比上来就翻散论省一半力气。</li>
+      <li><b>免费渠道优先级：</b>没有机构权限时，社科用 ncpssd、生物医学用 PubMed（pubmed.ncbi.nlm.nih.gov，美国国家医学图书馆维护的免费数据库）、预印本直接去 arXiv，都不需要付费。</li>
+      <li><b>引用向前追：</b>Google Scholar 结果下方的「被引用次数：N」点开，能看到后来引用这篇论文的所有文献——顺着它就能看到这个观点后来被验证、修正还是推翻。</li>
+      <li><b>检索词别只准备一个：</b>同一概念常有学名、俗名、英文缩写几套叫法（例如同一成分的不同商品名），把它们用「或/OR」组合检索，能明显减少漏检；中文库与英文库各跑一遍，两边结果常常不重合。</li>
+      <li><b>检索式可以迭代：</b>第一轮宽搜确定术语，第二轮用精确短语和字段限定收窄，第三轮只按年份与文献类型筛选——三轮下来，几百条结果就收敛成十几篇值得精读的。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方说明：</span>国家哲学社会科学文献中心定位「公益权威、开放共享」，院外用户注册实名个人账号后即可免费登录检索、阅读和下载——这是中文社科全文最容易上手的官方免费入口。（转述自平台公开介绍）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧪</span><h3>引用关系、期刊粗判与预印本的时效和风险</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：写深度稿的作者</span></div></div>
+    <p>引用关系可以用图谱工具看：<b>Semantic Scholar</b>（semanticscholar.org，AI2 出品的免费检索）<b>Connected Papers</b>（connectedpapers.com，基于 Semantic Scholar 数据生成相关论文的相似度图谱，基础使用免费但有次数限制）、<b>OpenAlex</b>（openalex.org，完全开放的全球学术索引）。期刊质量做粗判即可：影响因子/JCR 反映的是<b>期刊整体</b>的引用水平，不等于单篇论文质量——科学编辑手册（KSJ Handbook 中文版）明确提示「有些期刊影响因子不高，并不代表质量低下」，判断单篇仍要读方法与结论，同时留意掠夺性期刊。另外，被引次数需要时间积累，近两年的新论文被引少是正常的，别只按被引排序。</p>
+    <ul>
+      <li><b>预印本看时效：</b>arXiv（info.arxiv.org）1991 年创立、长期由康奈尔大学托管，收录超 300 万篇文章，覆盖物理、数学、计算机科学等八个学科，提交免费；bioRxiv、medRxiv 分别覆盖生物与医学。领域最新结果往往先以预印本出现，比期刊早几个月到几年。</li>
+      <li><b>风险必须标明：</b>arXiv 官方写明「Material is not peer-reviewed by arXiv」——它只做主题相关性与学术价值的审核，不做同行评审；medRxiv 官网警示：预印本是未经同行评审认证的初步报告，不应作为临床实践或健康相关决策的依据。</li>
+      <li><b>使用规范：</b>引用预印本时注明「未经同行评审」；重要结论去查它的正式发表版本，或查后来引用它的正式论文是否支持原结论。</li>
+      <li><b>期刊粗判的两条粗线索：</b>一是查它是否被主流数据库收录、有无正规编委会信息；二是警惕主动上门的约稿邮件、承诺「数天内录用」的期刊（掠夺性期刊的典型特征）。读一篇论文时，方法部分是否可复现、数据是否公开，比期刊名字更值得看。</li>
+      <li><b>也看谁反驳它：</b>追一个观点的演变，除了看谁引用它，还要在检索词后加「局限／反驳／争议」找修正性研究——被反复修正的过程，本身就是一个领域还活着的表现。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">官方警示原文：</span>medRxiv 首页声明：Preprints are preliminary reports of work that have not been certified by peer review. They should not be relied on to guide clinical practice or health-related behavior.（预印本是未经同行评审认证的初步报告，不应作为临床实践或健康相关行为的依据。检索于 2026-10-31）</blockquote>
+  </div>
+
+  <div class="chart">
+    <h4>从零追一个领域的四步路线</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="综述建立框架、数据库检索、引用追溯、预印本看前沿的四步流程图">
+      <rect x="20" y="64" width="170" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="105" y="92" text-anchor="middle" font-size="14" fill="#7d76cf">① 综述起步</text>
+      <text x="105" y="114" text-anchor="middle" font-size="13" fill="#2f3345">检索词＋「综述/review」</text>
+      <text x="105" y="134" text-anchor="middle" font-size="13" fill="#2f3345">1–2 篇建立框架</text>
+      <line x1="190" y1="107" x2="222" y2="107" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="222,103 230,107 222,111" fill="#9aa1ae"/>
+      <rect x="230" y="64" width="170" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="315" y="92" text-anchor="middle" font-size="14" fill="#7d76cf">② 数据库检索</text>
+      <text x="315" y="114" text-anchor="middle" font-size="13" fill="#2f3345">中文：ncpssd / CNKI</text>
+      <text x="315" y="134" text-anchor="middle" font-size="13" fill="#2f3345">英文：Scholar / PubMed</text>
+      <line x1="400" y1="107" x2="432" y2="107" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="432,103 440,107 432,111" fill="#9aa1ae"/>
+      <rect x="440" y="64" width="170" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="525" y="92" text-anchor="middle" font-size="14" fill="#7d76cf">③ 引用追溯</text>
+      <text x="525" y="114" text-anchor="middle" font-size="13" fill="#2f3345">Cited by · 相似图谱</text>
+      <text x="525" y="134" text-anchor="middle" font-size="13" fill="#2f3345">看观点被验证或推翻</text>
+      <line x1="610" y1="107" x2="642" y2="107" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="642,103 650,107 642,111" fill="#9aa1ae"/>
+      <rect x="650" y="64" width="130" height="86" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="715" y="92" text-anchor="middle" font-size="14" fill="#d3707f">④ 预印本看前沿</text>
+      <text x="715" y="114" text-anchor="middle" font-size="13" fill="#2f3345">arXiv / bioRxiv</text>
+      <text x="715" y="134" text-anchor="middle" font-size="13" fill="#2f3345">标注：未经评审</text>
+      <rect x="150" y="196" width="500" height="54" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="400" y="218" text-anchor="middle" font-size="14" fill="#2f3345">写作引用时的两条纪律</text>
+      <text x="400" y="238" text-anchor="middle" font-size="13" fill="#6b7280">预印本注明「未经同行评审」 · 重要结论以正式发表版本为准</text>
+      <text x="400" y="290" text-anchor="middle" font-size="13" fill="#6b7280">同行评审是分水岭：①–③ 走正式文献，④ 只是前沿线索</text>
+    </svg>
+    <div class="cap">图注：检索路线示意图 · 依据 arXiv 官方说明、medRxiv 官网警示及各数据库公开介绍整理 · 检索日期 2026-10-31</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗂️</span><h3>文献入口速查</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <table>
+      <tr><th>入口</th><th>覆盖范围</th><th>费用</th><th>定位</th></tr>
+      <tr><td>国家哲学社会科学文献中心 ncpssd.org</td><td>中外文社科期刊、古籍、集刊等</td><td>免费（实名注册）</td><td>社科全文首选</td></tr>
+      <tr><td>中国知网 / 万方 / 维普</td><td>中文期刊、学位、会议论文</td><td>机构订阅为主</td><td>中文全领域，三库互补</td></tr>
+      <tr><td>Google Scholar</td><td>跨库、跨语言学术文献</td><td>免费</td><td>全局检索与引用追踪</td></tr>
+      <tr><td>PubMed</td><td>生物医学文献</td><td>免费</td><td>生医入口，部分链接 PMC 免费全文</td></tr>
+      <tr><td>arXiv / bioRxiv / medRxiv</td><td>物理、数学、计算机、生物、医学预印本</td><td>免费</td><td>前沿时效，未经同行评审</td></tr>
+    </table>
+    <p>各数据库收录范围与权限政策以检索当日（2026-10-31）官方页面为准。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.ncpssd.org/" target="_blank">国家哲学社会科学文献中心官网（检索于 2026-10-31）</a><a href="https://info.arxiv.org/about/" target="_blank">arXiv 官方说明：About arXiv（检索于 2026-10-31）</a><a href="https://www.medrxiv.org/" target="_blank">medRxiv 官网预印本警示（检索于 2026-10-31）</a><a href="https://scholar.google.com/" target="_blank">Google 学术搜索（检索于 2026-10-31）</a><a href="https://www.semanticscholar.org/" target="_blank">Semantic Scholar（检索于 2026-10-31）</a><a href="https://openalex.org/" target="_blank">OpenAlex 开放学术索引（检索于 2026-10-31）</a><a href="http://ksjhandbook.org/wp-content/uploads/sites/5/2022/09/ksj-handbook-v1.6_simplified-chinese.pdf" target="_blank">KSJ 科学编辑手册中文版：关于影响因子局限的提示（检索于 2026-10-31）</a><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed 生物医学文献数据库（检索于 2026-10-31）</a></div>
+</section>
+
+<section id="c17" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 17 · PART 3 · 网络与数字足迹</span><h2>招聘与融资信息<span class="accent">：从岗位描述读出公司真相</span></h2></div>
+  <p class="sec-desc">官网和融资新闻是公司"愿意被看到"的样子；在招岗位写的是接下来半年真要干的活，工商登记则记录了它"不得不公开"的部分。把这三样放在一起看，公司的真实处境才会显形。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔍</span><h3>岗位描述：公司最诚实的"自述书"</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>写一份岗位描述、付一次招聘渠道费用，对任何公司都是真金白银的投入。所以岗位描述（JD）往往比宣传稿更接近现实：它写的是<b>马上要有人来干的活</b>，而不是"三年规划"里的故事。读法有四个：</p>
+    <ul>
+      <li><b>看岗位分布。</b>把一家公司在主要招聘平台的在招岗位拉个清单：如果二十个岗位里十几个都在招同一条业务线，说明公司在重仓押注它；研发岗与销售岗的比例，则大致透露它是技术驱动还是渠道驱动。</li>
+      <li><b>看"要求"多于"描述"。</b>任职要求里点名的具体系统、行业资质、语种、客户类型很难编造——要求"有某类牌照经验""服务过某行业头部客户"，通常意味着这单生意已经谈起来了。</li>
+      <li><b>看时间线。</b>同一岗位挂了半年还在招、或长期标"急聘"，要么是真缺人，要么是岗位本身有水分；突然新设"合规总监""政府事务"这类岗位，往往预示公司要进入监管更重的业务。</li>
+      <li><b>看工作地点。</b>工作地点与注册地不一致，可能存在分支机构、外包团队或即将新设的据点，可以拿去和后文的工商信息对照。</li>
+      <li><b>把同类岗位横向比。</b>同一职能在不同公司的头衔与薪资区间，能帮你校准这家公司到底在招什么级别的人；一家公司长期只招初级岗、不招中层，可能是骨干流失或编制有限，结合离职评价平台再看一层。</li>
+    </ul>
+    <p>实操上建议做成三步：选定两三个主流招聘平台，把目标公司在招岗位整理成清单（岗位名、所属部门、地点、发布时间），每隔一两个月重复一次。<b>看的是变化方向，不是单次快照</b>——岗位清单突然集中在某条业务线，往往比单次数量更有含义。</p>
+    <p>但招聘数据当<b>增长信号</b>用时要打一个大折扣。招聘平台 Greenhouse 的 2024 年求职现状报告显示：其平台上每个季度有 18%–22% 的在招岗位属于"幽灵岗位"（挂出来却无实际招聘动作），五分之三的受访者怀疑自己遇到过幽灵岗位，61% 的求职者在面试之后遭遇"已读不回"（比当年 4 月上升 9 个百分点）。也就是说，<b>岗位数量上升未必等于业务扩张</b>——也可能是给投资人看的橱窗、收集简历的人才库或测试市场的探针。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>国内从业者也在系统化这件事——有安全研究者把招聘启事称作"企业战略意图的公开情报源"，认为可从中提取业务方向、技术路线、资源分配与竞争态势（参见 CSDN《招聘信息里的情报价值：从招聘启事读懂公司战略》，2026-08）。思路一致：JD 是信号，不是结论。</blockquote>
+    <div class="chart">
+      <h4>幽灵岗位：招聘数据的"水分"有多大（Greenhouse，2024）</h4>
+      <div class="hbar-row"><span>在招岗位中属"幽灵岗位"的比例</span><div class="hbar-track"><div class="hbar-fill" style="width:22%"></div></div><span class="hbar-val">18%–22%</span></div>
+      <div class="hbar-row"><span>候选人怀疑自己遇到过幽灵岗位</span><div class="hbar-track"><div class="hbar-fill" style="width:60%"></div></div><span class="hbar-val">60%（3/5）</span></div>
+      <div class="hbar-row"><span>求职者面试后被"已读不回"</span><div class="hbar-track"><div class="hbar-fill" style="width:61%"></div></div><span class="hbar-val">61%</span></div>
+      <div class="cap">图注：统计口径——Greenhouse 平台季度岗位数据（幽灵岗位占比）与美、英、德 2500 名受访者调查（后两项）· 来源：Greenhouse《2024 State of Job Hunting Report》（2024-12-10 发布）· 检索日期 2026-10-31，以官方当期页面为准。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>融资信息 × 工商变更：让"官宣"对一次账</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：选合作方/投资者</span></div></div>
+    <p>融资消息的默认来源是媒体报道与商业数据库，但它们本质上是<b>转述</b>。交叉验证的做法是回到官方登记：<b>国家企业信用信息公示系统</b>（gsxt.gov.cn，输入企业名称或统一社会信用代码）免费提供"股东信息""变更记录"等栏目；上市公司另有一层强制披露——深市公司公告集中在<b>巨潮资讯网</b>（深交所信息披露官方网站），可按公司、代码、日期免费检索。</p>
+    <p>为什么工商登记能"对账"？《企业信息公示暂行条例》（国务院令第 654 号，2024 年修订）第十条要求：股东<b>股权转让等股权变更信息</b>、注册资本变化对应的出资信息，应当自形成之日起 <b>20 个工作日内</b>通过公示系统向社会公示；每年 1 月 1 日至 6 月 30 日报送的年报中，股东认缴与实缴出资也须公示。于是有一套简单的推理：一家公司高调宣布完成大额融资，你在公示系统里却查不到新增股东、注册资本变更——可能性包括：老股转让（不走增资）、融资落在境外主体（境内登记看不到）、尚未到公示期，以及最坏的一种——钱根本没到账。每一种情形都值得在下结论前追问一句。</p>
+    <p>商业查询平台（如天眼查、企查查）适合做<b>索引</b>：它们聚合公示系统、裁判文书网、信用中国等公开渠道的数据，查起来快；但条目可能滞后或口径不一，重要结论务必回溯到官方公示原件，平台信息只当代步工具。</p>
+    <p>年报是另一条常被忽略的时间轴：《企业信息公示暂行条例》规定每年 1 月 1 日至 6 月 30 日报送上一年度年报，其中从业人数、资产总额等财务数据由企业<b>选择是否公示</b>——一旦选择公示，逐年对比员工规模与出资情况，就多了一组能与招聘信号互相校验的数据点。把招聘、融资、工商三条线放进同一张时间轴：哪一年岗位激增、哪一年股东变更、哪一年公告落地，对得上的部分是证据，对不上的部分就是下一步要追问的问题。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>针对数据准确性争议，天眼查方面曾公开说明：平台展示的工商变更等信息，均是系统从国家公开平台抓取并同步更新，来源包括信用中国、中国裁判文书网、国家企业信用信息公示系统等——即第三方平台是"二手地图"，官方登记才是"原始地形"。</blockquote>
+    <div class="chart">
+      <h4>招聘 × 融资 × 工商：三源交叉验证流程</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="招聘、融资、工商三源信息汇入交叉比对，再输出分级结论的流程图">
+        <rect x="30" y="28" width="220" height="78" rx="10" fill="#fbfaf5" stroke="#6fa8c9" stroke-width="1.5"/>
+        <text x="140" y="58" text-anchor="middle" font-size="14" fill="#2f3345">招聘平台 · 在招岗位</text>
+        <text x="140" y="82" text-anchor="middle" font-size="13" fill="#6b7280">岗位类型 / 地点 / 数量</text>
+        <rect x="290" y="28" width="220" height="78" rx="10" fill="#fbfaf5" stroke="#dfa63e" stroke-width="1.5"/>
+        <text x="400" y="58" text-anchor="middle" font-size="14" fill="#2f3345">融资信息 · 媒体报道</text>
+        <text x="400" y="82" text-anchor="middle" font-size="13" fill="#6b7280">轮次 / 金额 / 投资方</text>
+        <rect x="550" y="28" width="220" height="78" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="660" y="58" text-anchor="middle" font-size="14" fill="#2f3345">工商公示系统</text>
+        <text x="660" y="82" text-anchor="middle" font-size="13" fill="#6b7280">股东 / 注册资本变更记录</text>
+        <line x1="140" y1="106" x2="370" y2="168" stroke="#9aa1ae" stroke-width="1.5"/>
+        <line x1="400" y1="106" x2="400" y2="168" stroke="#9aa1ae" stroke-width="1.5"/>
+        <line x1="660" y1="106" x2="430" y2="168" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="400,176 394,164 406,164" fill="#9aa1ae"/>
+        <rect x="260" y="176" width="280" height="60" rx="10" fill="#fbfaf5" stroke="#dcd7c9" stroke-width="1.5"/>
+        <text x="400" y="202" text-anchor="middle" font-size="14" fill="#2f3345">交叉比对：主体名、金额/资本、</text>
+        <text x="400" y="224" text-anchor="middle" font-size="14" fill="#2f3345">时间是否对得上（20 个工作日公示期）</text>
+        <line x1="400" y1="236" x2="400" y2="262" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="400,270 394,258 406,258" fill="#9aa1ae"/>
+        <rect x="170" y="272" width="180" height="40" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="260" y="297" text-anchor="middle" font-size="13" fill="#2f3345">对得上 → 证据增强</text>
+        <rect x="450" y="272" width="180" height="40" rx="10" fill="#fbfaf5" stroke="#d3707f" stroke-width="1.5"/>
+        <text x="540" y="297" text-anchor="middle" font-size="13" fill="#2f3345">对不上 → 降级为"待核实"</text>
+      </svg>
+      <div class="cap">图注：示意流程，无统计数字 · 依据《企业信息公示暂行条例》第十条（股权变更信息 20 个工作日内公示）与公示系统/巨潮资讯网公开栏目绘制 · 检索日期 2026-10-31。</div>
+    </div>
+    <table>
+      <tr><th>渠道</th><th>看什么</th><th>权威性</th><th>主要注意点</th></tr>
+      <tr><td>工商公示系统（gsxt.gov.cn）</td><td>股东及出资、股权变更、行政处罚、年报从业人数</td><td>官方登记，最高</td><td>变更信息有最长 20 个工作日的公示时滞；财务数据企业可选拟不公开</td></tr>
+      <tr><td>巨潮资讯网等信披平台</td><td>上市公司公告、定期报告、问询函</td><td>法定信息披露，最高</td><td>仅覆盖挂牌/上市公司主体</td></tr>
+      <tr><td>招聘平台</td><td>业务方向、技术栈、团队规模趋势</td><td>公司自述，中低</td><td>18%–22% 岗位可能是"幽灵岗位"，时点数据波动大</td></tr>
+      <tr><td>商业查询平台</td><td>聚合索引：工商、司法、融资条目</td><td>转述，中</td><td>条目可能滞后或口径不一，结论前回溯官方原件</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://xzfg.moj.gov.cn/front/law/detail?LawID=1718" target="_blank">《企业信息公示暂行条例》原文（司法部行政法规库，检索于 2026-10-31）</a><a href="http://www.gsxt.gov.cn" target="_blank">国家企业信用信息公示系统（官方入口）</a><a href="http://www.cninfo.com.cn" target="_blank">巨潮资讯网——深交所信息披露官方网站</a><a href="https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report" target="_blank">Greenhouse《2024 State of Job Hunting Report》（2024-12-10）</a><a href="https://blog.csdn.net/TraceVector/article/details/163473762" target="_blank">招聘信息里的情报价值：从招聘启事读懂公司战略（CSDN，2026-08）</a><a href="https://view.inews.qq.com/a/20261013A06I0P00" target="_blank">企查查与天眼查，共同面临下一场竞争（腾讯新闻，2026-10）</a></div>
+</section>
+
+<section id="c18" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 18 · PART 3 · 网络与数字足迹</span><h2>图片与文件的元数据<span class="accent">：以及怎么保护自己</span></h2></div>
+  <p class="sec-desc">每一张照片、每一份文档，除了你看到的内容，还随身带着一份"关于文件自身"的记录——拍摄地点、设备、作者、修改历史。调研时它可以验证真伪；发布前，你要先学会把它从自己的文件里抹掉。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧾</span><h3>常见文件里到底藏了什么</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">适合：零基础</span></div></div>
+    <p><b>元数据（metadata）</b>是"描述数据的数据"：照片的拍摄时间、设备型号、GPS 经纬度，文档的作者、创建软件、修订记录。最常见的照片元数据标准是 EXIF——它随数码相机普及，其中专门的 GPS 标签组（GPSLatitude、GPSLongitude、GPSAltitude 等）用于记录拍摄位置，这一点可查阅老牌元数据工具 ExifTool 的官方标签文档逐条核对。</p>
+    <p>不同文件"藏东西"的能力差别很大：JPEG/HEIC 照片通常携带完整 EXIF；PNG 截图一般不带 EXIF；PDF 与 Office 文档则携带作者、软件、编辑时间，Word/PPT 里还可能有批注、修订记录和隐藏文字——微软官方"文档检查器"支持删除的项目清单就包括批注与修订标记、文档属性（作者、用户名等）、页眉页脚、隐藏文字、隐藏行列等。</p>
+    <p>一个广为流传的教训发生在 2012 年 12 月：媒体发布了一张接受采访者用手机拍摄的照片，因 <b>EXIF 中的 GPS 坐标未抹除</b>，坐标随即被网友解读出所在国位置，当事人此后很快被当地当局找到。这不是什么高技术手段——只是发布前少点了"删除位置信息"这一下。</p>
+    <p>元数据在调研里还有一个<b>反向用法</b>：拿到一份来路不明的附件，先看属性再读内容。PDF 的作者、生成软件、创建与修改时间，Word 的修订记录——它们能告诉你"这份文件自称是谁写的、用什么工具、什么时候生成的"。但记住元数据的边界：时间与作者字段<b>可以被人为篡改</b>，所以元数据能证伪（对不上就存疑），却不能单独证实；带数字签名的来源凭证可信度更高，但也依赖其信任链本身可靠。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>2019 年 12 月"微信发原图泄露位置"引发讨论时，微信团队公开回应：任何智能手机照片都可能含记录位置与时间的 EXIF，发送压缩图会抹去这些信息、勾选"原图"则可能保留，并建议担心隐私者关闭相机定位权限——以各平台当期说明为准（多家媒体报道，2019-12）。</blockquote>
+    <div class="chart">
+      <h4>一张照片的元数据生命周期：从哪里来，在哪里被抹掉</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="照片元数据生命周期流程图：拍摄写入EXIF，本地保存，分享前可选择截图抹除或原图直传保留，平台转码再处理一次">
+        <rect x="30" y="26" width="220" height="78" rx="10" fill="#fbfaf5" stroke="#6fa8c9" stroke-width="1.5"/>
+        <text x="140" y="56" text-anchor="middle" font-size="14" fill="#2f3345">拍摄写入 EXIF</text>
+        <text x="140" y="80" text-anchor="middle" font-size="13" fill="#6b7280">时间 / 机型 / GPS 经纬度</text>
+        <rect x="290" y="26" width="210" height="78" rx="10" fill="#fbfaf5" stroke="#dcd7c9" stroke-width="1.5"/>
+        <text x="395" y="56" text-anchor="middle" font-size="14" fill="#2f3345">本地保存</text>
+        <text x="395" y="80" text-anchor="middle" font-size="13" fill="#6b7280">元数据随文件一起走</text>
+        <rect x="540" y="26" width="230" height="78" rx="10" fill="#fbfaf5" stroke="#dcd7c9" stroke-width="1.5"/>
+        <text x="655" y="56" text-anchor="middle" font-size="14" fill="#2f3345">分享前二选一</text>
+        <text x="655" y="80" text-anchor="middle" font-size="13" fill="#6b7280">关键决策点</text>
+        <line x1="250" y1="65" x2="286" y2="65" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="294,65 282,59 282,71" fill="#9aa1ae"/>
+        <line x1="500" y1="65" x2="536" y2="65" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="544,65 532,59 532,71" fill="#9aa1ae"/>
+        <line x1="655" y1="104" x2="480" y2="166" stroke="#9aa1ae" stroke-width="1.5"/>
+        <line x1="655" y1="104" x2="655" y2="166" stroke="#9aa1ae" stroke-width="1.5"/>
+        <rect x="90" y="168" width="280" height="66" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="230" y="194" text-anchor="middle" font-size="14" fill="#2f3345">截图 / 编辑后重新保存</text>
+        <text x="230" y="218" text-anchor="middle" font-size="13" fill="#4aa583">抹掉绝大部分元数据</text>
+        <rect x="460" y="168" width="280" height="66" rx="10" fill="#fbfaf5" stroke="#d3707f" stroke-width="1.5"/>
+        <text x="600" y="194" text-anchor="middle" font-size="14" fill="#2f3345">勾选"原图"直传</text>
+        <text x="600" y="218" text-anchor="middle" font-size="13" fill="#d3707f">EXIF（含 GPS）保留</text>
+        <line x1="230" y1="234" x2="380" y2="262" stroke="#9aa1ae" stroke-width="1.5"/>
+        <line x1="600" y1="234" x2="420" y2="262" stroke="#9aa1ae" stroke-width="1.5"/>
+        <rect x="270" y="264" width="260" height="46" rx="10" fill="#fbfaf5" stroke="#dcd7c9" stroke-width="1.5"/>
+        <text x="400" y="284" text-anchor="middle" font-size="13" fill="#2f3345">平台转码：压缩图通常抹 EXIF，</text>
+        <text x="400" y="302" text-anchor="middle" font-size="13" fill="#6b7280">"原图"选项可能保留 · 以平台当期说明为准</text>
+      </svg>
+      <div class="cap">图注：示意流程，无统计数字 · EXIF/GPS 标签依据 ExifTool 官方标签文档；平台处理方式依据微信团队 2019-12 公开回应及各平台当期说明 · 检索日期 2026-10-31。</div>
+    </div>
+    <table>
+      <tr><th>文件类型</th><th>可能携带的元数据</th><th>主要风险</th><th>抹除入口</th></tr>
+      <tr><td>JPEG / HEIC 照片</td><td>EXIF：拍摄时间、设备型号、GPS 经纬度</td><td>行踪与生活规律暴露</td><td>iOS 关相机定位或分享时关"位置"；Windows"删除属性和个人信息"；ExifTool</td></tr>
+      <tr><td>PNG 截图</td><td>通常无 EXIF，或有制作软件标签</td><td>较低</td><td>一般无需处理（截图本身就是常用的"洗元数据"方式）</td></tr>
+      <tr><td>PDF</td><td>作者、创建/修改软件、时间戳</td><td>暴露作者与所在机构</td><td>转存或打印为 PDF，导出前核对文档属性</td></tr>
+      <tr><td>Word / PPT</td><td>作者、批注、修订记录、隐藏文字</td><td>内部讨论过程外泄</td><td>文档检查器：文件 → 信息 → 检查问题 → 检查文档（在副本上运行）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🛡️</span><h3>发布前的抹除清单，与对"查别人"的克制</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：所有人</span></div></div>
+    <p>手机端（iPhone）：想让新拍的照片彻底不带位置，走"设置 → 隐私与安全性 → 定位服务 → 相机"，选"永不"；只是偶尔分享一张，就在"照片"App 里分享时点顶部"选项"、关掉"位置"。这两条路径均出自 Apple 官方支持文档对定位服务的管理说明。</p>
+    <p>电脑端（Windows）：右键图片 → 属性 → 详细信息 → "删除属性和个人信息"，可选"从此文件中删除"或更稳妥的"创建已删除所有可能属性的副本"（保留原件）。Office 文档用"文档检查器"（文件 → 信息 → 检查问题 → 检查文档），微软明确建议<b>在副本上运行</b>——被删的数据未必找得回来。批量或专业场景可用命令行工具 ExifTool 一键清除（如 <b>exiftool -all= 文件名</b>，会生成无元数据副本）。</p>
+    <ul>
+      <li><b>安卓阵营：</b>多数机型在相机设置里有"位置标签/地理位置标记"开关，拍前关掉即可；不同厂商路径不同，以你手机当期设置为准。</li>
+      <li><b>社交平台发布：</b>多数平台上传图片会转码压缩（通常顺带抹掉 EXIF），但"高清/原图"开关可能保留——发布前以平台当期说明为准，别赌。</li>
+      <li><b>转发别人的照片前：</b>你转发的可能是别人的行踪——同样先抹除再发，别替别人泄露。</li>
+      <li><b>网盘与邮件附件：</b>分享链接不等于清洗文件，上传前完成抹除，别指望平台替你处理。</li>
+    </ul>
+    <p>反过来说，<b>对别人的文件，合理用途是验证而非起底</b>：查一份 PDF 的作者与生成软件来判断"它是不是伪造的"，查一张图片有无内容凭证（C2PA 的 Content Credentials，可在 contentcredentials.org/verify 在线核验）来判断"它有没有被编辑过、由哪个工具生成"，这些都服务于"辨真伪"。调研工作里再举两个例子：核对一份简历或投标文件 PDF 的作者属性，与它自称的身份是否一致；媒体机构核对读者爆料图片的拍摄时间与设备信息，是否与事件时间线相符。共同点是——<b>验证文件本身，而不是定位文件背后的人</b>。C2PA 把"由哪个工具创建、是否被编辑过"做成可核验的密码学声明，正被越来越多相机与生成式工具内嵌，但它证明的是"来源链完整"，不等于"内容为真"。</p>
+    <p>而把别人照片里的 GPS 拼成行踪轨迹、把多人的文档作者拼成关系网，性质就完全不同了：《中华人民共和国个人信息保护法》（2021 年 11 月 1 日施行）第二十八条明确将<b>行踪轨迹</b>列为敏感个人信息，处理须取得单独同意；违法情节严重者最高可处五千万元或上一年度营业额百分之五的罚款（第六十六条）。调研中发现涉嫌违法的线索，正确动作是向网信、公安等主管部门举报，而不是自己继续往下挖。</p>
+    <blockquote class="xq">💬 <span class="who">法条原文：</span>"敏感个人信息是一旦泄露或者非法使用，容易导致自然人的人格尊严受到侵害或者人身、财产安全受到危害的个人信息，包括生物识别、宗教信仰、特定身份、医疗健康、金融账户、行踪轨迹等。"——《个人信息保护法》第二十八条（国家统计局官网转载全文）。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://exiftool.org/TagNames/GPS.html" target="_blank">ExifTool GPS Tags 官方文档</a><a href="https://exiftool.org" target="_blank">ExifTool by Phil Harvey（官方站点）</a><a href="https://support.microsoft.com/zh-cn/office/collab-files/remove-hidden-data-and-personal-information-by-inspecting-documents-presentations-or-workbooks" target="_blank">通过检查文档、演示文稿或工作簿删除隐藏数据和个人信息（Microsoft 支持）</a><a href="https://support.apple.com/zh-cn/guide/iphone/iph4b2fd65dd/ios" target="_blank">在 iPhone 上控制你共享的位置信息（Apple 支持）</a><a href="https://www.stats.gov.cn/gk/tjfg/xgfxfg/202503/t20250310_1958923.html" target="_blank">《中华人民共和国个人信息保护法》全文（国家统计局官网转载，检索于 2026-10-31）</a><a href="https://thenextweb.com/news/it-gets-stranger-now-mcafee-claims-that-he-falsely-edited-the-metadata-on-the-photo-that-placed-him-in-guatemala" target="_blank">照片元数据泄露位置事件报道（The Next Web，2012-12）</a><a href="https://contentcredentials.org/verify" target="_blank">Content Credentials Verify（C2PA 在线核验工具）</a><a href="https://c2pa.org" target="_blank">C2PA 内容来源与真实性联盟（标准官网）</a></div>
+</section>
+
+<section id="c19" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 19 · PART 4 · AI 增强与产出</span><h2>AI 辅助调研工作流<span class="accent">：让机器做初筛</span></h2></div>
+  <p class="sec-desc">AI 能把十小时的检索、摘要、翻译压缩成十分钟，也能用同样的自信编造一条根本不存在的记录。分清"哪些环节放心交出去、哪些必须自己来"，是这一章唯一要紧的事。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🤖</span><h3>适配度：AI 强在"初筛"，弱在"判断"</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>先说强的那半边。调研里最耗时的是<b>体力活</b>：在海量公开信息里找线索入口、把三万字报告压成一页摘要、翻译外文资料、把散落的信息整理成表格和时间线。这些任务有原文可依、有对错可查，正是大模型的舒适区——交给它，自己抽查，效率提升是实打实的。举一个具体的分工：写一篇关于某行业的深度稿，你可以把"近两年公开报道里出现过哪些相关公司、哪些监管文件"这类线索清单交给 AI 列初稿，把三份外文报告各压缩成十句话，把引用的英文条款译成中文对照表——这些原本要花一整天的活，半小时能拿到初稿，省下的时间全部投给逐条核验。</p>
+    <p>弱的那半边是<b>验证与判断</b>。发表在《Journal of Legal Analysis》的斯坦福研究（Dahl 等，2024）测试了通用大模型回答"关于随机抽取的联邦法院案件的可验证问题"，结果幻觉率从 ChatGPT-4 的 <b>58%</b> 一路到 Llama 2 的 <b>88%</b>——模型会编造判例、虚构规则，而且错得很自信。该研究还发现一个反直觉的规律：<b>更大的模型未必更稳</b>，能力更强的模型有时幻觉更多，且错误与正确答案在语气上毫无差别，用户难以凭直觉分辨。后续对商用法律 AI 检索工具（Westlaw、Lexis+ AI）的测试（Magesh 等，发表于《Journal of Empirical Legal Studies》）也好不到可以放手的地步：幻觉率约在 <b>17%–33%</b> 之间。对调研者的启示很直接：<b>AI 输出里的每个"事实"，都按"线索"对待，而不是"证据"</b>——尤其是日期、金额、人名、文献引用这几个高发翻车点。</p>
+    <p>更隐蔽的风险叫<b>"迎合"（sycophancy）</b>：研究记录到，模型会顺着提问里包含的假设走——哪怕那个假设是编造的。你若带着"我想证明这家公司有问题"的预设去问，AI 很可能陪你把这场戏演完。检索、翻译、整理可以放心外包，因为它们有原文可对照；一旦任务变成"判断"，就同时进入幻觉与迎合的双重射程。顺带一提，迎合这个毛病人类同样有——所以下一章的交叉验证纪律，对人和 AI 一视同仁。</p>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>这不是危言耸听，监管文件已经把话写明了。国家网信办等七部门 2023 年 7 月 13 日公布、8 月 15 日施行的《生成式人工智能服务管理暂行办法》要求：利用生成式人工智能生成的内容应当真实准确，提供者应当采取有效措施<b>防止生成虚假信息</b>——验证责任从第一天起就落在使用链条上。</blockquote>
+    <div class="chart">
+      <h4>AI 的"自信出错"有多严重：法律问题上的幻觉率</h4>
+      <div class="hbar-row"><span>ChatGPT-4（通用模型，回答法院案件事实问题）</span><div class="hbar-track"><div class="hbar-fill" style="width:58%"></div></div><span class="hbar-val">58%</span></div>
+      <div class="hbar-row"><span>Llama 2（同口径测试）</span><div class="hbar-track"><div class="hbar-fill" style="width:88%"></div></div><span class="hbar-val">88%</span></div>
+      <div class="hbar-row"><span>商用法律 AI 检索工具（Westlaw / Lexis+ AI）</span><div class="hbar-track"><div class="hbar-fill" style="width:33%"></div></div><span class="hbar-val">17%–33%</span></div>
+      <div class="cap">图注：统计口径——前两项为通用模型回答随机联邦法院案件可验证问题的幻觉率（Dahl 等，Journal of Legal Analysis 16(1)，2024，arXiv:2401.01301）；第三项为商用法律检索工具幻觉率区间（Magesh 等，Journal of Empirical Legal Studies，2025）· 检索日期 2026-10-31。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🏭</span><h3>搭一条人机分工的流水线</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：内容作者/尽调新手</span></div></div>
+    <p>把整次调研拆成五段，AI 只在前中段出力，<b>验证与结论永远留在人的手里</b>。这套分工不需要任何编程，用聊天窗口加一张表格就能跑起来：</p>
+    <ul>
+      <li><b>① 备料（人）：</b>写下要回答的具体问题、列出可用渠道清单。问题越具体，AI 的初筛越不容易跑偏。</li>
+      <li><b>② 初筛（AI）：</b>让它批量检索线索、列候选来源、摘出关键段落、翻译外文材料。提示词里加一句"只引用我提供的原文，不确定就说不确定"。</li>
+      <li><b>③ 结构化（AI）：</b>把初筛结果整理成表格、时间线、对比矩阵，统一命名与格式。</li>
+      <li><b>④ 验证（人，全流程最重的一环）：</b>对要进结论的每条信息回溯源文件、做交叉核对（见第 20 章）；AI 给出的引用逐条点开，查无此文的直接丢弃。</li>
+      <li><b>⑤ 成稿（人 + AI 润色）：</b>按证据强度决定措辞，AI 只负责把话说顺，不负责把话说满。</li>
+    </ul>
+    <p>流水线能长期跑下去，关键在<b>提示词与留痕</b>。给 AI 的指令固定三句话：只依据我提供的原文作答；每个结论后面附出处；不确定就直说不确定。同时建一份"验证日志"——AI 给出的每条引用、你点开核验的结果、丢弃了哪些查无出处的条目，都记下来；它既是成稿的附录，也是下一次调研的检查单。</p>
+    <p>第二道保险是<b>让 AI 互查</b>：把同一段初筛结论交给另一个模型重问关键事实，答案不一致的地方全部标红，回到源文件人工裁决。互查也不必局限于两个模型——让同一个模型扮演"反方"，专门攻击你草稿里证据最弱的三个论点，往往比再跑一轮检索更省时间。再记一条适用于所有环节的纪律：AI 生成的时间线与数字，逐条带日期回查；凡是"它说得特别顺"的地方，恰恰要多看一眼。</p>
+    <p>日常防幻觉还可以再加三道闸：换一个模型重问一遍关键事实，看答案是否一致；给模型装上"联网检索并附链接"的工作方式，逼它给出可点开的出处；关注模型摘要忠实度的公开基准（如 Vectara 幻觉榜单，用 HHEM 模型度量"总结给定文档时插入幻觉的频率"）来挑选工具。2023 年 6 月，纽约两名律师及其律所因在诉状中引用 ChatGPT 编造的六起判例、且在被质疑后仍未核实，被法院认定存在恶意并处以合计 5000 美元罚款——法院处罚的从来不是"用了 AI"，而是<b>"没核实"</b>。</p>
+    <blockquote class="xq">💬 <span class="who">判例声音：</span>据路透社报道（2023-06-22），主审法官在 Mata 诉 Avianca 案的制裁令中认定涉事律师"存在主观恶意"（acting in bad faith），理由是他们坚持为并不存在的判例辩护。这个案子此后成为全球"AI 引用必须人工核验"的标准判例。</blockquote>
+    <div class="chart">
+      <h4>人机分工流水线：AI 出力，人拍板</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="五段式调研流水线：备料由人完成，初筛与结构化由AI完成，验证由人完成并标红，成稿由人完成，验证不合格可打回初筛">
+        <rect x="16" y="100" width="132" height="92" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="82" y="128" text-anchor="middle" font-size="14" fill="#2f3345">① 备料</text>
+        <text x="82" y="150" text-anchor="middle" font-size="13" fill="#4aa583">人</text>
+        <text x="82" y="172" text-anchor="middle" font-size="12" fill="#6b7280">定问题、选渠道</text>
+        <rect x="180" y="100" width="132" height="92" rx="10" fill="#fbfaf5" stroke="#6fa8c9" stroke-width="1.5"/>
+        <text x="246" y="128" text-anchor="middle" font-size="14" fill="#2f3345">② 初筛</text>
+        <text x="246" y="150" text-anchor="middle" font-size="13" fill="#6fa8c9">AI</text>
+        <text x="246" y="172" text-anchor="middle" font-size="12" fill="#6b7280">检索/摘要/翻译</text>
+        <rect x="344" y="100" width="132" height="92" rx="10" fill="#fbfaf5" stroke="#6fa8c9" stroke-width="1.5"/>
+        <text x="410" y="128" text-anchor="middle" font-size="14" fill="#2f3345">③ 结构化</text>
+        <text x="410" y="150" text-anchor="middle" font-size="13" fill="#6fa8c9">AI</text>
+        <text x="410" y="172" text-anchor="middle" font-size="12" fill="#6b7280">表格/时间线</text>
+        <rect x="508" y="100" width="132" height="92" rx="10" fill="#fbfaf5" stroke="#d3707f" stroke-width="2"/>
+        <text x="574" y="128" text-anchor="middle" font-size="14" fill="#2f3345">④ 验证</text>
+        <text x="574" y="150" text-anchor="middle" font-size="13" fill="#d3707f">人 · 不可外包</text>
+        <text x="574" y="172" text-anchor="middle" font-size="12" fill="#6b7280">回溯源文件/核对</text>
+        <rect x="672" y="100" width="118" height="92" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="731" y="128" text-anchor="middle" font-size="14" fill="#2f3345">⑤ 成稿</text>
+        <text x="731" y="150" text-anchor="middle" font-size="13" fill="#4aa583">人 + AI 润色</text>
+        <text x="731" y="172" text-anchor="middle" font-size="12" fill="#6b7280">按证据强度措辞</text>
+        <line x1="148" y1="146" x2="176" y2="146" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="180,146 168,140 168,152" fill="#9aa1ae"/>
+        <line x1="312" y1="146" x2="340" y2="146" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="344,146 332,140 332,152" fill="#9aa1ae"/>
+        <line x1="476" y1="146" x2="504" y2="146" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="508,146 496,140 496,152" fill="#9aa1ae"/>
+        <line x1="640" y1="146" x2="668" y2="146" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="672,146 660,140 660,152" fill="#9aa1ae"/>
+        <path d="M 574 192 L 574 250 L 246 250 L 246 196" fill="none" stroke="#d3707f" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <polygon points="246,192 240,204 252,204" fill="#d3707f"/>
+        <text x="410" y="242" text-anchor="middle" font-size="13" fill="#d3707f">④ 验证不合格 → 打回 ② 重新初筛</text>
+      </svg>
+      <div class="cap">图注：示意流程，无统计数字 · 绿框=人负责环节，蓝框=AI 出力环节，红框=人工验证不可外包 · 依据本章第 2 节方法绘制 · 检索日期 2026-10-31。</div>
+    </div>
+    <table>
+      <tr><th>调研环节</th><th>AI 适配度</th><th>人的不可替代动作</th></tr>
+      <tr><td>检索线索</td><td>强：批量找入口、列渠道清单</td><td>定义问题、筛选渠道</td></tr>
+      <tr><td>摘要提炼</td><td>强：长文变短</td><td>抽查原文、核对关键数字</td></tr>
+      <tr><td>外文翻译</td><td>强：初译基本够用</td><td>关键术语回查原文</td></tr>
+      <tr><td>整理归档</td><td>强：表格化、建时间线</td><td>校对主体名与日期</td></tr>
+      <tr><td>真伪验证</td><td>弱：会编造、会迎合提问</td><td>逐条回溯源文件、交叉核对</td></tr>
+      <tr><td>结论措辞</td><td>弱：倾向给出过强的确定性</td><td>按证据强度分级表述</td></tr>
+    </table>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://arxiv.org/abs/2401.01301" target="_blank">Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models（arXiv 原文，Journal of Legal Analysis 2024）</a><a href="https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf" target="_blank">Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools（Stanford 全文 PDF）</a><a href="http://www.cac.gov.cn/2023-07/13/c_1690898326795531.htm" target="_blank">国家网信办等七部门联合公布《生成式人工智能服务管理暂行办法》（2023-07-13）</a><a href="https://www.reuters.com/legal/new-york-lawyers-sanctioned-using-fake-chatgpt-cases-legal-brief-2023-06-22" target="_blank">NY lawyers sanctioned for using fake ChatGPT cases（Reuters，2023-06-22）</a><a href="https://github.com/vectara/hallucination-leaderboard" target="_blank">Vectara Hallucination Leaderboard（GitHub 官方仓库）</a><a href="https://www.vectara.com/blog/introducing-the-next-generation-of-vectaras-hallucination-leaderboard" target="_blank">Introducing the next generation of Vectara's Hallucination Leaderboard（2025-11）</a></div>
+</section>
+
+<section id="c20" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 20 · PART 4 · AI 增强与产出</span><h2>多源交叉验证<span class="accent">：从孤证到证据链</span></h2></div>
+  <p class="sec-desc">一个来源说的任何事，都只是"某一方这么说"。交叉验证不是多搜几次，而是有纪律地追问：第二条信息与第一条是不是各自独立采集的？说不一致时听谁的？以及——什么时候该承认查不清。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🔗</span><h3>交叉验证的最小流程：五步</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">适合：零基础</span></div></div>
+    <p>每验证一个关键命题，走完这五步再动笔。五步里最容易被跳过的是第②步和第③步——急着下结论时，人总想直接从"听到什么"跳到"写出来"，这两步防的正是这个：</p>
+    <ul>
+      <li><b>① 把命题写成一句话。</b>"这家公司靠谱吗"没法验证；"该公司自称 2024 年完成 B 轮融资且股东已变更"才可验证。命题越具体，后面越省力。</li>
+      <li><b>② 找来源，先查"独立性"。</b>独立指<b>采集路径不同</b>：企业自述、监管登记、第三方实测是三条路径；两家媒体互为转载、所有商业查询平台转引同一条公告，都只算一个来源。官方渠道优先——企业登记看国家企业信用信息公示系统，涉诉记录看中国裁判文书网（wenshu.court.gov.cn，最高人民法院设立的裁判文书公开平台）。</li>
+      <li><b>③ 给每个来源建档。</b>记下原始出处、发布日期、你检索的日期，以及关键原话摘录、它与命题的关系（直接证据/旁证/背景）；筛选来源时可用图书馆界通行的 CRAAP 五问：时效性、相关性、权威性、准确性、目的性（它是来卖货、来宣传，还是来记录？）。写作时每一条结论都应能回指这张档案表。</li>
+      <li><b>④ 并排比对关键项。</b>数字、日期、主体全名、金额口径逐项对——不一致的地方往往比一致的地方更有信息量。</li>
+      <li><b>⑤ 按一致程度决定结论强度。</b>这就是下一节的内容。</li>
+    </ul>
+    <p>走一遍最小示例。命题："某公司宣称获得知名基金领投。"第②步会打开三条彼此独立的方向：该基金自己的官网或官方账号是否确认了这笔投资（交易双方各自的陈述，算两条路径）；工商公示系统里有没有对应的股东或注册资本变更；行业媒体之外，有没有财经媒体的独立报道。三条线都指向同一结论，命题才算立住；只有一份媒体通稿，就停在"有报道称"。</p>
+    <blockquote class="xq">💬 <span class="who">机构标准：</span>专业新闻机构的要求其实朴实无华。BBC 编辑准则第 3.2.2 条："All BBC output, as appropriate to its subject and nature, must be well sourced, based on sound evidence, and where possible corroborated."（所有 BBC 内容都须来源可靠、基于扎实证据，并尽可能获得相互印证。）——"尽可能相互印证"就是交叉验证的全部要义。</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>来源打架怎么办，以及什么时候停</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">适合：内容作者/投资者</span></div></div>
+    <p>来源不一致不是灾难，是常态。中国的民事证据规则里有一条可以直接借用的思路：《最高人民法院关于民事诉讼证据的若干规定》（2019 年修正，2020 年 5 月 1 日施行）第九十条列明<b>当事人陈述、与一方有利害关系的证人证言、存有疑点的视听资料和电子数据、无法与原件核对的复制件</b>等，<b>不能单独作为认定案件事实的根据</b>。换成调研语言：利益相关方的单方陈述就是"孤证"，孤证不是不能用，而是不能单独用——必须找到独立于它之外的第二来源，或者在措辞里如实标注它只是孤证。这条规则也点出了"孤证"的谱系：公司自己发的通稿是当事人陈述，转述通稿的媒体没有增加独立性，而监管登记、法院文书这类与当事人无利害关系的记录，天然权重更高。</p>
+    <p>还要当心<b>"假独立"</b>：两家媒体互为转载、不同平台转引同一条通稿、多个账号背后同一个操盘者，都只是把一个来源复制了三遍；同理，官网、公众号、发布会虽然形式不同，发声者是一家公司时，也只能算一条路径。判断办法是往上游走——每条信息都问一句"这条最早是谁、在什么时候、以什么身份发布的"，追到头若汇合于同一处，独立来源就只有一。</p>
+    <div class="chart">
+      <h4>证据强度阶梯：来源等级决定措辞等级</h4>
+      <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="证据强度四级阶梯：社交转述最弱，单一媒体次之，两个独立来源一致较强，官方原始文件最强，每一级对应一种措辞模板">
+        <rect x="25" y="235" width="185" height="72" rx="10" fill="#fbfaf5" stroke="#d3707f" stroke-width="1.5"/>
+        <text x="117" y="258" text-anchor="middle" font-size="13" fill="#2f3345">四级 · 社交转述/匿名爆料</text>
+        <text x="117" y="282" text-anchor="middle" font-size="12" fill="#d3707f">"有消息称，未经证实"</text>
+        <rect x="230" y="175" width="185" height="72" rx="10" fill="#fbfaf5" stroke="#dfa63e" stroke-width="1.5"/>
+        <text x="322" y="198" text-anchor="middle" font-size="13" fill="#2f3345">三级 · 单一媒体/聚合平台</text>
+        <text x="322" y="222" text-anchor="middle" font-size="12" fill="#dfa63e">"据XX报道 / 平台收录显示"</text>
+        <rect x="435" y="115" width="185" height="72" rx="10" fill="#fbfaf5" stroke="#6fa8c9" stroke-width="1.5"/>
+        <text x="527" y="138" text-anchor="middle" font-size="13" fill="#2f3345">二级 · ≥2 个独立来源一致</text>
+        <text x="527" y="162" text-anchor="middle" font-size="12" fill="#6fa8c9">"两个独立来源一致显示"</text>
+        <rect x="640" y="55" width="148" height="72" rx="10" fill="#fbfaf5" stroke="#4aa583" stroke-width="1.5"/>
+        <text x="714" y="78" text-anchor="middle" font-size="13" fill="#2f3345">一级 · 官方原始文件</text>
+        <text x="714" y="102" text-anchor="middle" font-size="12" fill="#4aa583">"根据XX文件第X条"</text>
+        <line x1="40" y1="318" x2="750" y2="318" stroke="#9aa1ae" stroke-width="1.5"/>
+        <polygon points="758,318 746,312 746,324" fill="#9aa1ae"/>
+        <text x="400" y="308" text-anchor="middle" font-size="13" fill="#6b7280">证据强度递增方向</text>
+      </svg>
+      <div class="cap">图注：分级为调研方法示意，非法律标准 · 一级对应法定登记与裁判文书（公示系统、巨潮资讯网、裁判文书网）· 绘制依据本章第一、二节 · 检索日期 2026-10-31。</div>
+    </div>
+    <table>
+      <tr><th>冲突情形</th><th>处理动作</th><th>措辞模板</th></tr>
+      <tr><td>官方公示 vs 企业自述</td><td>以公示原件为准，自述单独记为"公司口径"</td><td>"工商公示显示……；公司自称……"</td></tr>
+      <tr><td>两个官方来源不一致</td><td>回溯更上游的原始记录；结论里同时注明两处原文与文号</td><td>"A 文件载明 X，B 文件载明 Y"</td></tr>
+      <tr><td>数据新旧不一</td><td>以新数据为准，说明统计口径是否变化</td><td>"最新口径为……（此前口径为……）"</td></tr>
+      <tr><td>多方查证仍无结果</td><td>停止，写明"暂无公开数据"并列出已查渠道</td><td>"截至检索日（2026-10-31），未查到公开记录"</td></tr>
+    </table>
+    <p>别忘了<b>时间也是一条验证轴</b>。同一渠道在不同时点的记录对比，常常比横向再找十个渠道更有力：年报逐年对比从业人数与出资情况，公告前后对照口径变化，岗位清单隔月对比方向——一次记录是一个点，多个时点连起来才是趋势。</p>
+    <p>最后一个问题：<b>什么时候停？</b>三个信号——预算和时间花完了；核心命题手里只剩孤证；来源之间的矛盾穷尽了能想到的解释仍然对不上。这时候正确的产出不是硬写一个结论，而是如实在报告里写"这一点查不清"，列出已查渠道，把命题降级为"待核实"。停止前留给自己最后两个动作：把已查渠道与检索词写进报告附录，让别人能接着查；把"查清了什么、没查清什么、建议下一步查什么"写成三句话小结。时间允许的话，把"查不清"的命题挂一段时间再回头看——新公告、新年报、新判决都可能补上那块缺口。承认查不清不是失败：它替读者挡掉了最贵的那种错误——把传闻当成事实去决策。另有一点务必记住：调研中发现涉嫌违法的线索，向网信、公安等主管部门举报，不要自行追查（同第 18 章的原则）。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>情报分析界对交叉验证同样保持警惕：中情局研究报告在介绍"三角验证"（triangulation）时专门提醒，它"并非万无一失的体系"，读者应当带着批判的眼光看待结论——因为所谓多个来源，也可能共享同一个错误源头。交叉验证提高的是可靠性，从不担保真相。</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://ipc.court.gov.cn/zh-cn/news/view-393.html" target="_blank">《最高人民法院关于民事诉讼证据的若干规定（2019 修正）》全文（最高人民法院知识产权法庭官网，检索于 2026-10-31）</a><a href="https://www.bbc.com/editorialguidelines/guidelines/accuracy/guidelines" target="_blank">BBC Editorial Guidelines, Section 3: Accuracy（3.2.2 条）</a><a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网（最高人民法院裁判文书公开平台）</a><a href="https://www.cia.gov/resources/csi/static/Pyschology-of-Intelligence-Analysis.pdf" target="_blank">Richards Heuer《Psychology of Intelligence Analysis》（CIA 情报研究中心）</a><a href="https://www.cia.gov/resources/csi/static/Analytic-Culture-Intelligence-Community.pdf" target="_blank">Analytic Culture in the U.S. Intelligence Community（CIA 情报研究中心，论 triangulation 的局限）</a><a href="https://guides.lib.uchicago.edu/c.php?g=1241077&p=9082343" target="_blank">CRAAP Test（芝加哥大学图书馆来源评估指南）</a></div>
+</section>
+
+<section id="c21" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 21 · PART 4 · AI 增强与产出</span><h2>时间线整理<span class="accent">：让事实自己排队</span></h2></div>
+  <p class="sec-desc">碎片信息不会自己变成判断。把每条事实钉到一条时间轴上，矛盾、缺口和"事后诸葛亮"会自己浮出来——这是调研定稿前的最后一道校验，也是第 20 章交叉验证之后最便宜的一步。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🕰️</span><h3>把碎片排成时间线：三步就够</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">工具：一张电子表格</span></div></div>
+    <p>时间线不需要专门软件，一张电子表格就够。它的价值不在好看，而在强迫你回答两个问题：<b>这件事到底什么时候发生的？我是什么时候才可能知道的？</b></p>
+    <ul>
+      <li><b>第一步，只收"带时间戳的事实"。</b>每条记录四列：日期、事件、来源（文件名＋链接）、信息发布日期。给不出来源的事件，先放进"待查"区，不许上主轴。</li>
+      <li><b>第二步，区分两种时间。</b>排序用"事件发生时间"，校验用"信息发布时间"。公司公告日、监管通报日、判决书落款日常常不一致，差的那几天往往就是整个故事。</li>
+      <li><b>第三步，给每条标置信度。</b>一手文件（处罚决定书、判决书、招股书）＞官方通报＞权威媒体报道＞自媒体转述。两条来源冲突时都保留并标"存疑"，不要悄悄删掉不顺手的那个。</li>
+    </ul>
+    <p>AI 可以帮你从长文本里批量抽取日期和事件（第 19 章的工作流），但抽取结果必须逐条回到原文核对——模型经常把"公告日"和"生效日"混在一起，而调研恰恰是靠这一天之差吃饭的。</p>
+    <p>列怎么设，直接给模板：<b>A 列日期、B 列事件、C 列来源链接、D 列发布日期、E 列置信度、F 列备注。</b>日期统一用"2020-05-14"这种不可歧义的格式，别用"去年年底"；来源列存链接而不是标题，方便三周后复核。建好主轴后先做一次"倒推校验"：假装自己是关键公告发布当天的调研者，只看那个时点之前已公开的信息，看你会得出什么结论——答案往往与"现在知道的结论"差得很远，这段差距正是你要在报告里如实交代的部分。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧪</span><h3>实例：康美药业的五年，时间线如何暴露矛盾</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">全部材料可公开复核</span></div></div>
+    <p>康美药业案是中文公开材料就能拼出的完整时间线，也是"时间线暴露矛盾"最好的教材。按顺序读：</p>
+    <ul>
+      <li><b>2016–2018 年：</b>公司每年披露的货币资金都很"充足"。证监会后来查实，2016 年报、2017 年报、2018 年半年报分别虚增货币资金 <b>225.8 亿、299.4 亿、361.9 亿元</b>，占总资产比例高达 41.13%、43.57%、45.96%。</li>
+      <li><b>2019 年 4 月 29 日：</b>公司自己发布《前期会计差错更正公告》，承认 2017 年报货币资金多计约 299.44 亿元，次日股价跌停。</li>
+      <li><b>2019 年 5 月 17 日：</b>证监会通报调查进展，初步认定 2016–2018 年财务报告存在重大虚假。</li>
+      <li><b>2020 年 5 月 14 日：</b>证监会下达行政处罚决定书〔2020〕24 号。</li>
+      <li><b>2021 年 11 月 12 日：</b>广州市中级人民法院一审判决，责令康美赔偿投资者 <b>24.59 亿元</b>，5.5 万余名投资者获赔——这是我国首单特别代表人诉讼。</li>
+    </ul>
+    <p>把这些点连成线，三件事一目了然。<b>矛盾：</b>年报口径（资金充足）与公司自查口径（多计近 300 亿）直接冲突，说明至少有一方此前在说假话。<b>缺口：</b>连续三份年报都通过了年审，审计环节为何没拦住——这个缺口直到 2021 年会计师事务所被追责才补上答案。<b>后视镜：</b>所有公开证据都在 2019 年 4 月之后才出现。如果你在 2018 年做调研，再合理的怀疑也只能标"待查"，不能写成结论。</p>
+    <div class="chart"><h4>康美药业财务造假案关键时间线（2018–2021）</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="康美药业财务造假案关键时间线：从2018年半年报到2021年一审判决">
+      <line x1="50" y1="170" x2="742" y2="170" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="742,164 756,170 742,176" fill="#9aa1ae"/>
+      <rect x="20" y="58" width="190" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <line x1="115" y1="138" x2="115" y2="164" stroke="#9aa1ae" stroke-width="1.5"/>
+      <text x="115" y="80" font-size="14" font-weight="bold" fill="#d3707f" text-anchor="middle">2018 年半年报</text>
+      <text x="115" y="102" font-size="13" fill="#6b7280" text-anchor="middle">虚增货币资金 361.9 亿元</text>
+      <text x="115" y="122" font-size="13" fill="#6b7280" text-anchor="middle">占总资产 45.96%</text>
+      <circle cx="115" cy="170" r="6" fill="#d3707f"/>
+      <rect x="172" y="218" width="200" height="78" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <line x1="272" y1="176" x2="272" y2="218" stroke="#9aa1ae" stroke-width="1.5"/>
+      <text x="272" y="240" font-size="14" font-weight="bold" fill="#d3707f" text-anchor="middle">2019-04-29</text>
+      <text x="272" y="262" font-size="13" fill="#6b7280" text-anchor="middle">公司自曝"会计差错"</text>
+      <text x="272" y="282" font-size="13" fill="#6b7280" text-anchor="middle">货币资金多计约 299.44 亿元</text>
+      <circle cx="272" cy="170" r="6" fill="#d3707f"/>
+      <rect x="330" y="58" width="180" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <line x1="420" y1="138" x2="420" y2="164" stroke="#9aa1ae" stroke-width="1.5"/>
+      <text x="420" y="80" font-size="14" font-weight="bold" fill="#dfa63e" text-anchor="middle">2019-05-17</text>
+      <text x="420" y="102" font-size="13" fill="#6b7280" text-anchor="middle">证监会通报调查进展</text>
+      <text x="420" y="122" font-size="13" fill="#6b7280" text-anchor="middle">认定财务报告重大虚假</text>
+      <circle cx="420" cy="170" r="6" fill="#dfa63e"/>
+      <rect x="470" y="218" width="200" height="78" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <line x1="570" y1="176" x2="570" y2="218" stroke="#9aa1ae" stroke-width="1.5"/>
+      <text x="570" y="240" font-size="14" font-weight="bold" fill="#dfa63e" text-anchor="middle">2020-05-14</text>
+      <text x="570" y="262" font-size="13" fill="#6b7280" text-anchor="middle">行政处罚决定书</text>
+      <text x="570" y="282" font-size="13" fill="#6b7280" text-anchor="middle">〔2020〕24 号</text>
+      <circle cx="570" cy="170" r="6" fill="#dfa63e"/>
+      <rect x="606" y="58" width="184" height="80" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <line x1="698" y1="138" x2="698" y2="164" stroke="#9aa1ae" stroke-width="1.5"/>
+      <text x="698" y="80" font-size="14" font-weight="bold" fill="#4aa583" text-anchor="middle">2021-11-12</text>
+      <text x="698" y="102" font-size="13" fill="#6b7280" text-anchor="middle">广州中院一审判决</text>
+      <text x="698" y="122" font-size="13" fill="#6b7280" text-anchor="middle">赔偿投资者 24.59 亿元</text>
+      <circle cx="698" cy="170" r="6" fill="#4aa583"/>
+      <rect x="50" y="300" width="12" height="12" fill="#d3707f"/>
+      <text x="68" y="311" font-size="13" fill="#6b7280">公司侧公告</text>
+      <rect x="180" y="300" width="12" height="12" fill="#dfa63e"/>
+      <text x="198" y="311" font-size="13" fill="#6b7280">监管动作</text>
+      <rect x="300" y="300" width="12" height="12" fill="#4aa583"/>
+      <text x="318" y="311" font-size="13" fill="#6b7280">司法判决</text>
+    </svg>
+    <div class="cap">图注：节点日期均为文件落款或发布日 · 来源：证监会答记者问、新华网、人民网健康时报 · 检索日期 2026-10-31</div></div>
+    <div class="chart"><h4>证监会查实的各报告期虚增货币资金（亿元）</h4>
+    <div class="hbar-row"><span>2016 年报</span><div class="hbar-track"><div class="hbar-fill" style="width:62%"></div></div><span class="hbar-val">225.8 亿</span></div>
+    <div class="hbar-row"><span>2017 年报</span><div class="hbar-track"><div class="hbar-fill" style="width:83%"></div></div><span class="hbar-val">299.4 亿</span></div>
+    <div class="hbar-row"><span>2018 半年报</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-val">361.9 亿</span></div>
+    <div class="cap">图注：口径为证监会〔2020〕24 号处罚决定书查实金额 · 来源：证监会通报及公开报道 · 检索日期 2026-10-31</div></div>
+    <blockquote class="xq">💬 <span class="who">官方口径：</span>证监会有关部门负责人在康美案判决当日表示，该案是"我国首单特别代表人诉讼案件"，康美连续 3 年财务造假、涉案金额巨大，判决"具有里程碑意义"。（来源：证监会官网答记者问，2021-11-12）</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">✅</span><h3>用时间线做终检：四个问题</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">报告定稿前必过</span></div></div>
+    <p>报告写完、结论已定，这时把结论放回时间线，问四个问题。任何一个答不上来，就回炉：</p>
+    <ul>
+      <li>结论里的每个"先后关系"，都有文件日期支撑吗？"先 A 后 B"必须各有出处，不能靠叙述顺序暗示。</li>
+      <li>关键事实的<b>发布日期</b>，早于你要支持的<b>决策时点</b>吗？用后发生的信息去解释先做的决定，是调研里最常见的自欺。</li>
+      <li>同一天出现冲突口径时，标"存疑"了吗？两条都留，注明你倾向哪一条、为什么。</li>
+      <li>所有"暂无公开数据"的缺口，都留在时间线上而不是被顺手删掉了吗？缺口本身就是报告的一部分（第 22 章会讲怎么呈现）。</li>
+    </ul>
+    <p>两个实操提醒：<b>新闻的发布时间不等于事件的发生时间</b>——转载稿会带着原发媒体的日期一路漂移，引用前尽量找到最早出处；<b>同一天的多个事件，按文件里的精确表述排</b>——公告写"当日"，判决书写"于本判决生效之日起"，含义并不相同，拿不准就标"当日·具体时刻未知"，别脑补成先后。</p>
+    <p>换个市场同样适用：SEC 在 2020 年 12 月 16 日的新闻稿里认定，瑞幸咖啡在 2019 年 4 月至 2020 年 1 月间通过关联方伪造超过 3 亿美元零售销售额，2019 年 6 月、9 月两个报告期收入分别虚增约 28% 和 45%，公司最终支付 1.8 亿美元和解——同样是一条"造假期在前、曝光在后"的时间线。时间线排对了，结论自己会站直。</p>
+    <p>时间线还有一个被低估的用途：<b>给对方看</b>。把与合作方沟通过程里的关键承诺做成时间线发给对方，很多含糊其辞会当场变得无法回避——它是所有调研产出里唯一不需要解释、第三方也能直接看懂的形式。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.csrc.gov.cn/csrc/c100028/c1556048/content.shtml" target="_blank">证监会：就康美药业特别代表人诉讼案答记者问（2021-11-12）</a><a href="http://www.news.cn/2021-11/12/c_1128058742.htm" target="_blank">新华网：全国首例证券集体诉讼案宣判 责令康美赔偿24.59亿元（2021-11-12）</a><a href="https://www.sec.gov/newsroom/press-releases/2020-319" target="_blank">SEC：Luckin Coffee Agrees to Pay $180 Million Penalty（2020-12-16）</a><a href="http://paper.people.com.cn/jksb/html/2020-06/09/content_1992933.htm" target="_blank">人民网健康时报：康美药业危机始末（2020-06-09）</a><a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网</a><a href="https://zxgk.court.gov.cn/" target="_blank">中国执行信息公开网</a></div>
+</section>
+
+<section id="c22" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 22 · PART 4 · AI 增强与产出</span><h2>调研报告写法<span class="accent">：结论先行与证据在后</span></h2></div>
+  <p class="sec-desc">报告不是调研笔记的堆放处。决策者只给你 30 秒，结论必须站在第一段；证据、缺口、附录跟在后面，让愿意深挖的人能复核你的每一步——复核得通，报告才值钱。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📋</span><h3>四件套：结论、证据、缺口、附录</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">一页纸即可起步</span></div></div>
+    <p>证监会连上市公司年报的写法都专门发文——《公开发行证券的公司信息披露内容与格式准则第 2 号》。监管要求的从来不只是"有内容"，而是"结构可核"：先给答案，再给理由，最后给复核材料。个人调研报告值得照同样的逻辑搭：</p>
+    <ul>
+      <li><b>结论（不超过 150 字）</b>：一段话回答委托方的原始问题，附置信度和三条最硬依据。写"建议暂缓签约（中等置信度）：近两年多起劳动仲裁、1 条失信记录、审计意见非标准"，而不是"该公司存在一定风险"。</li>
+      <li><b>证据</b>：按对结论的重要性排序，不按你检索的先后。每条三要素：事实陈述、来源链接、信息发布日期。孤证（第 20 章）要么补成证据链，要么降级为线索。</li>
+      <li><b>缺口</b>：查了什么、没查到什么、为什么重要。"裁判文书网未检出诉讼"必须写成"截至检索日未检出"——该库收录范围有限，查无记录不等于没有记录。</li>
+      <li><b>附录</b>：检索词清单、渠道列表、检索日期。附录是报告可复现的关键，也是你区别于"网上搜了一圈"的证明。</li>
+    </ul>
+    <p>写的时候<b>倒着写</b>：先把结论一句话定死，再往上堆证据，最后补方法和附录。顺着你检索的顺序写，读者会被你的弯路绕晕；倒着写，每一段都在回答"所以呢"。</p>
+    <p>四个部分各配一个"质检动作"：结论区问"三句话能复述吗"，证据区问"每条能点开吗"，缺口区问"每条都有下一步吗"，附录区问"换个新人能按图索骥重做吗"。四个都是"是"，这份报告才配得上"调研"两个字。</p>
+    <div class="chart"><h4>调研报告四件套：读者从左往右读，作者从右往左备</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="调研报告结构：结论、证据、缺口、附录四部分及阅读顺序">
+      <text x="30" y="36" font-size="14" fill="#d3707f" font-weight="bold">决策者的 30 秒停在这里</text>
+      <line x1="107" y1="46" x2="107" y2="76" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="102,76 112,76 107,86" fill="#9aa1ae"/>
+      <rect x="30" y="90" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="107" y="122" font-size="15" font-weight="bold" fill="#d3707f" text-anchor="middle">① 结论</text>
+      <text x="107" y="150" font-size="13" fill="#6b7280" text-anchor="middle">≤150 字·给答案</text>
+      <text x="107" y="172" font-size="13" fill="#6b7280" text-anchor="middle">置信度·三条硬依据</text>
+      <text x="107" y="194" font-size="13" fill="#6b7280" text-anchor="middle">不给"仅供参考"</text>
+      <line x1="185" y1="150" x2="219" y2="150" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="219,145 232,150 219,155" fill="#9aa1ae"/>
+      <rect x="225" y="90" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="302" y="122" font-size="15" font-weight="bold" fill="#dfa63e" text-anchor="middle">② 证据</text>
+      <text x="302" y="150" font-size="13" fill="#6b7280" text-anchor="middle">事实＋来源链接</text>
+      <text x="302" y="172" font-size="13" fill="#6b7280" text-anchor="middle">＋信息发布日期</text>
+      <text x="302" y="194" font-size="13" fill="#6b7280" text-anchor="middle">按重要性排序</text>
+      <line x1="380" y1="150" x2="414" y2="150" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="414,145 427,150 414,155" fill="#9aa1ae"/>
+      <rect x="420" y="90" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="497" y="122" font-size="15" font-weight="bold" fill="#6fa8c9" text-anchor="middle">③ 缺口</text>
+      <text x="497" y="150" font-size="13" fill="#6b7280" text-anchor="middle">查了什么</text>
+      <text x="497" y="172" font-size="13" fill="#6b7280" text-anchor="middle">没查到什么</text>
+      <text x="497" y="194" font-size="13" fill="#6b7280" text-anchor="middle">为什么重要</text>
+      <line x1="575" y1="150" x2="609" y2="150" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="609,145 622,150 609,155" fill="#9aa1ae"/>
+      <rect x="615" y="90" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="692" y="122" font-size="15" font-weight="bold" fill="#4aa583" text-anchor="middle">④ 附录</text>
+      <text x="692" y="150" font-size="13" fill="#6b7280" text-anchor="middle">检索词清单</text>
+      <text x="692" y="172" font-size="13" fill="#6b7280" text-anchor="middle">渠道与链接列表</text>
+      <text x="692" y="194" font-size="13" fill="#6b7280" text-anchor="middle">检索日期</text>
+      <text x="400" y="268" font-size="14" fill="#2f3345" text-anchor="middle">篇幅原则：证据区可以最长，结论区必须最短；缺口区和附录不许省略</text>
+    </svg>
+    <div class="cap">图注：结构示意，非统计数据 · 结构逻辑参照证监会第 2 号信息披露准则与《发布证券研究报告执业规范》 · 检索日期 2026-10-31</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">👥</span><h3>同一份调研，为三种读者改写</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">改写＝重排，不是删减</span></div></div>
+    <p>调研底稿只有一份，报告却该按读者重排。三张画像对应全书反复出现的三类决策场景：</p>
+    <table>
+      <tr><th>读者</th><th>他真正要的答案</th><th>第一段放什么</th><th>可以放到附录</th></tr>
+      <tr><td><b>创业者（合作方）</b></td><td>会不会被拖款、被卷走预付款</td><td>付款纠纷、被执行与失信记录</td><td>行业宏观分析</td></tr>
+      <tr><td><b>求职者（雇主）</b></td><td>会不会欠薪、裁员、画饼</td><td>劳动仲裁与裁员报道的时间线</td><td>股权结构细节</td></tr>
+      <tr><td><b>投资者（项目）</b></td><td>财务与合规质量</td><td>审计意见与监管处罚记录</td><td>办公室环境、创始人轶事</td></tr>
+    </table>
+    <p>改写不是删减：给求职者的版本要把时间线提前，因为"这家公司去年裁过整条业务线"比任何评分模型都直观；给投资者的版本则把审计意见与处罚记录放在最前。同样的证据，换一种排列，就从"资料"变成了"答案"。</p>
+    <p>重排时最容易犯的错是把所有东西都留在正文。判断标准很简单：<b>删掉这一条，结论还成立吗？</b>不成立就是证据，成立就是背景——背景进附录。</p>
+    <p>还有一个实用的改写检验：把报告第一段遮住，只给对方看标题。标题应该就是结论——学 SEC 新闻稿的写法，2020 年 12 月 16 日那篇直接叫"Luckin Coffee Agrees to Pay $180 Million Penalty to Settle Accounting Fraud Charges"，一句话说完主体、动作、金额、事项，读者不点开正文也知道发生了什么。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>免责与不确定性：三行字的事</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">第 5 章分级的落地</span></div></div>
+    <ul>
+      <li><b>写明信息截止日期</b>："本报告基于截至 2026 年 10 月 31 日的公开信息；各渠道收录范围以官方当期页面为准。"这一行字能挡住日后九成的争议。</li>
+      <li><b>三级标注</b>：事实（附来源链接）／推断（写明推理链）／传闻（明确标"未经证实"）。第三级里给不出任何出处的条目，直接删。</li>
+      <li><b>概率语言固定化</b>：美国情报界的 ICD 203 分析标准要求判断附置信度（高／中／低），可能性用固定词表表达，并且"可能性"与"置信度"分开报告——"很可能"和"可能"不是同义词。借这套词表，你的报告立刻少一半歧义。</li>
+    </ul>
+    <p>免责声明不是挡箭牌，而是方法说明：告诉读者你的边界在哪，可信度反而上升。这也是把第 5 章信源分级、第 20 章交叉验证落到纸面上的最后一步。为不同决策场景准备一份标准免责模板并不丢人：调研者面对的是信息边界，不是法律责任书——写清你查了哪里、没查哪里、结论置信度多高，剩下的判断是读者自己的事。这也是你与"保证赚钱"式江湖报告之间最本质的区别。</p>
+    <blockquote class="xq">💬 <span class="who">监管参照：</span>《发布证券研究报告暂行规定》要求研报作者"审慎使用信息"，核实引用信息与数据来源，"不得将无法确认来源合法合规性的信息写入报告，不得将无法认定真实性的市场传言作为研究依据"——这条纪律同样适用于你的私人报告。（证监会公告〔2010〕28 号，2020 年修订）</blockquote>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.csrc.gov.cn/csrc/c101864/c6df1268b5b294448bdec7e010d880a01/content.shtml" target="_blank">证监会【第15号公告】第2号准则——年度报告的内容与格式（2021-06-28）</a><a href="https://neris.csrc.gov.cn/falvfagui/rdqsHeader/mainbody?navbarId=3&amp;secFutrsLawId=e82900b3a20c4566ac1dd9d9a030ac6e" target="_blank">证监会法规库：中国证券业协会《发布证券研究报告执业规范》（中证协发〔2020〕76号）</a><a href="https://www.dni.gov/index.php/what-we-do/members-of-the-ic/intelligence-community-directives" target="_blank">ODNI：Intelligence Community Directives（含 ICD 203 Analytic Standards，2015-01-02）</a><a href="https://www.sec.gov/newsroom/press-releases/2020-319" target="_blank">SEC 新闻稿（2020-12-16）：标题即结论的写作范例</a><a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网（证据链接的标准挂法）</a></div>
+</section>
+
+<section id="c23" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 23 · PART 4 · AI 增强与产出</span><h2>调研能力变现<span class="accent">：研报、咨询、尽调、社群</span></h2></div>
+  <p class="sec-desc">会调研是一件事，把调研卖出价钱是另一件事。四条路径的门槛、合规红线和公开可查的定价锚点都摆在这里——先看清楚再入场，尤其是证券领域，门槛是制度性的，绕过即违法。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🧭</span><h3>四条路径对照：门槛、红线、定价锚点</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">建议收藏对照表</span></div></div>
+    <table>
+      <tr><th>路径</th><th>硬门槛</th><th>合规红线</th><th>公开定价锚点</th></tr>
+      <tr><td><b>券商研报</b></td><td>对外发布证券研究报告属于证券投资咨询业务：机构须持牌＋个人须有执业证书，深圳证监局称之为"双证"</td><td>无资质向公众荐股＝非法证券活动</td><td>个人现实路径是受雇机构或供稿，按岗位与稿酬计</td></tr>
+      <tr><td><b>商业咨询</b></td><td>无牌照要求（证券领域除外），靠案例与口碑起步</td><td>合同限定服务范围，不越界给投资建议</td><td>按项目或人天报价；政府采购公告是现成的公开比价库</td></tr>
+      <tr><td><b>桌面尽调</b></td><td>整包尽调通常由律所、会计师事务所承接；证券法律业务须按证监会、司法部令第 223 号备案（2023-12-01 施行）</td><td>只用公开渠道，不碰非公开信息；调查令等强制调证手段只有持证律师能申请</td><td>国家开发银行"2025 年信息科技外包尽职调查及风险管理评估项目"成交价 <b>134.8 万元</b>（2025-01 公告，单一锚点仅供参考）</td></tr>
+      <tr><td><b>知识社群</b></td><td>平台账号＋持续产出即可开张</td><td>证券类社群同样受"双证"约束，收群费荐股＝踩线</td><td>订阅制，价格自由，但证券类目风险最高</td></tr>
+    </table>
+    <p>给新手的现实建议：从"咨询＋内容"起步最容易——不要求牌照，只要求你的报告经得起第 22 章的自查；研报与证券尽调的门槛是制度性的，个人绕不过去，也不该绕。</p>
+    <p><b>定价锚点怎么找？</b>打开中国政府采购网或各地公共资源交易中心，搜"尽职调查"、筛"中标（成交）公告"，把近一年的同类项目金额记成一张表。注意两点：政府采购价通常低于市场价，对外报价时适当上浮；样本要挑口径相近的（调查范围、周期、委托方体量）——拿 134.8 万的银行级项目去给街边小店报价，只会把客户吓跑。</p>
+    <div class="chart"><h4>四条变现路径的合规门槛（示意）</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四条变现路径合规门槛阶梯图：社群最低，咨询次之，尽调较高，研报最高">
+      <line x1="46" y1="282" x2="46" y2="58" stroke="#9aa1ae" stroke-width="2"/>
+      <polygon points="40,58 52,58 46,44" fill="#9aa1ae"/>
+      <text x="34" y="170" font-size="14" fill="#6b7280" transform="rotate(-90 34 170)" text-anchor="middle">合规与资质门槛</text>
+      <rect x="80" y="212" width="150" height="70" rx="10" fill="#fbfaf5" stroke="#6fa8c9"/>
+      <text x="155" y="246" font-size="13" fill="#6b7280" text-anchor="middle">平台订阅即可</text>
+      <text x="155" y="268" font-size="13" fill="#6b7280" text-anchor="middle">内容质量定生死</text>
+      <text x="155" y="300" font-size="14" font-weight="bold" fill="#2f3345" text-anchor="middle">知识社群</text>
+      <rect x="255" y="162" width="150" height="120" rx="10" fill="#fbfaf5" stroke="#4aa583"/>
+      <text x="330" y="196" font-size="13" fill="#6b7280" text-anchor="middle">无牌照（非证券类）</text>
+      <text x="330" y="218" font-size="13" fill="#6b7280" text-anchor="middle">合同限定范围</text>
+      <text x="330" y="240" font-size="13" fill="#6b7280" text-anchor="middle">不碰投资建议</text>
+      <text x="330" y="300" font-size="14" font-weight="bold" fill="#2f3345" text-anchor="middle">商业咨询</text>
+      <rect x="430" y="112" width="150" height="170" rx="10" fill="#fbfaf5" stroke="#dfa63e"/>
+      <text x="505" y="146" font-size="13" fill="#6b7280" text-anchor="middle">机构承接为主</text>
+      <text x="505" y="168" font-size="13" fill="#6b7280" text-anchor="middle">证券类须备案</text>
+      <text x="505" y="190" font-size="13" fill="#6b7280" text-anchor="middle">合同写明公开信息</text>
+      <text x="505" y="300" font-size="14" font-weight="bold" fill="#2f3345" text-anchor="middle">桌面尽调</text>
+      <rect x="605" y="62" width="150" height="220" rx="10" fill="#fbfaf5" stroke="#d3707f"/>
+      <text x="680" y="96" font-size="13" fill="#6b7280" text-anchor="middle">机构持牌</text>
+      <text x="680" y="118" font-size="13" fill="#6b7280" text-anchor="middle">个人执业证书</text>
+      <text x="680" y="140" font-size="13" fill="#6b7280" text-anchor="middle">"双证"缺一不可</text>
+      <text x="680" y="300" font-size="14" font-weight="bold" fill="#2f3345" text-anchor="middle">券商研报</text>
+    </svg>
+    <div class="cap">图注：示意图，门槛高低为定性判断而非统计数据 · 依据：深圳证监局风险提示（2026-06-17）、证监会与司法部令第 223 号 · 检索日期 2026-10-31</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">⚖️</span><h3>个人接尽调类委托的合规清单</h3><div class="badges"><span class="badge r3">难度 ★★★</span><span class="badge">接单前逐条打钩</span></div></div>
+    <ul>
+      <li><b>合同写死两句话</b>："本服务仅基于公开信息完成""报告仅供约定用途使用"。用途限定了，超出用途的使用与你无关——这是最重要的边界。</li>
+      <li><b>个人信息最小必要</b>：《个人信息保护法》第六条要求处理个人信息"应当与处理目的直接相关"，"收集个人信息，应当限于实现处理目的的最小范围，不得过度收集"。查企业不等于收集创始人隐私，身份证号、住址这类信息能不碰就不碰。</li>
+      <li><b>发现涉嫌违法线索，交出去而不是追下去</b>：向 12386（证监会服务热线）或公安机关反映，由主管部门处理；调研者自行追查、公开点名，既危险也可能越界（第 3 章的红线）。</li>
+      <li><b>报告注明检索日期与方法限制</b>：查无记录就如实写"暂无公开数据"。这句话在变现场景里不是减分项，恰恰是专业性的标志。</li>
+    </ul>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>深圳证监局 2026 年 6 月风险提示写道，不法分子会"伪造证券期货基金机构工作证、盗用网络公示的从业人员信息虚构身份"，在短视频平台认证"理财师"、收取入群费荐股——核实"双证"是投资者的第一课，也是从业者自证的路径。（来源：深圳证监局官网，2026-06-17）</blockquote>
+    <p>桌面尽调的标准交付物其实很固定：<b>企业信用信息摘要、涉诉与处罚清单、关键时间线、红旗问题清单、带链接的来源附录</b>。第一次接单就按这个清单交付，哪怕金额不大，客户拿到的也是能直接转发给律师和会计的东西。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">📣</span><h3>把调研过程做成内容资产：双赢打法</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">复利最久的一条路</span></div></div>
+    <p>方法论是唯一不会贬值的存货。把"我怎么查到这条线"写成脱敏复盘：免费版讲渠道与步骤，吸引同路人；付费版讲完整案例与可复用模板，交付给需要的人。国际同行已经验证过这条路——Bellingcat 把开源调查工具箱常年公开维护，靠声誉带动资助与委托。</p>
+    <ul>
+      <li><b>公开层</b>：渠道评测、检索词库、踩坑记录。每周一篇，一年后你就是某个垂直领域的"查询入口"。</li>
+      <li><b>付费层</b>：完整案例库、报告模板、一对一咨询。定价不必低——第 22 章的自查清单就是你的底气。</li>
+      <li><b>双赢点</b>：读者拿到了能照着做的路径，你把每一次调研都沉淀成下一次的获客素材。调研做得越好，内容越可信；内容越可信，委托越贵。</li>
+    </ul>
+    <p>变现的顺序也别搞反：<b>先有公开内容，再有委托上门。</b>委托方几乎都是先看过你写的东西才敢付钱——公开内容本身就是你的"尽调报告"，只不过这次的调研对象是你自己。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.csrc.gov.cn/shenzhen/c105614/c7646005/content.shtml" target="_blank">深圳证监局：持牌机构需核实，荐股诈骗要小心（2026-06-17）</a><a href="https://e.sinochemitc.com/cms/channel/ywgg2fw/154149.htm" target="_blank">中化商务：国开行 2025 年信息科技外包尽职调查及风险管理评估项目中标公告（2025-01-07）</a><a href="https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm" target="_blank">国家网信办：《中华人民共和国个人信息保护法》全文（2021-08-20）</a><a href="https://neris.csrc.gov.cn/falvfagui/rdqsHeader/mainbody?navbarId=3&amp;secFutrsLawId=e82900b3a20c4566ac1dd9d9a030ac6e" target="_blank">证监会法规库：《发布证券研究报告执业规范》（中证协发〔2020〕76号）</a><a href="https://www.ccgp.gov.cn/" target="_blank">中国政府采购网（查询服务采购中标价）</a></div>
+</section>
+
+<section id="c24" class="wrap">
+  <div class="sec-head"><span class="sec-no">CHAPTER 24 · PART 4 · AI 增强与产出</span><h2>30 天训练计划<span class="accent">：每周有练习题</span></h2></div>
+  <p class="sec-desc">调研能力不靠天赋靠重复。这张四周训练表把全书 24 章压成每天约一小时：每周一个主题、一套练习题、一件可展示的产出物——四周之后，你手里会有五张公司信息卡、一份公共数据档案、一页官网演变史和一份完整报告。</p>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🗓️</span><h3>四周训练表</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">每天约 1 小时</span><span class="badge">零基础可跟</span></div></div>
+    <table>
+      <tr><th>周</th><th>主题</th><th>练习题（任选其一）</th><th>产出物</th></tr>
+      <tr><td><b>第 1 周</b></td><td>工具上手</td><td>用高级语法（site:、filetype:）各做 3 组检索；在国家企业信用信息公示系统查 5 家公司的成立日期、股东与行政处罚，再与商业征信平台对照</td><td>5 张"公司信息卡"，每个字段注明来源</td></tr>
+      <tr><td><b>第 2 周</b></td><td>公共数据</td><td>在国家数据查一个行业近 5 年的关键指标；在裁判文书网、执行信息公开网检索一家公司的涉诉与失信记录（方法见第 8、12 章）</td><td>一页"公共数据档案"＋一条时间线（用第 21 章三步法）</td></tr>
+      <tr><td><b>第 3 周</b></td><td>网络足迹</td><td>在 Wayback Machine 回看某公司官网的 3 个历史版本（方法见第 14 章）；记录域名注册信息与改版节点（方法见第 13 章）</td><td>一页"官网演变史"，标注每个快照日期</td></tr>
+      <tr><td><b>第 4 周</b></td><td>完整报告</td><td>选一个真实决策问题（如某加盟品牌值不值得加盟），7 天走完检索→验证→时间线→成稿全流程</td><td>一页纸报告，套用第 22 章四件套模板</td></tr>
+    </table>
+    <p>每周只要求一件产出物，是因为"查"容易、"留下可复现的记录"难——后者才是这 30 天真正的训练目标。</p>
+    <p>开始前先花 10 分钟建好"调研档案"（第 6 章）：一个按日期命名的文件夹、一份只增不删的检索日志。30 天里你至少会打开 40 个网页，没有档案的检索等于没做。每天怎么分配？<b>周一到周三做检索（每天只开一个新渠道），周四整理进档案，周五写当周产出物，周末只做一件事：</b>换一台设备重走一遍当周的检索路径。能复现才算学会；复现不了，说明你漏记了某个关键词或链接。</p>
+    <p>第 1 周要查的 5 家公司也有讲究：<b>一家你熟悉的大公司、一家上市公司、一家本地小店、一家你想合作或跳槽过去的公司、一家故意挑的冷门公司</b>——五种体量会逼你碰到五种查询边界，比查五家同类公司学到的东西多得多。</p>
+    <div class="chart"><h4>四周进阶路线：每周一个主题、一件产出物</h4>
+    <svg viewBox="0 0 800 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="30天训练计划四周结构：工具上手、公共数据、网络足迹、完整报告">
+      <rect x="30" y="80" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="107" y="112" font-size="15" font-weight="bold" fill="#7d76cf" text-anchor="middle">第 1 周 · 工具上手</text>
+      <text x="107" y="140" font-size="13" fill="#6b7280" text-anchor="middle">检索语法</text>
+      <text x="107" y="162" font-size="13" fill="#6b7280" text-anchor="middle">官方查企渠道</text>
+      <text x="107" y="184" font-size="13" fill="#6b7280" text-anchor="middle">商业平台对照</text>
+      <text x="107" y="228" font-size="13" fill="#7d76cf" text-anchor="middle">产出：5 张公司信息卡</text>
+      <line x1="185" y1="140" x2="219" y2="140" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="219,135 232,140 219,145" fill="#9aa1ae"/>
+      <rect x="225" y="80" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="302" y="112" font-size="15" font-weight="bold" fill="#6fa8c9" text-anchor="middle">第 2 周 · 公共数据</text>
+      <text x="302" y="140" font-size="13" fill="#6b7280" text-anchor="middle">统计数据</text>
+      <text x="302" y="162" font-size="13" fill="#6b7280" text-anchor="middle">裁判文书</text>
+      <text x="302" y="184" font-size="13" fill="#6b7280" text-anchor="middle">失信与执行信息</text>
+      <text x="302" y="228" font-size="13" fill="#6fa8c9" text-anchor="middle">产出：数据档案＋时间线</text>
+      <line x1="380" y1="140" x2="414" y2="140" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="414,135 427,140 414,145" fill="#9aa1ae"/>
+      <rect x="420" y="80" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="497" y="112" font-size="15" font-weight="bold" fill="#4aa583" text-anchor="middle">第 3 周 · 网络足迹</text>
+      <text x="497" y="140" font-size="13" fill="#6b7280" text-anchor="middle">历史快照</text>
+      <text x="497" y="162" font-size="13" fill="#6b7280" text-anchor="middle">域名注册信息</text>
+      <text x="497" y="184" font-size="13" fill="#6b7280" text-anchor="middle">只查企业与公开账号</text>
+      <text x="497" y="228" font-size="13" fill="#4aa583" text-anchor="middle">产出：官网演变史</text>
+      <line x1="575" y1="140" x2="609" y2="140" stroke="#9aa1ae" stroke-width="1.5"/>
+      <polygon points="609,135 622,140 609,145" fill="#9aa1ae"/>
+      <rect x="615" y="80" width="155" height="120" rx="10" fill="#fbfaf5" stroke="#dcd7c9"/>
+      <text x="692" y="112" font-size="15" font-weight="bold" fill="#d3707f" text-anchor="middle">第 4 周 · 完整报告</text>
+      <text x="692" y="140" font-size="13" fill="#6b7280" text-anchor="middle">真实决策问题</text>
+      <text x="692" y="162" font-size="13" fill="#6b7280" text-anchor="middle">四件套结构</text>
+      <text x="692" y="184" font-size="13" fill="#6b7280" text-anchor="middle">缺口如实呈现</text>
+      <text x="692" y="228" font-size="13" fill="#d3707f" text-anchor="middle">产出：一页纸报告</text>
+      <text x="400" y="280" font-size="14" fill="#2f3345" text-anchor="middle">每天约 1 小时 · 第 4 周末交付一份可复现的完整报告</text>
+    </svg>
+    <div class="cap">图注：训练计划结构示意 · 各渠道入口见本章来源链接 · 检索日期 2026-10-31</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🎯</span><h3>每周自评标准：及格、良好、优秀</h3><div class="badges"><span class="badge r2">难度 ★★</span><span class="badge">做完再回来看</span></div></div>
+    <ul>
+      <li><b>第 1 周：</b>及格＝能说清官方渠道与商业平台的字段差异；良好＝知道商业平台哪些字段其实来自哪个官方库；优秀＝发现并记录一处两个平台对同一公司信息不一致。</li>
+      <li><b>第 2 周：</b>及格＝时间线上每个事件都有来源；良好＝区分了事件发生时间与信息发布时间；优秀＝找到一处官方口径与媒体报道不一致，并标了"存疑"而不是二选一。</li>
+      <li><b>第 3 周：</b>及格＝完成 3 个快照对比并注明快照日期；良好＝整理出官网改版与业务变化的对应关系；优秀＝用历史快照纠正了一个"现在才成立"的说法。</li>
+      <li><b>第 4 周：</b>及格＝结论、证据、缺口、附录四件套齐全；良好＝每个数字都带链接与检索日期；优秀＝缺口不少于 3 条，且每条写明"查过什么、为什么没查到"。</li>
+    </ul>
+    <p>自评拿不到"及格"不要重启整个计划——把没做到的那一条单独补上就行。这套标准的设计逻辑是"每条都能单独补课"，不是"不及格从头再来"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="icon">🪂</span><h3>卡住时的降级方案</h3><div class="badges"><span class="badge r1">难度 ★</span><span class="badge">照做即可，不丢进度</span></div></div>
+    <ul>
+      <li><b>官方系统打不开或限流</b>（访问高峰常见）：错峰再试；等不了的，换监管处罚通报或权威媒体报道交叉印证，不要用商业平台的二手摘要顶替官方原文。</li>
+      <li><b>商业平台要付费</b>：先用完全免费的官方渠道——企业信用公示系统查企业、国家数据查宏观指标，付费只买效率，不买结论。</li>
+      <li><b>裁判文书网检索不到</b>：该库收录范围有限，改查证监会、市监局的处罚决定书和执行信息公开网，第二部分各章都留了替代渠道。</li>
+      <li><b>时间不够</b>：把每天 1 小时压成 20 分钟的最小版——每周只做练习题、只交半成品，宁慢勿编。</li>
+      <li><b>实在查不到</b>：写"暂无公开数据＋你查过什么、在哪天查的"。这比补一个数字体面得多，也是这 30 天最值钱的习惯。</li>
+    </ul>
+    <p>工具清单不用贪多：第 1 周只要搜索引擎＋一个官方查企渠道就够了，商业征信平台、存档服务都是加分项。每引入一个新工具，就在检索日志里记一行——它是干什么的、官方还是商业、免费还是付费。30 天后，这张清单本身就是一个能送人的小产品。</p>
+    <blockquote class="xq">💬 <span class="who">一线声音：</span>第 2 周练"官方口径对照"时，中央网信办违法和不良信息举报中心主办的中国互联网联合辟谣平台最顺手——它依托 104 家单位组成的全国网络辟谣联动机制核查谣言，查证一条消息前先来这里过一遍，能省掉大半冤枉路。（来源：中国互联网联合辟谣平台，检索日期 2026-10-31）</blockquote>
+    <p>第 4 周之后怎么办？把四周压缩成每周例行：<b>周一读一份处罚决定书，周三查一家感兴趣的公司，周末写 300 字时间线笔记。</b>训练计划的终点不是"毕业"，而是把这套动作变成你每周的一部分。</p>
+  </div>
+
+  <div class="src"><span class="tag">📎 来源</span><a href="https://www.gsxt.gov.cn/index.html" target="_blank">国家企业信用信息公示系统</a><a href="https://data.stats.gov.cn/index.htm" target="_blank">国家数据（国家统计局）</a><a href="https://wenshu.court.gov.cn/" target="_blank">中国裁判文书网</a><a href="https://zxgk.court.gov.cn/" target="_blank">中国执行信息公开网</a><a href="https://www.piyao.org.cn" target="_blank">中国互联网联合辟谣平台</a><a href="https://web.archive.org/" target="_blank">Wayback Machine 网页存档</a><a href="https://bellingcat.gitbook.io/toolkit" target="_blank">Bellingcat Online Investigation Toolkit</a></div>
+</section>
+
+<footer class="wrap">
+  <div><b>全书使用建议</b></div>
+  <div style="margin-top:12px;color:var(--muted);max-width:860px;">
+    <p>· 先读第 03 章《法律与伦理边界》再动手——调研与侵犯隐私只有一线之隔，这一章是全书的保险丝；</p>
+    <p>· 第 07-12 章的政府与司法渠道都是免费的，查任何一家公司先过一遍这六章，比看任何软文都可靠（渠道口径以 2026-10-31 检索为准）；</p>
+    <p>· 第 24 章《30 天训练计划》配了每周的练习题，学完前二十三章就照它练。</p>
+  </div>
+  <div class="disclaimer">⚠️ <b>免责声明：</b>本手册由 6 个并行 AI 研究员于 2026-10-31 实时检索公开资料写成，仅作合规调研方法学习之用，不构成任何法律意见。全书只讲公开、合法的查询渠道；不教授任何获取非公开数据、绕过访问控制或追踪特定自然人的方法。各平台界面与数据覆盖范围随时可能调整，请以官方当期页面为准；涉及法律问题请咨询持牌专业人士。</div>
+  <div style="margin-top:20px;text-align:center;">🔎 《公开信息调研术》· 24 章并行调研汇编 · 2026-10-31 · 配套 <a href="AI赚钱手册.html">《AI 赚钱手册》</a> · <a href="独立开发出海手册.html">《独立开发出海手册》</a> · <a href="个人品牌与知识变现手册.html">《个人品牌手册》</a> · <a href="互联网赚钱避坑手册.html">《避坑手册》</a> · <a href="一人公司财务与合规手册.html">《一人公司手册》</a></div>
+</footer>
+
+<a class="backtop" href="#toc" title="回到目录">↑</a>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.toc a, .tocbox a');
+  var byId = {};
+  Array.prototype.forEach.call(links, function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  secs.sort(function (a, b) { return a.offsetTop - b.offsetTop; });
+  function update() {
+    var y = window.scrollY + 170, cur = null;
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = !!cur && a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('active', on);
+    });
+  }
+  var fold = document.querySelector('details.tocfold');
+  if (fold && window.matchMedia('(max-width: 700px)').matches) {
+    fold.removeAttribute('open');
+    Array.prototype.forEach.call(fold.querySelectorAll('.toc-list a'), function (a) {
+      a.addEventListener('click', function () { fold.removeAttribute('open'); });
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

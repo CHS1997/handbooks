@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手册集 · 17 本深度手册</title>
+<meta name="description" content="17 本并行调研汇编的深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本 20–30 章，附一手来源链接。">
+<link rel="alternate" type="application/rss+xml" title="手册集 RSS" href="feed.xml">
+<style>
+  :root { --bg:#f6f4ee; --ink:#2f3345; --muted:#6b7280; --line:#e7e3d8; --accent:#5a67c2; --card:#fffdf8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font:16px/1.85 -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 24px; }
+  a { color:var(--accent); text-decoration:none; }
+  header.masthead { padding:72px 0 40px; border-bottom:3px double var(--line); }
+  .kicker { font-size:12px; letter-spacing:.35em; color:var(--muted); text-transform:uppercase; }
+  h1.site-title { font-family:Georgia,"Noto Serif SC","Source Han Serif SC","SimSun",serif; font-size:44px; letter-spacing:.06em; margin:14px 0 10px; }
+  .site-sub { color:var(--muted); font-size:17px; max-width:640px; }
+  .site-meta { margin-top:22px; display:flex; flex-wrap:wrap; gap:10px; }
+  .chip { border:1px solid var(--line); background:var(--card); border-radius:999px; padding:4px 14px; font-size:13px; color:var(--ink); }
+  .chip b { color:var(--accent); }
+  nav.tocbar { position:sticky; top:0; z-index:9; background:rgba(246,244,238,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  nav.tocbar .wrap { display:flex; gap:22px; padding:12px 24px; font-size:14px; }
+  nav.tocbar a { color:var(--muted); } nav.tocbar a:hover { color:var(--accent); }
+  section { padding:52px 0 8px; }
+  h2.sec { font-family:Georgia,"Noto Serif SC","SimSun",serif; font-size:24px; letter-spacing:.04em; margin-bottom:6px; }
+  p.secdesc { color:var(--muted); font-size:14px; margin-bottom:28px; }
+  article.post { display:flex; gap:28px; padding:30px 0; border-bottom:1px solid var(--line); }
+  .post-date { flex:0 0 128px; text-align:right; font-family:Georgia,"Noto Serif SC","SimSun",serif; }
+  .post-date .d1 { display:block; font-size:15px; color:var(--ink); line-height:1.5; }
+  .post-date .d2 { display:inline-block; margin-top:8px; font-size:12px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:1px 10px; font-family:inherit; }
+  .post-cat { display:inline-block; font-size:12px; letter-spacing:.12em; color:var(--c); border:1px solid var(--c); border-radius:4px; padding:1px 8px; margin-bottom:8px; }
+  .post-title { font-size:21px; font-weight:700; line-height:1.5; }
+  .post-title a { color:var(--ink); } .post-title a:hover { color:var(--accent); }
+  .post-desc { color:var(--muted); font-size:15px; margin:8px 0 14px; max-width:640px; }
+  .post-links { display:flex; flex-wrap:wrap; gap:8px; }
+  .fl { font-size:13px; border:1px solid var(--line); background:var(--card); border-radius:8px; padding:4px 14px; color:var(--ink); transition:.15s; }
+  .fl:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
+  .fl-strong { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .fl-strong:hover { color:#fff; opacity:.88; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:18px; padding-bottom:30px; }
+  .book { position:relative; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 20px 18px; overflow:hidden; transition:.18s; }
+  .book:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(47,51,69,.08); }
+  .book-bar { position:absolute; top:0; left:0; right:0; height:4px; background:var(--c); }
+  .book-cat { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .book-title { font-size:17px; line-height:1.5; color:var(--ink); }
+  .book-sub { font-size:13px; color:var(--muted); margin-top:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  footer { border-top:3px double var(--line); margin-top:48px; padding:30px 0 60px; color:var(--muted); font-size:13px; text-align:center; }
+  footer .fl { margin:0 4px; }
+  @media (max-width:640px) {
+    h1.site-title { font-size:32px; }
+    article.post { flex-direction:column; gap:8px; }
+    .post-date { flex:auto; text-align:left; display:flex; align-items:center; gap:10px; }
+    .post-date .d2 { margin-top:0; }
+  }
+</style>
+</head>
+<body>
+<nav class="tocbar"><div class="wrap"><a href="#latest">最新发布</a><a href="#shelf">全部手册</a><a href="feed.xml">📡 RSS</a></div></nav>
+<header class="masthead wrap">
+  <div class="kicker">THE HANDBOOK PRESS · 并行调研汇编</div>
+  <h1 class="site-title">手册集</h1>
+  <p class="site-sub">用「多智能体并行调研」的方式写书：每一章实时检索公开资料、图表与来源齐全，汇编成 20–30 章的深度手册，免费在线阅读。</p>
+  <div class="site-meta">
+    <span class="chip"><b>17</b> 本手册</span>
+    <span class="chip"><b>406</b> 章</span>
+    <span class="chip">网页 / PDF / EPUB 三格式</span>
+    <span class="chip">📡 <a href="feed.xml">RSS 订阅</a></span>
+  </div>
+</header>
+
+<section id="latest" class="wrap">
+  <h2 class="sec">最新发布</h2>
+  <p class="secdesc">按成书时间倒序；新书发布即出现在所有订阅者的 RSS 阅读器里。</p>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 11 月 8 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#5f9ea0">内功</div>
+        <h2 class="post-title"><a href="AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html">《AI 时代的个人效率系统》</a></h2>
+        <p class="post-desc">给自己装一套经得起 AI 检验的操作系统：注意力工程、AI 写作流、本地 RAG 知识库、间隔重复与 30 天搭建计划。</p>
+        <div class="post-links"><a class="fl fl-strong" href="AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 11 月 8 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#8a7fc7">基建</div>
+        <h2 class="post-title"><a href="%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C.html">《自托管与私人云手册》</a></h2>
+        <p class="post-desc">把数据和 AI 搬回自己手里：NAS 选型、Immich 照片库、Jellyfin 影音、Vaultwarden 密码，到本地大模型与 90 天搭建计划。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 11 月 7 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#6fa8c9">出海</div>
+        <h2 class="post-title"><a href="AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">《AI 短剧创作与出海手册》</a></h2>
+        <p class="post-desc">用 AI 把短剧做成生意：剧本公式、角色一致性、视频生成实操，到国内分账、ReelShort 式出海、译制与品牌定制。</p>
+        <div class="post-links"><a class="fl fl-strong" href="AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 11 月 7 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#6fa8c9">出海</div>
+        <h2 class="post-title"><a href="%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html">《独立游戏开发与发行手册》</a></h2>
+        <p class="post-desc">一个人做完并卖出一款游戏：引擎选型、Steam 愿望单、TapTap/WeGame、发行谈判与众筹，到分成、版号与失败复盘。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 11 月 7 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#dfa63e">实体</div>
+        <h2 class="post-title"><a href="%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">《桌面工厂：3D 打印与开源硬件变现手册》</a></h2>
+        <p class="post-desc">两条产线一次讲完：卖模型文件、接打印订单、光固化手办，到开源硬件、小智 AI、嘉立创打样与众筹。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 31 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">《AI Agent 搭建与自动化变现手册》</a></h2>
+        <p class="post-desc">零代码编排：n8n/Dify/Coze 搭流程，找客户、报价、维护月费，到模板与产品化。</p>
+        <div class="post-links"><a class="fl fl-strong" href="AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/AIAgent_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 31 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#4aa583">手艺线</div>
+        <h2 class="post-title"><a href="%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C.html">《链上数据分析手册》</a></h2>
+        <p class="post-desc">链上分析师手艺：SQL、地址画像、资金追踪、项目尽调，到研报、社群与数据服务变现。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 31 日</span><span class="d2">24 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#4aa583">手艺线</div>
+        <h2 class="post-title"><a href="%E5%85%AC%E5%BC%80%E4%BF%A1%E6%81%AF%E8%B0%83%E7%A0%94%E6%9C%AF.html">《公开信息调研术》</a></h2>
+        <p class="post-desc">只用公开合法渠道查清任何件事：企业征信、裁判文书、招投标、数字足迹，到研报变现。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E5%85%AC%E5%BC%80%E4%BF%A1%E6%81%AF%E8%B0%83%E7%A0%94%E6%9C%AF.html">📖 在线阅读</a>
+        <a class="fl " href="%E5%85%AC%E5%BC%80%E4%BF%A1%E6%81%AF%E8%B0%83%E7%A0%94%E6%9C%AF_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E5%85%AC%E5%BC%80%E4%BF%A1%E6%81%AF%E8%B0%83%E7%A0%94%E6%9C%AF_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/%E8%B0%83%E7%A0%94%E6%9C%AF_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 29 日</span><span class="d2">20 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#d3707f">防线</div>
+        <h2 class="post-title"><a href="%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html">《一人公司财务与合规手册》</a></h2>
+        <p class="post-desc">一个人收钱的全部财务面：主体选择、记账、报税、社保、合同与跨境收款结汇。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 29 日</span><span class="d2">20 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#d3707f">防线</div>
+        <h2 class="post-title"><a href="Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html">《Web3 安全实操手册》</a></h2>
+        <p class="post-desc">白帽路线：合约漏洞、工具链、赏金平台、披露流程，外加 AI Agent 安全与助记词防护。</p>
+        <div class="post-links"><a class="fl fl-strong" href="Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/Web3%E5%AE%89%E5%85%A8_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 29 日</span><span class="d2">20 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C.html">《AI 编程从零到接单手册》</a></h2>
+        <p class="post-desc">不会写代码也能接单：工具选型、第一个网页、支付部署，到平台报价与交付收款。</p>
+        <div class="post-links"><a class="fl fl-strong" href="AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/AI%E7%BC%96%E7%A8%8B_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 27 日</span><span class="d2">20 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="%E4%BA%92%E8%81%94%E7%BD%91%E8%B5%9A%E9%92%B1%E9%81%BF%E5%9D%91%E6%89%8B%E5%86%8C.html">《互联网赚钱避坑手册》</a></h2>
+        <p class="post-desc">15 类骗局逐个拆到机制级，配上报案、维权与家庭防线的防身术。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E4%BA%92%E8%81%94%E7%BD%91%E8%B5%9A%E9%92%B1%E9%81%BF%E5%9D%91%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E4%BA%92%E8%81%94%E7%BD%91%E8%B5%9A%E9%92%B1%E9%81%BF%E5%9D%91%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E4%BA%92%E8%81%94%E7%BD%91%E8%B5%9A%E9%92%B1%E9%81%BF%E5%9D%91%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/%E9%81%BF%E5%9D%91_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 26 日</span><span class="d2">20 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">《个人品牌与知识变现手册》</a></h2>
+        <p class="post-desc">让本事被看见并卖钱：定位、内容资产、产品化与信任经营。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 24 日</span><span class="d2">28 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#6fa8c9">出海</div>
+        <h2 class="post-title"><a href="%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">《独立开发出海手册》</a></h2>
+        <p class="post-desc">从选品、合规、支付到增长与售后的独立开发出海全流程。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/indie_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 24 日</span><span class="d2">28 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#d3707f">防线</div>
+        <h2 class="post-title"><a href="%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html">《AI 时代个人隐私与数据安全手册》</a></h2>
+        <p class="post-desc">个人数据在 AI 时代的暴露面、权限管理、设备防护与泄露应急。</p>
+        <div class="post-links"><a class="fl fl-strong" href="%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="AI%20%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/privacy_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 7 日</span><span class="d2">28 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="AI%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">《AI 赚钱手册》</a></h2>
+        <p class="post-desc">AI 写作、设计、视频、自动化等 28 条变现路径的实操、定价与接单姿势。</p>
+        <div class="post-links"><a class="fl fl-strong" href="AI%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="AI%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="AI%20%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/ai_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+    <article class="post">
+      <div class="post-date"><span class="d1">2026 年 10 月 6 日</span><span class="d2">30 章</span></div>
+      <div class="post-body">
+        <div class="post-cat" style="--c:#7d76cf">赚钱线</div>
+        <h2 class="post-title"><a href="Web3%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">《Web3 赚钱手册》</a></h2>
+        <p class="post-desc">链上打新、空投、节点、内容与社区等 30 条 Web3 变现通道，每条拆到门槛、收益与坑。</p>
+        <div class="post-links"><a class="fl fl-strong" href="Web3%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">📖 在线阅读</a>
+        <a class="fl " href="Web3%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C_%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6.epub" target="_blank">EPUB</a>
+        <a class="fl " href="Web3%20%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C_%E9%A2%86%E8%AF%BB%E7%89%88.epub" target="_blank">领读版</a>
+        <a class="fl " href="%E7%B2%BE%E5%8D%8E%E5%8D%A1%E7%89%87/web3_%E5%8D%A1%E7%89%87.zip" target="_blank">精华卡片</a></div>
+      </div>
+    </article>
+</section>
+
+<section id="shelf" class="wrap">
+  <h2 class="sec">全部手册</h2>
+  <p class="secdesc">按书线着色：赚钱线 · 手艺线 · 防线 · 出海 · 实体 · 基建 · 内功。</p>
+<div class="grid">
+      <a class="book" href="Web3%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 30 章</div>
+        <h3 class="book-title">Web3 赚钱手册</h3>
+        <p class="book-sub">链上打新、空投、节点、内容与社区等 30 条 Web3 变现通道，每条拆到门槛、收益与坑。</p>
+      </a>
+      <a class="book" href="AI%E8%B5%9A%E9%92%B1%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 28 章</div>
+        <h3 class="book-title">AI 赚钱手册</h3>
+        <p class="book-sub">AI 写作、设计、视频、自动化等 28 条变现路径的实操、定价与接单姿势。</p>
+      </a>
+      <a class="book" href="%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#d3707f"></div>
+        <div class="book-cat">防线 · 28 章</div>
+        <h3 class="book-title">AI 时代个人隐私与数据安全手册</h3>
+        <p class="book-sub">个人数据在 AI 时代的暴露面、权限管理、设备防护与泄露应急。</p>
+      </a>
+      <a class="book" href="%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#6fa8c9"></div>
+        <div class="book-cat">出海 · 28 章</div>
+        <h3 class="book-title">独立开发出海手册</h3>
+        <p class="book-sub">从选品、合规、支付到增长与售后的独立开发出海全流程。</p>
+      </a>
+      <a class="book" href="%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 20 章</div>
+        <h3 class="book-title">个人品牌与知识变现手册</h3>
+        <p class="book-sub">让本事被看见并卖钱：定位、内容资产、产品化与信任经营。</p>
+      </a>
+      <a class="book" href="%E4%BA%92%E8%81%94%E7%BD%91%E8%B5%9A%E9%92%B1%E9%81%BF%E5%9D%91%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 20 章</div>
+        <h3 class="book-title">互联网赚钱避坑手册</h3>
+        <p class="book-sub">15 类骗局逐个拆到机制级，配上报案、维权与家庭防线的防身术。</p>
+      </a>
+      <a class="book" href="AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 20 章</div>
+        <h3 class="book-title">AI 编程从零到接单手册</h3>
+        <p class="book-sub">不会写代码也能接单：工具选型、第一个网页、支付部署，到平台报价与交付收款。</p>
+      </a>
+      <a class="book" href="Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#d3707f"></div>
+        <div class="book-cat">防线 · 20 章</div>
+        <h3 class="book-title">Web3 安全实操手册</h3>
+        <p class="book-sub">白帽路线：合约漏洞、工具链、赏金平台、披露流程，外加 AI Agent 安全与助记词防护。</p>
+      </a>
+      <a class="book" href="%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#d3707f"></div>
+        <div class="book-cat">防线 · 20 章</div>
+        <h3 class="book-title">一人公司财务与合规手册</h3>
+        <p class="book-sub">一个人收钱的全部财务面：主体选择、记账、报税、社保、合同与跨境收款结汇。</p>
+      </a>
+      <a class="book" href="%E5%85%AC%E5%BC%80%E4%BF%A1%E6%81%AF%E8%B0%83%E7%A0%94%E6%9C%AF.html">
+        <div class="book-bar" style="--c:#4aa583"></div>
+        <div class="book-cat">手艺线 · 24 章</div>
+        <h3 class="book-title">公开信息调研术</h3>
+        <p class="book-sub">只用公开合法渠道查清任何件事：企业征信、裁判文书、招投标、数字足迹，到研报变现。</p>
+      </a>
+      <a class="book" href="%E9%93%BE%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#4aa583"></div>
+        <div class="book-cat">手艺线 · 24 章</div>
+        <h3 class="book-title">链上数据分析手册</h3>
+        <p class="book-sub">链上分析师手艺：SQL、地址画像、资金追踪、项目尽调，到研报、社群与数据服务变现。</p>
+      </a>
+      <a class="book" href="AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#7d76cf"></div>
+        <div class="book-cat">赚钱线 · 24 章</div>
+        <h3 class="book-title">AI Agent 搭建与自动化变现手册</h3>
+        <p class="book-sub">零代码编排：n8n/Dify/Coze 搭流程，找客户、报价、维护月费，到模板与产品化。</p>
+      </a>
+      <a class="book" href="%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#dfa63e"></div>
+        <div class="book-cat">实体 · 24 章</div>
+        <h3 class="book-title">桌面工厂</h3>
+        <p class="book-sub">3D 打印与开源硬件变现手册</p>
+      </a>
+      <a class="book" href="%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#6fa8c9"></div>
+        <div class="book-cat">出海 · 24 章</div>
+        <h3 class="book-title">独立游戏开发与发行手册</h3>
+        <p class="book-sub">一个人做完并卖出一款游戏：引擎选型、Steam 愿望单、TapTap/WeGame、发行谈判与众筹，到分成、版号与失败复盘。</p>
+      </a>
+      <a class="book" href="AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#6fa8c9"></div>
+        <div class="book-cat">出海 · 24 章</div>
+        <h3 class="book-title">AI 短剧创作与出海手册</h3>
+        <p class="book-sub">用 AI 把短剧做成生意：剧本公式、角色一致性、视频生成实操，到国内分账、ReelShort 式出海、译制与品牌定制。</p>
+      </a>
+      <a class="book" href="%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#8a7fc7"></div>
+        <div class="book-cat">基建 · 24 章</div>
+        <h3 class="book-title">自托管与私人云手册</h3>
+        <p class="book-sub">把数据和 AI 搬回自己手里：NAS 选型、Immich 照片库、Jellyfin 影音、Vaultwarden 密码，到本地大模型与 90 天搭建计划。</p>
+      </a>
+      <a class="book" href="AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html">
+        <div class="book-bar" style="--c:#5f9ea0"></div>
+        <div class="book-cat">内功 · 24 章</div>
+        <h3 class="book-title">AI 时代的个人效率系统</h3>
+        <p class="book-sub">给自己装一套经得起 AI 检验的操作系统：注意力工程、AI 写作流、本地 RAG 知识库、间隔重复与 30 天搭建计划。</p>
+      </a>
+</div>
+</section>
+
+<footer>
+  <div>手册集 · 由多智能体流水线调研汇编 · 内容仅供学习参考</div>
+  <div style="margin-top:10px;">
+    <a class="fl" href="feed.xml">RSS</a>
+    <a class="fl" href="https://github.com/">GitHub 仓库</a>
+  </div>
+</footer>
+</body>
+</html>
