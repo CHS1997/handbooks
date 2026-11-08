@@ -3,59 +3,87 @@
   <channel>
     <title>手册集 · 并行调研汇编</title>
     <link>https://chs1997.github.io/handbooks/</link>
-    <description>18 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
+    <description>20 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Nov 2026 09:12:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 12:47:54 GMT</lastBuildDate>
     <ttl>1440</ttl>
     <atom:link href="https://chs1997.github.io/handbooks/feed.xml" rel="self" type="application/rss+xml"/>
-    <item>
-      <title>《预测市场与信息金融手册》28 章</title>
-      <link>https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
-      <description>预测市场（Polymarket/Kalshi）的合约、结算与合规地图，加量化视角的 API 数据、回测框架与风险数学——研究在先、仓位在后、合规贯穿。</description>
-    </item>
     <item>
       <title>《AI 时代的个人效率系统》24 章</title>
       <link>https://chs1997.github.io/handbooks/AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html</link>
       <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E6%97%B6%E4%BB%A3%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E7%B3%BB%E7%BB%9F%E6%89%8B%E5%86%8C.html</guid>
       <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
-      <description>给自己装一套经得起 AI 检验的操作系统：注意力工程、AI 写作流、本地 RAG 知识库、间隔重复与 30 天搭建计划。</description>
+      <description>给自己装一套经得起 AI 检验的操作系统：注意力工程、AI 写作流、本地 RAG 知识库与间隔重复。</description>
     </item>
     <item>
       <title>《自托管与私人云手册》24 章</title>
       <link>https://chs1997.github.io/handbooks/%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C.html</link>
       <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E8%87%AA%E6%89%98%E7%AE%A1%E4%B8%8E%E7%A7%81%E4%BA%BA%E4%BA%91%E6%89%8B%E5%86%8C.html</guid>
       <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
-      <description>把数据和 AI 搬回自己手里：NAS 选型、Immich 照片库、Jellyfin 影音、Vaultwarden 密码，到本地大模型与 90 天搭建计划。</description>
-    </item>
-    <item>
-      <title>《AI 短剧创作与出海手册》24 章</title>
-      <link>https://chs1997.github.io/handbooks/AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate>
-      <description>用 AI 把短剧做成生意：剧本公式、角色一致性、视频生成实操，到国内分账、ReelShort 式出海、译制与品牌定制。</description>
-    </item>
-    <item>
-      <title>《独立游戏开发与发行手册》24 章</title>
-      <link>https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate>
-      <description>一个人做完并卖出一款游戏：引擎选型、Steam 愿望单、TapTap/WeGame、发行谈判与众筹，到分成、版号与失败复盘。</description>
+      <description>把数据和 AI 搬回自己手里：NAS 选型、Immich 照片库、Jellyfin 影音、本地大模型与 90 天搭建计划。</description>
     </item>
     <item>
       <title>《桌面工厂：3D 打印与开源硬件变现手册》24 章</title>
       <link>https://chs1997.github.io/handbooks/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</link>
       <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E6%A1%8C%E9%9D%A2%E5%B7%A5%E5%8E%82%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</guid>
       <pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate>
-      <description>两条产线一次讲完：卖模型文件、接打印订单、光固化手办，到开源硬件、小智 AI、嘉立创打样与众筹。</description>
+      <description>卖模型文件、接打印订单、光固化手办，到开源硬件、小智 AI、打样与众筹的两条产线。</description>
     </item>
     <item>
-      <title>《AI Agent 搭建与自动化变现手册》24 章</title>
-      <link>https://chs1997.github.io/handbooks/AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sat, 31 Oct 2026 01:00:00 GMT</pubDate>
-      <description>零代码编排：n8n/Dify/Coze 搭流程，找客户、报价、维护月费，到模板与产品化。</description>
+      <title>《AI 短剧创作与出海手册》24 章</title>
+      <link>https://chs1997.github.io/handbooks/AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E7%9F%AD%E5%89%A7%E5%88%9B%E4%BD%9C%E4%B8%8E%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate>
+      <description>用 AI 把短剧做成生意：剧本公式、角色一致性、视频生成实操，到国内分账、ReelShort 式出海与译制。</description>
+    </item>
+    <item>
+      <title>《独立游戏开发与发行手册》24 章</title>
+      <link>https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8F%91%E8%A1%8C%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate>
+      <description>一个人做完并卖出一款游戏：引擎选型、Steam 愿望单、TapTap/WeGame、发行与众筹，到分成与版号。</description>
+    </item>
+    <item>
+      <title>《独立开发出海手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sat, 24 Oct 2026 01:00:00 GMT</pubDate>
+      <description>从选品、合规、支付到增长与售后的独立开发出海全流程。</description>
+    </item>
+    <item>
+      <title>《一人公司财务与合规手册》20 章</title>
+      <link>https://chs1997.github.io/handbooks/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Thu, 29 Oct 2026 01:00:00 GMT</pubDate>
+      <description>一个人收钱的全部财务面：主体选择、记账、报税、社保、合同与跨境收款结汇。</description>
+    </item>
+    <item>
+      <title>《Web3 安全实操手册》20 章</title>
+      <link>https://chs1997.github.io/handbooks/Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Thu, 29 Oct 2026 01:00:00 GMT</pubDate>
+      <description>白帽路线：合约漏洞、工具链、赏金平台、披露流程，外加 AI Agent 安全与助记词防护。</description>
+    </item>
+    <item>
+      <title>《AI 时代个人隐私与数据安全手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sat, 24 Oct 2026 01:00:00 GMT</pubDate>
+      <description>个人数据在 AI 时代的暴露面、权限管理、设备防护与泄露应急。</description>
+    </item>
+    <item>
+      <title>《AI 生态市场手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/AI%E7%94%9F%E6%80%81%E5%B8%82%E5%9C%BA%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E7%94%9F%E6%80%81%E5%B8%82%E5%9C%BA%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
+      <description>给 AI Agent 卖工具：Skills、MCP、Loop/Graph、个人智能体与 AI 工程师服务，从造铲子到卖铲子。</description>
+    </item>
+    <item>
+      <title>《预测市场与信息金融手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E9%A2%84%E6%B5%8B%E5%B8%82%E5%9C%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%91%E8%9E%8D%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
+      <description>预测市场（Polymarket/Kalshi）机制与合规地图 + 量化视角的 API 数据、回测与风险数学。</description>
     </item>
     <item>
       <title>《链上数据分析手册》24 章</title>
@@ -72,18 +100,18 @@
       <description>只用公开合法渠道查清任何件事：企业征信、裁判文书、招投标、数字足迹，到研报变现。</description>
     </item>
     <item>
-      <title>《一人公司财务与合规手册》20 章</title>
-      <link>https://chs1997.github.io/handbooks/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1%E4%B8%8E%E5%90%88%E8%A7%84%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Thu, 29 Oct 2026 01:00:00 GMT</pubDate>
-      <description>一个人收钱的全部财务面：主体选择、记账、报税、社保、合同与跨境收款结汇。</description>
+      <title>《AI 流量手册：GEO 与投流》28 章</title>
+      <link>https://chs1997.github.io/handbooks/AI%E6%B5%81%E9%87%8F%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E6%B5%81%E9%87%8F%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate>
+      <description>自然位（被 AI 引用）× 付费位（投流）双引擎：中文引擎实测、协同打法与变现。</description>
     </item>
     <item>
-      <title>《Web3 安全实操手册》20 章</title>
-      <link>https://chs1997.github.io/handbooks/Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/Web3%E5%AE%89%E5%85%A8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Thu, 29 Oct 2026 01:00:00 GMT</pubDate>
-      <description>白帽路线：合约漏洞、工具链、赏金平台、披露流程，外加 AI Agent 安全与助记词防护。</description>
+      <title>《AI Agent 搭建与自动化变现手册》24 章</title>
+      <link>https://chs1997.github.io/handbooks/AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AIAgent%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Sat, 31 Oct 2026 01:00:00 GMT</pubDate>
+      <description>零代码编排：n8n/Dify/Coze 搭流程，找客户、报价、维护月费，到模板与产品化。</description>
     </item>
     <item>
       <title>《AI 编程从零到接单手册》20 章</title>
@@ -105,20 +133,6 @@
       <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E5%93%81%E7%89%8C%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%8F%98%E7%8E%B0%E6%89%8B%E5%86%8C.html</guid>
       <pubDate>Mon, 26 Oct 2026 01:00:00 GMT</pubDate>
       <description>让本事被看见并卖钱：定位、内容资产、产品化与信任经营。</description>
-    </item>
-    <item>
-      <title>《独立开发出海手册》28 章</title>
-      <link>https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E5%87%BA%E6%B5%B7%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sat, 24 Oct 2026 01:00:00 GMT</pubDate>
-      <description>从选品、合规、支付到增长与售后的独立开发出海全流程。</description>
-    </item>
-    <item>
-      <title>《AI 时代个人隐私与数据安全手册》28 章</title>
-      <link>https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html</link>
-      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html</guid>
-      <pubDate>Sat, 24 Oct 2026 01:00:00 GMT</pubDate>
-      <description>个人数据在 AI 时代的暴露面、权限管理、设备防护与泄露应急。</description>
     </item>
     <item>
       <title>《AI 赚钱手册》28 章</title>
