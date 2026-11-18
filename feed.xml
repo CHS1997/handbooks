@@ -3,9 +3,9 @@
   <channel>
     <title>手册集 · 并行调研汇编</title>
     <link>https://chs1997.github.io/handbooks/</link>
-    <description>20 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
+    <description>22 本深度手册：Web3 变现、AI 变现、安全防护、独立开发、实体制造与个人操作系统，每本附一手来源链接。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Nov 2026 06:21:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 09:47:41 GMT</lastBuildDate>
     <ttl>1440</ttl>
     <atom:link href="https://chs1997.github.io/handbooks/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
@@ -70,6 +70,20 @@
       <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C.html</guid>
       <pubDate>Sat, 24 Oct 2026 01:00:00 GMT</pubDate>
       <description>个人数据在 AI 时代的暴露面、权限管理、设备防护与泄露应急。</description>
+    </item>
+    <item>
+      <title>《数字游民手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/%E6%95%B0%E5%AD%97%E6%B8%B8%E6%B0%91%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/%E6%95%B0%E5%AD%97%E6%B8%B8%E6%B0%91%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <description>58 国签证地图、远程工作获取、税务社保合规、旅居城市实操，到收入放大与落地转型。</description>
+    </item>
+    <item>
+      <title>《AI 电商运营手册》28 章</title>
+      <link>https://chs1997.github.io/handbooks/AI%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5%E6%89%8B%E5%86%8C.html</link>
+      <guid isPermaLink="true">https://chs1997.github.io/handbooks/AI%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5%E6%89%8B%E5%86%8C.html</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <description>七大平台横评、AI 选品、Listing 与素材工厂、AI 客服、投流与达人分销，到 Agent 商务新流量——卖方视角全链路。</description>
     </item>
     <item>
       <title>《AI 生态市场手册》28 章</title>
