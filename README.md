@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 手册集 · The Handbook Press
+# 📚 深潜手册 · DeepDive Press
 
 **22 本深度手册 · 546 章 · 全部由多智能体流水线实时调研汇编**
 
