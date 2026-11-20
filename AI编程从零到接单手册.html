@@ -5,15 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>《AI 编程从零到接单手册》· 20 章深度版 · 2026-10</title>
 <style>
+  /* 自托管衬线子集（P3-⑨）：标题/大数字用思源宋体子集，缺字逐字回退，正文不受影响 */
+  @font-face{font-family:"HB Serif";src:url("fonts/hb-serif.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap;}
   :root{
     --bg:#F7F6F2; --card:#FFFFFF; --ink:#222739; --text:#3B4157; --muted:#6C7386;
     --line:#E9E6DC; --line2:#EFEDF9; --accent:#5A67C2; --accent2:#7D76CF;
-    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",Georgia,serif;
+    --serif:"HB Serif","Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",Georgia,serif;
     --sans:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    --fs:1;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--text);font:16px/1.9 var(--sans);}
+  body{background:var(--bg);color:var(--text);font:calc(16px * var(--fs))/1.9 var(--sans);}
   ::selection{background:#DCDFF6;}
   a{color:var(--accent);text-decoration:none;}
   img{max-width:100%;}
@@ -106,14 +109,14 @@
   .badge.r3{background:#FDF3E4;color:#B27416;border-color:#F0DDBC;}
   .badge.r4{background:#FBEAEA;color:#B8515F;border-color:#F0CFCF;}
   .badge.r5{background:#F1EBFA;color:#7C55C8;border-color:#DFD3F2;}
-  .card p{font-size:15.5px;line-height:1.95;margin:8px 0;}
+  .card p{font-size:calc(15.5px * var(--fs));line-height:1.95;margin:8px 0;}
   .card ul{margin:8px 0;padding-left:1.35em;}
-  .card li{font-size:15px;line-height:1.9;margin:.5em 0;}
+  .card li{font-size:calc(15px * var(--fs));line-height:1.9;margin:.5em 0;}
   .card b{color:var(--ink);}
 
   /* 引言 */
   blockquote.xq{background:#F4F6FD;border-left:4px solid #8D97D8;border-radius:0 12px 12px 0;
-    padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.9;color:#49506B;}
+    padding:13px 16px;margin:14px 0;font-size:calc(14.5px * var(--fs));line-height:1.9;color:#49506B;}
   blockquote.xq .who{color:var(--accent);font-weight:600;}
 
   /* 双列大数字 / 列表 */
@@ -141,7 +144,7 @@
   .hbar-val{flex:none;min-width:46px;text-align:right;font-weight:700;color:var(--ink);font-size:12.5px;font-variant-numeric:tabular-nums;}
 
   /* 表格 */
-  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:calc(14px * var(--fs));}
   th{text-align:left;font-size:12.5px;font-weight:600;color:var(--ink);background:#F2F1EC;
     padding:10px 12px;border-bottom:2px solid #E0DDD2;}
   td{padding:10px 12px;border-bottom:1px solid #EFECE3;color:var(--text);vertical-align:top;}
@@ -149,7 +152,7 @@
 
   /* 来源块 */
   .src{margin-top:18px;background:#FAF9F4;border:1px dashed #D6D2C0;border-radius:12px;padding:13px 15px;
-    font-size:13px;line-height:2;color:var(--muted);}
+    font-size:calc(13px * var(--fs));line-height:2;color:var(--muted);}
   .src .tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);background:var(--line2);
     border-radius:6px;padding:2px 9px;margin-right:8px;}
   .src a{color:var(--accent);margin-right:12px;border-bottom:1px solid #C9CDF0;}
@@ -170,7 +173,7 @@
     font-size:16px;box-shadow:0 4px 14px rgba(90,103,194,.4);border:none;cursor:pointer;z-index:60;}
 
   @media (max-width:720px){
-    body{font-size:15.5px;}
+    body{font-size:calc(15.5px * var(--fs));}
     .wrap{padding:0 15px;}
     .hero{padding:36px 16px 34px;border-radius:0 0 18px 18px;}
     .hero .kicker{font-size:10px;letter-spacing:.14em;overflow-wrap:anywhere;line-height:1.9;}
@@ -180,13 +183,76 @@
     section[id].wrap, section.wrap{padding:38px 15px 6px;}
     .sec-head h2{font-size:21px;}
     .card{padding:17px 15px;margin:14px 0;}
-    .card p{font-size:15px;}
+    .card p{font-size:calc(15px * var(--fs));}
     .badges{margin-left:0;width:100%;}
     nav.toc .wrap{padding:9px 15px;}
-    table{font-size:13px;} th,td{padding:8px 9px;}
+    table{font-size:calc(13px * var(--fs));} th,td{padding:8px 9px;}
     .hbar-row>span:first-child{min-width:70px;font-size:12px;}
     footer{margin-top:48px;}
   }
+
+  /* 夜读模式（P2-⑥）：body.night 全表面换装 */
+  body.night{--bg:#171A21;--card:#20242E;--ink:#E8EAF2;--text:#C6CBD9;--muted:#9AA1B5;
+    --line:#2E3340;--line2:#2A2F3D;--accent:#8B96E8;--accent2:#A5A0F0;}
+  body.night ::selection{background:#3A4170;}
+  body.night nav.toc{background:rgba(23,26,33,.94);}
+  body.night nav.toc a.active{background:#3A4170;border-color:#3A4170;color:#fff;}
+  body.night nav.toc a.part-label{background:#2A2F3D;border-color:#3A4050;color:#AEB6FF;}
+  body.night .hero{background:linear-gradient(135deg,#232A44 0%,#2E3560 55%,#3A4170 100%);box-shadow:0 8px 28px rgba(0,0,0,.4);}
+  body.night th{background:#262B36;border-bottom-color:#3A4050;color:var(--ink);}
+  body.night td{border-bottom-color:#2E3340;}
+  body.night tbody tr:hover{background:#242936;}
+  body.night .src{background:#20242E;border-color:#3A4050;}
+  body.night .src a{border-bottom-color:#4A5580;}
+  body.night .bignum{background:#20242E;border-color:#3A4050;}
+  body.night blockquote.xq{background:#232836;border-left-color:#5A67C2;color:#B9C0D4;}
+  body.night .hbar-track{background:#2E3340;}
+  body.night .badge{background:#2A2F3D;color:#AEB6D8;border-color:#3A4050;}
+  body.night .badge.r1{background:#1E3328;color:#7FC79F;border-color:#2C4A3A;}
+  body.night .badge.r3{background:#3A2E1A;color:#D9B36A;border-color:#54432A;}
+  body.night .badge.r4{background:#3A2226;color:#D98A94;border-color:#543238;}
+  body.night .badge.r5{background:#2E2440;color:#B79AE0;border-color:#44365C;}
+  body.night .toc-list a:hover{background:#262B36;}
+  body.night .toc-list a.active{background:#2E3550;color:#AEB6FF;}
+  body.night .icon{background:#2A2F3D;}
+  body.night footer{background:#10131A;}
+
+  /* 阅读工具栏（P2-⑥⑦）：底部悬浮胶囊 */
+  .rtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));
+    z-index:70;display:flex;align-items:center;gap:2px;background:rgba(34,39,57,.92);color:#fff;
+    border-radius:999px;padding:6px 10px;box-shadow:0 6px 22px rgba(20,24,60,.35);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+  body.night .rtoolbar{background:rgba(42,47,61,.94);}
+  .rtoolbar button{border:none;background:transparent;color:#fff;font-size:14px;width:34px;height:32px;
+    border-radius:999px;cursor:pointer;line-height:1;}
+  .rtoolbar button:hover{background:rgba(255,255,255,.14);}
+  .rtoolbar button.on{background:#E8590C;}
+  .rtoolbar .pct{font-size:11px;min-width:38px;text-align:center;color:rgba(255,255,255,.8);font-variant-numeric:tabular-nums;}
+  .rtoolbar .sep{width:1px;height:18px;background:rgba(255,255,255,.22);margin:0 4px;}
+  .backtop{bottom:calc(64px + env(safe-area-inset-bottom));}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--accent);color:#fff;padding:8px 16px;border-radius:0 0 10px 0;font-size:13px;}
+  .skip:focus{left:0;}
+
+  /* 书内搜索面板（P2-⑦） */
+  .bsearch{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(62px + env(safe-area-inset-bottom));
+    z-index:69;width:min(560px,calc(100vw - 24px));background:var(--card);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 10px 34px rgba(20,24,60,.25);display:none;overflow:hidden;}
+  .bsearch.on{display:block;}
+  .bsearch .bin{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);}
+  .bsearch input{flex:1;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font:14px var(--sans);
+    background:var(--bg);color:var(--ink);outline:none;}
+  .bsearch input:focus{border-color:var(--accent);}
+  .bsearch .bcnt{font-size:12px;color:var(--muted);align-self:center;white-space:nowrap;}
+  .bsearch ul{list-style:none;max-height:46vh;overflow-y:auto;margin:0;padding:6px;}
+  .bsearch li a{display:block;padding:8px 10px;border-radius:9px;color:var(--text);font-size:13.5px;line-height:1.6;}
+  .bsearch li a:hover{background:var(--line2);}
+  .bsearch li .sn{font-weight:700;color:var(--accent);margin-right:8px;font-size:12px;}
+  .bsearch li mark{background:#FFE066;color:#222739;border-radius:3px;padding:0 2px;}
+  body.night .bsearch li mark{background:#8A6D1A;color:#FFF3C4;}
+  .bsearch .bempty{padding:16px;text-align:center;color:var(--muted);font-size:13px;}
+  mark.bhit{background:#FFE066;color:#222739;border-radius:3px;padding:0 2px;}
+  body.night mark.bhit{background:#8A6D1A;color:#FFF3C4;}
 </style>
 <link rel="canonical" href="https://chs1997.github.io/handbooks/AI%E7%BC%96%E7%A8%8B%E4%BB%8E%E9%9B%B6%E5%88%B0%E6%8E%A5%E5%8D%95%E6%89%8B%E5%86%8C.html">
 <meta property="og:type" content="book">
@@ -1582,5 +1648,61 @@
 </script>
 
 <script>(function(){var b=document.getElementById('rdpg');function u(){var d=document.documentElement;var m=d.scrollHeight-window.innerHeight;var p=m>0?(window.scrollY/m):0;b.style.width=(Math.min(1,Math.max(0,p))*100).toFixed(2)+'%';}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();</script>
+<a class="skip" href="#toc">跳到目录</a>
+<div class="bsearch" id="bsearch" role="dialog" aria-label="书内搜索">
+  <div class="bin"><input id="bq" type="search" placeholder="书内搜索：关键词 / 章节名…" autocomplete="off"><span class="bcnt" id="bcnt"></span></div>
+  <ul id="bres"></ul>
+</div>
+<div class="rtoolbar" id="rtoolbar" role="toolbar" aria-label="阅读设置">
+  <button id="bt-search" type="button" title="书内搜索" aria-label="书内搜索">🔍</button>
+  <span class="sep"></span>
+  <button id="bt-fsminus" type="button" title="减小字号" aria-label="减小字号">A-</button>
+  <button id="bt-fsplus" type="button" title="增大字号" aria-label="增大字号">A+</button>
+  <span class="sep"></span>
+  <button id="bt-night" type="button" title="夜读模式" aria-label="切换夜读模式">🌙</button>
+  <button id="bt-fav" type="button" title="收藏到书架" aria-label="收藏到书架">☆</button>
+  <span class="sep"></span>
+  <span class="pct" id="bpct">0%</span>
+</div>
+<script>(function(){
+var KEY='AI编程从零到接单手册';
+var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+var pref=LS.get('hb:pref',{fs:1,night:false}),favs=LS.get('hb:favs',[]),prog=LS.get('hb:prog',{});
+var FS=[0.9,1,1.12,1.25];
+function applyPref(){document.documentElement.style.setProperty('--fs',pref.fs||1);document.body.classList.toggle('night',!!pref.night);var n=document.getElementById('bt-night');n.textContent=pref.night?'☀️':'';n.classList.toggle('on',!!pref.night);n.title=pref.night?'日间模式':'夜读模式';}
+applyPref();
+function fi(){var i=FS.indexOf(pref.fs||1);return i<0?1:i;}
+document.getElementById('bt-fsminus').addEventListener('click',function(){pref.fs=FS[Math.max(0,fi()-1)];LS.set('hb:pref',pref);applyPref();});
+document.getElementById('bt-fsplus').addEventListener('click',function(){pref.fs=FS[Math.min(FS.length-1,fi()+1)];LS.set('hb:pref',pref);applyPref();});
+document.getElementById('bt-night').addEventListener('click',function(){pref.night=!pref.night;LS.set('hb:pref',pref);applyPref();});
+var fb=document.getElementById('bt-fav');
+function paintFav(){var on=favs.indexOf(KEY)!==-1;fb.textContent=on?'★':'☆';fb.classList.toggle('on',on);fb.title=on?'取消收藏':'收藏到书架';}
+paintFav();
+fb.addEventListener('click',function(){var i=favs.indexOf(KEY);if(i===-1)favs.push(KEY);else favs.splice(i,1);LS.set('hb:favs',favs);paintFav();});
+// 进度：滚动更新顶条+百分比，节流写 localStorage；记录当前章节锚点供续读
+var bar=document.getElementById('rdpg'),pct=document.getElementById('bpct');
+var secs=Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+var lastSave=0,curA='',curP=0;
+function anchor(){var y=window.scrollY+140,a='';for(var i=0;i<secs.length;i++){if(secs[i].offsetTop<=y)a=secs[i].id;}return a;}
+function upd(){var d=document.documentElement,m=d.scrollHeight-window.innerHeight;curP=m>0?Math.min(1,Math.max(0,window.scrollY/m)):0;bar.style.width=(curP*100).toFixed(2)+'%';pct.textContent=Math.round(curP*100)+'%';curA=anchor();var now=Date.now();if(now-lastSave>1500){lastSave=now;prog[KEY]={p:curP,a:curA,t:now};LS.set('hb:prog',prog);}}
+window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);
+window.addEventListener('pagehide',function(){prog[KEY]={p:curP,a:curA,t:Date.now()};LS.set('hb:prog',prog);});
+upd();
+// 续读：无 hash 进入且上次读到 2%-98% → 跳回上次章节并提示
+if(!location.hash&&prog[KEY]&&prog[KEY].p>0.02&&prog[KEY].p<0.98&&prog[KEY].a){var el=document.getElementById(prog[KEY].a);if(el){var tp=el.offsetTop-70;window.scrollTo({top:tp,behavior:'auto'});var t=document.createElement('div');t.textContent='已续读到上次位置 '+Math.round(prog[KEY].p*100)+'% · 点我回顶部';t.style.cssText='position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:80;background:rgba(34,39,57,.92);color:#fff;font-size:12px;padding:7px 16px;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgba(20,24,60,.3);';t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});t.remove();});document.body.appendChild(t);setTimeout(function(){t.remove();},5000);}}
+// 书内搜索：章节级索引 + 命中高亮 + 跳转
+var panel=document.getElementById('bsearch'),bq=document.getElementById('bq'),bres=document.getElementById('bres'),bcnt=document.getElementById('bcnt');
+var idx=null;
+function build(){idx=secs.map(function(s){var h=s.querySelector('.sec-head h2');return{id:s.id,title:(h?h.textContent:s.id).replace(/\s+/g,' ').trim(),text:s.textContent.replace(/\s+/g,' ')};});}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function clearHits(){var ms=document.querySelectorAll('mark.bhit');for(var i=0;i<ms.length;i++){var m=ms[i],p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();}}
+function highlight(sec,q){var w=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT,null),nodes=[],n;while((n=w.nextNode())){if(n.nodeValue.toLowerCase().indexOf(q)!==-1&&n.parentNode.nodeName!=='SCRIPT'&&n.parentNode.nodeName!=='STYLE')nodes.push(n);}var c=0;nodes.forEach(function(nd){var v=nd.nodeValue,low=v.toLowerCase(),i=low.indexOf(q),frag=document.createDocumentFragment(),last=0;while(i!==-1&&c<60){frag.appendChild(document.createTextNode(v.slice(last,i)));var mk=document.createElement('mark');mk.className='bhit';mk.textContent=v.slice(i,i+q.length);frag.appendChild(mk);c++;last=i+q.length;i=low.indexOf(q,last);}frag.appendChild(document.createTextNode(v.slice(last)));nd.parentNode.replaceChild(frag,nd);});return c;}
+function render(q){clearHits();if(!q){bres.innerHTML='';bcnt.textContent='';return;}if(!idx)build();var low=q.toLowerCase(),hits=[];for(var i=0;i<idx.length&&hits.length<40;i++){var it=idx[i],p=it.text.toLowerCase().indexOf(low);if(p!==-1)hits.push({it:it,p:p});}bcnt.textContent=hits.length?hits.length+' 章命中':'无命中';if(!hits.length){bres.innerHTML='<li class="bempty">没找到「'+esc(q)+'」，换个词试试</li>';return;}bres.innerHTML=hits.map(function(h){var s=Math.max(0,h.p-26),snip=esc(h.it.text.slice(s,h.p+q.length+46));var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,function(m){return '\\'+m;}),'i');snip=snip.replace(re,function(m){return '<mark>'+m+'</mark>';});var no=/^c(\d+)$/.exec(h.it.id);return '<li><a href="#'+h.it.id+'" data-id="'+h.it.id+'"><span class="sn">'+(no?'第'+parseInt(no[1],10)+'章':h.it.id)+'</span>'+esc(h.it.title)+'<br>'+snip+'…</a></li>';}).join('');}
+var deb=null;
+bq.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(function(){render(bq.value.trim());},140);});
+document.getElementById('bt-search').addEventListener('click',function(){panel.classList.toggle('on');if(panel.classList.contains('on')){bq.focus();}});
+bres.addEventListener('click',function(e){var a=e.target.closest('a[data-id]');if(!a)return;e.preventDefault();var sec=document.getElementById(a.getAttribute('data-id'));panel.classList.remove('on');if(sec){clearHits();highlight(sec,bq.value.trim().toLowerCase());sec.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+a.getAttribute('data-id'));}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')panel.classList.remove('on');});
+})();</script>
 </body>
 </html>

@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://chs1997.github.io/handbooks/sitemap.xml
