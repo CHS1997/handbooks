@@ -42,7 +42,7 @@
   .top .wrap { display:flex; align-items:center; gap:10px; height:52px; }
   .blogo { flex:none; width:28px; height:28px; border-radius:50%; box-shadow:0 0 0 2px rgba(255,255,255,.35); }
   .bmark { flex:none; white-space:nowrap; font-family:var(--serif); font-size:20px; font-weight:700; letter-spacing:.14em; }
-  .bsub { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; color:rgba(255,255,255,.92); margin-left:2px; }
+  .bsub { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:13px; font-weight:600; letter-spacing:.04em; color:#fff; margin-left:2px; } /* 标语纯白加粗：靛蓝底对比 ~5.5:1，12px 半透明白曾看不清 */
   .rss { flex:none; margin-left:auto; font-size:12px; border:1px solid rgba(255,255,255,.45); border-radius:999px; padding:3px 12px; color:#fff; }
   .rss:active, .rss:hover { background:rgba(255,255,255,.16); }
 
@@ -151,6 +151,7 @@
     cursor:pointer; opacity:0; pointer-events:none; transition:.2s; }
   #top.on { opacity:1; pointer-events:auto; }
 
+  @media (max-width:479px) { .rss { display:none; } } /* 窄屏给标语让位，RSS 入口页脚仍在 */
   @media (min-width:640px) { .grid { grid-template-columns:repeat(4,1fr); gap:18px 14px; } .swrap { padding:16px 0 6px; } }
   @media (min-width:960px) { .grid { grid-template-columns:repeat(6,1fr); } .wrap { padding:0 24px; } .ncard { flex-basis:320px; } }
 </style>
@@ -161,7 +162,7 @@
 <header class="top"><div class="wrap">
   <img class="blogo" src="logo.png" alt="深潜手册 logo">
   <span class="bmark">深潜手册</span>
-  <span class="bsub">22 本 · 546 章 · 网页/EPUB/PDF 全免费</span>
+  <span class="bsub">潜到深处，只读一手来源</span>
   <a class="rss" href="feed.xml">📡 RSS</a>
 </div></header>
 
